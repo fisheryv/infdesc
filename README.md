@@ -7,9 +7,9 @@ An Infinite Descent into Pure Mathematics 中文翻译
 
 ## 浏览源代码
 
-要像编译源文件，你需要在你的电脑上安装 LaTeX ，或者使用基于浏览器的 LaTeX 编辑器，例如 [Overleaf](https://www.overleaf.com/), 用 pdfLaTeX 编译器。
+要像编译源文件，你需要在你的电脑上安装 LaTeX ，或者使用基于浏览器的 LaTeX 编辑器，例如 [Overleaf](https://www.overleaf.com/)，用 pdfLaTeX 编译器。
 
-根文档为 `book.tex`, 它会调用所有其他所需文件来编译文档。
+根文档为 `book.tex`，它会调用所有其他所需文件来编译文档。
 
 `book` 文件夹包含本书的大部分实际内容, 并且浏览相当容易。例如，想要找到 5.2 节（_Equivalence relations_）的源文件，只需要去到 `book/ch05-relations/s2-equivalence-relations.tex`。
 
