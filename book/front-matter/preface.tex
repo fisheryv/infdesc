@@ -1,57 +1,58 @@
 % !TeX root = ../../book.tex
-\chapter*{Preface}
-\addcontentsline{toc}{chapter}{Preface}
-\markboth{Preface}{Preface}
+\chapter*{前言}
+\addcontentsline{toc}{chapter}{前言}
+\markboth{前言}{前言}
 
-Hello, and thank you for taking the time to read this quick introduction to \textit{An Infinite Descent into Pure Mathematics}! The most recent version of the book is freely available for download from the following website:
+你好，感谢你花时间阅读\textit{《纯数学的无穷递降》}一书的快速导览！本书的最新版本可以从下面网站免费下载：
 \begin{center} \vspace{-10pt}
 \url{\bookurl}
 \end{center} \vspace{-10pt}
-The website also includes information about changes between different versions of the book, an archive of previous versions, and some resources for using \LaTeX{} (see also \Cref{apxLaTeX}).
+这个网站还包含本书不同版本间差别的信息，历史版本归档，以及使用 \LaTeX{} 的一些资源（另见 \Cref{apxLaTeX}）。
 
-\subsection*{About the book}
+\subsection*{关于本书}
 
-A student in a typical calculus class will learn the chain rule and then use it to solve some prescribed `chain rule problems' such as computing the derivative of $\sin(1+x^2)$ with respect to $x$, or perhaps solving a word problem involving related rates of change. The expectation is that the student correctly apply the chain rule to derive the correct answer, and show enough work to be believed. In this sense, the student is a \textit{consumer} of mathematics. They are given the chain rule as a tool to be accepted without question, and then use the tool to solve a narrow range of problems.
+在典型的微积分课上，学生会学习链式法则，然后运用该法则去解一些给定的`链式法则问题'，比如计算 $\sin(1+x^2)$ 对 $x$ 的导数，或者解决涉及变化率的应用题。期望学生正确应用链式法则得出正确答案，并给出完整的步骤以确信结论正确。从这个意义上说，学生是数学的\textit{消费者}。他们被赋予链式法则这个要无条件接受的工具，然后使用这个工具来解决范围狭窄的问题。
 
-The goal of this book is to help the reader make the transition from being a \textit{consumer} of mathematics to a \textit{producer} of it. This is what is meant by `pure' mathematics. While a consumer of mathematics might learn the chain rule and use it to compute a derivative, a producer of mathematics might derive the chain rule from the rigorous definition of a derivative, and then prove more abstract versions of the chain rule in more general contexts (such as multivariate analysis).
+本书的目标是帮助读者从数学的\textit{消费者}转变成数学的\textit{生产者}。这就是`纯'数学的意思。数学的消费者可能会学习链式法则并用它来计算导数，而数学的生产者可能会从导数的严格定义中推导出链式法则，然后在更一般的情况下（例如多元分析）证明链式法则的更抽象版本。
 
-Consumers of mathematics are expected to say how they used their tools to find their answers. Producers of mathematics, on the other hand, have to do much more: they must be able to keep track of definitions and hypotheses, piece together facts in new and interesting ways, and make their own definitions of mathematical concepts. But even more importantly, once they have done this, they must communicate their findings in a way that others find intelligible, and they must convince others that what they have done is correct, appropriate and worthwhile.
+数学的消费者只需要说出他们是如何使用工具找到答案的。而数学的生产者必须做更多事情：他们必须能够追踪定义和假设，以新颖有趣的方式拼凑事实，并对数学概念给出自己的定义。更重要的是，一旦他们这样做了，他们必须以其他人可以理解的方式交流他们的发现，并且必须说服其他人他们所做的是正确的、适当的和有价值的。
 
-It is this transition from consumption to production of mathematics that guided the principles I used to design and write this book. In particular:
+正是这种从数学消费到生产的转变指导了我用于设计和编写本书的原则。尤其是：
+
 \begin{itemize}
-\item \textbf{Communication.} Above all, this book aims to help the reader to obtain mathematical literacy and express themselves mathematically. This occurs at many levels of magnification. For example, consider the following expression:
+\item \textbf{交流} 首先，本书旨在帮助读者获得数学素养并用数学表达自己。这发生在许多层次上，例如，考虑以下表达式：。
 \[ \forall x \in \mathbb{R},\, [\neg(x = 0) \Rightarrow (\exists y \in \mathbb{R},\, y^2 < x^2)] \]
-After working through this book, you will be able to say what the symbols $\forall$, $\in$, $\mathbb{R}$, $\neg$, $\Rightarrow$ and $\exists$ all mean intuitively and how they are defined precisely. But you will also be able to interpret what the expression means as a whole, explain what it means in plain terms to another person \textit{without} using a jumble of symbols, prove that it is true, and communicate your proof to another person in a clear and concise way.
+学完本书，你将能够直观地说出符号 $\forall$, $\in$, $\mathbb{R}$, $\neg$, $\Rightarrow$ 和 $\exists$ 的含义以及它们是如何被精确定义的。你也能够从整体上解释这个表达的含义，用简单的术语向另一个人解释它的意思而 \textit{不是}使用一堆混乱的符号，你能够证明它是正确的，并用清晰简明的方式与他人交流你的证明。
 
-The kinds of tools needed to do this are developed in the main chapters of the book, and more focus is given to the writing side of things in \Cref{apxWriting}.
+为了实现此目标，本书主要章节都在构建这类工具，而\Cref{apxWriting}会更加关注书写层面。
 
-\item \textbf{Inquiry.} The research is clear that people learn more when they find things out for themselves. If I took this to the extreme, the book would be blank; however, I do believe it is important to incorporate aspects of inquiry-based learning into the text.
+\item \textbf{探究  } 研究表明，人们在自己发现事物时会学到更多。如果我把它发挥到极致，那这本书将是一片空白；然而，我的确认为将探究式学习的各个方面纳入本书很重要。
 
-This principle manifests itself in that there are exercises scattered throughout the text, many of which simply require you to prove a result that has been stated. Many readers will find this frustrating, but this is for good reason: these exercises serve as checkpoints to make sure your understanding of the material is sufficient to proceed. That feeling of frustration is what learning feels like---embrace it!
+这一原则体现在本书中散布的习题，其中许多习题只是要求你证明给出的结果。许多读者会觉得这令人沮丧，但这是有充分理由的：这些习题作为检查点，确保你对材料的理解足以继续前行。那种挫败感就是学习的感觉——请拥抱它！
 
-\item \textbf{Strategy.} Mathematical proof is much like a puzzle. At any given stage in a proof, you will have some definitions, assumptions and results that are available to be used, and you must piece them together using the logical rules at your disposal. Throughout the book, and particularly in the early chapters, I have made an effort to highlight useful proof strategies whenever they arise.
+\item \textbf{策略  } 数学证明很像一个谜题。在证明的任意给定阶段，你都会有若干可用的定义、假设和结果，你必须使用你可以支配的逻辑规则将它们拼凑在一起。贯穿全书，尤其是前面的章节，当有用的证明策略出现时，我不遗余力地将它们强调出来。
 
-\item \textbf{Content.} There isn't much point learning about mathematics if you don't have any concepts to prove results about. With this in mind, \Cref{ptTopics} includes several chapters dedicated to introducing some topic areas in pure mathematics, such as number theory, combinatorics, analysis and probability theory.
+\item \textbf{内容  } 如果你对要证明的结果没有任何概念，那么学习数学就没有多大意义。考虑到这一点，\Cref{ptTopics} 包含几个章节专门介绍纯数学中的一些主题领域，例如数论、组合学、分析和概率论。
 
-\item \textbf{\LaTeX{}.} The \textit{de facto} standard for typesetting mathematics is \LaTeX{}. I think it is important for mathematicians to learn this early in a guided way, so I wrote a brief tutorial in \Cref{apxLaTeX} and have included \LaTeX{} code for all new notation as it is defined throughout the book.
+\item \textbf{\LaTeX{}  } 数学排版的\textit{事实}标准是 \LaTeX{}。我认为数学家在有指导的情况下尽早学习 \LaTeX{} 这一点很重要，因此我在 \Cref{apxLaTeX} 中编写了一个简短的教程，并包含了所有新符号的 \LaTeX{} 代码，因为它在整本书中都有定义。
 
 \end{itemize}
 
 
 
-\subsection*{Navigating the book}
+\subsection*{浏览本书}
 
-This book need not, and, emphatically \textit{should not}, be read from front to back. The order of material is chosen so that material appearing later depends only on material appearing earlier, but following the material in the order it is presented may be a fairly dry experience.
+这本书不需要，而且，重点强调也\textit{不应该}，从前到后阅读。之所以选择这个材料顺序是为了使后面出现的材料仅依赖于前面出现的材料，但是按照材料的呈现顺序进行学习可能是一种相当枯燥的体验。
 
-The majority of introductory pure mathematics courses cover, at a minimum, symbolic logic, sets, functions and relations. This material is the content of \Cref{ptCoreConcepts}. Such courses usually cover additional topics from pure mathematics, with exactly \textit{which} topics depending on what the course is preparing students for. With this in mind, \Cref{ptTopics} serves as an introduction to a range of areas of pure mathematics, including number theory, combinatorics, set theory, real analysis, probability theory and order theory.
+大多数介绍性纯数学课程至少涵盖符号逻辑、集合、函数和关系。这个材料是\Cref{ptCoreConcepts}的内容。此类课程通常涵盖纯数学的附加主题，具体主题取决于课程为学生准备的内容。考虑到这一点，\Cref{ptTopics} 介绍了纯数学的一系列领域，包括数论、组合学、集合论、实分析、概率论和阶论。
 
-It is not necessary to cover all of \Cref{ptCoreConcepts} before proceeding to topics in \Cref{ptTopics}. In fact, interspersing material from \Cref{ptTopics} can be a useful way of motivating many of the abstract concepts that arise in \Cref{ptCoreConcepts}.
+在继续讨论 \Cref{ptTopics} 中的主题之前，没有必要涵盖所有的 \Cref{ptCoreConcepts}。 事实上，穿插 \Cref{ptTopics} 中的材料可能是激发 \Cref{ptCoreConcepts} 中出现的许多抽象概念的有用方法。
 
-The following table shows dependencies between sections. Previous sections within the same chapter as a section should be considered `essential' prerequisites unless indicated otherwise.
+下表显示了章节之间的依赖关系。除非另有说明，否则同一章节中的前几节应被视为`基本'先决条件。
 
 \begin{center}
 \begin{tabular}{c|c|ccc}
-\textbf{Part} & \textbf{Section} & \textbf{Essential} & \textbf{Recommended} & \textbf{Useful} \\ \hline
+\textbf{部分} & \textbf{章节} & \textbf{必修} & \textbf{建议} & \textbf{重点} \\ \hline
 \textbf{\ref{ptCoreConcepts}} & \ref{secPropositionalLogic} & \ref{chGettingStarted} &  &  \\
 &\ref{secSets} & \ref{secLogicalEquivalence} &  &  \\
 &\ref{secFunctions} & \ref{secSetOperations} &  &  \\
@@ -72,51 +73,51 @@ The following table shows dependencies between sections. Previous sections withi
 \end{tabular}
 \end{center}
 
-Prerequisites are cumulative. For example, in order to cover \Cref{secCardinalArithmetic}, you should first cover \Crefrange{chGettingStarted}{chMathematicalInduction} and \Cref{secFiniteSets,secCountingPrinciples,secCountableUncountableSets,secCardinality}.
+先决条件是累积的。例如，为了学习 \Cref{secCardinalArithmetic}，你应该首先学习 \Crefrange{chGettingStarted}{chMathematicalInduction} 和 \Cref{secFiniteSets,secCountingPrinciples,secCountableUncountableSets,secCardinality}。
 
+\subsection*{数字、颜色和符号的含义}
 
-
-\subsection*{What the numbers, colours and symbols mean}
-
-Broadly speaking, the material in the book is broken down into enumerated items that fall into one of five categories: definitions, results, remarks, examples and exercises. In \Cref{apxWriting}, we also have proof extracts. To improve navigability, these categories are distinguished by name, colour and symbol, as indicated in the following table.
+广义上讲，本书中的材料被分解到五类项目中：定义、结论、备注、示例和练习。在 \Cref{apxWriting} 中，我们也有证明摘录。为了提高导航性，这些类别通过名称、颜色和符号进行区分，如下表所示。
 
 \begin{center}
 \begin{tabular}{lcl}
-\textbf{Category} & \textbf{Symbol} & \textbf{Colour} \\ \hline
-Definitions & \defintrosymbol & {\fontfamily{bch}\color{defcol} \textbf{Red}} \\
-Results & \thmintrosymbol & {\fontfamily{bch}\color{thmcol} \textbf{Blue}} \\
-Remarks & \tipintrosymbol & {\fontfamily{bch}\color{tipcol} \textbf{Purple}} \\
+\textbf{类型} & \textbf{符号} & \textbf{颜色} \\ \hline
+定义 & \defintrosymbol & {\fontfamily{bch}\color{defcol} \textbf{红色}} \\
+结论 & \thmintrosymbol & {\fontfamily{bch}\color{thmcol} \textbf{蓝色}} \\
+备注 & \tipintrosymbol & {\fontfamily{bch}\color{tipcol} \textbf{紫色}} \\
 \end{tabular}
 \hspace{20pt}
 \begin{tabular}{lcl}
-\textbf{Category} & \textbf{Symbol} & \textbf{Colour} \\ \hline
-Examples & \exintrosymbol & {\fontfamily{bch}\color{excol} \textbf{Teal}} \\
-Exercises & \printrosymbol & {\fontfamily{bch}\color{prcol} \textbf{Gold}} \\
-Proof extracts & \quoteintrosymbol & {\fontfamily{bch}\color{excol} \textbf{Teal}}
+\textbf{类型} & \textbf{符号} & \textbf{颜色} \\ \hline
+示例 & \exintrosymbol & {\fontfamily{bch}\color{excol} \textbf{蓝绿色}} \\
+练习 & \printrosymbol & {\fontfamily{bch}\color{prcol} \textbf{金色}} \\
+证明摘录 & \quoteintrosymbol & {\fontfamily{bch}\color{excol} \textbf{蓝绿色}}
 \end{tabular}
 \end{center}
-These items are enumerated according to their section---for example, \Cref{thmUniquenessofLimits} is in \Cref{secCompletenessConvergence}. Definitions and theorems (important results) appear in a \fbox{box}.
 
-You will also encounter the symbols $\square$ and \nonproofqedsymbol{} whose meanings are as follows:
+这些项目根据它们所在的章节一一呈现出来——例如，\Cref{thmUniquenessofLimits} 在 \Cref{secCompletenessConvergence} 中。定义和定理（重要结果）出现在 \fbox{方框} 中。
+
+你还会遇到符号 $\square$ 和 \nonproofqedsymbol{} 它们的含义如下：
 
 \begin{itemize}
-\item[$\square$] \textbf{End of proof.} It is standard in mathematical documents to identify when a proof has ended by drawing a small square or by writing `\textit{Q.E.D.}' (The latter stands for \textit{quod erat demonstrandum}, which is Latin for \textit{which was to be shown}.)
-\item[\nonproofqedsymbol] \textbf{End of item.} This is \textit{not} a standard usage, and is included only to help you to identify when an item has finished and the main content of the book continues.
+\item[$\square$] \textbf{证明结束  } 这是数学文档中的标准，通过画一个小正方形或写下`\textit{Q.E.D.}'（后者代表 \textit{quod erat demonstrandum}，在拉丁语表示 \textit{这是要展示的}。）表示证明结束。
+\item[\nonproofqedsymbol] \textbf{条目结束  } 这\textit{不}是标准用法，将其包含在内只是为了帮助你识别项目结束，接下来是本书的主要内容。
 \end{itemize}
 
-Some subsections are labelled with the symbol \optmarksymbol{}. This indicates that the material in that subsection can be skipped without dire consequences.
+一些小节标有符号 \optmarksymbol{}。这表明可以跳过该小节中的材料而不会产生严重的后果。
 
-\subsection*{Licence}
+\subsection*{许可}
 
-This book is licensed under the Creative Commons Attribution-ShareAlike 4.0 (\textsc{cc by-sa 4.0}) licence. This means you're welcome to share this book, provided that you give credit to the author and that any copies or derivatives of this book are released under the same licence.
+本书根据 Creative Commons Attribution-ShareAlike 4.0 (\textsc{cc by-sa 4.0}) 许可证获得许可。这意味着你可以分享本书，但前提是你要注明作者的姓名，并且本书的任何副本或衍生品都是在同一许可下发布的。
 
-The licence can be read in its full glory at the end of the book or by following the following URL:
+许可的完整全文附在本书末尾或者通过下方链接阅读：
+
 \begin{center}
 \url{http://creativecommons.org/licenses/by-sa/4.0/}
 \end{center}
 
-\subsection*{Comments and corrections}
+\subsection*{评论和修正}
 
-Any feedback, be it from students, teaching assistants, instructors or any other readers, would be very much appreciated. Particularly useful are corrections of typographical errors, suggestions for alternative ways to describe concepts or prove theorems, and requests for new content (e.g.\ if you know of a nice example that illustrates a concept, or if there is a relevant concept you wish were included in the book).
+任何反馈，无论是来自学生、助教、教师还是任何其他读者，我们都不胜感激。尤其是印刷错误的修正、概念描述或定理证明的建议替代方法，以及对新内容的需求（例如，如果你知道一个说明某个概念的绝佳例子，或者某个你希望本书涵盖的相关概念）。
 
-Such feedback can be sent to the author\ifadapted{ and adapter} by email (\url{\authoremail}\ifadapted{ and \url{\adapteremail}, respectively}).
+此类反馈可以通过电子邮件分别发送给作者\ifadapted{和译者} (\url{\authoremail}\ifadapted{ 和 \url{\adapteremail}}).

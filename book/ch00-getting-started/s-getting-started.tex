@@ -1,173 +1,177 @@
 % !TeX root = ../../book.tex
 \hintsection{\Cref*{chGettingStarted}}
 
-Before we can start proving things, we need to eliminate certain kinds of statements that we might try to prove. Consider the following statement:
-\begin{center} \textit{This sentence is false.} \end{center}
-Is it true or false? If you think about this for a couple of seconds then you'll get into a bit of a pickle.
+在我们开始证明事物之前，我们需要消除某些我们可能试图证明的陈述。考虑下面这句话：
 
-Now consider the following statement:
-\begin{center} \textit{The happiest donkey in the world.} \end{center}
-Is it true or false? Well it's not even a sentence; it doesn't make sense to even \textit{ask} if it's true or false!
+\begin{center} \textit{这句话是假的。} \end{center}
+这句话是真的还是假的？如果你仔细思考一下，你就会陷入困境。
 
-Clearly we'll be wasting our time trying to write proofs of statements like the two listed above---we need to narrow our scope to statements that we might actually have a chance of proving (or perhaps refuting)! This motivates the following (informal) definition.
+再看下面这句话:
+\begin{center} \textit{世界上最快乐的驴。} \end{center}
+这句话是真的还是假的？好吧，它甚至都不是一个句子；连\textit{问}是真是假的意义都没有！
+
+很明显尝试给出上面了两个陈述的证明是在浪费时间---我们需要将范围缩小到我们实际上可能有机会证明（或可能反驳）的陈述上！这激发了以下（非正式）定义。
 
 \begin{definition}
 \label{defProposition}
 \label{defProof}
 \index{proposition}
 \index{proof}
-A \textbf{proposition} \index{proposition} is a statement to which it is possible to assign a \textbf{truth value} (`true' or `false'). If a proposition is true, a \textbf{proof} of the proposition is a logically valid argument demonstrating that it is true, which is pitched at such a level that a member of the intended audience can verify its correctness.
+\textbf{命题} \index{proposition}是可以赋予\textbf{真值} (`真' 或 `假')的陈述。如果一个命题为真，则该命题的\textbf{证明}是一个逻辑上有效的论证，证明它是真的，且要达到目标受众可以验证其正确性的水平。
 \end{definition}
 
-Thus the statements given above are not propositions because there is no possible way of assigning them a truth value. Note that, in \Cref{defProposition}, all that matters is that it \textit{makes sense} to say that it is true or false, regardless of whether it actually \textit{is} true or false---the truth value of many propositions is unknown, even very simple ones.
+因此，上面给出的陈述都不是命题，因为没有方法给它们赋予真值。请注意，在 \Cref{defProposition} 中，关键的是说它是真还是假的\textit{合理性}，而不管实际上\textit{是}真还是假---许多命题的真值是未知的，甚至是一些非常简单的命题。
 
 \begin{exercise}
-Think of an example of a true proposition, a false proposition, a proposition whose truth value you don't know, and a statement that is not a proposition.
+想一个真命题的例子，一个假命题的例子，一个你不知道其真值的命题，以及一个不是命题的陈述。
 \end{exercise}
 
-Results in mathematical papers and textbooks may be referred to as \textit{propositions}, but they may also be referred to as \textit{theorems}, \textit{lemmas} or \textit{corollaries} depending on their intended usage.
+数学论文和教科书中的结论可能被称为\textit{命题}，但根据它们的预期用途，也可能被称为\textit{定理}、\textit{引理}或\textit{推论}。
+
 \begin{itemize} 
-\item A \textbf{proposition} is an umbrella term which can be used for any result.
-\item A \textbf{theorem} is a key result which is particularly important.
-\item A \textbf{lemma} is a result which is proved for the purposes of being used in the proof of a theorem. 
-\item A \textbf{corollary} is a result which follows from a theorem without much additional effort.
+\item \textbf{命题} 是一个涵盖性术语，可用于任何结果。
+\item \textbf{定理} 是一个特别重要的关键结果。
+\item \textbf{引理} 是为了在定理证明中使用而被证明的结果。
+\item \textbf{推论} 是无需太多额外工作即可从定理得出的结果。
 \end{itemize}
-These are not precise definitions, and they are not meant to be---you could call every result a \textit{proposition} if you wanted to---but using these words appropriately helps readers work out how to read a paper. For example, if you just want to skim a paper and find its key results, you'd look for results labelled as \textit{theorems}.
 
-It is not much good trying to prove results if we don't have anything to prove results about. With this in mind, we will now introduce the \textit{number sets} and prove some results about them in the context of four topics, namely: division of integers, number bases, rational and irrational numbers, and polynomials. These topics will provide context for the material in \Cref{ptCoreConcepts}, and serve as an introduction to the topics covered in \Cref{ptTopics}.
+这些不是精确定义，也不是有意而为之---如果你愿意，你可以将每个结果称为一个\textit{命题}---但适当地使用这些词汇可以帮助读者搞清楚如何阅读论文。例如，如果你只想浏览一篇论文并找到其关键结果，您会寻找标记为\textit{定理}的结果。
 
-We will not go into very much depth in this chapter. Rather, think of this as a warm-up exercise---a quick, light introduction, with more proofs to be provided in the rest of the book.
+如果我们没有任何东西可以证明结果，那么试图证明结果就毫无意义。考虑到这一点，我们现在将介绍\textit{数集}，并在整数除法、基数、有理数和无理数、多项式这四个主题的基础上证明关于它们的一些结论，这些主题将为 \Cref{ptCoreConcepts} 中的材料提供背景，并作为对 \Cref{ptTopics} 所涵盖主题的导论。
 
-\subsection*{Number sets}
+本章我们不会深入探讨。相反，更像是热身练习---快速、轻松的介绍，并在本书的其余部分提供更多证明。
 
-Later in this chapter, and then in much more detail in \Cref{chSets}, we will encounter the notion of a \textit{set}; a set can be thought of as being a collection of objects. This seemingly simple notion is fundamental to mathematics, and is so involved that we will not treat sets formally in this book. For now, the following definition will suffice.
+\subsection*{数集}
 
-\begin{definition}[to be revised in \Cref{defSet}]
+在本章后面，以及 \Cref{chSets} 中的详细介绍，我们将遇到\textit{集合}的概念；集合可以被认为是对象的汇集。这个看似简单的概念是数学的基础，它是如此之复杂以至于我们不会在本书中正式地讨论集合。目前，以下定义就足够了。
+
+\begin{definition}[\Cref{defSet}中会被修订]
 \label{defSetsPreliminary}
 \lindexmmc{in}{$\in$}
-A \textbf{set} is a collection of objects. The objects in the set are called \textbf{elements} of the set. If $X$ is a set and $x$ is an object, then we write $x \in X$ \inlatexnb{x \textbackslash{}in X} to denote the assertion that $x$ is an element of $X$.
+\textbf{集合}是对象的汇集。集合中的对象称为集合的\textbf{元素}。如果 $X$ 是一个集合，$x$ 是一个对象，那么 $x \in X$ \inlatexnb{x \textbackslash{}in X} 表示 $x$ 是 $X$ 的一个元素。
 \end{definition}
 
-The sets of concern to us first and foremost are the \textit{number sets}---that is, sets whose elements are particular types of \textit{number}. At this introductory level, many details will be temporarily swept under the rug; we will work at a level of precision which is appropriate for our current stage, but still allows us to develop a reasonable amount of intuition.
+我们首先关注的集合是\textit{数集}---即元素为特定类型的\textit{数}的集合。在入门阶段，许多细节将被暂时掩盖；我们将以适合我们当前阶段的精确程度来讲解，但不妨碍我们发展合理的直觉。
 
-In order to define the number sets, we will need three things: an infinite line, a fixed point on this line, and a fixed unit of length.
+为了定义数集，我们需要三样东西：一条无限长的线、这条线上的一个固定点和一个固定的单位长度。
 
-So here we go. Here is an infinite line:
+那我们开始吧。 这是一条无限长的线：
 \begin{center}
 \begin{tikzpicture}
 \draw[latex-latex] (-5.5, 0) -- (5.5, 0) ;
 \end{tikzpicture}
 \end{center}
-The arrows indicate that it is supposed to extend in both directions without end. The points on the line will represent numbers (specifically, \textit{real numbers}, a misleading term that will be defined in \Cref{defRealsInformal}). Now let's fix a point on this line, and label it `$0$':
+箭头表示它应该在两个方向上无限延伸。线上的点代表数字（具体来说，是\textit{实数\textit}，这是一个具有误导性的术语，将在 \Cref{defRealsInformal} 中定义）。现在让我们在这条线上固定一个点，并将其标记为“$0$”：
 \begin{center}
 \begin{tikzpicture}
 \draw[latex-latex] (-5.5, 0) -- (5.5, 0) ; 
 \draw (0, 0) -- (0, 0.1) node[above] {$0$} ;
 \end{tikzpicture}
 \end{center}
-This point can be thought of as representing the number zero; it is the point against which all other numbers will be measured. Finally, let's fix a unit of length:
+这个点可以被认为代表数字零；这是衡量所有其他数字的点。最后，让我们固定一个单位长度：
 \begin{center}
 \begin{tikzpicture}
 \draw (0, 0) -- (1, 0) ; 
 \foreach \x in {0,1} \draw (\x, -0.1) -- (\x, 0.1)  ;
 \end{tikzpicture}
 \end{center}
-This unit of length will be used, amongst other things, to compare the extent to which the other numbers differ from zero.
+这个单位长度用于比较其他数字与零的不同程度。
 
 \begin{definition}
 \label{defNumberLine}
-The above infinite line, together with its fixed zero point and fixed unit length, constitute the (\textbf{real}) \textbf{number line}.
+上述无限直线连同其固定的零点和固定的单位长度，构成了(\textbf{实})\textbf{数轴}。
 \end{definition}
 
-We will use the number line to construct five sets of numbers of interest to us:
+我们将用数轴来构造我们感兴趣的五个数字集合：
 \begin{itemize}
-\item The set $\mathbb{N}$ of \textit{natural numbers}---\Cref{defNaturalNumbersInformal};
-\item The set $\mathbb{Z}$ of \textit{integers}---\Cref{defIntegersInformal};
-\item The set $\mathbb{Q}$ of \textit{rational numbers}---\Cref{defRationalsInformal};
-\item The set $\mathbb{R}$ of \textit{real numbers}---\Cref{defRealsInformal}; and
-\item The set $\mathbb{C}$ of \textit{complex numbers}---\Cref{defComplexNumbersInformal}.
+\item \textit{自然数}集 $\mathbb{N}$ --- \Cref{defNaturalNumbersInformal};
+\item \textit{整数}集 $\mathbb{Z}$ --- \Cref{defIntegersInformal};
+\item \textit{有理数}集 $\mathbb{Q}$ --- \Cref{defRationalsInformal};
+\item \textit{实数}集 $\mathbb{R}$ --- \Cref{defRealsInformal};
+\item \textit{复数}集 $\mathbb{C}$ --- \Cref{defComplexNumbersInformal}。
 \end{itemize}
 
-Each of these sets has a different character and is used for different purposes, as we will see both later in this chapter and throughout this book.
+正如我们将在本章后面以及整本书中看到的那样，这些集合彼此有着不同的特征，用于不同的目的。
 
-\subsection*{Natural numbers ($\mathbb{N}$)}
+\subsection*{自然数 ($\mathbb{N}$)}
 
-The \textit{natural numbers} are the numbers used for counting---they are the answers to questions of the form `how many'---for example, I have \textit{three} uncles, \textit{one} dog and \textit{zero} cats.
+自然数是用于计数的数字---它们是`有多少'类型问题的答案---例如，我有\textit{三}个叔叔、\textit{一}只狗和\textit{零}只猫。
 
-Counting is a skill humans have had for a very long time; we know this because there is evidence of people using tally marks tens of thousands of years ago. Tally marks provide one method of counting small numbers: starting with nothing, proceed through the objects you want to count one by one, and make a mark for every object. When you are finished, there will be as many marks as there are objects. We are taught from a young age to count with our fingers; this is another instance of making tally marks, where now instead of making a mark we raise a finger.
+数数是人类长期以来的一项技能。 我们之所以知道这一点，是因为有证据表明人们在数万年前就使用了计数标记。计数标记提供了一种计数较小数字的方法：从零开始，逐一计数你要数的对象，然后为每个对象做一个标记。当完成时，有多少对象就有多少标记。我们从小就被教导用手指数数；这是另一个使用计数标记的例子，只不过我们把做记号变为了伸手指。
 
-Making a tally mark represents an \textit{increment} in quantity---that is, adding one. On our number line, we can represent an increment in quantity by moving to the right by the unit length. Then the distance from zero we have moved, which is equal to the number of times we moved right by the unit length, is therefore equal to the number of objects being counted.
+做一个计数标记代表数量上的\textit{增加}---即增加一个。在数轴上，我们可以通过向右移动单位长度来表示数量的增加。那么我们从零开始移动的距离，等于我们向右移动单位长度的次数，因此等于被计数对象的数量。
 
 \begin{definition}
 \label{defNaturalNumbersInformal}
-The \textbf{natural numbers} are represented by the points on the number line which can be obtained by starting at $0$ and moving right by the unit length any number of times:
+\textbf{自然数}由数轴上的点表示，可以通过从 $0$ 开始向右移动单位长度任意次获得：
 \begin{center}
 \begin{tikzpicture}
 \draw[latex-latex] (-5.5, 0) -- (5.5, 0) ; 
 \foreach \x in {0,1,2,3,4,5} \draw (\x, 0) -- (\x, 0.1) node[above] {$\x$} ;
 \end{tikzpicture}
 \end{center}
-In more familiar terms, they are the \textit{non-negative whole numbers}. We write $\mathbb{N}$ \inlatex{mathbb\{N\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$} for the set of all natural numbers; thus, the notation `$n \in \mathbb{N}$' means that $n$ is a natural number.
+用更熟悉的术语来说，自然数是\textit{非负整数}。全体自然数的集合记作 $\mathbb{N}$ \inlatex{mathbb\{N\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$}；因此，符号 `$n \in \mathbb{N}$' 表示 $n$ 是一个自然数。
 \end{definition}
 
-The natural numbers have very important and interesting mathematical structure, and are central to the material in \Cref{chCombinatorics}. A more precise characterisation of the natural numbers will be provided in \Cref{secPeanosAxioms}, and a mathematical construction of the set of natural numbers can be found in \Cref{secZFC} (see \Cref{cnsNaturalNumbersVonNeumann}). Central to these more precise characterisations will be the notions of `zero' and of `adding one'---just like making tally marks.
+自然数具有非常重要和有趣的数学结构，并且是 \Cref{chCombinatorics} 中材料的核心。\Cref{secPeanosAxioms} 中将提供对自然数的更加精确的描述，并且可以在 \Cref{secZFC} 中找到自然数集的数学构造（参见 \Cref{cnsNaturalNumbersVonNeumann}）。这些更加精确的描述的核心是`零'和`加一'概念---就像计数标记一样。
 
 \begin{aside}
-Some authors define the natural numbers to be the \textit{positive} whole numbers, thus excluding zero. We take $0$ to be a natural number since our main use of the natural numbers will be for counting finite sets, and a set with nothing in it is certainly finite! That said, as with any mathematical definition, the choice about whether $0 \in \mathbb{N}$ or $0 \not \in \mathbb{N}$ is a matter of taste or convenience, and is merely a convention---it is not something that can be proved or refuted.
+一些作者将自然数定义为\textit{正}整数，不包括零。我们将 $0$ 视为一个自然数，是因为我们对自然数的主要用途是计算有限集，而一个什么都没有的集合肯定是有限集！也就是说，与任何其他数学定义一样，选择 $0 \in \mathbb{N}$ 还是 $0 \not \in \mathbb{N}$ 只是品味或方便的问题，并且仅仅是一个约定---这不是可以证明或证伪的事情。
 \end{aside}
 
-\subsection*{Number bases}
+\subsection*{基数}
 
-Writing numbers down is something that may seem easy to you now, but it likely took you several years as a child to truly understand what was going on. Historically, there have been many different systems for representing numbers symbolically, called \textit{numeral systems}.\index{numeral system} First came the most primitive of all, tally marks, appearing in the Stone Age and still being used for some purposes today. Thousands of years and hundreds of numeral systems later, there is one dominant numeral system, understood throughout the world: the \textbf{Hindu--Arabic numeral system}.\index{numeral system!Hindu--Arabic} This numeral system consists of ten symbols, called \textit{digits}. It is a \textit{positional} numeral system, meaning that the position of a symbol in a string determines its numerical value.
+写下数字现在对你来说似乎轻而易举，但在你小时候可能需要几年时间才能真正理解发生了什么。从历史上看，有许多不同的系统用于象征性地表示数字，即所谓的\textit{数字系统}。\index{numeral system}首先出现的是最原始的计数标记，它出现在石器时代，至今仍被用于某些目的。几千年和数百个数字系统之后，出现了一个占主导地位的数字系统，全世界都知道：\textbf{印度-阿拉伯数字系统}。\index{numeral system!Hindu--Arabic}这个数字系统由十个符号组成，称为\textit{数字}。它是一个\textit{位置}数字系统，意味着符号在字符串中的位置决定了它的数值。
 
-In English, the \textit{Arabic numerals} are used as the ten digits:
+在英语中，这十个数字用\textit{阿拉伯数字}表示：
 \[ 0 \quad 1 \quad 2 \quad 3 \quad 4 \quad 5 \quad 6 \quad 7 \quad 8 \quad 9 \]
-The right-most digit in a string is in the units place, and the value of each digit increases by a factor of ten moving to the left. For example, when we write `$2812$', the left-most `$2$' represents the number two thousand, whereas the last `$2$' represents the number two.
+字符串中最右边的数字在单位位置，每个数字向左移动一位它的数值增加十倍。例如，当我们写下`$2812$'时，最左边的`$2$'代表数字两千，而最后一个`$2$'代表数字二。
 
-The fact that there are ten digits, and that the numeral system is based on powers of ten, is a biological accident corresponding with the fact that most humans have ten fingers. For many purposes, this is inconvenient. For example, ten does not have many positive divisors (only four)---this has implications for the ease of performing arithmetic; a system based on the number twelve, which has six positive divisors, might be more convenient. Another example is in computing and digital electronics, where it is more convenient to work in a \textit{binary} system, with just two digits, which represent `off' and `on' (or `low voltage' and `high voltage'), respectively; arithmetic can then be performed directly using sequences of \textit{logic gates} in an electrical circuit.
+事实上，有十个数字，且数字系统基于十的幂，是个生物学巧合，这与大多数人有十根手指这一事实有关。对于许多用途，这是不方便的。 例如， 10 的正因数不多（只有 4 个）---这对执行算术的简易性有影响；基于十二的系统有六个正因数，可能更方便。另一个例子是在计算机和数字电子中，用\textit{二进制}系统会更方便。二进制系统只有2个数字, 分别代表 `关' 和 `开'（或`低电压'和`高电压'）；这样就可以使用电路中的 \textit{逻辑门}序列直接执行算术运算。
 
-It is therefore worthwhile to have some understanding of positional numeral systems based on numbers other than ten. The mathematical abstraction we make leads to the definition of \textit{base-$b$ expansion}.
+因此，了解一些非十进制的位置数字系统是值得的。我们所做的数学抽象带来了 \textit{基数-$b$ 展开} 的定义。
 
 \begin{definition}
 \label{defBaseBExpansionPreliminary}
 \index{base-$b$ expansion}
 \index{number base}
-Let $b>1$. The \textbf{base-$b$ expansion} of a natural number $n$ is the\footnote{The use of the word `the' is troublesome here, since it assumes that every natural number has only one base-$b$ expansion. This fact actually requires proof---see \Cref{thmBaseBExpansion}.} string $d_r d_{r-1} \dots d_0$ such that
+设 $b>1$。自然数 $n$ 的 \textbf{基数-$b$ 展开} 是一个\footnote{这里使用`一个'这个词会引来麻烦，因为它假定每个自然数只有一个基数-$b$ 展开。这个事实实际上需要证明---参见 \Cref{thmBaseBExpansion}。} 字符串 $d_r d_{r-1} \dots d_0$ 满足
 \begin{itemize}
 \item $n = d_r \cdot b^r + d_{r-1} \cdot b^{r-1} + \cdots + d_0 \cdot b^0$;
-\item $0 \le d_i < b$ for each $i$; and
-\item If $n>0$ then $d_r \ne 0$---the base-$b$ expansion of zero is $0$ in all bases $b$.
+\item 对于任意 $i$, $0 \le d_i < b$ for each $i$;
+\item 如果 $n>0$ 那么 $d_r \ne 0$---零的基数-$b$ 展开在所有基数 $b$ 上都是 $0$。
 \end{itemize}
-Certain number bases have names; for instance, the base-$2$, $3$, $8$, $10$ and $16$ expansions are respectively called \textit{binary}, \textit{ternary}, \textit{octal}, \textit{decimal} and \textit{hexadecimal}.
+某些基数有名称；例如，以 $2$ 、 $3$ 、$8$ 、$10$ 和 $16$ 为基数的展开式分别称为\textit{二进制}、\textit{三进制}、\textit{八进制}、\textit{十进制}和\textit{十六进制}。
 \end{definition}
 
 \begin{example}
-Consider the number $1023$. Its decimal (base-$10$) expansion is $1023$, since
+考虑数字 $1023$。他的十进制（基数-$10$）展开为 $1023$，因为
 \[ 1023 = 1 \cdot 10^3 + 0 \cdot 10^2 + 2 \cdot 10^1 + 3 \cdot 10^0 \]
-Its binary (base-$2$) expansion is $1111111111$, since
+它的二进制（基数-$2$）展开为 $1111111111$，因为
 \[ 1023 = 1 \cdot 2^9 + 1 \cdot 2^8 + 1 \cdot 2^7 + 1 \cdot 2^6 + 1 \cdot 2^5 + 1 \cdot 2^4 + 1 \cdot 2^3 + 1 \cdot 2^2 + 1 \cdot 2^1 + 1 \cdot 2^0 \]
-We can express numbers in base-$36$ by using the ten usual digits $0$ through $9$ and the twenty-six letters $\mathrm{A}$ through $\mathrm{Z}$; for instance, $\mathrm{A}$ represents $10$, $\mathrm{M}$ represents $22$ and $\mathrm{Z}$ represents $35$. The base-$36$ expansion of $1023$ is $\mathrm{SF}$, since
+我们可以用常用的十位数字 $0$ 到 $9$ 和二十六个字母 $\mathrm{A}$ 到 $\mathrm{A}$ 来表示 $36$ 进制的数字；例如，$\mathrm{A}$ 表示 $10$、$\mathrm{M}$ 表示 $22$、$\mathrm{Z}$ 表示 $35$。$1023$ 的基数-$36$ 扩展是 $\mathrm{SF}$，因为
+
 \[ 1023 = 28 \cdot 36^1 + 15 \cdot 36^0 = \mathrm{S} \cdot 36^1 + \mathrm{F} \cdot 36^0 \]
 \end{example}
 
 \begin{exercise}
-Find the binary, ternary, octal, decimal, hexadecimal and base-$36$ expansions of the number $21127$, using the letters $\mathrm{A}$--$\mathrm{F}$ as additional digits for the hexadecimal expansion and the letters $\mathrm{A}$--$\mathrm{Z}$ as additional digits for the base-$36$ expansion.
+查找数字 $21127$ 的二进制、三进制、八进制、十进制、十六进制和 $36$ 进制的展开，使用字母 $\mathrm{A}$--$\mathrm{F}$ 作为十六进制展开的附加数字，使用字母 $\mathrm{A}$--$\mathrm{Z}$ 作为 $36$ 进制展开的附加数字。
 \end{exercise}
 
-We sometimes wish to specify a natural number in terms of its base-$b$ expansion; we have some notation for this.
+我们有时希望用一个自然数的基基数-$b$ 展开来表示它；对此有一些注释。
 
 \begin{notation}
-Let $b>1$. If the numbers $d_0,d_1,\dots,d_r$ are base-$b$ digits (in the sense of \Cref{defBaseBExpansionPreliminary}), then we write
+设 $b>1$。如果数字 $d_0,d_1,\dots,d_r$ 是以 $b$ 为基数的数字（在\Creaf{defBaseBExpansionPreliminary}的意义上），那么我们用
 \[ {d_rd_{r-1} \dots d_0}_{(b)} = d_r \cdot b^r + d_{r-1} \cdot b^{r-1} + \cdots + d_0 \cdot b^0 \]
-for the natural number whose base-$b$ expansion is $d_rd_{r-1} \dots d_0$. If there is no subscript $(b)$ and a base is not specified explicitly, the expansion will be assumed to be in base-$10$.
+表示基数-$b$ 展开为 $d_rd_{r-1} \dots d_0$ 的自然数。如果没有下标 $(b)$ 且没有明确指定基数，则假定展开以 $10$ 为基数。
 \end{notation}
 
 \begin{example}
-Using our new notation, we have
+使用新记法，我们有
 \[ 1023 = 1111111111_{(2)} = 1101220_{(3)} = 1777_{(8)} = 1023_{(10)} = 3\mathrm{FF}_{(16)} = \mathrm{SF}_{(36)} \]
 \end{example}
 
-\subsection*{Integers ($\mathbb{Z}$)}
+\subsection*{整数 ($\mathbb{Z}$)}
 
 The \textit{integers} can be used for measuring the difference between two instances of counting. For example, suppose I have five apples and five bananas. Another person, also holding apples and bananas, wishes to trade. After our exchange, I have seven apples and only one banana. Thus I have two more apples and four fewer bananas.
 
@@ -187,7 +191,7 @@ We write $\mathbb{Z}$ \inlatex{mathbb\{Z\}}\lindexmmc{mathbb}{$\mathbb{A}, \math
 
 The integers have such a fascinating structure that a whole chapter of this book is devoted to them---see \Cref{chNumberTheory}. This is to do with the fact that, although you can add, subtract and multiply two integers and obtain another integer, the same is not true of division. This `bad behaviour' of division is what makes the integers interesting. We will now see some basic results about division.
 
-\subsection*{Division of integers}
+\subsection*{整数除法}
 \label{pGettingStartedDivision}
 
 The motivation we will soon give for the definition of the rational numbers (\Cref{defRationalsInformal}) is that the result of dividing one integer by another integer is not necessarily another integer. However, the result is \textit{sometimes} another integer; for example, I can divide six apples between three people, and each person will receive an integral number of apples. This makes division interesting: how can we measure the failure of one integer's divisibility by another? How can we deduce when one integer is divisible by another? What is the structure of the set of integers when viewed through the lens of division? This motivates \Cref{defDivisionPreliminary}.
@@ -310,7 +314,7 @@ as desired.
 Find the base-$17$ expansion of $408\,735\,787$ and the base-$36$ expansion of $1\,442\,151\,747$.
 \end{exercise}
 
-\subsection*{Rational numbers ($\mathbb{Q}$)}
+\subsection*{有理数 ($\mathbb{Q}$)}
 
 Bored of eating apples and bananas, I buy a pizza which is divided into eight slices. A friend and I decide to share the pizza. I don't have much of an appetite, so I eat three slices and my friend eats five. Unfortunately, we cannot represent the proportion of the pizza each of us has eaten using natural numbers or integers. However, we're not far off: we can count the number of equal parts the pizza was split into, and of those parts, we can count how many we had. On the number line, this could be represented by splitting the unit line segment from $0$ to $1$ into eight equal pieces, and proceeding from there. This kind of procedure gives rise to the \textit{rational numbers}.
 
@@ -333,7 +337,7 @@ The rational numbers are those of the form $\frac{a}{b}$, where $a,b \in \mathbb
 
 The rational numbers are a very important example of a type of algebraic structure known as a \textit{field}---they are particularly central to algebraic number theory and algebraic geometry.
 
-\subsection*{Real numbers ($\mathbb{R}$)}
+\subsection*{实数 ($\mathbb{R}$)}
 
 Quantity and change can be measured in the abstract using \textit{real numbers}.
 
@@ -431,7 +435,7 @@ Interpret the operations of subtraction and division as geometric transformation
 We will take for granted the arithmetic properties of the real numbers in this chapter, waiting until \Cref{secInequalitiesMeans} to sink our teeth into the details. For example, we will take for granted the basic properties of rational numbers, for instance
 \[ \frac{a}{b}+\frac{c}{d} = \frac{ad+bc}{bd} \quad \text{and} \quad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} \]
 
-\subsection*{Rational and irrational numbers}
+\subsection*{有理数和无理数}
 \label{pGettingStartedRationalNumbers}
 
 Before we can talk about irrational numbers, we should say what they are.
@@ -467,7 +471,7 @@ Let $a=b=\sqrt{2}$. Then $a$ and $b$ are irrational, and $ab=2=\frac{2}{1}$, whi
 Let $r$ be a rational number and let $a$ be an irrational number. Prove that it is possible that $ra$ be rational, and it is possible that $ra$ be irrational.
 \end{exercise}
 
-\subsection*{Complex numbers ($\mathbb{C}$)}
+\subsection*{复数 ($\mathbb{C}$)}
 
 We have seen that multiplication by real numbers corresponds with scaling and reflection of the number line---scaling alone when the multiplicand is positive, and scaling with reflection when it is negative. We could alternatively interpret this reflection as a \textit{rotation} by half a turn, since the effect on the number line is the same. You might then wonder what happens if we rotate by arbitrary angles, rather than only half turns.
 
@@ -522,7 +526,7 @@ In fact, every complex number can be written in the form $a+bi$, where $a,b \in 
 
 We will discuss complex numbers further in the portion of this chapter on polynomials below.
 
-\subsection*{Polynomials}
+\subsection*{多项式}
 \label{pGettingStartedPolynomials}
 
 The natural numbers, integers, rational numbers, real numbers and complex numbers are all examples of \textit{semirings}, which means that they come equipped with nicely behaving notions of addition and multiplication.
