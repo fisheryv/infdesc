@@ -110,7 +110,7 @@
 \foreach \x in {0,1,2,3,4,5} \draw (\x, 0) -- (\x, 0.1) node[above] {$\x$} ;
 \end{tikzpicture}
 \end{center}
-用更熟悉的术语来说，自然数是\textit{非负整数}。全体自然数的集合记作 $\mathbb{N}$ \inlatex{mathbb\{N\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$}；因此，符号 `$n \in \mathbb{N}$' 表示 $n$ 是一个自然数。
+用更熟悉的术语来说，自然数是\textit{非负整数}。全体自然数的集合写做 $\mathbb{N}$ \inlatex{mathbb\{N\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$}；因此，符号 `$n \in \mathbb{N}$' 表示 $n$ 是一个自然数。
 \end{definition}
 
 自然数具有非常重要和有趣的数学结构，并且是 \Cref{chCombinatorics} 中材料的核心。\Cref{secPeanosAxioms} 中将提供对自然数的更加精确的描述，并且可以在 \Cref{secZFC} 中找到自然数集的数学构造（参见 \Cref{cnsNaturalNumbersVonNeumann}）。这些更加精确的描述的核心是`零'和`加一'概念---就像计数标记一样。
@@ -161,7 +161,7 @@
 我们有时希望用一个自然数的基基数-$b$ 展开来表示它；对此有一些注释。
 
 \begin{notation}
-设 $b>1$。如果数字 $d_0,d_1,\dots,d_r$ 是以 $b$ 为基数的数字（在\Creaf{defBaseBExpansionPreliminary}的意义上），那么我们用
+设 $b>1$。如果数字 $d_0,d_1,\dots,d_r$ 是以 $b$ 为基数的数字（在 \Cref{defBaseBExpansionPreliminary} 的意义上），那么我们用
 \[ {d_rd_{r-1} \dots d_0}_{(b)} = d_r \cdot b^r + d_{r-1} \cdot b^{r-1} + \cdots + d_0 \cdot b^0 \]
 表示基数-$b$ 展开为 $d_rd_{r-1} \dots d_0$ 的自然数。如果没有下标 $(b)$ 且没有明确指定基数，则假定展开以 $10$ 为基数。
 \end{notation}
@@ -173,154 +173,154 @@
 
 \subsection*{整数 ($\mathbb{Z}$)}
 
-The \textit{integers} can be used for measuring the difference between two instances of counting. For example, suppose I have five apples and five bananas. Another person, also holding apples and bananas, wishes to trade. After our exchange, I have seven apples and only one banana. Thus I have two more apples and four fewer bananas.
+\textit{整数}可以用来衡量两个计数实例之间的差异。例如，假设我有五个苹果和五个香蕉。另一个人也拿着苹果和香蕉想交易。我们交易后，我有七个苹果，一个香蕉。这样我就多了两个苹果，少了四个香蕉。
 
-Since an increment in quantity can be represented by moving to the right on the number line by the unit length, a \textit{decrement} in quantity can therefore be represented by moving to the \textit{left} by the unit length. Doing so gives rise to the integers.
+由于数量的增加可以通过在数轴上向右移动单位长度来表示，因此数量的\textit{减少}可以通过\textit{向左}移动单位长度来表示。这样就诞生了整数。
 
 \begin{definition}
 \label{defIntegersInformal}
-The \textbf{integers} are represented by the points on the number line which can be obtained by starting at $0$ and moving in either direction by the unit length any number of times:
+\textbf{整数}由数轴上的点表示，这些点可以通过从 $0$ 开始沿任一方向移动单位长度任意次获得：
 \begin{center}
 \begin{tikzpicture}
 \draw[latex-latex] (-5.5, 0) -- (5.5, 0) ; 
 \foreach \x in {-5,-4,-3,-2,-1,0,1,2,3,4,5} \draw (\x, 0) -- (\x, 0.1) node[above] {$\x$} ;
 \end{tikzpicture}
 \end{center}
-We write $\mathbb{Z}$ \inlatex{mathbb\{Z\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$} for the set of all integers; thus, the notation `$n \in \mathbb{Z}$' means that $n$ is an integer.
+全体整数的集合写做 $\mathbb{Z}$ \inlatex{mathbb\{Z\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$}；因此，符号 `$n \in \mathbb{Z}$' 表示 $n$ 是一个整数。
 \end{definition}
 
-The integers have such a fascinating structure that a whole chapter of this book is devoted to them---see \Cref{chNumberTheory}. This is to do with the fact that, although you can add, subtract and multiply two integers and obtain another integer, the same is not true of division. This `bad behaviour' of division is what makes the integers interesting. We will now see some basic results about division.
+整数具有如此迷人的结构，以至于本书会用整整一章专门介绍整数---参见 \Cref{chNumberTheory}。这是因为，虽然你可以对两个整数进行加法、减法和乘法得到另一个整数，但除法不是这样。除法的这种`不良行为'使整数变得有趣。我们先看一下关于除法的一些基本结论。
 
 \subsection*{整数除法}
 \label{pGettingStartedDivision}
 
-The motivation we will soon give for the definition of the rational numbers (\Cref{defRationalsInformal}) is that the result of dividing one integer by another integer is not necessarily another integer. However, the result is \textit{sometimes} another integer; for example, I can divide six apples between three people, and each person will receive an integral number of apples. This makes division interesting: how can we measure the failure of one integer's divisibility by another? How can we deduce when one integer is divisible by another? What is the structure of the set of integers when viewed through the lens of division? This motivates \Cref{defDivisionPreliminary}.
+有理数定义 (\Cref{defRationalsInformal}) 的动机是一个整数除以另一个整数的结果不一定是一个整数。然而，结果\textit{有时}又是一个整数；例如，我可以把六个苹果分给三个人，每人分得整数个苹果。这使得除法变得很有趣：我们如何衡量一个整数不能被另一个整数整除的情况？我们如何推断一个整数何时可以被另一个整数整除？从除法的角度来看，整数集的结构是什么？这激发了 \Cref{defDivisionPreliminary}。
 
-\begin{definition}[to be repeated in \Cref{defDivision}]
+\begin{definition}[\Cref{defDivision}中会重申]
 \label{defDivisionPreliminary}
 \index{division}
 \index{divisor}
 \index{factor}
 \index{multiple}
-Let $a,b \in \mathbb{Z}$. We say $b$ \textbf{divides} $a$ if $a=qb$ for some integer $q$. Other ways of saying that $b$ divides $a$ are: $b$ is a \textit{divisor} of $a$, $b$ is a \textit{factor} of $a$, or $a$ is a \textit{multiple} of $b$.
+设 $a,b \in \mathbb{Z}$。如果对于某个整数 $q$ 我们有 $a=qb$，那么我们说 $b$ \textbf{整除} $a$。$b$ 整除 $a$ 的其他说法是： $b$ 是 $a$ 的\textit{约数}，或 $b$ 是 $a$ 的 \textit{因数}，或 $a$ 是 $b$ 的 \textit{倍数}。
 \end{definition}
 
 \begin{example}
-The integer $12$ is divisible by $1$, $2$, $3$, $4$, $6$ and $12$, since
+整数 $12$ 能被 $1$, $2$, $3$, $4$, $6$ 和 $12$ 整除，因为
 \[ 12 = 12 \cdot 1 = 6 \cdot 2 = 4 \cdot 3 = 3 \cdot 4 = 2 \cdot 6 = 1 \cdot 12 \]
-It is also divisible by the negatives of all of those numbers; for example, $12$ is divisible by $-3$ since $12 = (-4) \cdot (-3)$.
+它也可以被这些数的负值整除；例如，$12$ 可以被 $-3$ 整除，因为 $12 = (-4) \cdot (-3)$。
 \end{example}
 
 \begin{exercise}
-Prove that $1$ divides every integer, and that every integer divides $0$.
+证明 $1$ 可以整除任意整数，且 $0$ 可以被任意整数整除。
 \end{exercise}
 
-Using \Cref{defDivisionPreliminary}, we can prove some general basic facts about divisibility.
+利用\Cref{defDivisionPreliminary}，我们可以证明一些关于可分性的一般基本事实。
 
 \begin{proposition}
 \label{propDivisibilityIsTransitive}
-Let $a,b,c \in \mathbb{Z}$. If $c$ divides $b$ and $b$ divides $a$, then $c$ divides $a$.
+设 $a,b,c \in \mathbb{Z}$。如果 $c$ 整除 $b$ 且 $b$ 整除 $a$，那么 $c$ 整除 $a$。
 \end{proposition}
 
 \begin{cproof}
-Suppose that $c$ divides $b$ and $b$ divides $a$. By \Cref{defDivisionPreliminary}, it follows that
+假设 $c$ 整除 $b$ 且 $b$ 整除 $a$。根据\Cref{defDivisionPreliminary}，对于某整数 $q$ 和 $r$，它遵循
 \[ b=qc \quad \text{and} \quad a=rb \]
-for some integers $q$ and $r$. Using the first equation, we may substitute $qc$ for $b$ in the second equation, to obtain
+用第一个等式 $qc$ 替换第二个等式中的 $b$，得
 \[ a=r(qc) \]
-But $r(qc) = (rq)c$, and $rq$ is an integer, so it follows from \Cref{defDivisionPreliminary} that $c$ divides $a$.
+$r(qc) = (rq)c$，且 $rq$ 是一个整数，所以从\Cref{defDivisionPreliminary}可得出 $c$ 整除 $a$。
 \end{cproof}
 
 % To do: draw attention to the wording of the proof, and the 'unpack definition - do something - apply definition' style of the proof.
 
 \begin{exercise}
 \label{exDivisibilityIsLinear}
-Let $a,b,d \in \mathbb{Z}$. Suppose that $d$ divides $a$ and $d$ divides $b$. Given integers $u$ and $v$, prove that $d$ divides $au+bv$.
+设 $a,b,d \in \mathbb{Z}$。假设 $d$ 整除 $a$ 且 $d$ 整除 $b$。给定整数 $u$ 和 $v$，证明 $d$ 整除 $au+bv$。
 \end{exercise}
 
-Some familiar concepts, such as evenness and oddness, can be characterised in terms of divisibility.
+一些熟悉的概念，例如偶数和奇数，可以用可分性来表征。
 
 \begin{definition}
 \label{defEvenOdd}
 \index{even!integer}
 \index{odd!integer}
-An integer $n$ is \textbf{even} if it is divisible by $2$; otherwise, $n$ is \textbf{odd}.
+整数 $n$ 如果能被 $2$ 整除则为 \textbf{偶数}；否则, $n$ 为 \textbf{奇数}。
 \end{definition}
 
-It is not just interesting to know when one integer \textit{does} divide another; however, proving that one integer \textit{doesn't} divide another is much harder. Indeed, to prove that an integer $b$ does not divide an integer $a$, we must prove that $a \ne qb$ for \textit{any} integer $q$ at all. We will look at methods for doing this in \Cref{chLogicalStructure}; these methods use the following extremely important result, which will underlie all of \Cref{chNumberTheory}.
+知道一个整数何时\textit{能}整除另一个整数很有趣；然而，证明一个整数\textit{不能}整除另一个整数要困难得多。实际上，要证明整数 $b$ 不能整除整数 $a$，我们必须证明对于\textit{任何}整数 $q$ 都有 $a \ne qb$。我们将在 \Cref{chLogicalStructure} 中看到具体的证明方法；这些方法使用以下极其重要的结论，它将成为整个 \Cref{chNumberTheory} 的基础。
 
-\begin{theorem}[Division theorem, to be repeated in \Cref{thmDivisionTheorem}]
+\begin{theorem}[除法定理，\Cref{thmDivisionTheorem}中会重申]
 \label{thmDivisionPreliminary}
 \index{division theorem}
-Let $a,b \in \mathbb{Z}$ with $b \ne 0$. There is exactly one way to write
+设 $a,b \in \mathbb{Z}$ 其中 $b \ne 0$。只有唯一一种写法
 \[ a = qb + r \]
-such that $q$ and $r$ are integers, and $0 \le r < b$ (if $b > 0$) or $0 \le r < -b$ (if $b < 0$).
+使得 $q$ 和 $r$ 为整数，且 $0 \le r < b$ (如果 $b > 0$) 或 $0 \le r < -b$ (如果 $b < 0$).
 \end{theorem}
 
-The number $q$ in \Cref{thmDivisionPreliminary} is called the \textbf{quotient}\index{quotient} of $a$ when divided by $b$, and the number $r$ is called the \textbf{remainder}\index{remainder}.
+\Cref{thmDivisionPreliminary}中，$q$ 称为 $a$ 除以 $b$ 的\textbf{商}\index{quotient}，$r$ 称为\textbf{余数}\index{remainder}。
 
 \begin{example}
-The number $12$ leaves a remainder of $2$ when divided by $5$, since $12 = 2 \cdot 5 + 2$.
+数字 $12$ 除以 $5$ 后余 $2$，因为 $12 = 2 \cdot 5 + 2$。
 \end{example}
 
-Here's a slightly more involved example.
+这是一个稍微复杂一点的例子。
 
 \begin{proposition}
-Suppose an integer $a$ leaves a remainder of $r$ when divided by an integer $b$, and that $r>0$. Then $-a$ leaves a remainder of $b-r$ when divided by $b$.
+假设整数 $a$ 除以整数 $b$ 余 $r$，且 $r>0$。则 $-a$ 除以 $b$ 余 $b-r$。
 \end{proposition}
 
 \begin{cproof}
-Suppose $a$ leaves a remainder of $r$ when divided by $b$. Then
+假设 $a$ 除以 $b$ 余 $r$。则对于某整数 $q$ 有
 \[ a=qb+r \]
-for some integer $q$. A bit of algebra yields
+做一点代数变换
 \[ -a = -qb-r = -qb-r+(b-b) = -(q+1)b + (b-r) \]
-Since $0<r<b$, we have $0<b-r<b$. Hence $-(q+1)$ is the quotient of $-a$ when divided by $b$, and $b-r$ is the remainder.
+因为 $0<r<b$，我们有 $0<b-r<b$。所以 $-(q+1)$ 是 $-a$ 除以 $b$ 的商，$b-r$ 是余数。
 \end{cproof}
 
 \begin{exercise}
-Prove that if an integer $a$ leaves a remainder of $r$ when divided by an integer $b$, then $a$ leaves a remainder of $r$ when divided by $-b$.
+证明如果整数 $a$ 除以整数 $b$ 余 $r$，则 $a$ 除以 $-b$ 余 $r$。
 \end{exercise}
 
-We will finish this part on division of integers by connecting it with the material on number bases---we can use the division theorem (\Cref{thmDivisionPreliminary}) to find the base-$b$ expansion of a given natural number. It is based on the following observation: the natural number $n$ whose base-$b$ expansion is $d_rd_{r-1} \cdots d_1 d_0$ is equal to
+最后我们通过将整数除法与基数联系起来结束整数除法这一部分---我们可以使用除法定理 (\Cref{thmDivisionPreliminary}) 找到给定自然数的基数-$b$ 展开。这基于以下观察：自然数 $n$ 的基数-$b$ 展开 $d_rd_{r-1} \cdots d_1 d_0$ 等于
 \[ d_0 + b(d_1 + b(d_2 + \cdots + b(d_{r-1} + bd_r) \cdots)) \]
-Moreover, $0 \le d_i < b$ for all $i$. In particular $n$ leaves a remainder of $d_0$ when divided by $b$. Hence
+此外，对于所有 $i$，$0 \le d_i < b$。特别地，$n$ 除以 $b$ 余 $d_0$。因此
 \[ \frac{n-d_0}{b} = d_1 + d_2b + \cdots + d_rb^{r-1} \]
-The base-$b$ expansion of $\frac{n-d_0}{b}$ is therefore
+$\frac{n-d_0}{b}$ 的基数-$b$ 展开为
 \[ d_rd_{r-1} \cdots d_1 \]
-In other words, the remainder of $n$ when divided by $b$ is the last base-$b$ digit of $n$, and then subtracting this number from $n$ and dividing the result by $b$ truncates the final digit. Repeating this process gives us $d_1$, and then $d_2$, and so on, until we end up with $0$.
+换句话说，$n$ 除以 $b$ 的余数是 $n$ 的最后一个基数-$b$ 位，然后用 $n$ 减去这个数再除以 $b$ 截断最后一个数字。重复这个过程会得到 $d_1$，然后是 $d_2$，依此类推，直到得到 $0$。
 
-This suggests the following algorithm for computing the base-$b$ expansion of a number $n$:
+这给出以下算法来计算数字 $n$ 的基数-$b$ 展开：
 \begin{itemize}
-\item \textbf{Step 1.} Let $d_0$ be the remainder when $n$ is divided by $b$, and let $n_0=\frac{n-d_0}{b}$ be the quotient. Fix $i=0$.
-\item \textbf{Step 2.} Suppose $n_i$ and $d_i$ have been defined. If $n_i=0$, then proceed to Step 3. Otherwise, define $d_{i+1}$ to be the remainder when $n_i$ is divided by $b$, and define $n_{i+1} = \frac{n_i-d_{i+1}}{b}$. Increment $i$, and repeat Step 2.
-\item \textbf{Step 3.} The base-$b$ expansion of $n$, is
+\item \textbf{第1步. } 设 $d_0$ 为 $n$ 除以 $b$ 的余数，并设 $n_0=\frac{n-d_0}{b}$ 为商。设 $i=0$。
+\item \textbf{第2步. } 假设 $n_i$ 和 $d_i$ 都已定义。如果 $n_i=0$，则执行第 3 步。 否则，令 $d_{i+1}$ 为 $n_i$ 除以 $b$ 的余数, 令 $n_{i+1} = \frac{n_i-d_{i+1}}{b}$。$i$ 加 1 ，然后重复第 2 步。
+\item \textbf{第3步. } $n$ 的基数-$b$ 展开为
 \[ d_id_{i-1} \cdots d_0 \]
 \end{itemize}
 
 \begin{example}
-We compute the base-$17$ expansion of $15213$, using the letters $\mathrm{A}$--$\mathrm{G}$ to represent the numbers $10$ through $16$.
+计算 $15213$ 的基数-$17$展开，用字母 $\mathrm{A}$--$\mathrm{G}$ 表示数字 $10$ 到 $16$。
 \begin{itemize}
-\item $15213 = 894 \cdot 17 + 15$, so $d_0=15=\mathrm{F}$ and $n_0=894$.
-\item $894 = 52 \cdot 17 + 10$, so $d_1=10 = \mathrm{A}$ and $n_1=52$.
-\item $52 = 3 \cdot 17 + 1$, so $d_2 = 1$ and $n_2=3$.
-\item $3 = 0 \cdot 17 + 3$, so $d_3 = 3$ and $n_3=0$.
-\item The base-$17$ expansion of $15213$ is therefore $31\mathrm{AF}$.
+\item $15213 = 894 \cdot 17 + 15$, 所以 $d_0=15=\mathrm{F}$, $n_0=894$。
+\item $894 = 52 \cdot 17 + 10$, 所以 $d_1=10 = \mathrm{A}$, $n_1=52$。
+\item $52 = 3 \cdot 17 + 1$, 所以 $d_2 = 1$, $n_2=3$。
+\item $3 = 0 \cdot 17 + 3$, 所以 $d_3 = 3$, $n_3=0$。
+\item 因此 $15213$ 的基数-$17$ 展开为 $31\mathrm{AF}$。
 \end{itemize}
-A quick verification gives
+做个快速验证
 \[ 31\mathrm{AF}_{(17)} = 3 \cdot 17^3 + 1 \cdot 17^2 + 10 \cdot 17 + 15 = 15213 \]
-as desired.
+就是正确结果。
 \end{example}
 
 \begin{exercise}
-Find the base-$17$ expansion of $408\,735\,787$ and the base-$36$ expansion of $1\,442\,151\,747$.
+给出 $408\,735\,787$ 的基数-$17$ 展开，以及 $1\,442\,151\,747$ 的基数-$36$ 展开。
 \end{exercise}
 
 \subsection*{有理数 ($\mathbb{Q}$)}
 
-Bored of eating apples and bananas, I buy a pizza which is divided into eight slices. A friend and I decide to share the pizza. I don't have much of an appetite, so I eat three slices and my friend eats five. Unfortunately, we cannot represent the proportion of the pizza each of us has eaten using natural numbers or integers. However, we're not far off: we can count the number of equal parts the pizza was split into, and of those parts, we can count how many we had. On the number line, this could be represented by splitting the unit line segment from $0$ to $1$ into eight equal pieces, and proceeding from there. This kind of procedure gives rise to the \textit{rational numbers}.
+吃厌了苹果和香蕉，我买了一个分成八片的披萨。我和一位朋友决定分享披萨。我没什么胃口，所以我吃了三片，我的朋友吃了五片。不幸的是，我们不能用自然数或整数来表示我们每个人吃过的披萨的比例。然而，也不是没有办法：我们可以数出披萨被分成多少等份，在这些份中，我们可以数出我们有多少份。在数轴上，可以通过将单位线段从 $0$ 到 $1$ 分成八等份，然后处理份数。这个过程产生了\textit{有理数}。
 
 \begin{definition}
 \label{defRationalsInformal}
-The \textbf{rational numbers} are represented by the points at the number line which can be obtained by dividing any of the unit line segments between integers into an equal number of parts.
+\textbf{有理数}由数轴上的点表示，这些点可以通过将整数之间的任何单位线段分成相等部分来获得。
 \begin{center}
 \begin{tikzpicture}
 \draw[latex-latex] (-5.5, 0) -- (5.5, 0) ; 
@@ -332,30 +332,30 @@ The \textbf{rational numbers} are represented by the points at the number line w
 }
 \end{tikzpicture}
 \end{center}
-The rational numbers are those of the form $\frac{a}{b}$, where $a,b \in \mathbb{Z}$ and $b \ne 0$. We write $\mathbb{Q}$ \inlatex{mathbb\{Q\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$} for the set of all rational numbers; thus, the notation `$q \in \mathbb{Q}$' means that $q$ is a rational number.
+有理数的形式为 $\frac{a}{b}$，其中 $a,b \in \mathbb{Z}$ 和 $b \ne 0$。全体有理数的集合写做 $\mathbb{Q}$ \inlatex{mathbb\{Q\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$}；因此，符号 `$q \in \mathbb{Q}$' 表示 $q$ 是一个有理数。
 \end{definition}
 
-The rational numbers are a very important example of a type of algebraic structure known as a \textit{field}---they are particularly central to algebraic number theory and algebraic geometry.
+有理数是一种被称为\textit{域}的代数结构，它是一个非常重要的域---对代数数论和代数几何尤其重要。
 
 \subsection*{实数 ($\mathbb{R}$)}
 
-Quantity and change can be measured in the abstract using \textit{real numbers}.
+数量和变化可以用实数抽象地衡量。
 
 \begin{definition}
 \label{defRealsInformal}
-The \textbf{real numbers} are the points on the number line. We write $\mathbb{R}$ \inlatex{mathbb\{R\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$} for the set of all real numbers; thus, the notation `$a \in \mathbb{R}$' means that $a$ is a real number.
+\textbf{实数}是数轴上的点。全体实数的集合写做 $\mathbb{R}$ \inlatex{mathbb\{R\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$}；因此，符号 `$a \in \mathbb{R}$' 表示 $a$ 是一个实数。
 \end{definition}
 
-The real numbers are central to real analysis, a branch of mathematics introduced in \Cref{chRealNumbers}. They turn the rationals into a \textit{continuum} by `filling in the gaps'---specifically, they have the property of \textit{completeness}, meaning that if a quantity can be approximated with arbitrary precision by real numbers, then that quantity is itself a real number.
+实数是实分析的核心，实分析是 \Cref{chRealNumbers} 中引入的数学分支。他们通过`填补间隙'将有理数变成\textit{连续统}---具体来说，他们具有\textit{完备性}，这意味着如果一个量可以用实数以任意精度近似，那么该量本身就是一个实数。
 
-We can define the basic arithmetic operations (addition, subtraction, multiplication and division) on the real numbers, and a notion of ordering of the real numbers, in terms of the infinite number line.
+我们可以根据无限数轴来定义实数的基本算术运算（加法、减法、乘法和除法），以及实数排序的概念。
 
 \begin{itemize}
-\item \textbf{Ordering.} A real number $a$ is less than a real number $b$, written $a<b$, if $a$ lies to the left of $b$ on the number line. The usual conventions for the symbols $\le$ \inlatex{le}\lindexmmc{le}{$\le$}, $>$ and $\ge$ \inlatex{ge}\lindexmmc{ge}{$\ge$} apply, for instance `$a \le b$' means that either $a < b$ or $a = b$.
+\item \textbf{排序 } 如果 $a$ 在数轴上位于 $b$ 的左侧，则实数 $a$ 小于实数 $b$，写作 $a<b$。通常表示大小的约定符号还有 $\le$ \inlatex{le}\lindexmmc{le}{$\le$}, $>$ 和 $\ge$ \inlatex{ge}\lindexmmc{ge}{$\ge$}，例如，`$a \le b$' 表示 $a < b$ 或 $a = b$。
 
-\item \textbf{Addition.} Suppose we want to add a real number $a$ to a real number $b$. To do this, we \textit{translate} $a$ by $b$ units to the right---if $b<0$ then this amounts to translating $a$ by an equivalent number of units to the left. Concretely, take two copies of the number line, one above the other, with the same choice of unit length; move the $0$ of the lower number line beneath the point $a$ of the upper number line. Then $a+b$ is the point on the upper number line lying above the point $b$ of the lower number line.
+\item \textbf{相加 } 假设我们要将实数 $a$ 与实数 $b$ 相加。 为此，我们将 $a$ 向右平移 $b$ 个单位---如果 $b<0$ 则这相当于将 $a$ 向左平移等量的单位。具体来说，就是将数轴复制两份，一份在另一份之上，单位长度相同；将下方数轴的 $0$ 移动到上方数轴点 $a$ 的位置。然后 $a+b$ 是位于下方数轴点 $b$ 对应的上方数轴上的点。
 
-Here is an illustration of the fact that $(-3) + 5 = 2$:
+下面演示了 $(-3) + 5 = 2$ 的操作:
 
 \begin{center}
 \fitwidthc{0.9}{\begin{tikzpicture}
@@ -378,9 +378,9 @@ Here is an illustration of the fact that $(-3) + 5 = 2$:
 \end{tikzpicture}}
 \end{center}
 
-\item \textbf{Multiplication.} This one is fun. Suppose we want to multiply a real number $a$ by a real number $b$. To do this, we \textit{scale} the number line, and perhaps \textit{reflect} it. Concretely, take two copies of the number line, one above the other; align the $0$ points on both number lines, and stretch the lower number line evenly until the point $1$ on the lower number line is below the point $a$ on the upper number line---note that if $a<0$ then the number line must be reflected in order for this to happen. Then $a \cdot b$ is the point on the upper number line lying above $b$ on the lower number line.
+\item \textbf{相乘 } 这个很有趣。假设我们要将实数 $a$ 乘以实数 $b$。为此，我们需要\textit{缩放}数轴，并可能将数轴\textit{反转}过来。具体来说，就是将数轴复制两份，一份在另一份之上；对齐两条数轴上的 $0$ 点，并均匀拉伸下方数轴，直到下方数轴点 $1$ 位于上方数轴点 $a$ 的位置---注意如果 $a<0$，那么数轴需要反转。这样 $a \cdot b$ 是位于下方数轴点 $b$ 对应的上方数轴上的点。
 
-Here is an illustration of the fact that $5 \cdot 4 = 20$.
+下面演示了 $5 \cdot 4 = 20$ 的操作：
 
 \begin{center}
 \fitwidthc{0.9}{\begin{tikzpicture}
@@ -404,7 +404,7 @@ Here is an illustration of the fact that $5 \cdot 4 = 20$.
 \end{tikzpicture}}
 \end{center}
 
-and here is an illustration of the fact that $(-5) \cdot 4 = -20$:
+下面演示了 $(-5) \cdot 4 = -20$ 的操作：
 \begin{center}
 \fitwidthc{0.9}{\begin{tikzpicture}
 % Adapted from http://tex.stackexchange.com/questions/148252/
@@ -429,57 +429,57 @@ and here is an illustration of the fact that $(-5) \cdot 4 = -20$:
 \end{itemize}
 
 \begin{exercise}
-Interpret the operations of subtraction and division as geometric transformations of the real number line.
+将减法和除法运算解释为实数轴上的几何变换。
 \end{exercise}
 
-We will take for granted the arithmetic properties of the real numbers in this chapter, waiting until \Cref{secInequalitiesMeans} to sink our teeth into the details. For example, we will take for granted the basic properties of rational numbers, for instance
-\[ \frac{a}{b}+\frac{c}{d} = \frac{ad+bc}{bd} \quad \text{and} \quad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} \]
+在本章中，我们将把实数的算术性质视为理所当然，等到 \Cref{secInequalitiesMeans} 再深入探讨细节。例如，我们将理所当然地接受有理数的基本性质，比如
+\[ \frac{a}{b}+\frac{c}{d} = \frac{ad+bc}{bd} \quad \text{和} \quad \frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd} \]
 
 \subsection*{有理数和无理数}
 \label{pGettingStartedRationalNumbers}
 
-Before we can talk about irrational numbers, we should say what they are.
+在我们讨论无理数之前，我们应该先说说它是什么。
 
 \begin{definition}
 \label{defIrrationalNumber}
 \index{irrational number}
-An \textbf{irrational number} is a real number that is not rational.
+\textbf{无理数}是不是有理数的实数。
 \end{definition}
 
-Unlike $\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}$, there is no standard single letter expressing the irrational numbers. However, by the end of \Cref{secSetOperations}, we will be able to write the set of irrational numbers as $\mathbb{R} \setminus \mathbb{Q}$.
+与 $\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}$ 不同，没有标准的单个字母表示无理数。然而，在 \Cref{secSetOperations} 结束时，我们会将无理数集写为 $\mathbb{R} \setminus \mathbb{Q}$。
 
-Note in particular that `irrational' does not simply mean `not rational'---that would imply that all complex numbers which are not real are irrational---rather, the term `irrational' means `real and not rational'.
+特别要注意的是，`无理数'并不是简单地意味着`非有理数'---这样理解暗示着所有非实数的复数也都是无理数---相反，术语`无理数'意味着`实数且不是有理数'。
 
-Proving that a real number is \textit{irrational} is not particularly easy. We will get our foot in the door by allowing ourselves to assume the following result, which is restated and proved in \Cref{propSqrt2Irrational}.
+证明一个实数是无理数并不容易。我们可以先假设下面的结论成立来快速入门，具体证明见 \Cref{propSqrt2Irrational}。
 
 \begin{proposition}
 \label{propSqrt2IrrationalPreliminary}
-The real number $\sqrt{2}$ is irrational. \qed
+实数 $\sqrt{2}$ 是无理数。 \qed
 \end{proposition}
 
-We can use the fact that $\sqrt{2}$ is irrational to prove some facts about the relationship between rational numbers and irrational numbers.
+我们可以用 $\sqrt{2}$ 是无理数这一事实来证明一些有理数和无理数之间关系的事实。
 
 \begin{proposition}
-Let $a$ and $b$ be irrational numbers. It is possible that $ab$ be rational.
+设 $a$ 和 $b$ 是无理数。$ab$ 可能是有理数。
 \end{proposition}
 
 \begin{cproof}
-Let $a=b=\sqrt{2}$. Then $a$ and $b$ are irrational, and $ab=2=\frac{2}{1}$, which is rational.
+设 $a=b=\sqrt{2}$。则 $a$ 和 $b$ 都是无理数，且 $ab=2=\frac{2}{1}$ 是有理数。
 \end{cproof}
 
 \begin{exercise}
-Let $r$ be a rational number and let $a$ be an irrational number. Prove that it is possible that $ra$ be rational, and it is possible that $ra$ be irrational.
+设 $r$ 是一个有理数，设 $a$ 是一个无理数。证明 $ra$ 可能是有理数也可能是无理数。
 \end{exercise}
 
 \subsection*{复数 ($\mathbb{C}$)}
 
-We have seen that multiplication by real numbers corresponds with scaling and reflection of the number line---scaling alone when the multiplicand is positive, and scaling with reflection when it is negative. We could alternatively interpret this reflection as a \textit{rotation} by half a turn, since the effect on the number line is the same. You might then wonder what happens if we rotate by arbitrary angles, rather than only half turns.
+我们已经看到，乘以实数对应于数轴的缩放和反转---当被乘数为正时单独缩放，当被乘数为负时先反转再缩放。我们也可以将这种反转解释为\textit{旋转}半圈，因为对数轴的影响是相同的。这时你可能会问如果我们将数轴旋转任意角度而不是只旋转半圈会发生什么。
 
-What we end up with is a \textit{plane} of numbers, not merely a line---see \Cref{figComplexNumbers}. Moreover, it happens that the rules that we expect arithmetic operations to satisfy still hold---addition corresponds with translation, and multiplication corresponds with scaling and rotation. This resulting number set is that of the \textit{complex numbers}.
+我们最终得到的是一个数字\textit{平面}，而不仅仅是一条线---参见 \Cref{figComplexNumbers}。此外，我们期望算术运算满足的规则仍然成立---加法对应于平移，乘法对应于缩放和旋转。这个结果数集就是\textit{复数}集。
 
 \begin{definition}
 \label{defComplexNumbersInformal}
-The \textbf{complex numbers} are those obtained by the non-negative real numbers upon rotation by any angle about the point $0$. We write $\mathbb{C}$ \inlatex{mathbb\{C\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$} for the set of all complex numbers; thus, the notation `$z \in \mathbb{C}$' means that $z$ is a complex number.
+\textbf{复数}是非负实数绕点 $0$ 旋转任意角度得到的数。全体复数的集合写做 $\mathbb{C}$ \inlatex{mathbb\{C\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$}；因此，符号 `$z \in \mathbb{C}$' 表示 $z$ 是一个复数。
 \end{definition}
 
 \begin{figure}[p!]
@@ -515,92 +515,92 @@ The \textbf{complex numbers} are those obtained by the non-negative real numbers
 \draw (-3pt,-1) -- (3pt,-1);
 \end{tikzpicture}
 }
-\caption{Illustration of the complex plane, with some points labelled.}
+\caption{复平面示意图}
 \label{figComplexNumbers}
 \end{figure}
 
-There is a particularly important complex number, $i$, which is the point in the complex plane exactly one unit above $0$---this is illustrated in \Cref{figComplexNumbers}. Multiplication by $i$ has the effect of rotating the plane by a quarter turn anticlockwise. In particular, we have $i^2 = i \cdot i = -1$; the complex numbers have the astonishing property that square roots of \textit{all} complex numbers exist (including all the real numbers).
+有一个特别重要的复数 $i$，它是复平面中正好比 $0$ 高一个单位的点---在 \Cref{figComplexNumbers} 中有说明。乘以 $i$ 会将平面逆时针旋转四分之一圈。特别地，我们有 $i^2 = i \cdot i = -1$; 复数有一个惊人的性质，即存在\textit{所有}复数（包括所有实数）的平方根。
 
-In fact, every complex number can be written in the form $a+bi$, where $a,b \in \mathbb{R}$; this number corresponds with the point on the complex plane obtained by moving $a$ units to the right and $b$ units up, reversing directions as usual if $a$ or $b$ is negative. Arithmetic on the complex numbers works just as with the real numbers; in particular, using the fact that $i^2=-1$, we obtain
-\[ (a+bi)+(c+di) = (a+c)+(b+d)i \quad \text{and} \quad (a+bi) \cdot (c+di) = (ac-bd) + (ad+bc)i \]
+事实上，每个复数都可以写成 $a+bi$ 的形式，其中 $a,b \in \mathbb{R}$; 这个数字对应于通过向右移动 $a$ 单位再向上移动 $b$ 单位获得的复平面上的点，如果 $a$ 或 $b$ 为负，则像往常一样反转方向。复数的算术运算与实数一样；特别地，利用 $i^2=-1$ 这一事实，我们得到
+\[ (a+bi)+(c+di) = (a+c)+(b+d)i \quad \text{和} \quad (a+bi) \cdot (c+di) = (ac-bd) + (ad+bc)i \]
 
-We will discuss complex numbers further in the portion of this chapter on polynomials below.
+我们将在本章后面有关多项式的部分进一步讨论复数。
 
 \subsection*{多项式}
 \label{pGettingStartedPolynomials}
 
-The natural numbers, integers, rational numbers, real numbers and complex numbers are all examples of \textit{semirings}, which means that they come equipped with nicely behaving notions of addition and multiplication.
+自然数、整数、有理数、实数和复数都是\textit{半环}，这意味着它们具备表现良好的加法和乘法概念。
 
 \begin{definition}
 \label{defPolynomialPreliminary}
 \index{polynomial}
-Let $\mathbb{S} = \mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ or $\mathbb{C}$. A (\textbf{univariate}) \textbf{polynomial over $\mathbb{S}$} in the \textbf{indeterminate} $x$ is an expression of the form
+设 $\mathbb{S} = \mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ 或 $\mathbb{C}$。\textbf{$\mathbb{S}$ 上不定项 $x$ 的（单变量）多项式} 为
 \[ a_0 + a_1x + \cdots + a_nx^n \]
-where $n \in \mathbb{N}$ and each $a_k \in \mathbb{S}$. The numbers $a_k$ are called the \textbf{coefficients} of the polynomial. If not all coefficients are zero, the largest value of $k$ for which $a_k \ne 0$ is called the \textbf{degree} of the polynomial. By convention, the degree of the polynomial $0$ is $-\infty$.
+其中 $n \in \mathbb{N}$ 且 $a_k \in \mathbb{S}$。数字 $a_k$ 称为多项式的\textbf{系数}。如果所有系数不都为零，则 $k$ 的最大值 $a_k \ne 0$ 称为多项式的\textbf{次数}。按照惯例，多项式 $0$ 的次数为 $-\infty$。
 \end{definition}
 
-Polynomials of degree $1$, $2$, $3$, $4$ and $5$ are respectively called \textit{linear}, \textit{quadratic}, \textit{cubic}, \textit{quartic} and \textit{quintic} polynomials.
+次数为 $1$、$2$、$3$、$4$ 和 $5$ 的多项式分别称为线性、二次、三次、四次和五次多项式。
 
 \begin{example}
-The following expressions are all polynomials:
+下列表达式都是多项式：
 \[ 3 \qquad 2x-1 \qquad (3+i)x^2-x \]
-Their degrees are $0$, $1$ and $2$, respectively. The first two are polynomials over $\mathbb{Z}$, and the third is a polynomial over $\mathbb{C}$.
+它们的次数依次是 $0$, $1$, $2$。前两个是 $\mathbb{Z}$ 上的多项式，第三个是 $\mathbb{C}$ 上的多项式。
 \end{example}
 
 \begin{exercise}
-Write down a polynomial of degree $4$ over $\mathbb{R}$ which is not a polynomial over $\mathbb{Q}$.
+写一个 $\mathbb{R}$ 上的 $4$ 次多项式，且不是 $\mathbb{Q}$ 上的多项式。
 \end{exercise}
 
 \begin{notation}
-Instead of writing out the coefficients of a polynomial each time, we may write something like $p(x)$ or $q(x)$. The `$(x)$' indicates that $x$ is the indeterminate of the polynomial. If $\alpha$ is a number\footnote{When dealing with polynomials, we will typically reserve the letter $x$ for the indeterminate variable, and use the Greek letters $\alpha,\beta,\gamma$ \inlatex{alpha, \textbackslash{}beta, \textbackslash{}gamma} for numbers to be substituted into a polynomial.} and $p(x)$ is a polynomial in indeterminate $x$, we write $p(\alpha)$ for the result of \textbf{substituting} $\alpha$ for $x$ in the expression $p(x)$.
+我们经常用类似 $p(x)$ 或 $q(x)$ 的形式表示多项式，代替写出多项式的系数。`$(x)$' 表示 $x$ 是多项式的不定项。如果 $\alpha$ 是一个数\footnote{在处理多项式时，我们通常会为不定变量保留字母 $x$，并用希腊字母 $\alpha,\beta,\gamma$ \inlatex{alpha, \textbackslash{}beta, \textbackslash {}gamma} 表示代入多项式的数字。}，且 $p(x)$ 是不定项 $x$ 的多项式，那么 $p(\alpha)$ 表示用 $\alpha$ \textbf{代替}表达式 $p(x)$ 中 $x$ 之后的结果。
 \end{notation}
 
-Note that, if $A$ is any of the sets $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ or $\mathbb{C}$, and $p(x)$ is a polynomial over $A$, then $p(\alpha) \in A$ for all $\alpha \in A$.
+请注意，如果 $A$ 是集合 $\mathbb{N}$、$\mathbb{Z}$、$\mathbb{Q}$、$\mathbb{R}$ 或 $\mathbb{C}$ 中的任何一个，且 $p(x)$ 是 $A$ 上的多项式，则对于所有 $\alpha \in A$, $p(\alpha) \in A$。
 
 \begin{example}
-Let $p(x)=x^3-3x^2+3x-1$. Then $p(x)$ is a polynomial over $\mathbb{Z}$ with indeterminate $x$. For any integer $\alpha$, the value $p(\alpha)$ will also be an integer. For example
+设 $p(x)=x^3-3x^2+3x-1$。则 $p(x)$ 是 $\mathbb{Z}$ 上不定项为 $x$ 的多项式。对于任意整数 $\alpha$, $p(\alpha)$ 的值也为整数。例如
 \[ p(0) = 0^3-3 \cdot 0^2 + 3 \cdot 0 - 1 = -1 \quad \text{and} \quad p(3) = 3^3 - 3 \cdot 3^2 + 3 \cdot 3 - 1 = 8 \]
 \end{example}
 
 \begin{definition}
 \label{defRootOfPolynomial}
 \index{root}
-Let $p(x)$ be a polynomial. A \textbf{root} of $p(x)$ is a complex number $\alpha$ such that $p(\alpha)=0$.
+设 $p(x)$ 是一个多项式。$p(x)$ 的\textbf{根}是一个复数 $\alpha$ 满足 $p(\alpha)=0$。
 \end{definition}
 
-The \textit{quadratic formula} (\Cref{thmQuadraticFormula}) tells us that the roots of the polynomial $x^2+ax+b$, where $a,b \in \mathbb{C}$, are precisely the complex numbers
-\[ \frac{-a+\sqrt{a^2-4b}}{2} \quad \text{and} \quad \frac{-a-\sqrt{a^2-4b}}{2} \]
+\textit{二次方程求根公式} (\Cref{thmQuadraticFormula}) 告诉我们多项式 $x^2+ax+b$ 的根，其中 $a,b \in \mathbb{C}$ 都是复数
+\[ \frac{-a+\sqrt{a^2-4b}}{2} \quad \text{和} \quad \frac{-a-\sqrt{a^2-4b}}{2} \]
 
-Note our avoidance of the symbol `$\pm$', which is commonly found in discussions of quadratic polynomials. The symbol `$\pm$' is dangerous because it may suppress the word `and' or the word `or', depending on context---this kind of ambiguity is not something that we will want to deal with when discussing the logical structure of a proposition in \Cref{chLogicalStructure}!
+注意我们避免使用符号`$\pm$'，这在二次多项式的讨论中很常见。符号`$\pm$'是危险的，因为它可能无法根据上下文表达`和'还是`或'---在 \Cref{chLogicalStructure} 中，当我们讨论命题的逻辑结构时，这种歧义是我们希望极力避免的！
 
 \begin{example}
 \label{exApplicationOfQuadraticFormula}
-Let $p(x)=x^2-2x+5$. The quadratic formula tells us that the roots of $p$ are
+设 $p(x)=x^2-2x+5$。二次函数求根公式告诉我们 $p$ 的根为
 \begin{center}
 $\dfrac{2 + \sqrt{4 - 4 \cdot 5}}{2} = 1 + \sqrt{-4} = 1+2i$
-\quad and \quad
+\quad 和 \quad
 $\dfrac{2 - \sqrt{4 - 4 \cdot 5}}{2} = 1-\sqrt{-4} = 1-2i$
 \end{center}
-The numbers $1+2i$ and $1-2i$ are related in that their real parts are equal and their imaginary parts differ only by a sign. \Cref{exComplexNumberAsRootOfQuadraticOverR} generalises this observation.
+$1+2i$ 和 $1-2i$ 的实部相等，虚部仅符号不同。\Cref{exComplexNumberAsRootOfQuadraticOverR} 概括了这一观察结果。
 \end{example}
 
 \begin{exercise}
 \label{exComplexNumberAsRootOfQuadraticOverR}
-Let $\alpha = a+bi$ be a complex number, where $a,b \in \mathbb{R}$. Prove that $\alpha$ is the root of a quadratic polynomial over $\mathbb{R}$, and find the other root of this polynomial.
+设 $\alpha = a+bi$ 是一个复数，其中 $a,b \in \mathbb{R}$。证明 $\alpha$ 是 $\mathbb{R}$ 上某个二次多项式的根，并求出这个多项式的另一个根。
 \end{exercise}
 
-The following exercise proves the well-known result which classifies the number of real roots of a polynomial over $\mathbb{R}$ in terms of its coefficients.
+以下练习证明了一个众所周知的结果，该结果根据 $\mathbb{R}$ 上多项式的系数对实根数量进行分类。
 
 \begin{exercise}
 \label{exDiscriminantRealRoots}
 \index{discriminant}
-Let $a,b \in \mathbb{C}$ and let $p(x)=x^2+ax+b$. The value $\Delta=a^2-4b$ is called the \textbf{discriminant} of $p$. Prove that $p$ has two roots if $\Delta \ne 0$ and one root if $\Delta = 0$. Moreover, if $a,b \in \mathbb{R}$, prove that $p$ has no real roots if $\Delta < 0$, one real root if $\Delta = 0$, and two real roots if $\Delta > 0$.
+设 $a,b \in \mathbb{C}$，设 $p(x)=x^2+ax+b$。$\Delta=a^2-4b$ 的值被称作 $p$ 的\textbf{判别式}。证明当 $\Delta \ne 0$ 时 $p$ 有 2 个根，$\Delta = 0$ 时有 1 个根。进一步证明，如果 $a,b \in \mathbb{R}$，当 $\Delta < 0$ 时 $p$ 没有实数根，当 $\Delta = 0$ 时有一个实数根，当 $\Delta > 0$ 时有两个实数根。
 \end{exercise}
 
 \begin{example}
-Consider the polynomial $x^2-2x+5$. Its discriminant is equal to $(-2)^2-4 \cdot 5 = -16$, which is negative. \Cref{exDiscriminantRealRoots} tells us that it has two roots, neither of which are real. This was verified by \Cref{exApplicationOfQuadraticFormula}, where we found that the roots of $x^2-2x+5$ are $1+2i$ and $1-2i$.
+考虑多项式 $x^2-2x+5$。它的判别式等于 $(-2)^2-4 \cdot 5 = -16$，是个负数。\Cref{exDiscriminantRealRoots} 告诉我们它有 2 个根，且都不是实数根。\Cref{exApplicationOfQuadraticFormula} 验证了这一点，我们发现 $x^2-2x+5$ 的根是 $1+2i$ 和 $1-2i$。
 
-Now consider the polynomial $x^2-2x-3$. Its discriminant is equal to $(-2)^2-4\cdot(-3) = 16$, which is positive. \Cref{exDiscriminantRealRoots} tells us that it has two roots, both of which are real; and indeed
+考虑另一个多项式 $x^2-2x-3$。它的判别式等于 $(-2)^2-4\cdot(-3) = 16$，是个正数。\Cref{exDiscriminantRealRoots} 告诉我们它有 2 个实数根。确实
 \[ x^2-2x-3 = (x+1)(x-3) \]
-so the roots of $x^2-2x-3$ are $-1$ and $3$.
+所以 $x^2-2x-3$ 的根为 $-1$ 和 $3$。
 \end{example}
