@@ -94,8 +94,8 @@
 \renewcommand{\sectionmark}[1]{\markboth{\leftmark}{Section \thesection.\ #1}}
 \renewcommand{\chaptermark}[1]{\markboth{Appendix \thechapter.\ #1}{\rightmark}}
 
-\part*{Appendices}
-\addcontentsline{toc}{part}{Appendices}
+\part*{附录}
+\addcontentsline{toc}{part}{附录}
 
 \input{book/cha-proof-writing/_proof-writing.tex}
 \input{book/chb-miscellany/_miscellany.tex}
@@ -107,21 +107,21 @@
 \backmatter
 
 {%
-\part*{Indices}
-\addcontentsline{toc}{part}{Indices}
+\part*{索引}
+\addcontentsline{toc}{part}{索引}
 
-\renewcommand{\chaptername}{Indices}
+\renewcommand{\chaptername}{索引}
 
-\addcontentsline{toc}{chapter}{Index of topics}
+\addcontentsline{toc}{chapter}{主题索引}
 \printindex
 
-\addcontentsline{toc}{chapter}{Index of vocabulary}
+\addcontentsline{toc}{chapter}{词汇索引}
 \printindex[vocabulary]
 
-\addcontentsline{toc}{chapter}{Index of notation}
+\addcontentsline{toc}{chapter}{符号索引}
 \printindex[notation]
 
-\addcontentsline{toc}{chapter}{Index of \LaTeX{} commands}
+\addcontentsline{toc}{chapter}{\LaTeX{} 命令索引}
 \printindex[latex]%
 }
 
