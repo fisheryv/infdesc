@@ -1,110 +1,110 @@
 % !TeX root = ../../book.tex
-\section{Propositional logic}
+\section{命题逻辑}
 \secbegin{secPropositionalLogic}
 
-Every mathematical proof is written in the context of certain \textit{assumptions} being made, and certain \textit{goals} to be achieved.
+每个数学证明都是在做出某些\textit{假设}和实现某些\textit{目标}的背景下书写的。
 
 \begin{itemize}
-\item \textbf{Assumptions} are the propositions which are known to be true, or which we are assuming to be true for the purposes of proving something. They include theorems that have already been proved, prior knowledge which is assumed of the reader, and assumptions which are explicitly made using words like `suppose' or `assume'.
-\item \textbf{Goals} are the propositions we are trying to prove in order to complete the proof of a result, or perhaps just a step in the proof.
+\item \textbf{假设 } 是已知为真的命题，或我们为了证明某事而假定为真的命题。这即包括已经证明的定理、假定读者已有的先验知识，也包括使用`假设'或`假定'等词明确做出的假设。
+\item \textbf{目标 } 是我们为了完成结果的证明而试图证明的命题，或者可能只是证明中的一个步骤。
 \end{itemize}
 
-With every phrase we write, our assumptions and goals change. This is perhaps best illustrated by example. In \Cref{exAssumptionsGoals} below, we will examine the proof of \Cref{propDivisibilityIsTransitive} in detail, so that we can see how the words we wrote affected the assumptions and goals at each stage in the proof. We will indicate our assumptions and goals at any given stage using tables---the assumptions listed will only be those assumptions which are made explicitly; prior knowledge and previously proved theorems will be left implicit.
+我们的假设和目标都会随着我们写下的短语改变。这也许最好用例子来说明。在下面的 \Cref{exAssumptionsGoals} 中，我们将详细检查 \Cref{propDivisibilityIsTransitive} 的证明，以便我们可以看到我们所写的文字如何影响证明中每个阶段的假设和目标。 我们将在任何给定阶段使用表格表明我们的假设和目标 --- 列出的假设仅是那些明确做出的假设；先验知识和先前证明的定理将被隐含。
+
 
 \begin{example}
 \label{exAssumptionsGoals}
-The statement of \Cref{propDivisibilityIsTransitive} was as follows:
+\Cref{propDivisibilityIsTransitive} 的陈述如下：
 \begin{quote}
-Let $a,b,c \in \mathbb{Z}$. If $c$ divides $b$ and $b$ divides $a$, then $c$ divides $a$.
+设 $a,b,c \in \mathbb{Z}$。如果 $c$ 整除 $b$ 且 $b$ 整除 $a$，那么 $c$ 整除 $a$。
 \end{quote}
-The set-up of the proposition instantly gives us our initial assumptions and goals:
+命题的设置立即给了我们最初的假设和目标：
 \begin{center}
 \begin{tabular}{C{150pt}|C{150pt}}
-\textbf{Assumptions} & \textbf{Goals} \\ \hline
-$a,b,c \in \mathbb{Z}$ & If $c$ divides $b$ and $b$ divides $a$, then $c$ divides $a$
+\textbf{假设} & \textbf{目标} \\ \hline
+$a,b,c \in \mathbb{Z}$ & 如果 $c$ 整除 $b$ 且 $b$ 整除 $a$，那么 $c$ 整除 $a$
 \end{tabular}
 \end{center}
-We will now proceed through the proof, line by line, to see what effect the words we wrote had on the assumptions and goals.
+接下来我们将逐行进行证明，看看我们写的文字对假设和目标有什么影响。
 
-Since our goal was an expression of the form `if\dots{}then\dots{}', it made sense to start by assuming the `if' statement, and using that assumption to prove the `then' statement. As such, the first thing we wrote in our proof was:
+由于我们的目标是 `如果\dots{}那么\dots{}' 形式的表达式，一个合理的想法是从假设 `如果' 语句开始，然后使用该假设来证明`那么' 语句。因此，我们在证明中写的第一句话是：
 \begin{quote}
-Suppose that $c$ divides $b$ and $b$ divides $a$.
+假设 $c$ 整除 $b$ 且 $b$ 整除 $a$。
 \end{quote}
-Our updated assumptions and goals are reflected in the following table.
+更新后的假设和目标如下表。
 \begin{center}
 \begin{tabular}{C{150pt}|C{150pt}}
-\textbf{Assumptions} & \textbf{Goals} \\ \hline
-$a,b,c \in \mathbb{Z}$ & $c$ divides $a$ \\
-$c$ divides $b$ & \\
-$b$ divides $a$ & 
+\textbf{假设} & \textbf{目标} \\ \hline
+$a,b,c \in \mathbb{Z}$ & $c$ 整除 $a$ \\
+$c$ 整除 $b$ & \\
+$b$ 整除 $a$ & 
 \end{tabular}
 \end{center}
 
-Our next step in the proof was to unpack the definitions of `$c$ divides $b$' and `$b$ divides $a$', giving us more to work with.
+我们证明的下一步是给出 `$c$ 整除 $b$' 和 `$b$ 整除 $a$' 的定义，让我们可以更进一步。
 
 \begin{quote}
-{\color{gray} Suppose that $c$ divides $b$ and $b$ divides $a$.} By \Cref{defDivisionPreliminary}, it follows that
+{\color{gray} 假设 $c$ 整除 $b$ 且 $b$ 整除 $a$。} 根据 \Cref{defDivisionPreliminary}，对于某整数 $q$ 和 $r$，可得
 \[
-b=qc \quad \text{and} \quad a=rb
+b=qc \quad \text{且} \quad a=rb
 \]
-for some integers $q$ and $r$.
 \end{quote}
 
-This introduces two new variables $q,r$ and allows us to replace the assumptions `$c$ divides $b$' and `$b$ divides $a$' with their definitions.
+这里引入了两个新变量 $q,r$，并且允许我们用它们的定义替换假设 `$c$ 整除 $b$' 和 `$b$ 整除 $a$'。
 
 \begin{center}
 \begin{tabular}{C{150pt}|C{150pt}}
-\textbf{Assumptions} & \textbf{Goals} \\ \hline
-$a,b,c,q,r \in \mathbb{Z}$ & $c$ divides $a$ \\
+\textbf{假设} & \textbf{目标} \\ \hline
+$a,b,c,q,r \in \mathbb{Z}$ & $c$ 整除 $a$ \\
 $b=qc$ & \\
 $a=rb$ &
 \end{tabular}
 \end{center}
 
-At this point we have pretty much exhausted all of the assumptions we can make, and so our attention turns towards the goal---that is, we must prove that $c$ divides $a$. At this point, it helps to `work backwards' by unpacking the goal: what does it mean for $c$ to divide $a$? Well, by \Cref{defDivisionPreliminary}, we need to prove that $a$ is equal to some integer multiplied by $c$---this will be reflected in the following table of assumptions and goals.
+至此，我们几乎已经用尽了我们可以做出的所有假设，因此我们将注意力转向目标 --- 也就是说，我们必须证明 $c$ 整除 $a$。在这一点上，通过分解目标来`逆向工作'非常有用：$c$ 整除 $a$ 意味着什么？根据 \Cref{defDivisionPreliminary}，我们需要证明 $a$ 等于某个整数乘以 $c$ --- 这将反映在下表的假设和目标中。
 
-Since we are now trying to express $a$ in terms of $c$, it makes sense to use the equations we have relating $a$ with $b$, and $b$ with $c$, to relate $a$ with $c$.
+由于我们现在试图用 $c$ 来表示 $a$，因此可以使用 $a$ 与 $b$ 以及 $b$ 与 $c$ 关联等式来关联 $a$ 与 $c$。
 
 \begin{quote}
-{\color{gray} Suppose that $c$ divides $b$ and $b$ divides $a$. By \Cref{defDivisionPreliminary}, it follows that
+{\color{gray} 假设 $c$ 整除 $b$ 且 $b$ 整除 $a$。根据 \Cref{defDivisionPreliminary}，对于某整数 $q$ 和 $r$，可得
 \[
-b=qc \quad \text{and} \quad a=rb
+b=qc \quad \text{且} \quad a=rb
 \]
-for some integers $q$ and $r$.} Using the first equation, we may substitute $qc$ for $b$ in the second equation, to obtain
+} 使用第一个等式，我们可以用 $qc$ 替换第二个等式中的 $b$，得
 \[
 a=r(qc)
 \]
 \end{quote}
 
-We are now very close, as indicated in the following table.
+我们现在离目标很近了，如下表所示。
 
 \begin{center}
 \begin{tabular}{C{150pt}|C{150pt}}
-\textbf{Assumptions} & \textbf{Goals} \\ \hline
-$a,b,c,q,r \in \mathbb{Z}$ & $a = [\text{some integer}] \cdot c$ \\
+\textbf{假设} & \textbf{目标} \\ \hline
+$a,b,c,q,r \in \mathbb{Z}$ & $a = [\text{某个整数}] \cdot c$ \\
 $b=qc$ & \\
 $a=rb$ & \\
 $a=r(qc)$ & 
 \end{tabular}
 \end{center}
 
-Our final step was to observe that the goal has at last been achieved:
+最后一步是观察目标终于实现了：
 
 \begin{quote}
-{\color{gray} Suppose that $c$ divides $b$ and $b$ divides $a$. By \Cref{defDivisionPreliminary}, it follows that
+{\color{gray} 假设 $c$ 整除 $b$ 且 $b$ 整除 $a$。根据 \Cref{defDivisionPreliminary}，对于某整数 $q$ 和 $r$，可得
 \[
 b=qc \quad \text{and} \quad a=rb
 \]
-for some integers $q$ and $r$. Using the first equation, we may substitute $qc$ for $b$ in the second equation, to obtain}
+使用第一个等式，我们可以用 $qc$ 替换第二个等式中的 $b$，得}
 \[
 {\color{gray} a=r(qc)}
 \]
-But $r(qc) = (rq)c$, and $rq$ is an integer,
+因为 $r(qc) = (rq)c$, 且 $rq$ 为整数，
 \end{quote}
 
 \begin{center}
 \begin{tabular}{C{150pt}|C{150pt}}
-\textbf{Assumptions} & \textbf{Goals} \\ \hline
+\textbf{假设} & \textbf{目标} \\ \hline
 $a,b,c,q,r \in \mathbb{Z}$ &  \\
 $b=qc$ & \\
 $a=rb$ & \\
@@ -114,63 +114,63 @@ $rq \in \mathbb{Z}$ &
 \end{tabular}
 \end{center}
 
-Now that there is nothing left to prove, it is helpful to reiterate that point so that the reader has some closure on the matter.
+至此所有要证明的都证明了，此时重申观点非常有帮助，这样读者就可以对此事有结论性的了解。
 
 \begin{quote}
-{\color{gray} Suppose that $c$ divides $b$ and $b$ divides $a$. By \Cref{defDivisionPreliminary}, it follows that
+{\color{gray} 假设 $c$ 整除 $b$ 且 $b$ 整除 $a$。根据 \Cref{defDivisionPreliminary}，对于某整数 $q$ 和 $r$，可得
 \[
 b=qc \quad \text{and} \quad a=rb
 \]
-for some integers $q$ and $r$. Using the first equation, we may substitute $qc$ for $b$ in the second equation, to obtain
+使用第一个等式，我们可以用 $qc$ 替换第二个等式中的 $b$，得
 \[
 a=r(qc)
 \]
-But $r(qc) = (rq)c$, and $rq$ is an integer,} so it follows from \Cref{defDivisionPreliminary} that $c$ divides $a$.
+因为 $r(qc) = (rq)c$, 且 $rq$ 为整数，} 所以根据 \Cref{defDivisionPreliminary} 得 $c$ 整除 $a$。
 \end{quote}
 \end{example}
 
 \subsection*{Symbolic logic}
 
-Consider again the proposition that we proved in \Cref{propDivisibilityIsTransitive} (for given integers $a,b,c$):
+再次考虑我们在 \Cref{propDivisibilityIsTransitive} 中证明的命题（对于给定整数 $a,b,c$）：
 
 \begin{center}
-If $c$ divides $b$ and $b$ divides $a$, then $c$ divides $a$.
+如果 $c$ 整除 $b$ 且 $b$ 整除 $a$，则 $c$ 整除 $a$。
 \end{center}
 
-The three statements `$c$ divides $b$', `$b$ divides $a$' and `$c$ divides $a$' are all propositions in their own right, despite the fact that they all appear inside a more complex proposition. We can examine the logical structure of the proposition by replacing these simpler propositions with symbols, called \textit{propositional variables}. Writing $P$ to represent `$c$ divides $b$', $Q$ to represent `$b$ divides $a$' and $R$ to represent `$c$ divides $a$', we obtain:
+`$c$ 整除 $b$'、`$b$ 整除 $a$' 和 `$c$ 整除 $a$' 这三个陈述本身就是命题，尽管它们都出现在一个更复杂的命题中。我们可以用符号替换这些更简单的命题来检查命题的逻辑结构，这些符号即所谓的\textit{命题变量}。用 $P$ 表示 `$c$ 整除 $b$'，用 $Q$ 表示 `$b$ 整除 $a$'，用 $R$ 表示 `$c$ 整除 $a$'，我们得到：
 
 \begin{center}
-If $P$ and $Q$, then $R$.
+如果 $P$ 且 $Q$，则 $R$。
 \end{center}
 
-Breaking down the proposition in this way makes it clear that a feasible \textit{assume} $P$ and $Q$, and then \textit{derive} $R$ from these assumptions---this is exactly what we did in the proof, which we examined in great detail in \Cref{exAssumptionsGoals}. But importantly, it suggests that the same proof strategy might work for other propositions which are also of the form `if $P$ and $Q$, then $R$', such as the following proposition (for a given integer $n$):
+用这种方式分解命题可以清楚地看到一个可行的\textit{假设} $P$ 和 $Q$，然后从这些假设中\textit{推导}出 $R$ --- 这正是我们在证明中所做的，在 \Cref{exAssumptionsGoals} 中，我们非常详细地检查了证明。但重要的是，它表明相同的证明策略可能适用于其他形式为 `如果 $P$ 且 $Q$，则 $R$' 的命题，例如以下命题（对于给定整数 $n$ ):
 
 \begin{center}
-If $n > 2$ and $n$ is prime, then $n$ is odd.
+如果 $n > 2$ 且 $n$ 是质数，则 $n$ 是奇数。
 \end{center}
 
-Observe that the simpler propositions are joined together to form a more complex proposition using language, namely the word `and' and the construction `if\dots{} then\dots{}'---we will represent these constructions symbolically using \textit{logical operators}, which will be introduced in \Cref{defLogicalOperator}.
+通过观察可以发现，简单的命题可以通过词语 `且' 和结构 `如果\dots{} 那么\dots{}' 等语言连接在一起，形成更复杂的命题 --- 我们将使用\textit{逻辑运算符}象征性地表示这些结构，这将在 \Cref{defLogicalOperator} 中介绍。
 
-Zooming in even more closely, we can use \Cref{defDivisionPreliminary} to observe that `$c$ divides $b$' really means `$b = qc$ for some $q \in \mathbb{Z}$'. The expression `for some $q \in \mathbb{Z}$' introduces a new variable $q$, which we must deal with appropriately in our proof. Words which we attach to variables in our proofs---such as `any', `exists', `all', `some', `unique' and `only'---will be represented symbolically using \textit{quantifiers}, which we will study in \Cref{secVariablesQuantifiers}.
+进一步放大来看，我们可以使用 \Cref{defDivisionPreliminary} 观察到 `$c$ 整除 $b$' 实际上意味着 `对于某个 $q \in \mathbb{Z}$, $b = qc$'。表达式 `对于某个 $q \in \mathbb{Z}$' 引入了一个新变量 $q$，我们必须在证明中恰当地处理它。 我们在证明中附加到变量上的词 --- 例如：`任意', `存在', `所有', `某个', `仅有' 和 `唯一' --- 将使用\textit{量词}来象征性地表示，我们将在 \Cref{secVariablesQuantifiers} 中学习。
 
-By breaking down a complex proposition into simpler statements which are connected together using logical operators and quantifiers, we can more precisely identify what assumptions we can make at any given stage in a proof of the proposition, and what steps are needed in order to finish the proof.
+通过将一个复杂的命题分解为使用逻辑运算符和量词连接在一起的更简单的陈述，我们可以更加准确地确定，在命题证明的任何给定阶段，我们可以做出哪些假设，以及需要哪些步骤才能完成证明。
 
-\subsection*{Propositional formulae}
+\subsection*{命题公式}
 
-We begin our development of symbolic logic with some definitions to fix our terminology.
+我们从固定术语的定义入手发展符号逻辑。
 
 \begin{definition}
 \label{defPropositionalVariable}
 \index{propositional variable}
 \index{truth value}
-A \textbf{propositional variable} is a symbol that represents a proposition. Propositional variables may be assigned \textbf{truth values} (`true' or `false').
+\textbf{命题变量}是表示命题的符号。命题变量可以赋予\textbf{真值}（`真' 或 `假'）。
 \end{definition}
 
-We will typically use the lower-case letters $p$, $q$, $r$ and $s$ as our propositional variables.
+我们通常使用小写字母 $p$、$q$、$r$ 和 $s$ 表示命题变量。
 
-We will be able to form more complex expressions representing propositions by connecting together simpler ones using \textit{logical operators} such as $\wedge$ (which represents `and'), $\vee$ (which represents `or'), $\Rightarrow$ (which represents `if\dots{}then\dots{}') and $\neg$ (which represents `not').
+通过使用逻辑运算符将更简单的表达式连接在一起，可以形成更复杂命题的表达式，例如$\wedge$（表示 `与'）、$\vee$（表示`或'）、$\Rightarrow$（表示`如果\dots{}那么\dots{}'）和$\neg $（代表`否'）。
 
-The definition of the notions of \textit{logical operator} and \textit{propositional formula} given below is a little bit difficult to digest, so it is best understood by considering examples of propositional formulae and instances of logical operators. Fortunately we will see plenty of these, since they are the central objects of study for the rest of this section.
+下面给出的\textit{逻辑运算符}和\textit{命题公式}的概念定义有点难理解，因此最好结合命题公式和逻辑运算符的例子来理解。幸运的是，我们会看到很多逻辑运算符和命题公式，因为它们是本节的主要研究对象。
 
 \begin{definition}
 \label{defPropositionalFormula}
@@ -178,101 +178,100 @@ The definition of the notions of \textit{logical operator} and \textit{propositi
 \index{logical operator}
 \index{propositional formula}
 \index{subformula}
-A \textbf{propositional formula} is an expression that is either a propositional variable, or is built up from simpler propositional formulae (`subformulae') using a \textbf{\mbox{logical} \mbox{operator}}. In the latter case, the truth value of the propositional formula is determined by the truth values of the subformulae according to the rules of the logical operator.
+\textbf{命题公式}是一个表达式，它要么是一个命题变量，要么是使用 \textbf{\mbox{逻辑} \mbox{运算符}} 从更简单的命题公式（`子公式'）构建的。在后一种情况下，命题公式的真值由子公式的真值根据逻辑运算规则决定。
 \end{definition}
 
-On first sight, \Cref{defPropositionalFormula} seems circular---it defines the term `propositional formula' in terms of propositional formulae! But in fact it is not circular; it is an example of a \textit{recursive} definition (we avoid circularity with the word `simpler'). To illustrate, consider the following example of a propositional formula:
+乍一看，\Cref{defPropositionalFormula} 似乎是循环定义 --- 用命题公式来定义术语`命题公式'！但实际上这不是循环定义；这是一个\textit{递归}定义的例子（我们用 `更简单' 这个词来避免循环）。为了说明这一点，请考虑以下命题公式示例：
 \[
 (p \wedge q) \Rightarrow r
 \]
-This expression represents a proposition of the form `if $p$ and $q$, then $r$', where $p,q,r$ are themselves propositions. It is built from the subformulae $p \wedge q$ and $r$ using the logical operator $\Rightarrow$, and $p \wedge q$ is itself built up from the subformulae $p$ and $q$ using the logical operator $\wedge$.
+这个表达式表示一个形式为 `如果 $p$ 且 $q$，则 $r$' 的命题，其中 $p,q,r$ 本身就是命题。它是使用逻辑运算符 $\Rightarrow$ 从子公式 $p \wedge q$ 和 $r$ 构建的，$p \wedge q$ 本身是使用逻辑运算符 $\wedge$ 从子公式 $p$ 和 $q$ 构建的。
 
-The truth value of $(p \wedge q) \Rightarrow r$ is then determined by the truth values of the constituent propositional variables ($p$, $q$ and $r$) according to the rules for the logical operators $\wedge$ and $\Rightarrow$.
+然后 $(p \wedge q) \Rightarrow r$ 的真值，根据逻辑运算符 $\wedge$ 和 $\Rightarrow$ 的规则，由构成命题的变量（$p$、$q$ 和 $r$）的真值决定。
 
-If this all seems a bit abstract, that is because it \textit{is} abstract, and you are forgiven if it makes no sense to you yet. From this point onwards, we will only study particular instances of logical operators, which will make it all much easier to understand.
+如果这一切看起来有点抽象，那是因为它\textit{就是}抽象。如果你看不懂，这不是你的问题。从现在开始，我们将只研究逻辑运算符的特定实例，这将更容易理解。
 
-\subsubsection*{Conjunction (`and', $\wedge$)}
+\subsubsection*{合取 (`和/且/与', $\wedge$)}
 
-Conjunction is the logical operator which makes precise what we mean when we say `and'.
+合取是逻辑运算符，当我们说 `和/且/与' 时，它可以准确表达我们的意思。
 
 \begin{idefinition}
 \label{defConjunction}
 \index{conjunction}
 \nindex{conjunction}{$\wedge$}{conjunction}
-The \textbf{conjunction} operator is the logical operator $\wedge$ \inlatex{wedge}\lindexmmc{wedge}{$\wedge$}, defined according to the following rules:
+\textbf{合取}运算符是逻辑运算符 $\wedge$ \inlatex{wedge}\lindexmmc{wedge}{$\wedge$}，根据以下规则定义：
 \begin{itemize}
-\item \introrule{\wedge} If $p$ is true and $q$ is true, then $p \wedge q$ is true;
-\item \elimrulesub{\wedge}{1} If $p \wedge q$ is true, then $p$ is true;
-\item \elimrulesub{\wedge}{2} If $p \wedge q$ is true, then $q$ is true.
+\item \introrule{\wedge} 如果 $p$ 为真且 $q$ 为真，则 $p \wedge q$ 为真；
+\item \elimrulesub{\wedge}{1} 如果 $p \wedge q$ 为真，则 $p$ 为真；
+\item \elimrulesub{\wedge}{2} 如果 $p \wedge q$ 为真, 则 $q$ 为真。
 \end{itemize}
-The expression $p \wedge q$ represents `$p$ and $q$'.
+表达式 $p \wedge q$ 表示 `$p$ 且 $q$'。
 \end{idefinition}
 
-It is not always obvious when conjunction is being used; sometimes it sneaks in without the word `and' ever being mentioned! Be on the look-out for occasions like this, such as in the following exercise.
+使用合取时并不总是很明显；有时它会在没有提到 `和/且/与' 这些词的情况下偷偷溜进来！请注意此类情况，例如下面的练习。
 
 \begin{example}
 \label{exSevenDividesTwentyEightConjunction}
-We can express the proposition `$7$ is a prime factor of $28$' in the form $p \wedge q$, by letting $p$ represent the proposition `$7$ is prime' and letting $q$ represent the proposition `$7$ divides $28$'.
+我们可以用 $p \wedge q$ 这种形式表达 `$7$ 是 $28$ 的质因数' 这一命题，让 $p$ 表示命题 `$7$ 是质数'，让 $q$ 表示命题`$7 $ 整除 $28$'。
 \end{example}
 
 \begin{exercise}
 \label{exJohnMathematicianPittsburgh}
-Express the proposition `John is a mathematician who lives in Pittsburgh' in the form $p \wedge q$, for propositions $p$ and $q$.
+用 $p \wedge q$ 的形式表达 `约翰是一位生活在匹兹堡的数学家' 这一命题。
 \end{exercise}
+\Cref{defConjunction} 中的规则是\textit{推理规则}的例子 --- 它们告诉我们如何从其他命题公式的真值中推导（或`推断'）出一个命题公式的真值。特别是，推理规则从不直接告诉我们命题何时为\textit{假} --- 为了证明某事为假，我们将证明其\textit{逆命题}为真（参见 \Cref{defNegation}）。
 
-The rules in \Cref{defConjunction} are examples of \textit{rules of inference}---they tell us how to deduce (or `infer') the truth of one propositional formula from the truth of other propositional formulae. In particular, rules of inference never directly tell us when a proposition is \textit{false}---in order to prove something is false, we will prove its \textit{negation} is true (see \Cref{defNegation}).
-
-Rules of inference tell us how to use the logical structure of propositions in proofs:
+推理规则告诉我们如何在证明中使用命题的逻辑结构：
 
 \begin{itemize}
-\item The rule \introrule{\wedge} is an \textit{introduction rule}, meaning that it tells us how to \textit{prove a goal} of the form $p \wedge q$---indeed, if we want to prove that $p \wedge q$ is true, \introrule{\wedge} tells us that it suffices to prove that $p$ is true and prove that $q$ is true.
+\item 规则 \introrule{\wedge} 是一个引入规则，这意味着它告诉我们如何\textit{证明} $p \wedge q$ --- 事实上，如果我们想要证明 $p \wedge q$ 为真，\introrule{\wedge} 告诉我们只要证明 $p$ 为真并且 $q$ 为真就够了。
 
-\item The rules \elimrulesub{\wedge}{1} and \elimrulesub{\wedge}{2} are \textit{elimination rules}, meaning that they tell us how to \textit{use an assumption} of the form $p \wedge q$---indeed, if we are assuming that $p \wedge q$ is true, we are then free to use the fact that $p$ is true and the fact that $q$ is true.
+\item 规则 \elimrulesub{\wedge}{1} 和 \elimrulesub{\wedge}{2} 是消除规则，这意味着它们告诉我们如何使用 $p \wedge q$ 形式的假设 --- 实际上，如果我们假设 $p \wedge q$ 为真，然后我们可以自由使用 $p$ 为真和 $q$ 为真的事实。
 \end{itemize}
 
-Each logical operator will come equipped with some introduction and/or elimination rules, which tell us how to prove goals or use assumptions which include the logical operator in question. It is in this way that the logical structure of a proposition informs \textit{proof strategies}, like the following:
+每个逻辑运算符都会配备一些引入和/或消除规则，这些规则告诉我们如何证明目标或如何使用包含在逻辑运算符中的假设。正是通过这种方式，命题的逻辑结构为\textit{证明策略}提供了信息，如下所示：
 
-\begin{strategy}[Proving conjunctions]
+\begin{strategy}[合取证明]
 \label{strProvingConjunctionsDirect}
-A proof of the proposition $p \wedge q$ can be obtained by tying together two proofs, one being a proof that $p$ is true and one being a proof that $q$ is true.
+命题 $p \wedge q$ 的证明可以通过将两个证明结合在一起获得，一个证明 $p$ 为真，另一个证明 $q$ 为真。
 \end{strategy}
 
 \begin{example}
 \label{exSevenDividesTwentyEightConjunctionProof}
-Suppose we are required to prove that $7$ is a prime factor of $28$. In \Cref{exSevenDividesTwentyEightConjunction} we expressed `$7$ is a prime factor of $28$' as the conjunction of the propositions `$7$ is prime' and `$7$ divides $28$', and so \Cref{strProvingConjunctionsDirect} breaks down the proof into two steps: first prove that $7$ is prime, and then prove that $7$ divides $28$.
+假设我们需要证明 $7$ 是 $28$ 的质因数。在 \Cref{exSevenDividesTwentyEightConjunction} 中，我们将 `$7$ 是 $28$ 的质因数' 表达为命题 `$7$ 是质数' 和 `$7$ 除 $28$' 的合取，因此 \Cref{strProvingConjunctionsDirect} 将证明分为两步：先证明 $7$ 是素数，再证明 $7$ 能整除 $28$。
 \end{example}
 
-Much like \Cref{strProvingConjunctionsDirect} was informed by the introduction rule for $\wedge$, the elimination rules inform how we may make use of an assumption involving a conjunction.
+就像 \Cref{strProvingConjunctionsDirect} 被 $\wedge$ 的引入规则告知一样，消除规则告诉我们如何使用涉及合取的假设。
 
-\begin{strategy}[Assuming conjunctions]
+\begin{strategy}[合取假设]
 \label{strAssumingConjunctionsDirect}
-If an assumption in a proof has the form $p \wedge q$, then we may assume $p$ and assume $q$ in the proof.
+如果证明中的假设具有 $p \wedge q$ 的形式，那么我们可以在证明中假设 $p$ 和假设 $q$。
 \end{strategy}
 
 \begin{example}
 \label{exSevenDividesTwentyEightConjunctionAssumption}
-Suppose that, somewhere in the process of proving a proposition, we arrive at the fact that $7$ is a prime factor of $28$. \Cref{strAssumingConjunctionsDirect} then allows us to use the separate facts that $7$ is prime and that $7$ divides $28$.
+假设在证明命题的过程中，我们得出这样的事实：$7$ 是 $28$ 的质因数。则 \Cref{strAssumingConjunctionsDirect} 允许我们使用 $7$ 是质数和 $7$ 整除 $28$ 这两个单独的事实。
 \end{example}
 
-\Cref{strProvingConjunctionsDirect,strAssumingConjunctionsDirect} seem almost \textit{obvious}. To an extent they are obvious, and that is why we are stating them first. But the real reason we are going through the process of precisely defining logical operators, their introduction and elimination rules, and the corresponding proof strategies, is that when you are in the middle of the proof of a complicated result, it is all too easy to lose track of what you have already proved and what remains to be proved. Keeping track of the assumptions and goals in a proof, and understanding what must be done in order to complete the proof, is a difficult task.
+\Cref{strProvingConjunctionsDirect,strAssumingConjunctionsDirect} 看上去非常\textit{明显}。某种程度上它们是显而易见的，这就是我们首先介绍它们的原因。但我们精确定义逻辑运算符和它们的引入规则与消除规则以及相应的证明策略的真正原因是，当你在证明一个复杂的结果时，很容易忘记你已经证明的和还有待证明的。跟踪证明中的假设和目标，并理解为了完成证明必须做什么，是一项艰巨的任务。
 
-To avoid drawing this process out too long, we need a compact way of expressing rules of inference that allows us to simply read off corresponding proof strategies. We \textit{could} use tables of assumptions and goals like in \Cref{exAssumptionsGoals}, but this quickly becomes clunky---indeed, even the very simple conjunction introduction rule \introrule{\wedge} doesn't look very nice in this format:
+为了避免把这个过程拉得太长，我们需要一种简洁的方式来表达推理规则，让我们能够轻而易举地读出相应的证明策略。我们可以像 \Cref{exAssumptionsGoals} 那样使用假设和目标表，但这很快就会变得笨拙 --- 事实上，即使是非常简单的合取引入规则 \introrule{\wedge} 在这种格式下看起来也不是很好：
 
 \begin{center}
 \begin{tabular}{C{60pt}|C{60pt}}
-{\small \textbf{Assumptions}} & {\small \textbf{Goals}} \\ \hline
+{\small \textbf{假设}} & {\small \textbf{目标}} \\ \hline
 $\vdots$ & $p \wedge q$ \\
 $\vdots$ & ~
 \end{tabular}
 $\quad \leadsto \quad$
 \begin{tabular}{C{60pt}|C{60pt}}
-{\small \textbf{Assumptions}} & \small{\textbf{Goals}} \\ \hline
+{\small \textbf{假设}} & \small{\textbf{目标}} \\ \hline
 $\vdots$ & $p$ \\
 $\vdots$ & $q$
 \end{tabular}
 \end{center}
 
-Instead, we will represent rules of inference in the style of \textit{natural deduction}. In this style, we write the \textit{premises} $p_1,p_2,\dots,p_k$ of a rule above a line, with a single \textit{conclusion} $q$ below the line, representing the assertion that the truth of a proposition $q$ follows from the truth of (all of) the premises $p_1,p_2,\dots,p_k$.
+相反，我们将以\textit{自然演绎}的方式表示推理规则。在这种风格中，我们将规则的\textit{前提} $p_1,p_2,\dots,p_k$ 写在一条线的上方，在线的下方有一个\textit{结论} $q$，表示断言命题 $q$ 的真实性来自 （所有）前提 $p_1,p_2,\dots,p_k$ 的真实性。
 
 \begin{center}
 \begin{prooftree}
@@ -284,7 +283,7 @@ Instead, we will represent rules of inference in the style of \textit{natural de
 \end{prooftree}
 \end{center}
 
-For instance, the introduction and elimination rules for conjunction can be expressed concisely follows:
+例如，合取的引入和排除规则可以简明地表示如下：
 
 \begin{center}
 \begin{minipage}{0.15\textwidth}
@@ -320,7 +319,7 @@ For instance, the introduction and elimination rules for conjunction can be expr
 \end{minipage}
 \end{center}
 
-In addition to its clean and compact nature, this way of writing rules of inference is useful because we can combine them into \textit{proof trees} in order to see how to prove more complicated propositions. For example, consider the following proof tree, which combines two instances of the conjunction introduction rule.
+除了简洁紧凑外，这种编写推理规则的方式还很有用，因为我们可以将它们组合成\textit{证明树}，以便了解如何证明更复杂的命题。例如，考虑下面的证明树，它结合了合取引入规则的两个实例。
 
 \begin{center}
 \begin{prooftree}
@@ -332,13 +331,13 @@ In addition to its clean and compact nature, this way of writing rules of infere
 \end{prooftree}
 \end{center}
 
-From this proof tree, we obtain a strategy for proving a proposition of the form $(p \wedge q) \wedge r$. Namely, first prove $p$ and prove $q$, to conclude $p \wedge q$; and then prove $r$, to conclude $(p \wedge q) \wedge r$. This illustrates that the logical structure of a proposition informs how we may structure a proof of the proposition.
+从这个证明树中，我们获得了一个证明形式为 $(p \wedge q) \wedge r$ 的命题的策略。即先证明 $p$ 再证明 $q$，得出$p\wedge q$；然后证明 $r$，得出 $(p \wedge q) \wedge r$。这反映出命题的逻辑结构告诉我们如何构建命题的证明。
 
 \begin{exercise}
-Write a proof tree whose conclusion is the propositional formula $(p \wedge q) \wedge (r \wedge s)$, where $p,q,r,s$ are propositional variables. Express `$2$ is an even prime number and $3$ is an odd prime number' in the form $(p \wedge q) \wedge (r \wedge s)$, for appropriate propositions $p$, $q$, $r$ and $s$, and describe how your proof tree suggests what a proof might look like.
+画一个证明树，其结论是命题公式 $(p \wedge q) \wedge (r \wedge s)$，其中 $p,q,r,s$ 是命题变量。用适当的命题 $p$, $q$, $ r$ 和 $s$，以 $(p \wedge q) \wedge (r \wedge s)$ 的形式表达 `$2$ 是偶素数，$3$ 是奇素数'，并描述你的证明树如何暗示证明可能的样子。
 \end{exercise}
 
-\subsubsection*{Disjunction (`or', $\vee$)}
+\subsubsection*{析取 (`或', $\vee$)}
 
 \begin{idefinition}
 \label{defDisjunction}
