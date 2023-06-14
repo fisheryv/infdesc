@@ -129,7 +129,7 @@ a=r(qc)
 \end{quote}
 \end{example}
 
-\subsection*{Symbolic logic}
+\subsection*{符号逻辑}
 
 再次考虑我们在 \Cref{propDivisibilityIsTransitive} 中证明的命题（对于给定整数 $a,b,c$）：
 
@@ -143,7 +143,7 @@ a=r(qc)
 如果 $P$ 且 $Q$，则 $R$。
 \end{center}
 
-用这种方式分解命题可以清楚地看到一个可行的\textit{假设} $P$ 和 $Q$，然后从这些假设中\textit{推导}出 $R$ --- 这正是我们在证明中所做的，在 \Cref{exAssumptionsGoals} 中，我们非常详细地检查了证明。但重要的是，它表明相同的证明策略可能适用于其他形式为 `如果 $P$ 且 $Q$，则 $R$' 的命题，例如以下命题（对于给定整数 $n$ ):
+用这种方式分解命题可以清楚地看到一个可行的\textit{假设} $P$ 和 $Q$，然后从这些假设中\textit{推导}出 $R$ --- 这正是我们在证明中所做的，在 \Cref{exAssumptionsGoals} 中，我们非常详细地检查了证明。但重要的是，它表明相同的证明策略可能适用于其他形式为 `如果 $P$ 且 $Q$，则 $R$' 的命题，例如以下命题（对于给定整数 $n$):
 
 \begin{center}
 如果 $n > 2$ 且 $n$ 是质数，则 $n$ 是奇数。
@@ -343,16 +343,16 @@ $\vdots$ & $q$
 \label{defDisjunction}
 \index{disjunction}
 \nindex{disjunction}{$\vee$}{disjunction}
-The \textbf{disjunction} operator is the logical operator $\vee$ \inlatex{vee}\lindexmmc{vee}{$\vee$}, defined according to the following rules:
+析取运算符是逻辑运算符 $\vee$ \inlatex{vee}\lindexmmc{vee}{$\vee$}，根据以下规则定义：
 \begin{itemize}
-\item \introrulesub{\vee}{1} If $p$ is true, then $p \vee q$ is true;
-\item \introrulesub{\vee}{2} If $q$ is true, then $p \vee q$ is true;
-\item \elimrule{\vee} If $p \vee q$ is true, and if $r$ can be derived from $p$ and from $q$, then $r$ is true.
+\item \introrulesub{\vee}{1} 如果 $p$ 为真，则 $p \vee q$ 为真；
+\item \introrulesub{\vee}{2} 如果 $q$ 为真，则 $p \vee q$ 为真；
+\item \elimrule{\vee} 如果 $p \vee q$ 为真，且如果 $r$ 可以从 $p$ 和 $q$ 派生，则 $r$ 为真。
 \end{itemize}
-The expression $p \vee q$ represents `$p$ or $q$'.
+表达式 $p \vee q$ 表示 `$p$ 或 $q$'。
 \end{idefinition}
 
-The introduction and elimination rules for disjunction are represented diagramatically as follows.
+析取的引入和消除规则用图解表示如下。
 
 \begin{center}
 \begin{minipage}[b]{0.15\textwidth}
@@ -396,26 +396,26 @@ The introduction and elimination rules for disjunction are represented diagramat
 \end{minipage}
 \end{center}
 
-We will discuss what the notation $[p] \leadsto r$ and $[q] \leadsto r$ means momentarily. First, we zoom in on how the disjunction introduction rules inform proofs of propositions of the form `$p$ or $q$'.
+我们简短地讨论一下符号 $[p] \leadsto r$ 和 $[q] \leadsto r$ 的含义。首先，我们着重看一下析取引入规则如何为 `$p$ 或 $q$' 形式的命题提供证据。
 
-\begin{strategy}[Proving disjunctions]
+
+\begin{strategy}[析取证明]
 \label{strProvingDisjunctionsDirect}
-In order to prove a proposition of the form $p \vee q$, it suffices to prove just one of $p$ or $q$.
+为了证明形式为 $p \vee q$ 的命题，只需证明 $p$ 或 $q$ 中的一个即可。
 \end{strategy}
 
 \begin{example}
-Suppose we want prove that $8192$ is not divisible by $3$. We know by the division theorem (\Cref{thmDivisionPreliminary}) that an integer is not divisible by $3$ if and only if it leaves a remainder of $1$ or $2$ when divided by $3$, and so it suffices to prove the following:
+假设我们要证明 $8192$ 不能被 $3$ 整除。根据除法定理 (\Cref{thmDivisionPreliminary}) 可知，一个整数不能被 $3$ 整除当且仅当除以 $3$ 时余数为 $1$ 或 $2$，因此可以得到
 \[
-\begin{matrix} 8192 \text{ leaves a remainder of } 1 \\ \text{when divided by } 3 \end{matrix}
+\begin{matrix} 8192 \text{除以} 3 \\ \text{余数为} 1 \end{matrix}
 \quad \vee \quad
-\begin{matrix} 8192 \text{ leaves a remainder of } 2 \\
-\text{when divided by } 3 \end{matrix}
+\begin{matrix} 8192 \text{除以} 3 \\ \text{余数为} 2 \end{matrix}
 \]
-A quick computation reveals that $8192 = 2730 \times 3 + 2$, so that $8192$ leaves a remainder of $2$ when divided by $3$. By \Cref{strProvingDisjunctionsDirect}, the proof is now complete, since the full disjunction follows by \introrulesub{\vee}{2}.
+快速计算可得 $8192 = 2730 \times 3 + 2$，因此 $8192$ 除以 $3$ 余 $2$。根据 \Cref{strProvingDisjunctionsDirect}，证明已经完成，因为完全析取遵循 \introrulesub{\vee}{2}。
 \end{example}
 
 \begin{example}
-Let $p,q,r,s$ be propositional variables. The propositional formula $(p \vee q) \wedge (r \vee s)$ represents `$p$ or $q$, and $r$ or $s$'. What follows are two examples of truth trees for this propositional formula.
+设 $p,q,r,s$ 为命题变量。命题公式 $(p \vee q) \wedge (r \vee s)$ 表示 `$p$ 或 $q$，且 $r$ 或 $s$'。下面是这个命题公式真值树的两个例子。
 
 \begin{center}
 \begin{minipage}{0.3\textwidth}
@@ -449,20 +449,20 @@ Let $p,q,r,s$ be propositional variables. The propositional formula $(p \vee q) 
 \end{minipage}
 \end{center}
 
-The proof tree on the left suggests the following proof strategy for $(p \vee q) \wedge (r \vee s)$. First prove $p$, and deduce $p \vee q$; then prove $r$, and deduce $r \vee s$; and finally deduce $(p \vee q) \wedge (r \vee s)$. The proof tree on the right suggests a different strategy, where $p \vee q$ is deduced by proving $q$ instead of $p$, and $r \vee s$ is deduced by proving $s$ instead of $r$.
+左侧的证明树给出 $(p \vee q) \wedge (r \vee s)$ 的以下证明策略。先证明$p$，推导出$p \vee q$；然后证明 $r$，并推导出 $r \vee s$；最后推导出 $(p \vee q) \wedge (r \vee s)$。右侧的证明树给出了一种不同的策略，其中 $p \vee q$ 是通过证明 $q$ 而不是 $p$ 推导出来的，而 $r \vee s$ 是通过证明 $s$ 而不是 $r$ 推导出来的。
 
-Selecting which (if any) of these to use in a proof might depend on what we are trying to prove. For example, for a fixed natural number $n$, let $p$ represent `$n$ is even', let $q$ represent `$n$ is odd', let $r$ represent `$n \ge 2$' and let $s$ represent `$n$ is a perfect square'. Proving $(p \vee q) \wedge (r \vee s)$ when $n=2$ would be most easily done using the left-hand proof tree above, since $p$ and $r$ are evidently true when $n=2$. However, the second proof tree would be more appropriate for proving $(p \vee q) \wedge (r \vee s)$ when $n=1$.
+选择其中的哪个（如果有的话）用于证明可能取决于我们试图证明什么。 例如，对于一个固定自然数 $n$，令 $p$ 表示 `$n$ 为偶数'，令 $q$ 表示 `$n$ 为奇数'，令 $r$ 表示 `$n\ge 2$' 并让 $s$ 表示 `$n$ 是一个完全'。当 $n=2$ 时，使用上面左侧的证明树证明 $(p \vee q) \wedge (r \vee s)$ 最容易，因为 $p$ 和 $r$ 在 $n=2$ 时显然为真。但是，当 $n=1$ 时，右侧证明树更适合证明 $(p \vee q) \wedge (r \vee s)$。
 \end{example}
 
 \begin{aside}
-If you haven't already mixed up $\wedge$ and $\vee$, you probably will soon, so here's a way of remembering which is which:
+如果你还没有搞混 $\wedge$ 和 $\vee$，那么你可能很快就会搞混，所以下面介绍一种记住哪个是哪个的方法：
 \begin{center} \vspace{-10pt} \large \textbf{fish n chips} \end{center}
-\vspace{-10pt} If you forget whether it's $\wedge$ or $\vee$ that means `and', just write it in place of the `n' in `fish n chips':
+\vspace{-10pt} 如果你忘了是 $\wedge$ 表示`和'还是 $\vee$ 表示`和'，只需将它写在 `fish n chips' 中 `n' 的位置：
 \begin{center} \vspace{-10pt} fish $\wedge$ chips \qquad \qquad fish $\vee$ chips \end{center}
-\vspace{-10pt} Clearly the first looks more correct, so $\wedge$ means `and'. If you don't eat fish (or chips), then worry not, as this mnemonic can be modified to accommodate a wide variety of dietary restrictions; for instance `mac n cheese' or `quinoa n kale' or, for the meat lovers, `ribs n brisket'.
+\vspace{-10pt} 本明显第一个看起来更正确，所以 $\wedge$ 表示`和'。如果你不吃炸鱼（或薯条），请不要担心，可以修改此助记符来适配各种饮食限制；例如 `mac n cheese' 或 `quinoa n kale'，肉食爱好者可以用 `ribs n brisket'，音乐爱好者可以用 `rock n roll'。
 \end{aside}
 
-Recall the diagrammatic statement of the disjunction elimination rule:
+回想一下析取消除规则的图解陈述：
 
 \begin{center}
 \begin{prooftree}
@@ -482,99 +482,99 @@ Recall the diagrammatic statement of the disjunction elimination rule:
 \end{prooftree}
 \end{center}
 
-The curious notation $[p] \leadsto r$ indicates that $p$ is a \textit{temporary assumption}. In the part of the proof corresponding to $[p] \leadsto r$, we would assume that $p$ is true and derive $r$ from that assumption, and remove the assumption that $p$ is true from that point onwards. Likewise for $[q] \leadsto r$.
+奇异符号 $[p] \leadsto r$ 表示 $p$ 是一个\textit{临时假设}。在对应于 $[p] \leadsto r$ 的证明部分，我们假设 $p$ 为真并从该假设推导出 $r$，并从该点开始移除 $p$ 为真的假设。$[q] \leadsto r$ 也是如此。
 
-The proof strategy obtained from the disjunction elimination rule is called \textit{proof by cases}.
+从析取排除规则得到的证明策略称为\textit{用例证明}。
 
-\begin{strategy}[Assuming disjunctions---proof by cases]
+\begin{strategy}[析取假设 --- 用例证明]
 \label{strAssumingDisjunctionsDirect}
 \index{proof!by cases}
-If an assumption in a proof has the form $p \vee q$, then we may derive a proposition $r$ by splitting into two cases: first, derive $r$ from the temporary assumption that $p$ is true, and then derive $r$ from the assumption that $q$ is true.
+如果证明中的假设具有 $p \vee q$ 的形式，那么我们可以分为两种情况来推导命题 $r$：首先，从 $p$ 为真的临时假设推导出 $r$，然后从 $q$ 为真的假设推导出 $r$。
 \end{strategy}
 
-The following example illustrates how \Cref{strProvingDisjunctionsDirect,strAssumingDisjunctionsDirect} can be used together in a proof.
+以下示例展示了如何在证明中联合使用 \Cref{strProvingDisjunctionsDirect,strAssumingDisjunctionsDirect}。
 
 \begin{example}
 \label{exPositiveProperFactorOfFourEvenOrPerfectSquare}
-Let $n$ be a positive proper factor of $4$, and suppose we want to prove that $n$ is either even or a perfect square.
+设 $n$ 是 $4$ 的正真因子，假设我们要证明 $n$ 要么是偶数要么是完全平方数。
 \begin{itemize}
-\item Our assumption that $n$ is a positive proper factor of $4$ can be expressed as the disjunction $n = 1 \vee n = 2$.
-\item Our goal is to prove the disjunction `$n \text{ is even} \vee n \text{ is a perfect square}$'.
+\item 我们假设 $n$ 是 $4$ 的正真因子，可以表示为析取表达式 $n = 1 \vee n = 2$。
+\item 我们的目标是证明析取表达式 `$n 是一个\text{偶数} \vee n 是一个\text{完全平方数} $'。
 \end{itemize}
 
-According to \Cref{strAssumingDisjunctionsDirect}, we split into two cases, one in which $n=1$ and one in which $n=2$. In each case, we must derive `$n \text{ is even} \vee n \text{ is a perfect square}$', for which it suffices by \Cref{strProvingDisjunctionsDirect} to derive either that $n$ is even or that $n$ is a perfect square. Thus a proof might look something like this:
+根据 \Cref{strAssumingDisjunctionsDirect}，我们分为两种情况，一种是 $n=1$，另一种是 $n=2$。在每种情况下，我们都必须推导出 `$n 是一个\text{偶数} \vee n 是一个\text{完全平方数} $'，为此通过 \Cref{strProvingDisjunctionsDirect} 即可推导出 $n$ 是偶数或 $n$ 是完全平方数。因此，可以这样证明：
 
 \begin{quote}
-Since $n$ is a positive proper factor of $4$, either $n=1$ or $n=2$.
+因为 $n$ 是 $4$ 的正真因子, 所以要么 $n=1$ 要么 $n=2$。
 \begin{itemize}
-\item \textbf{Case 1.} Suppose $n=1$. Then since $1^2=1$ we have $n = 1^2$, so that $n$ is a perfect square.
-\item \textbf{Case 2.} Suppose $n=2$. Then since $2 = 2 \times 1$, we have that $n$ is even.
+\item \textbf{Case 1.} 假设 $n=1$。因为 $1^2=1$ 我们得到 $n = 1^2$，所以 $n$ 是完全平方数。
+\item \textbf{Case 2.} 假设 $n=2$。因为 $2 = 2 \times 1$，所以 $n$ 偶数。
 \end{itemize}
-Hence $n$ is either even or a perfect square. \qed
+因此 $n$ 要么是偶数要么是完全平方数。 \qed
 \end{quote}
 
-Notice that in both Case 1 and Case 2, we did not explicitly mention that we had proved that `$n \text{ is even} \vee n \text{ is a perfect square}$', leaving that deduction to the reader---we only mentioned it after the proofs in each case were complete.
+请注意，在情况 1 和情况 2 中，我们都没有明确提到我们已经证明了 `$n \text{是偶数} \vee n \text{是完全平方数} $'，将推论留给读者 --- 我们只是说每种情况的证据都是完整的。
 \end{example}
 
-The proof of \Cref{propRemainderOfSquaresModulo3} below splits into \textit{three} cases, rather than just two.
+下面 \Cref{propRemainderOfSquaresModulo3} 的证明分为 \textit{三种} 情况，而不仅仅是两种。
 
 \begin{proposition}
 \label{propRemainderOfSquaresModulo3}
-Let $n \in \mathbb{Z}$. Then $n^2$ leaves a remainder of $0$ or $1$ when divided by $3$.
+设 $n \in \mathbb{Z}$。则 $n^2$ 除以 $3$ 余数为 $0$ 或 $1$。
 \end{proposition}
 
 \begin{cproof}
-Let $n \in \mathbb{Z}$. By the division theorem (\Cref{thmDivisionPreliminary}), one of the following must be true for some $k \in \mathbb{Z}$:
+设 $n \in \mathbb{Z}$。根据除法定理（\Cref{thmDivisionPreliminary}），对于某个 $k \in \mathbb{Z}$，下面结论必有一个为真：
 \[
-n=3k \quad \text{or} \quad n=3k+1 \quad \text{or} \quad n=3k+2
+n=3k \quad \text{或} \quad n=3k+1 \quad \text{或} \quad n=3k+2
 \]
 \begin{itemize}
-\item Suppose $n=3k$. Then
+\item 假设 $n=3k$。那么
 \[
 n^2 = (3k)^2 = 9k^2 = 3 \cdot (3k^2)
 \]
-So $n^2$ leaves a remainder of $0$ when divided by $3$.
-\item Suppose $n=3k+1$. Then
+所以 $n^2$ 除以 $3$ 余数为 $0$。
+\item 假设 $n=3k+1$。那么
 \[
 n^2 = (3k+1)^2 = 9k^2+6k+1 = 3(3k^2+2k)+1
 \]
-So $n^2$ leaves a remainder of $1$ when divided by $3$.
-\item Suppose $n=3k+2$. Then
+所以 $n^2$ 除以 $3$ 余数为 $1$。
+\item 假设 $n=3k+2$。那么
 \[
 n^2 = (3k+2)^2 = 9k^2+12k+4 = 3(3k^2+4k+1)+1
 \]
-So $n^2$ leaves a remainder of $1$ when divided by $3$.
+所以 $n^2$ 除以 $3$ 余数为 $1$。
 \end{itemize}
-In all cases, $n^2$ leaves a remainder of $0$ or $1$ when divided by $3$.
+综上，$n^2$ 除以 $3$ 的余数为 $0$ 或 $1$。
 \end{cproof}
 
-Note that in the proof of \Cref{propRemainderOfSquaresModulo3}, unlike in \Cref{exPositiveProperFactorOfFourEvenOrPerfectSquare}, we did not explictly use the word `case', even though we were using proof by cases. Whether or not to make your proof strategies explicit is up to you---discussion of this kind of matter can be found in \Cref{secVocabulary}.
+请注意，\Cref{propRemainderOfSquaresModulo3} 的证明与 \Cref{exPositiveProperFactorOfFourEvenOrPerfectSquare} 不同，尽管我们使用了用例证明，但我们没有明确使用 `情况' 一词。是否明确证明策略因人而异 --- 关于此类问题的讨论可以在 \Cref{secVocabulary} 中找到。
 
-When completing the following exercises, try to keep track of exactly where you use the introduction and elimination rules that we have seen so far.
+完成以下练习时，请尝试准确记录你在何处使用了我们目前所见的引入和消除规则。
 
 \begin{exercise}
-Let $n$ be an integer. Prove that $n^2$ leaves a remainder of $0$, $1$ or $4$ when divided by $5$.
-\hintlabel{exSquareRemainderModuloFive}{f
-Mimic the proof of \Cref{propRemainderOfSquaresModulo3}.
+设 $n$ 是一个整数。证明 $n^2$ 除以 $5$ 余数为 $0$, $1$ 或 $4$。
+\hintlabel{exSquareRemainderModuloFive}{
+参考 \Cref{propRemainderOfSquaresModulo3} 的证明。
 }
 \end{exercise}
 
 \begin{exercise}
-Let $a,b \in \mathbb{R}$ and suppose $a^2-4b \ne 0$. Let $\alpha$ and $\beta$ be the (distinct) roots of the polyonomial $x^2+ax+b$. Prove that there is a real number $c$ such that either $\alpha-\beta = c$ or $\alpha - \beta = ci$.
+设 $a,b \in \mathbb{R}$ 并假设 $a^2-4b \ne 0$。 设 $\alpha$ 和 $\beta$ 是多项式 $x^2+ax+b$ 的两个（不同的）根。证明存在实数 $c$ 使得 $\alpha-\beta = c$ 或 $\alpha - \beta = ci$。
 \end{exercise}
 
-\subsubsection*{Implication (`if\dots{}then\dots{}', $\Rightarrow$)}
+\subsubsection*{蕴涵 (`如果\dots{}那么\dots{}', $\Rightarrow$)}
 
 \begin{definition}
 \label{defImplication}
 \index{implication}
 \nindex{implies}{$\Rightarrow$}{implication}
-The \textbf{implication} operator is the logical operator $\Rightarrow$ \inlatex{Rightarrow}\lindexmmc{Rightarrow}{$\Rightarrow$}, defined according to the following rules:
+蕴涵运算符是逻辑运算符 $\Rightarrow$ \inlatex{Rightarrow}\lindexmmc{Rightarrow}{$\Rightarrow$}，根据以下规则定义：
 \begin{itemize}
-\item \introrule{\Rightarrow} If $q$ can be derived from the assumption that $p$ is true, then $p \Rightarrow q$ is true;
-\item \elimrule{\Rightarrow} If $p \Rightarrow q$ is true and $p$ is true, then $q$ is true.
+\item \introrule{\Rightarrow} 如果 $q$ 可以从 $p$ 为真的假设中推导出来，那么 $p \Rightarrow q$ 为真；
+\item \elimrule{\Rightarrow} 如果 $p \Rightarrow q$ 为真且 $p$ 为真，则 $q$ 为真。
 \end{itemize}
-The expression $p \Rightarrow q$ represents `if $p$, then $q$'.
+表达式 $p \Rightarrow q$ 表示 `如果 $p$，那么 $q$'。
 \end{definition}
 
 \begin{center}
@@ -602,256 +602,254 @@ The expression $p \Rightarrow q$ represents `if $p$, then $q$'.
 \end{minipage}
 \end{center}
 
-\begin{strategy}[Proving implications]
+\begin{strategy}[蕴涵证明]
 \label{strProvingImplicationsDirect}
-In order to prove a proposition of the form $p \Rightarrow q$, it suffices to assume that $p$ is true, and then derive $q$ from that assumption.
+为了证明 $p \Rightarrow q$ 形式的命题，只需假设 $p$ 为真，然后从该假设中推导出 $q$ 即可。
 \end{strategy}
 
-The following proposition illustrates how \Cref{strProvingImplicationsDirect} can be used in a proof.
+下面的命题演示了如何在证明中使用 \Cref{strProvingImplicationsDirect}。
 
 \begin{proposition}
 \label{propRationalTwoOfThree}
-Let $x$ and $y$ be real numbers. If $x$ and $x+y$ are rational, then $y$ is rational.
+设 $x$ 和 $y$ 为实数。 如果 $x$ 和 $x+y$ 是有理数，则 $y$ 也是有理数。
 \end{proposition}
 
 \begin{cproof}
-Suppose $x$ and $x+y$ are rational. Then there exist integers $a,b,c,d$ with $b,d \ne 0$ such that
+假设 $x$ 和 $x+y$ 是有理数。则存在整数 $a,b,c,d$ 且 $b,d \ne 0$ 使得
 \[
 x = \frac{a}{b} \quad \text{and} \quad x+y = \frac{c}{d}
 \]
-It then follows that
+由此可得
 \[
 y = (x+y)-x = \frac{c}{d}-\frac{a}{b} = \frac{bc-ad}{bd}
 \]
-Since $bc-ad$ and $bd$ are integers, and $bd \ne 0$, it follows that $y$ is rational.
+因为 $bc-ad$ 和 $bd$ 是整数，且 $bd \ne 0$，由此可得 $y$ 是有理数。
 \end{cproof}
 
-The key phrase in the above proof was `Suppose $x$ and $x+y$ are rational.' This introduced the assumptions $x \in \mathbb{Q}$ and $x+y \in \mathbb{Q}$, and reduced our goal to that of deriving a proof that $y$ is rational---this was the content of the rest of the proof.
+上述证明中的关键语句是 `假设 $x$ 和 $x+y$ 是有理数'。这引入了假设 $x \in \mathbb{Q}$ 和 $x+y \in \mathbb{Q}$，并将我们的目标转化为推导 $y$ 是有理数的证明 --- 这是余下部分证明的内容。
 
 \begin{exercise}
-Let $p(x)$ be a polynomial over $\mathbb{C}$. Prove that if $\alpha$ is a root of $p(x)$, and $a \in \mathbb{C}$, then $\alpha$ is a root of $(x-a)p(x)$.
+设 $p(x)$ 是 $\mathbb{C}$ 上的多项式。证明如果 $\alpha$ 是 $p(x)$ 的根，且 $a \in \mathbb{C}$，则 $\alpha$ 是 $(x-a)p(x)$ 的根。
 \end{exercise}
 
-The elimination rule for implication \elimrule{\Rightarrow} is more commonly known by the Latin name \textit{modus ponens}.
+蕴含 \elimrule{\Rightarrow} 的消除规则更广为人知的是拉丁语名称 \textit{modus ponens}。
 
-\begin{strategy}[Assuming implications---modus ponens]
+\begin{strategy}[蕴涵假设 --- modus ponens]
 \label{strAssumingImplicationsDirect}
 \index{modus ponens}
-If an assumption in a proof has the form $p \Rightarrow q$, and $p$ is also assumed to be true, then we may deduce that $q$ is true.
+如果证明中的假设具有 $p \Rightarrow q$ 的形式，且 $p$ 也被假设为真，那么我们可以推断 $q$ 为真。
 \end{strategy}
 
-\Cref{strAssumingDisjunctionsDirect} is frequently used to reduce a more complicated goal to a simpler one. Indeed, if we know that $p \Rightarrow q$ is true, and if $p$ is easy to verify, then it allows us to prove $q$ by proving $p$ instead.
+\Cref{strAssumingDisjunctionsDirect} 经常用于将复杂的目标化简为简单的目标。事实上，如果我们知道 $p \Rightarrow q$ 为真，且如果 $p$ 很容易验证，那么它允许我们通过证明 $p$ 来证明 $q$。
 
 \begin{example}
-Let $f(x) = x^2+ax+b$ be a polynomial with $a,b \in \mathbb{R}$, and let $\Delta = a^2-4b$ be its discriminant. Part of \Cref{exDiscriminantRealRoots} was to prove that:
+设 $f(x) = x^2+ax+b$ 为 $a,b \in \mathbb{R}$ 的多项式，设 $\Delta = a^2-4b$ 为其判别式。 \Cref{exDiscriminantRealRoots} 的一部分是为了证明：
 \begin{enumerate}[(i)]
-\item If $\Delta > 0$, then $f$ has two real roots;
-\item If $\Delta = 0$, then $f$ has one real root;
-\item If $\Delta < 0$, then $f$ has no real roots.
+\item 如果 $\Delta > 0$，则 $f$ 有 2 个实根；
+\item 如果 $\Delta = 0$，则 $f$ 有 1 个实根；
+\item 如果 $\Delta < 0$，则 $f$ 没有实根。
 \end{enumerate}
-Given the polynomial $f(x) = x^2-68x+1156$, it would be a pain to go through the process of solving the equation $f(x)=0$ in order to determine how many real roots $f$ has. However, each of the propositions (i), (ii) and (iii) take the form $p \Rightarrow q$, so \Cref{strAssumingImplicationsDirect} reduces the problem of finding how many real roots $f$ has to that of evaluating $\Delta$ and comparing it with $0$. And indeed, $(-68)^2 - 4 \times 1156 = 0$, so the implication (ii) together with \elimrule{\Rightarrow} tell us that $f$ has one real root.
+给定多项式 $f(x) = x^2-68x+1156$，通过求解方程 $f(x)=0$ 来确定 $f$ 有几实根很麻烦。然而，命题 (i)、(ii)、(iii) 都采用 $p \Rightarrow q$ 的形式，因此 \Cref{strAssumingImplicationsDirect} 将确定 $f$ 有几个实根的问题化简为求 $\Delta$ 的值的问题并将其与 $0$ 进行比较。事实上，$(-68)^2 - 4 \times 1156 = 0$，所以根据蕴涵 (ii) 和 \elimrule{\Rightarrow} 我们知道 $f$ 有一个实根。
 \end{example}
 
-A common task faced by mathematicians is to prove that two conditions are equivalent. For example, given a polynomial $f(x) = x^2+ax+b$ with $a,b \in \mathbb{R}$, we know that \textit{if} $a^2-4b>0$ \textit{then} $f$ has two real roots, but is it also true that if $f$ has two real roots then $a^2-4b>0$? (The answer is `yes'.) The relationship between these two implications is that each is the \textit{converse} of the other.
-
+数学家面临的一个共同问题是证明两个条件等价。例如，给定一个多项式 $f(x) = x^2+ax+b$，其中 $a,b \in \mathbb{R}$，我们知道如果 $a^2-4b>0$ 那么 $f$ 有两个实根，但是如果 $f$ 有两个实根，那么 $a^2-4b>0$ 也为真吗？ （答案是 `肯定的'。）这两个蕴涵之间的关系是它们互为对方的\textit{逆}。
 \begin{definition}
 \label{defConverse}
 \index{converse}
-The \textbf{converse} of a proposition of the form $p \Rightarrow q$ is the proposition $q \Rightarrow p$.
+$p \Rightarrow q$ 形式命题的\textbf{逆}命题是 $q \Rightarrow p$。
 \end{definition}
 
-A quick remark on terminology is pertinent. The following table summarises some common ways of referring to the propositions `$p \Rightarrow q$' and `$q \Rightarrow p$'.
+对术语的快速评论是相关的。下表总结了一些引用命题 `$p \Rightarrow q$' 和 `$q \Rightarrow p$' 的常见方式。
 
 \begin{center}
 \begin{tabular}{c|c}
 $p \Rightarrow q$ & $q \Rightarrow p$ \\ \hline
-if $p$, then $q$ & if $q$, then $p$ \\
-$p$ only if $q$ & $p$ if $q$ \\
-$p$ is sufficient for $q$ & $p$ is necessary for $q$
+如果 $p$，则 $q$ & 如果 $q$，则 $p$ \\
+$p$ 仅当 $q$ & $p$ 如果 $q$ \\
+$p$ 足以满足 $q$ & $p$ 是 $q$ 所必需的
 \end{tabular}
 \end{center}
 
-We so often encounter the problem of proving both an implication and its converse that we introduce a new logical operator that represents the conjunction of both.
+我们经常遇到同时证明蕴涵及其逆蕴涵的问题，因此我们引入了一个新的逻辑运算符来表示两者的合取。
 
 \begin{definition}
 \label{defBiconditional}
 \index{biconditional}
 \nindex{biconditional}{$\Leftrightarrow$}{biconditional}
-The \textbf{biconditional} operator is the logical operator $\Leftrightarrow$ \inlatex{Leftrightarrow}\lindexmmc{Leftrightarrow}{$\Leftrightarrow$}, defined by declaring $p \Leftrightarrow q$ to mean $(p \Rightarrow q) \wedge (q \Rightarrow p)$. The expression $p \Leftrightarrow q$ represents `$p$ if and only if $q$'.
+\textbf{双条件}运算符是逻辑运算符 $\Leftrightarrow$ \inlatex{Leftrightarrow}\lindexmmc{Leftrightarrow}{$\Leftrightarrow$}，通过声明 $p \Leftrightarrow q$ 来定义 $(p \Rightarrow q) \wedge (q \Rightarrow p)$。表达式 $p \Leftrightarrow q$ 表示 `$p$ 当且仅当 $q$'。
 \end{definition}
 
-Many examples of biconditional statements come from solving equations; indeed, to say that the values $\alpha_1,\dots,\alpha_n$ are the solutions to a particular equation is precisely to say that
+许多双条件语句的例子来自求解方程； 实际上，说 $\alpha_1,\dots,\alpha_n$ 是特定方程的解准确的说是
 \[
-x \text{ is a solution} \quad \Leftrightarrow \quad x = \alpha_1 \text{ or } x = \alpha_2 \text{ or } \cdots \text{ or } x = \alpha_n
+x \text{是一个解} \quad \Leftrightarrow \quad x = \alpha_1 \text{ 或 } x = \alpha_2 \text{ 或 } \cdots \text{ or } x = \alpha_n
 \]
 
 \begin{example}
 \label{exSolveSqrtFirstExample}
-We find all real solutions $x$ to the equation
+找到下面方程的所有实数解 $x$
 \[
 \sqrt{x-3} + \sqrt{x+4} = 7
 \]
-Let's rearrange the equation to find out what the possible solutions may be.
+让我们整理方程式以找出可能的解。
 \begin{align*}
 &\phantom{\Rightarrow\;\;} \sqrt{x-3} + \sqrt{x+4} = 7 && \\
-&\Rightarrow (x-3) + 2\sqrt{(x-3)(x+4)} + (x+4) = 49 && \text{squaring} \\
-&\Rightarrow 2\sqrt{(x-3)(x+4)} = 48-2x && \text{rearranging} \\
-&\Rightarrow 4(x-3)(x+4) = (48-2x)^2 && \text{squaring} \\
-&\Rightarrow 4x^2+4x-48 = 2304-192x+4x^2 && \text{expanding} \\
-&\Rightarrow 196x = 2352 && \text{rearranging} \\
-&\Rightarrow x=12 && \text{dividing by $196$}
+&\Rightarrow (x-3) + 2\sqrt{(x-3)(x+4)} + (x+4) = 49 && \text{两边同时平方} \\
+&\Rightarrow 2\sqrt{(x-3)(x+4)} = 48-2x && \text{整理} \\
+&\Rightarrow 4(x-3)(x+4) = (48-2x)^2 && \text{两边同时平方} \\
+&\Rightarrow 4x^2+4x-48 = 2304-192x+4x^2 && \text{展开} \\
+&\Rightarrow 196x = 2352 && \text{整理} \\
+&\Rightarrow x=12 && \text{除以 $196$}
 \end{align*}
-You might be inclined to stop here. Unfortunately, all we have proved is that, given a real number $x$, \textit{if} $x$ solves the equation $\sqrt{x-3} + \sqrt{x+4} = 7$, \textit{then} $x=12$. This narrows down the set of possible solutions to just one candidate---but we still need to check the converse, namely that \textit{if} $x=12$, \textit{then} $x$ is a solution to the equation.
+你可能倾向于到这里就停下来了。不幸的是，我们所证明的是，给定实数 $x$，\textit{如果} $x$ 求解方程 $\sqrt{x-3} + \sqrt{x+4} = 7$，\textit{则} $x=12$。这将一组可能的解缩小到只有一个 --- 但我们仍然需要检查相反的情况，即\textit{如果} $x=12$，\textit{则} $x$ 是方程的解。
 
-As such, to finish off the proof, note that
+因此，要完成证明，需要增加
 \[
 \sqrt{12-3} + \sqrt{12+4} = \sqrt{9} + \sqrt{16} = 3 + 4 = 7
 \]
-and so the value $x=12$ is indeed a solution to the equation.
+所以 $x=12$ 确实是方程的一个解。
 \end{example}
 
-The last step in \Cref{exSolveSqrtFirstExample} may have seemed a little bit silly; but \Cref{exSolveSqrtSecondExample} demonstrates that proving the converse when solving equations truly is necessary.
+\Cref{exSolveSqrtFirstExample} 中的最后一步可能看起来有点傻；但是 \Cref{exSolveSqrtSecondExample} 证明了在求解方程时证明逆命题确实是必要的。
 
 \begin{example}
 \label{exSolveSqrtSecondExample}
-We find all real solutions $x$ to the equation
+找到下面方程的所有实数解 $x$
 \[
 x+\sqrt{x}=0
 \]
-We proceed as before, rearranging the equation to find all possible solutions.
+我们像以前一样，整理方程以找到所有可能的解。
 \begin{align*}
 &\phantom{\Rightarrow\;\;} x+\sqrt{x} = 0 && \\
-&\Rightarrow x=-\sqrt{x} && \text{rearranging} \\
-&\Rightarrow x^2=x && \text{squaring} \\
-&\Rightarrow x(x-1)=0 && \text{rearranging} \\
-&\Rightarrow x=0 \text{ or } x=1 && 
+&\Rightarrow x=-\sqrt{x} && \text{整理} \\
+&\Rightarrow x^2=x && \text{两边同时平方} \\
+&\Rightarrow x(x-1)=0 && \text{整理} \\
+&\Rightarrow x=0 \text{ 或 } x=1 && 
 \end{align*}
-Now certainly $0$ is a solution to the equation, since
+现在肯定 $0$ 是方程的解，因为
 \[
 0+\sqrt{0} = 0+0 = 0
 \]
-However, $1$ is \textit{not} a solution, since
+然而，$1$ \textit{不}是方程的解，因为
 \[
 1+\sqrt{1} = 1+1 = 2
 \]
-Hence it is actually the case that, given a real number $x$, we have
+因此，实际情况是，给定一个实数 $x$，我们有
 \[
 x+\sqrt{x} = 0 \quad \Leftrightarrow \quad x=0
 \]
-Checking the converse here was vital to our success in solving the equation!
+在这里带入逆向检查对我们成功求解方程式至关重要！
 \end{example}
 
-A slightly more involved example of a biconditional statement arising from the solution to an equation---in fact, a class of equations---is the proof of the quadratic formula.
+由方程的解产生的双条件语句的一个稍微复杂的例子 --- 实际上，是一类方程 --- 是二次方程求根公式的证明。
 
-\begin{itheorem}[Quadratic formula]
+\begin{itheorem}[二次方程求根公式]
 \label{thmQuadraticFormula}
-Let $a,b \in \mathbb{C}$. A complex number $\alpha$ is a root of the polynomial $x^2+ax+b$ if and only if
+设 $a,b \in \mathbb{C}$。复数 $\alpha$ 是多项式 $x^2+ax+b$ 的根当且仅当
 \[
-\alpha = \frac{-a+\sqrt{a^2-4b}}{2} \quad \text{or} \quad \alpha =\frac{-a-\sqrt{a^2-4b}}{2}
+\alpha = \frac{-a+\sqrt{a^2-4b}}{2} \quad \text{或} \quad \alpha =\frac{-a-\sqrt{a^2-4b}}{2}
 \]
 \end{itheorem}
 
 \begin{cproof}
-First we prove that \textit{if} $\alpha$ is a root, \textit{then} $\alpha$ is one of the values given in the statement of the proposition. So suppose $\alpha$ be a root of the polynomial $x^2+ax+b$. Then
+首先我们证明，\textit{如果} $\alpha$ 是一个根，\textit{那么} $\alpha$ 就是命题陈述中给出的值之一。所以假设 $\alpha$ 是多项式 $x^2+ax+b$ 的根。则
 \[
 \alpha^2 + a\alpha + b = 0
 \]
-The algebraic technique of `completing the square' tells us that
+`配方法' 这一代数技告诉我们
 \[
 \alpha^2 + a\alpha = \left( \alpha + \frac{a}{2} \right)^2 - \frac{a^2}{4}
 \]
-and hence
+因此
 \[
 \left( \alpha + \frac{a}{2} \right)^2 - \frac{a^2}{4} + b = 0
 \]
-Rearranging yields
+整理一下得
 \[
 \left( \alpha + \frac{a}{2} \right)^2  = \frac{a^2}{4} - b = \frac{a^2-4b}{4}
 \]
-Taking square roots gives
+两边开平方得
 \[
 \alpha + \frac{a}{2} = \frac{\sqrt{a^2-4b}}{2} \quad \text{or} \quad \alpha + \frac{a}{2} = \frac{-\sqrt{a^2-4b}}{2}
 \]
-and, finally, subtracting $\frac{a}{2}$ from both sides gives the desired result.
+最后，从两边减去 $\frac{a}{2}$ 得到想要的结果。
 
-The proof of the converse is \Cref{exQuadraticFormulaConverse}.
+逆的证明参见 \Cref{exQuadraticFormulaConverse}。
 \end{cproof}
 
 \begin{exercise}
 \label{exQuadraticFormulaConverse}
-Complete the proof of the quadratic formula. That is, for fixed $a,b \in \mathbb{C}$, prove that if
+完成二次方程求根公式的证明。也就是说，对于固定的 $a,b \in \mathbb{C}$，证明如果 
 \[
-\alpha = \frac{-a+\sqrt{a^2-4b}}{2} \quad \text{or} \quad \alpha =\frac{-a-\sqrt{a^2-4b}}{2}
+\alpha = \frac{-a+\sqrt{a^2-4b}}{2} \quad \text{或} \quad \alpha =\frac{-a-\sqrt{a^2-4b}}{2}
 \]
-then $\alpha$ is a root of the polynomial $x^2+ax+b$.
+那么 $\alpha$ 是多项式 $x^2+ax+b$ 的根。
 \end{exercise}
 
-Another class of examples of biconditional propositions arise in finding necessary and sufficient criteria for an integer $n$ to be divisible by some number---for example, that an integer is divisible by $10$ if and only if its base-$10$ expansion ends with the digit $0$.
+另一类双条件命题的例子出现在寻找一个整数 $n$ 可以被某个数字整除的充分必要条件 --- 例如，一个整数可以被 $10$ 整除当且仅当它的 base-$10$ 展开以数字 $0$ 结尾。
 
 \begin{example}
 \label{exTestForDivisibilityByEight}
-Let $n \in \mathbb{N}$. We will prove that $n$ is divisible by $8$ if and only if the number formed of the last three digits of the base-$10$ expansion of $n$ is divisible by $8$.
+设 $n \in \mathbb{N}$。我们要证明 $n$ 可以被 $8$ 整除，当且仅当 $n$ 的 base-$10$ 扩展的最后三位数字可以被 $8$ 整除。
 
-First, we will do some `scratch work'. Let $d_rd_{r-1}\dots{}d_1d_0$ be the base-$10$ expansion of $n$. Then
+首先，我们将做一些 `草稿工作'。设 $d_rd_{r-1}\dots{}d_1d_0$ 是 $n$ 的 base-$10$ 扩展。 则
 \[
 n = d_r \cdot 10^r + d_{r-1} \cdot 10^{r-1} + \cdots + d_1 \cdot 10 + d_0
 \]
-Define
+定义
 \[
-n' = d_2d_1d_0 \quad \text{and} \quad n'' = n-n' = d_rd_{r-1}\dots{}d_4d_3000
+n' = d_2d_1d_0 \quad \text{和} \quad n'' = n-n' = d_rd_{r-1}\dots{}d_4d_3000
 \]
-Now $n-n' = 1000 \cdot d_rd_{r-1} \dots d_4d_3$ and $1000 = 8 \cdot 125$, so it follows that $8$ divides $n''$.
+现在 $n-n' = 1000 \cdot d_rd_{r-1} \dots d_4d_3$ 且 $1000 = 8 \cdot 125$，所以 $8$ 可以整除 $n''$。
 
 %% BEGIN EXTRACT (xtrStepsExample) %%
-Our goal is now to prove that $8$ divides $n$ if and only if $8$ divides $n'$.
+现在我们的目标变成证明 $8$ 整除 $n$ 当且仅当 $8$ 整除 $n'$。
 
 \begin{itemize}
-\item ($\Rightarrow$) Suppose $8$ divides $n$. Since $8$ divides $n''$, it follows from \Cref{exDivisibilityIsLinear} that $8$ divides $an+bn''$ for all $a,b \in \mathbb{Z}$. But
+\item ($\Rightarrow$) 假设 $8$ 整除 $n$。因为 $8$ 整除 $n''$，由于 $8$ 除 $n''$，从 \Cref{exDivisibilityIsLinear} 可以得出，对所有 $a,b \in \mathbb{Z}$，可以得出 $8$ 整除 $an+bn''$。由于
 \[
 n' = n-(n-n') = n-n'' = 1 \cdot n + (-1) \cdot n''
 \]
-so indeed $8$ divides $n'$, as required.
-\item ($\Leftarrow$)  Suppose $8$ divides $n'$. Since $8$ divides $n''$, it follows from \Cref{exDivisibilityIsLinear} that $8$ divides $an'+bn''$ for all $a,b \in \mathbb{Z}$. But
+所以 $8$ 确实可以根据需要整除 $n'$。
+\item ($\Leftarrow$)  假设 $8$ 整除 $n'$。因为 $8$ 整除 $n''$，从 \Cref{exDivisibilityIsLinear} 可以得出 $8$ 对所有 $a,b \in \mathbb{Z}$ 整除 $an'+bn''$。由于
 \[
 n = n'+(n-n') = n'+n'' = 1 \cdot n' + 1 \cdot n''
 \]
-so indeed $8$ divides $n$, as required.
+所以 $8$ 确实可以根据需要整除 $n$。
 \end{itemize}
 %% END EXTRACT
 \end{example}
 
 \begin{exercise}
-Prove that a natural number $n$ is divisible by $3$ if and only if the sum of its base-$10$ digits is divisible by $3$.
+证明一个自然数 $n$ 可以被 $3$ 整除当且仅当其 base-$10$ 数字和可以被 $3$ 整除。
 \hintlabel{exSumOfDigitsDivisibleByThree}{%
-Suppose $n = d_r \cdot 10^r + \cdots + d_1 \cdot 10 + d_0$ and let $s = d_r + \cdots + d_1 + d_0$. Start by proving that $3 \mid n-s$.
-}
+假设 $n = d_r \cdot 10^r + \cdots + d_1 \cdot 10 + d_0$ 并令 $s = d_r + \cdots + d_1 + d_0$。首先证明 $3 \mid n-s$。}
 \end{exercise}
 
-\subsubsection*{Negation (`not', $\neg$)}
+\subsubsection*{否定 (`非', $\neg$)}
 
-So far we only officially know how to prove that true propositions are \textit{true}. The negation operator makes precise what we mean by `not', which allows us to prove that false propositions are \textit{false}.
+目前为止，我们只知道如何证明真命题为\textit{真}。否定运算符明确了 `非' 的含义，这使我们能够证明伪命题为\textit{假}。
 
 \begin{definition}
 \label{defContradiction}
 \index{contradiction}
 \nindex{contradiction}{$\bot$}{contradiction}
-A \textbf{contradiction} is a proposition that is known or assumed to be false. We will use the symbol $\bot$ \inlatex{bot}\lindexmmc{bot}{$\bot$} to represent an arbitrary contradiction.
+\textbf{矛盾}是已知或假定为假的命题。我们使用符号 $\bot$ \inlatex{bot}\lindexmmc{bot}{$\bot$} 来表示任意矛盾。
 \end{definition}
 
 \begin{example}
-Some examples of contradictions include the assertion that $0=1$, or that $\sqrt{2}$ is rational, or that the equation $x^2=-1$ has a solution $x \in \mathbb{R}$.
+举一些矛盾的例子，比如断言 $0=1$，或者 $\sqrt{2}$ 是有理数，或者方程 $x^2=-1$ 在 $x \in \mathbb{R}$ 下有解。 
 \end{example}
 
 \begin{definition}
 \label{defNegation}
 \index{negation}
 \nindex{negation}{$\neg$}{negation}
-The \textbf{negation} operator is the logical operator $\neg$ \inlatex{neg}\lindexmmc{neg}{$\neg$}, defined according to the following rules:
+否定运算符是逻辑运算符 $\neg$ \inlatex{neg}\lindexmmc{neg}{$\neg$}，根据以下规则定义：
 \begin{itemize}
-\item \introrule{\neg} If a contradiction can be derived from the assumption that $p$ is true, then $\neg p$ is true;
-\item \elimrule{\neg} If $\neg p$ and $p$ are both true, then a contradiction may be derived.
+\item \introrule{\neg} 如果可以从 $p$ 为真的假设中得出矛盾，则 $\neg p$ 为真；
+\item \elimrule{\neg} 如果 $\neg p$ 和 $p$ 都为真，则可能会得出矛盾。
 \end{itemize}
-The expression $\neg p$ represents `not $p$' (or `$p$ is false').
+表达式 $\neg p$ 表示 `不是 $p$'（或 `$p$ 为假'）。
 \end{definition}
 
 \begin{center}
@@ -880,81 +878,80 @@ The expression $\neg p$ represents `not $p$' (or `$p$ is false').
 \end{center}
 
 \begin{aside}
-The rules \introrule{\neg} and \elimrule{\neg} closely resemble \introrule{\Rightarrow} and \elimrule{\Rightarrow}---indeed, we could simply define $\neg p$ to mean `$p \Rightarrow \bot$', where $\bot$ represents an arbitrary contradiction, but it will be easier later on to have a primitive notion of negation.
+规则 \introrule{\neg} 和 \elimrule{\neg} 与 \introrule{\Rightarrow} 和 \elimrule{\Rightarrow} 非常类似 --- 实际上，我们可以简单地定义 $\neg p$ 表示 `$p \ 右箭头 \bot$'，其中 $\bot$ 表示任意矛盾，但有一个原始的否定概念后面会更简单。
 \end{aside}
 
-The introduction rule for negation \introrule{\neg} gives rise to a proof strategy called \textit{proof by contradiction}, which turns out to be extremely useful.
+否定的引入规则 \introrule{\neg} 产生了一种称为\textit{反证法}的证明策略，事实证明它非常有用。
 
-\begin{strategy}[Proving negations---proof by contradiction]
+\begin{strategy}[否定证明 --- 反证法]
 \label{strProvingNegationsDirect}
 \label{strProofByContradictionDirect}
 \index{proof!by contradiction (direct)}
 \index{contradiction!(direct) proof by}
-In order to prove a proposition $p$ is false (that is, that $\neg p$ is true), it suffices to assume that $p$ is true and derive a contradiction.
+为了证明命题 $p$ 为假（即 $\neg p$ 为真），只需假设 $p$ 为真并得出矛盾即可。
 \end{strategy}
 
-The following proposition has a classic proof by contradiction.
+下面命题有一个经典的反证法。
 
 \begin{proposition}
-Let $r$ be a rational number and let $a$ be an irrational number. Then $r+a$ is irrational. 
+设 $r$ 为有理数，$a$ 为无理数。 那么 $r+a$ 是无理数。
 \end{proposition}
 
 \begin{cproof}
-By \Cref{defIrrationalNumber}, we need to prove that $r+a$ is real and not rational. It is certainly real, since $r$ and $a$ are real, so it remains to prove that $r+a$ is not rational.
+根据 \Cref{defIrrationalNumber}，我们需要证明 $r+a$ 是实数且不是有理数。因为 $r$ 和 $a$ 是实数，所以它肯定是实数，因此只需要证明 $r+a$ 不是有理数即可。
 
-Suppose $r+a$ is rational. Since $r$ is rational, it follows from \Cref{propRationalTwoOfThree} that $a$ is rational, since
+假设 $r+a$ 是有理数。由于 $r$ 是有理数，根据 \Cref{propRationalTwoOfThree} 可得 $a$ 是有理数，因为
 \[
 a = (r+a) - r
 \]
-This contradicts the assumption that $a$ is irrational. It follows that $r+a$ is not rational, and is therefore irrational.
+这与 $a$ 是无理数的假设矛盾。由此得出 $r+a$ 不是有理数，因此是无理数。
 \end{cproof}
 
-Now you can try proving some elementary facts by contradiction.
+现在你可以尝试用反证法证明一些基本事实。
 
 \begin{exercise}
 \label{exNegationAndReciprocalOfIrrationalNumbers}
-Let $x \in \mathbb{R}$. Prove by contradiction that if $x$ is irrational then $-x$ and $\frac{1}{x}$ are irrational.
+设 $x \in \mathbb{R}$。 通过反证法证明，如果 $x$ 是无理数，那么 $-x$ 和 $\frac{1}{x}$ 也是无理数。
 \end{exercise}
 
 \begin{exercise}
 \label{exNoLeastPositiveReal}
-Prove by contradiction that there is no least positive real number. That is, prove that there is not a positive real number $a$ such that $a \le b$ for all positive real numbers $b$.
+用反证法证明不存在最小正实数。即证明对于所有正实数 $b$，不存在满足 $a\le b$ 的正实数 $a$。
 \end{exercise}
 
-A proof need not be a `proof by contradiction' in its entirety---indeed, it may be that only a small portion of the proof uses contradiction. This is exhibited in the proof of the following proposition.
+一个证明不必完全是 `反证法' --- 实际上，可能只有一小部分证明使用了反证法。这体现在以下命题的证明中。
 
 \begin{proposition}
 \label{propOddIffRemainderOfOne}
-Let $a$ be an integer. Then $a$ is odd if and only if $a=2b+1$ for some integer $b$.
+设 $a$ 为整数。 那么 $a$ 是奇数当且仅当对于某个整数 $b$, $a=2b+1$。
 \end{proposition}
 \begin{cproof}
-Suppose $a$ is odd. By the division theorem (\Cref{thmDivisionPreliminary}), either $a=2b$ or $a=2b+1$, for some $b \in \mathbb{Z}$. If $a=2b$, then $2$ divides $a$, contradicting the assumption that $a$ is odd; so it must be the case that $a=2b+1$.
+假设 $a$ 是奇数。 根据除法定理 (\Cref{thmDivisionPreliminary})，对于某个整数 $b \in \mathbb{Z}$, $a=2b$ 或 $a=2b+1$。如果 $a=2b$，则 $2$ 除 $a$，与 $a$ 为奇数的假设相矛盾； 所以一定是 $a=2b+1$ 的情况。
 
-Conversely, suppose $a=2b+1$. Then $a$ leaves a remainder of $1$ when divided by $2$. However, by the division theorem, the even numbers are precisely those that leave a remainder of $0$ when divided by $2$. It follows that $a$ is not even, so is odd.
+反过来，假设 $a=2b+1$。则 $a$ 除以 $2$ 余 $1$。然而，根据除法定理，偶数恰好是除以 $2$ 余 $0$ 的数。因此 $a$ 不是偶数，所以不是奇数。
 \end{cproof}
 
-The elimination rule for the negation operator \elimrule{\neg} simply says that a proposition can't be true and false at the same time.
+否定运算符 \elimrule{\neg} 的消除规则说的是一个命题不能同时为真也为假。
 
-\begin{strategy}[Assuming negations]
+\begin{strategy}[否定假设]
 \label{strAssumingNegations}
-If an assumption in a proof has the form $\neg p$, then any derivation of $p$ leads to a contradiction.
+如果证明中的假设具有 $\neg p$ 的形式，则 $p$ 的任何推导都会导致矛盾。
 \end{strategy}
+\Cref{strAssumingNegations} 的主要用途是在反证法中获取矛盾 --- 事实上，我们在反证法的例子中已经用过了！ 因此，这里不再赘述。
 
-The main use of \Cref{strAssumingNegations} is for obtaining the contradiction in a proof by contradiction---in fact, we have already used it in our examples of proof by contradiction! As such, we will not dwell on it further.
+\subsection*{逻辑公理}
 
-\subsection*{Logical axioms}
+我们通过介绍一些我们将在证明中使用的附加逻辑规则 (\textit{公理}) 来结束本节。
 
-We wrap up this section by introducing a couple of additional logical rules (\textit{axioms}) that we will use in our proofs.
+第一个即所谓的\textit{排中律}，它是如此明显，以至于不值得说明（更别说命名了）--- 它说的是每个命题要么为真，要么为假。但请小心，因为外表可能具有欺骗性；排中律是一个非构造性公理，这意味着在设置中不应该认为跟踪一个命题是如何证明的是一件重要的事情 --- 仅仅知道一个命题是对还是错并不能告诉我们它是如何被证明或被反驳的。但是，在大多数数学背景下，它会被毫不犹豫地接受。
 
-The first is the so-called \textit{law of excluded middle}, which appears so obvious that it is not even worth stating (let alone naming)---what it says is that every proposition is either true or false. But beware, as looks can be deceiving; the law of excluded middle is a non-constructive axiom, meaning that it should not be accepted in settings it is important to keep track of how a proposition is proved---simply knowing that a proposition is either true or false tells us nothing about how it might be proved or refuted. In most mathematical contexts, though, it is accepted without a second's thought.
-
-\begin{axiom}[Law of excluded middle]
+\begin{axiom}[排中律]
 \label{axLEM}
 \index{law of excluded middle}
-Let $p$ be a propositional formula. Then $p \vee (\neg p)$ is true.
+设 $p$ 为命题公式。那么 $p \vee (\neg p)$ 为真。
 \end{axiom}
 
-The law of excluded middle can be represented diagramatically as follows; there are no premises above the line, since we are simply asserting that it is true.
+排中律可以用图解表示如下；线之上没有前提，因为我们只是断言它是真的。
 
 \begin{center}
 \begin{prooftree}
@@ -964,49 +961,49 @@ The law of excluded middle can be represented diagramatically as follows; there 
 \end{prooftree}
 \end{center}
 
-\begin{strategy}[Using the law of excluded middle]
+\begin{strategy}[使用排中律]
 \label{strLEM}
-In order to prove a proposition $q$ is true, it suffices to split into cases based on whether some other proposition $p$ is true or false, and prove that $q$ is true in each case.
+为了证明命题 $q$ 为真，只需根据其他命题 $p$ 为真或为假分成多个情况，并在每个情况中证明 $q$ 为真。
 \end{strategy}
 
-The proof of \Cref{propIfProductEvenThenSomeFactorEven} below makes use of the law of excluded middle---note that we defined `odd' to mean `not even' (\Cref{defEvenOdd}).
+下面对 \Cref{propIfProductEvenThenSomeFactorEven} 的证明利用了排中律 --- 注意我们将 `奇' 定义为 `非偶'(\Cref{defEvenOdd})。
 
 \begin{proposition}
 \label{propIfProductEvenThenSomeFactorEven}
-Let $a,b \in \mathbb{Z}$. If $ab$ is even, then either $a$ is even or $b$ is even (or both).
+设 $a,b \in \mathbb{Z}$。如果 $ab$ 是偶数，则 $a$ 是偶数或 $b$ 是偶数（或二者都是偶数）。
 \end{proposition}
 \begin{cproof}
-Suppose $a,b \in \mathbb{Z}$ with $ab$ even.
+假设 $a,b \in \mathbb{Z}$ 且 $ab$ 为偶数。
 \begin{itemize}
-\item Suppose $a$ is even---then we're done.
-\item Suppose $a$ is odd. If $b$ is also odd, then by \Cref{propOddIffRemainderOfOne} can write
+\item 假设 $a$ 为偶数 --- 则证明完成。
+\item 假设 $a$ 为奇数。如果 $b$ 为奇数，则根据 \Cref{propOddIffRemainderOfOne}， 可得，对于某整数 $k,\ell$
 \[
-a = 2k+1 \quad \text{and} \quad b=2\ell+1
+a = 2k+1 \quad \text{且} \quad b=2\ell+1
 \]
-for some integers $k,\ell$. This implies that
+这意味着
 \[
 ab = (2k+1)(2\ell+1) = 4k\ell + 2k + 2\ell + 1 = 2(\underbrace{2k\ell + k + \ell}_{\in \mathbb{Z}}) + 1
 \]
-so that $ab$ is odd. This contradicts the assumption that $ab$ is even, and so $b$ must in fact be even.
+所以 $ab$ 是奇数。这与 $ab$ 是偶数的假设相矛盾，因此 $b$ 实际上必须是偶数。
 \end{itemize}
-In both cases, either $a$ or $b$ is even.
+综上两种情况，要么 $a$ 是偶数，要么 $b$ 是偶数。
 \end{cproof}
 
 \begin{exercise}
-Reflect on the proof of \Cref{propIfProductEvenThenSomeFactorEven}. Where in the proof did we use the law of excluded middle? Where in the proof did we use proof by contradiction? What was the contradiction in this case? Prove \Cref{propIfProductEvenThenSomeFactorEven} twice more, once using contradiction and not using the law of excluded middle, and once using the law of excluded middle and not using contradiction.
+反思 \Cref{propIfProductEvenThenSomeFactorEven} 的证明。我们在什么地方使用了排中律？我们在什么地方使用了反证法？这个例子的矛盾点是什么？用两种方法再次证明 \Cref{propIfProductEvenThenSomeFactorEven}，一个使用矛盾而不使用排中律，一个使用排中律而不使用矛盾。
 \end{exercise}
 
 \begin{exercise}
-Let $a$ and $b$ be irrational numbers. By considering the number $\sqrt{2}^{\sqrt{2}}$, prove that it is possible that $a^b$ be rational.
+设 $a$ 和 $b$ 为无理数。通过考虑数 $\sqrt{2}^{\sqrt{2}}$，证明 $a^b$ 可能是有理数。
 \hintlabel{exIrrationalExpIrrationalCanBeRational}{%
-Use the law of excluded middle according to whether the proposition `$\sqrt{2}^{\sqrt{2}}$ is rational' is true or false.}
+根据命题 `$\sqrt{2}^{\sqrt{2}}$ 是有理数' 是真还是假来使用排中律。}
 \end{exercise}
 
-Another logical rule that we will use is the \textit{principle of explosion}, which is also known by its Latin name, \textit{ex falso sequitur quodlibet}, which approximately translates to `\textit{from falsity follows whatever you like}'.
+我们将使用的另一个逻辑规则是\textit{爆炸原理}，它的拉丁文名称也广为人知，\textit{ex falso sequitur quodlibet}，大致意思是 `\textit{从错误开始，随心所欲}'。
 
-\begin{axiom}[Principle of explosion]
+\begin{axiom}[爆炸原理]
 \label{axPrincipleOfExplosion}
-If a contradiction is assumed, any consequence may be derived.
+如果假设存在矛盾，则可能得出任何结果。
 \end{axiom}
 
 \begin{center}
@@ -1017,48 +1014,48 @@ If a contradiction is assumed, any consequence may be derived.
 \end{prooftree}
 \end{center}
 
-The principle of explosion is a bit confusing on first sight. To shed a tiny bit of intuition on it, think of it as saying that both true and false propositions are consequences of a contradictory assumption. For instance, suppose that $-1 = 1$. From this we can obtain consequences that are false, such as $0=2$ by adding $1$ to both sides of the equation, and consequences that are true, such as $1=1$ by squaring both sides of the equation.
+爆炸原理乍一看有点混乱。为了对它有直观上的认知，可以把它看作是说真命题和假命题都是矛盾假设的结果。例如，假设 $-1 = 1$。由此我们会得到错误的结果，例如等式两边同时加 $1$ 得 $0=2$，同时也能的得到正确得结果，例如等式两边同时平方得 $1=1$。
 
-We will rarely use the principle of explosion directly in our mathematical proofs, but we will use it in \Cref{secLogicalEquivalence} for proving logical formulae are equivalent.
+我们很少会在数学证明中直接使用爆炸原理，但我们会在 \Cref{secLogicalEquivalence} 中使用它来证明逻辑公式是等价的。
 
 \begin{tldr}{secPropositionalLogic}
 
-\subsubsection*{Propositional formulae}
+\subsubsection*{命题公式}
 
 \begin{tldrlist}
 \tldritem{defPropositionalVariable}
-Propositional variables $p,q,r,\dots$ are used to express simple propositions.
+命题变量 $p,q,r,\dots$ 用于表达简单的命题。
 
 \tldritem{defPropositionalFormula}
-Propositional formulae are more complicated expressions built from propositional variables using logical operators, which represent phrases like `and', `or' and `if\dots{} then\dots{}'.
+命题公式是使用诸如 `与', `或', `如果\dots{} 那么\dots{}' 等逻辑运算符从命题变量中构建的更复杂的表达式。
 \end{tldrlist}
 
-\subsubsection*{Logical operators}
+\subsubsection*{逻辑运算符}
 
 \begin{tldrlist}
 \tldritem{defConjunction}
-The \textit{conjunction} operator ($\wedge$) represents `and'. We prove $p \wedge q$ by proving both $p$ and $q$ separately; we can use an assumption of the form $p \wedge q$ by assuming both $p$ and $q$ separately.
+\textit{合取}运算符 ($\wedge$) 表示 `和/且/与'。我们通过分别证明 $p$ 和 $q$ 来证明 $p \wedge q$；我们可以通过分别假设 $p$ 和 $q$ 来使用 $p \wedge q$ 形式的假设。
 
 \tldritem{defDisjunction}
-The \textit{disjunction} operator ($\vee$) represents `or'. We prove $p \vee q$ by proving at least one of $p$ or $q$; we can use an assumption of the form $p \vee q$ by splitting into cases, assuming that $p$ is true in one case, and assuming that $q$ is true in the other.
+\textit{析取}运算符 ($\vee$) 表示 `或'。 我们通过证明 $p$ 或 $q$ 中的至少一个来证明 $p \vee q$；我们可以使用形式为 $p \vee q$ 的假设，将其分成多个用例，假设 $p$ 在一个用例中为真，并假设 $q$ 在另一个案例中为真。
 
 \tldritem{defImplication}
-The \textit{implication} operator ($\Rightarrow$) represents `if\dots{} then\dots{}'. We prove $p \Rightarrow q$ by assuming $p$ and deriving $q$; we can use an assumption of the form $p \Rightarrow q$ by deducing $q$ whenever we know that $p$ is true.
+\textit{蕴涵}运算符 ($\Rightarrow$) 表示 `如果\dots{} 那么\dots{}'。我们通过假设 $p$ 并推导 $q$ 来证明 $p \Rightarrow q$；只要我们知道 $p$ 为真，就可以通过推导 $q$ 来使用 $p \Rightarrow q$ 形式的假设。
 
 \tldritem{defNegation}
-The \textit{negation} operator] ($\neg$) represents `not'. We prove $\neg p$ by assuming $p$ and deriving something known or assumed to be false (this is called \textit{proof by contradiction}); we can use an assumption of the form $\neg p$ by arriving at a contradiction whenever we find that $p$ is true.
+\textit{否定}运算符 ($\neg$) 表示 `不'。我们通过假设 $p$ 并推导已知或假定为假的东西来证明 $\neg p$（这被称为 \textit{反证法}）；只要我们发现 $p$ 为真，我们就可以通过得出矛盾来使用 $\neg p$ 形式的假设。
 
 \tldritem{defBiconditional}
-The \textit{biconditional} operator ($\Leftrightarrow$) represents `if and only if'. The expression $p \Leftrightarrow q$ is shorthand for $(p \Rightarrow q) \wedge (q \Rightarrow p)$.
+双条件运算符 ($\Leftrightarrow$) 表示 `当且仅当'。 表达式 $p \Leftrightarrow q$ 是 $(p \Rightarrow q) \wedge (q \Rightarrow p)$ 的简写。
 \end{tldrlist}
 
-\subsubsection*{Logical axioms}
+\subsubsection*{逻辑公理}
 
 \begin{tldrlist}
 \tldritem{axLEM}
-The \textit{law of excluded middle} says that $p \vee (\neg p)$ is always true. So at any point in a proof, we may split into two cases: one where $p$ is assumed to be true, and one where $p$ is assumed to be false.
+\textit{排中律}说的是 $p \vee (\neg p)$ 始终为真。因此在证明中的任何一点，我们都可以分为两种情况：一种假设 $p$ 为真，另一种假设 $p$ 为假。
 
 \tldritem{axPrincipleOfExplosion}
-The\textit{ principle of explosion} says that if a contradiction is introduced as an assumption, then any conclusion at all can be derived.
+\textit{爆炸原理}说的是如果引入一个矛盾作为假设，那么任何结论都能推导出来。
 \end{tldrlist}
 \end{tldr}
