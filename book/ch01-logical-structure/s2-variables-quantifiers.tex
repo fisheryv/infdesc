@@ -1,16 +1,17 @@
 % !TeX root = ../../book.tex
-\section{Variables and quantifiers}
+\section{变量与量词}
 \secbegin{secVariablesQuantifiers}
 
-\subsection*{Free and bound variables}
+\subsection*{自由变量和约束变量}
 
-Everything we did in \Cref{secPropositionalLogic} concerned \textit{propositions} and the logical rules concerning their proofs. Unfortunately if all we have to work with is propositions then our ability to do mathematical reasoning will be halted pretty quickly. For example, consider the following statement:
+我们在 \Cref{secPropositionalLogic} 中所做的一切都与\textit{命题}及其证明逻辑规则有关。不幸的是，如果我们处理的只是命题，那么我们进行数学推理的能力将很快止步不前。例如，考虑以下语句：
+
 \begin{center}
-$x$ is divisible by $7$
+$x$ 能被 $7$ 整除
 \end{center}
-This statement seems like the kind of thing we should probably be able to work with if we're doing mathematics. It makes sense if $x$ is a integer, such as $28$ or $41$; but it doesn't make sense at all if $x$ is a parrot called Alex.\footnote{Alex the parrot is the only non-human animal to have ever been observed to ask an existential question; he died in September 2007 so we may never know if he was divisible by $7$, but it is unlikely. According to \textit{Time}, his last words were `you be good, see you tomorrow, I love you'. The reader is advised to finish crying before they continue reading about variables and quantifiers.} In any case, even when it does make sense, its truth value depends on $x$; indeed, `$28$ is divisible by $7$' is a true proposition, but `$41$ is divisible by $7$' is a false proposition.
+如果我们正在做数学题，这个陈述似乎是我们应该能够处理的事情。如果 $x$ 是整数，例如 $28$ 或 $41$，则有意义；但如果 $x$ 是一只叫 Alex \footnote{鹦鹉 Alex 是唯一被观察到提出存在主义问题的非人类动物；他于 2007 年 9 月去世，所以我们可能永远不知道他是否能被 $7$ 整除，但我想不太可能。据《\textit{时代}》杂志报道，他的遗言是`你要乖，明天见，我爱你'。建议读者先哭完再继续阅读本章。}的鹦鹉，它就没有任何意义。无论如何，即使它确实有意义，它的真值也取决于 $x$；事实上，`$28$ 能被 $7$ 整除'是一个真命题，但是`$41$ 能被 $7$ 整除'是一个假命题。
 
-This means that the statement `$x$ is divisible by $7$' isn't a proposition---\textit{quel horreur}! But it \textit{almost} is a proposition: if we know that $x$ refers somehow to an integer, then it becomes a proposition as soon as a particular numerical value of $x$ is specified. The symbol $x$ is called a \textit{free variable}.
+意味着语句`$x$ 能被 $7$ 整除'不是一个命题 --- \textit{quel horreur（法语：太可怕了）}！但这\textit{几乎}是一个命题：如果我们知道 $x$ 以某种方式指代一个整数，那么一旦给定了 $x$ 的特定值，它就变成了一个命题。符号 $x$ 称为\textit{自由变量}。
 
 \begin{definition}
 \label{defFreeVariable}
@@ -18,149 +19,147 @@ This means that the statement `$x$ is divisible by $7$' isn't a proposition---\t
 \index{bound variable}
 \index{variable!free}
 \index{variable!bound}
-Let $x$ be a variable that is understood to refer to an element of a set $X$. In a statement involving $x$, we say $x$ is \textbf{free} if it makes sense to substitute particular elements of $X$ in the statement; otherwise, we say $x$ is \textbf{bound}.
+设 $x$ 是一个变量，代表集合 $X$ 的一个元素。在涉及 $x$ 的陈述中，如果将陈述中的 $x$ 替换为集合 $X$ 的特定元素有意义，我们就说 $x$ 是 \textbf{自由}变量；否则，我们说 $x$ 是 \textbf{约束}变量。
 \end{definition}
 
-To represent statements that have free variables in them abstractly, we generalise the notion of a propositional variable (\Cref{defPropositionalVariable}) to that of a \textit{predicate}.
+为了抽象地表示包含自由变量的陈述，我们将命题变量 (\Cref{def Propositional Variable}) 的概念概括为\textit{谓词}的概念。
 
 \begin{definition}
 \label{defPredicate}
 \index{predicate}
 \index{domain of discourse}
 \index{range!of a variable}
-A \textbf{predicate} is a symbol $p$ together with a specified list of free variables $x_1, x_2, \dots, x_n$ (where $n \in \mathbb{N}$) and, for each free variable $x_i$, a specification of a set $X_i$ called the \textbf{domain of discourse} (or \textbf{range}) of $x_i$. We will typically write $p(x_1,x_2,\dots,x_n)$ in order to make the variables explicit.
+\textbf{谓词}由一个符号 $p$ 和一个特定的自由变量列表 $x_1, x_2, \dots, x_n$ (其中 $n \in \mathbb{N}$) 组成，且对于每个自由变量 $x_i$，都有一个集合 $X_i$ 称为 $x_i$ 的\textbf{论域}（或\textbf{范围}）。我们通常写做 $p(x_1,x_2,\dots,x_n)$ 来显式地表明变量。
 \end{definition}
 
-The statements represented by predicates are those that become propositions when specific values are substituted for their free variables from their respective domains of discourse. For example, `$x$ is divisible by $7$' is not a proposition, but it becomes a proposition when specific integers (such as $28$ or $41$) are substituted for $x$.
+由谓词表示的陈述当自由变量被它们各自论域的特定值替换时变成命题。例如，`$x$ 能被 $7$整除'不是命题，但当用特定整数（如$28$ 或 $41$）替换 $x$ 时，它就变成了命题。
 
-This is a lot to take in, so let's look at some examples.
+需要理解的内容很多，所以让我们看些例子。
 
 \begin{example}
 \label{exFirstExamplesOfPredicates}
 \fixlistskip
 \begin{enumerate}[(i)]
-\item We can represent the statement `$x$ is divisible by $7$' discussed above by a predicate $p(x)$ whose only free variable $x$ has $\mathbb{Z}$ as its domain of discourse. Then $p(28)$ is the true proposition `$28$ is divisible by $7$' and $p(41)$ is the false proposition `$41$ is divisible by $7$'.
-\item A predicate with no free variables is precisely a propositional variable. This means that the notion of a predicate generalises that of a propositional variable.
-\item The expression `$2^n-1$ is prime' can be represented by a predicate $p(n)$ with one free variable $n$, whose domain of discourse is the set $\mathbb{N}$ of natural numbers. Then $p(3)$ is the true proposition `$2^3-1$ is prime' and $p(4)$ is the false proposition `$2^4-1$ is prime'.
-\item The expression `$x-y$ is rational' can be represented by a predicate $q(x,y)$ with free variables $x$ and $y$, whose domain of discourse is the set $\mathbb{R}$ of real numbers.
-\item The expression `there exist integers $a$ and $b$ such that $x = a^2+b^2$' has free variable $x$ and bound variables $a,b$. It can be represented by a predicate $r(x)$ with one free variable $x$, whose domain of discourse is $\mathbb{Z}$.
-\item The expression `every even natural number $n \ge 2$ is divisible by $k$' has free variable $k$ and bound variable $n$. It can be represented by a predicate $s(k)$ with one free variable $k$, whose domain of discourse is $\mathbb{N}$.
+\item 我们可以用谓词 $p(x)$ 表示上面讨论的陈述`$x$ 能被 $7$ 整除'，其唯一的自由变量 $x$ 将 $\mathbb{Z}$ 作为其论域。 那么 $p(28)$ 表示`$28$ 可以被 $7$ 整除'是真命题，$p(41)$ 表示`$41$ 可以被 $7$ 整除'是假命题。
+\item 没有自由变量的谓词就是一个命题变量。这意味着谓词的概念包括了命题变量的概念。
+\item 表达式`$2^n-1$ 是素数'可以用带有一个自由变量 $n$ 的谓词 $p(n)$ 表示，其论域是自然数集 $\mathbb{N}$。那么$p(3)$表示`$2^3-1$是素数'是真命题，$p(4)$表示`$2^4-1$是素数'是假命题。
+\item 表达式`$x-y$ 是有理数'可以用带有自由变量 $x$ 和 $y$ 的谓词 $q(x,y)$ 来表示，其论域是实数集 $\mathbb{R}$。
+\item 表达式`存在整数 $a$ 和 $b$ 使得 $x = a^2+b^2$'具有自由变量 $x$ 和约束变量 $a,b$。 它可以用谓词 $r(x)$ 和一个自由变量 $x$ 来表示，其论域是 $\mathbb{Z}$。
+\item 表达式`每个偶数自然数 $n \ge 2$ 都可以被 $k$ 整除'具有自由变量 $k$ 和约束变量 $n$。 它可以用一个谓词 $s(k)$ 和一个自由变量 $k$ 表示，其论域是 $\mathbb{N}$。
 \end{enumerate}
 \end{example}
 
 
+\subsection*{量词}
 
-\subsection*{Quantifiers}
+回看 \Cref{exFirstExamplesOfPredicates} 中 (v) 和 (vi) 的陈述。二者都包含约束变量，之所以如此，是因为我们使用了诸如`存在'和`每个'这样的词 --- 如果我们不使用这些词，这些变量就是自由变量，如 `$x=a^2+b^2$' 和 `$n$ 能被 $k$ 整除'。
 
-Look again at the statements in parts (v) and (vi) of \Cref{exFirstExamplesOfPredicates}. Both contained bound variables, which were so because we used words like `there exists' and `every'---had we not used these words, those variables would be free, as in `$x=a^2+b^2$' and `$n$ is divisible by $k$'.
+涉及集合中\textit{有多少}元素使陈述为真的表达式，例如`存在'和`每个'，将自由变量转换为约束变量。我们使用称为\textit{量词}的符号来表示此类表达式，这是本节研究的核心。
 
-Expressions that refer to \textit{how many} elements of a set make a statement true, such as `there exists' and `every', turn free variables into bound variables. We represent such expressions using symbols called \textit{quantifiers}, which are the central objects of study of this section.
-
-The two main quantifiers used throughout mathematics are the \textit{universal} quantifier $\forall$ and the \textit{existential} quantifier $\exists$. We will define these quantifiers formally later in this section, but for now, the following informal definitions suffice:
+数学中使用的两个主要量词是\textit{全称}量词 $\forall$ 和\textit{存在}量词 $\exists$。我们将在本节后面正式定义这些量词，但现在，以下非正式定义就足够了：
 
 \begin{itemize}
-\item The expression `$\forall x \in X,\, \dots{}$' denotes `for all $x \in X$, \dots{}' and will be defined formally in \Cref{defUniversalQuantifier};
-\item The expression `$\exists x \in X,\, \dots{}$' denotes `there exists $x \in X$ such that \dots{}' and will be defined formally in \Cref{defExistentialQuantifier}.
+\item 表达式 `$\forall x \in X,\, \dots{}$' 表示 `对于所有 $x \in X$, \dots{}'，并将在 \Cref{defUniversalQuantifier} 中正式定义；
+\item 表达式 `$\exists x \in X,\, \dots{}$' 表示 `存在 $x \in X$ 使得 \dots{}'，并将在 \Cref{defExistentialQuantifier} 中正式定义。
 \end{itemize}
 
-Note that we always place the quantifier \textit{before} the statement, so even though we might write or say things like `$n=2k$ for some integer $k$' or `$x^2 \ge 0$ for all $x \in \mathbb{R}$', we would express these statements symbolically as `$\exists k \in \mathbb{Z},\, n=2k$' and `$\forall x \in \mathbb{R},\, x^2 \ge 0$', respectively.
+请注意，我们总是将量词放在语句\textit{之前}，因此即使我们可能会写或会说类似 `$n=2k$ 对于所有 $k$' 或 `$x^2 \ge 0$ 对于所有 $x \in \mathbb{R}$' 之类的倒装句，我们分别将这些陈述用符号表示为 `$\exists k \in \mathbb{Z},\, n=2k$' 和 `$\forall x \in \mathbb{R},\ , x^2 \ge 0$'。
 
-We will define a third quantifier $\exists !$ in terms of $\forall$ and $\exists$ to say that there is \textit{exactly one} element of a set making a statement true. There are plenty of other quantifiers out there, but they tend to be specific to particular fields---examples include `almost everywhere' in measure theory, `almost surely' in probability theory, `for all but finitely many' in set theory and related disciplines, and `for fresh' in the theory of nominal sets.
+我们将根据 $\forall$ 和 $\exists$ 定义第三个量词 $\exists !$，来表示集合中\textit{只有}一个元素使命题为真。还有很多其他的量词，但它们往往只用于特定领域 --- 例如，测度论中的`几乎无处不在'，概率论中的`几乎肯定'，集合论和相关学科中的 `除了有限多之外的所有'，以及标称集理论中的`新鲜'。 
 
-Using predicates, logical formulae and quantifiers, we are able to build up more complicated expressions, called \textit{logical formulae}. Logical formulae generalise propositional formulae (\Cref{defPropositionalFormula}) in by allowing (free and bound) variables and quantification to occur.
+使用谓词、逻辑公式和量词，我们能够构建更复杂的表达式，称为\textit{逻辑公式}。逻辑公式通过使用（自由和约束）变量和量词来概括命题公式 (\Cref{defPropositionalFormula})。
 
 \begin{definition}
 \label{defLogicalFormula}
 \index{logical formula}
-A \textbf{logical formula} is an expression that is built from predicates using logical operators and quantifiers; it may have both free and bound variables. The truth value of a logical formula depends on its free variables according to the rules for logical operators and quantifiers.
+\textbf{逻辑公式}是使用逻辑运算符和量词从谓词中构建起的表达式；它可能同时具有自由变量和约束变量。根据逻辑运算符和量词的规则，逻辑公式的真值取决于其自由变量。
 \end{definition}
 
-Translating between plain English statements and purely symbolic logical formulae is an important skill to obtain:
+在纯英文（中文）陈述和纯符号逻辑公式之间进行转换是一项重要的技能：
 \begin{itemize}
-\item The plain English statements are easier to understand and are the kinds of things you would speak aloud or write down when discussing the mathematical ideas involved.
-\item The symbolic logical formulae are what provide the precision needed to guide a proof of the statement being discussed---we will see strategies for proving statements involving quantifiers soon.
+\item 纯英文（中文）陈述更容易理解，是您在讨论所涉及的数学思想时会大声说出来或写下来的东西。
+\item 符号逻辑公式提供了指导陈述证明所需的精度 --- 我们很快就会看到涉及量词的陈述的证明策略。
 \end{itemize}
 
-The following examples and exercise concern translating between plain English statements and purely symbolic logical formulae.
+以下示例和练习涉及中文陈述和纯符号逻辑公式之间的转换。
 
 \begin{example}
-Recall that an integer $n$ is even if and only if it is divisible by $2$. According to \Cref{defDivisionPreliminary}, that is to say that `$n$ is even' means `$n=2k$ for some integer $k$'. Using quantifiers, we can express `$n$ is even' as `$\exists k \in \mathbb{Z},\, n=2k$'.
+回想一下，整数 $n$ 是偶数，当且仅当它可以被 $2$ 整除。根据 \Cref{defDivisionPreliminary}，也就是说`$n$ 是偶数'意味着`对于某个整数 $k$, $n=2k$'。使用量词，我们可以将`$n$ 是偶数'表示为`$\exists k \in \mathbb{Z},\, n=2k$'。
 
-The (false) proposition `every integer is even' can then be written symbolically as follows. First introduce a variable $n$ to refer to an integer; to say `every integer is even' is to say `$\forall n \in \mathbb{Z},\, n \text{ is even}$', and so using the symbolic representation of `$n$ is even', we can express `every integer is even' as $\forall n \in \mathbb{Z},\, \exists k \in \mathbb{Z},\, n=2k$'.
+（假）命题`每个整数都是偶数'可以写成如下符号公式。首先引入一个变量 $n$ 表示一个整数；说`每个整数都是偶数'就是说`$\forall n \in \mathbb{Z},\, n \text{是偶数}$'，将`$n$ 是偶数'用符号表示，我们可以将`每个整数都是偶数'表示为 `$\forall n \in \mathbb{Z},\, \exists k \in \mathbb{Z},\, n=2k$'。
 \end{example}
 
 \begin{exercise}
 \label{exEnglishToLogicalFormulae}
-Find logical formulae that represent each of the following English statements.
+给出以下中文陈述的逻辑公式。
 \begin{enumerate}[(a)]
-\item There is an integer that is divisible by every integer.
-\item There is no greatest odd integer.
-\item Between any two distinct rational numbers is a third distinct rational number.
-\item If an integer has a rational square root, then that root is an integer.
+\item 有一个整数可以被任何整数整除。
+\item 没有最大的奇数。
+\item 任意两个不同的有理数之间有第三个不同的有理数。
+\item 如果一个整数的平方根为有理数，那么这个根是一个整数。
 \end{enumerate}
 \end{exercise}
 
 \begin{example}
-Consider the following logical formula.
+考虑以下逻辑公式。
 
 \[\forall a \in \mathbb{R},\, (a \ge 0 \Rightarrow \exists b \in \mathbb{R},\, a = b^2)\]
 
-If we translate this expression symbol-for-symbol, what it says is:
+如果我们逐个符号翻译这个表达式，它的意思是：
 \begin{center}
-For every real number $a$, if $a$ is non-negative,\\
-then there exists a real number $b$ such that $a=b^2$.
+对于所有实数 $a$，如果 $a$ 非负，\\
+那么存在一个实数 $b$ 使得 $a=b^2$。
 \end{center}
 
-Read in this way, it is not a particularly enlightening statement. However, we can distill the robotic nature of the symbol-for-symbol reading by thinking more carefully about what the statement \textit{really} means.
+这样读起来，并不是特别有启发性。然而，我们可以通过更仔细地思考陈述的\textit{真正}含义来提炼出逐符号阅读的机械性质。
 
-Indeed, to say `$a = b^2$ for some real number $b$' is exactly to say that $a$ has a real square root---after all, what is a square root of $a$ if not a real number whose square is equal to $a$? This translation eliminates explicit reference to the bound variable $b$, so that the statement now reads:
-
-\begin{center}
-For every real number $a$, if $a$ is non-negative, then $a$ has a real square root.
-\end{center}
-
-We're getting closer. Next note that instead of the clunky expression `for every real number $a$, if $a$ is non-negative, then \dots{}', we could just say `for every non-negative real number $a$, \dots{}'.
+实际上，`$a = b^2$ 对于某个实数 $b$'说的就是 $a$ 有一个实数平方根 --- 毕竟，如果一个实数的平方等于 $a$，那么它就是 $a$ 的平方根。这种翻译消除了对约束变量 $b$ 的显式引用，因此陈述可以改为：
 
 \begin{center}
-For every non-negative real number $a$, $a$ has a real square root.
+对于所有实数 $a$，如果 $a$ 非负，则 $a$ 有一个实数平方根。
 \end{center}
 
-Finally, we can eliminate the bound variable $a$ by simply saying:
+我们非常接近标准答案了。接下来请注意，我们可以将`对于所有实数 $a$，如果 $a$ 非负，则 \dots{}'这种笨拙的表述，替换成只说 `对于所有非负实数 $a$, \dots{}'。
 
 \begin{center}
-Every non-negative real number has a real square root.
+对于所有非负实数 $a$, $a$ 有一个实数平方根。
 \end{center}
 
-This is now a meaningful expression that is much easier to understand than the logical formula we started with.
+最后，我们可以通过如下简单表述来消除约束变量 $a$: 
+
+\begin{center}
+每个非负实数都有一个实数平方根。
+\end{center}
+至此我们得到一个有意义的表述，且比我们开始时的逻辑公式更容易理解。
 \end{example}
 
 \begin{exercise}
 \label{exLogicalFormulaeToEnglish}
-Find statements in plain English, involving as few variables as possible, that are represented by each of the following logical formulae. (The domains of discourse of the free variables are indicated in each case.)
+用尽可能少的变量，给出以下逻辑公式的中文陈述。（每种情况都给出了自由变量的论域。）
 \begin{enumerate}[(a)]
-\item $\exists q \in \mathbb{Z},\, a = qb$ --- free variables $a, b \in \mathbb{Z}$
-\item $\exists a \in \mathbb{Z},\, \exists b \in \mathbb{Z},\, (b \ne 0 \wedge bx = a)$ --- free variable $x \in \mathbb{R}$
-\item $\forall d \in \mathbb{N},\, [(\exists q \in \mathbb{Z},\, n=qd) \Rightarrow (d = 1 \vee d = n)]$ --- free variable $n \in \mathbb{N}$
-\item $\forall a \in \mathbb{R},\, [a > 0 \Rightarrow \exists b \in \mathbb{R},\, (b > 0 \wedge a < b)]$ --- no free variables
+\item $\exists q \in \mathbb{Z},\, a = qb$ --- 自由变量 $a, b \in \mathbb{Z}$
+\item $\exists a \in \mathbb{Z},\, \exists b \in \mathbb{Z},\, (b \ne 0 \wedge bx = a)$ --- 自由变量 $x \in \mathbb{R}$
+\item $\forall d \in \mathbb{N},\, [(\exists q \in \mathbb{Z},\, n=qd) \Rightarrow (d = 1 \vee d = n)]$ --- 自由变量 $n \in \mathbb{N}$
+\item $\forall a \in \mathbb{R},\, [a > 0 \Rightarrow \exists b \in \mathbb{R},\, (b > 0 \wedge a < b)]$ --- 无自由变量
 \end{enumerate}
 \end{exercise}
 
-Now that we have a better understanding of how to translate between plain English statements and logical formulae, we are ready to give a precise mathematical treatment of quantifiers. Just like with logical operators in \Cref{secPropositionalLogic}, quantifiers will be defined according to \textit{introduction rules}, which tell us how to prove a quantified formula, and \textit{elimination rules}, which tell us how to use an assumption that involves a quantifier.
+我们已经更好地理解了如何在中文陈述和逻辑公式之间进行转换，是时候对量词进行精确的数学处理了。 就像 \Cref{secPropositionalLogic} 中对逻辑运算符的处理一样，量词将根据\textit{引入规则}和\textit{消除规则}定义，前者告诉我们如何证明一个量化公式，后者告诉我们如何使用一个涉及量词的假设。
 
-\subsubsection*{Universal quantification (`for all', $\forall$)}
+\subsubsection*{全称量化 (`对于所有', $\forall$)}
 
-The universal quantifier makes precise what we mean when we say `for all', or `$p(x)$ is always true no matter what value $x$ takes'.
+当我们说`对于所有'或`无论 $x$ 取什么值，$p(x)$ 始终为真'时，全称量词可以准确表达我们的意思。
 
 \begin{definition}
 \label{defUniversalQuantifier}
 \index{universal quantifier}
 \index{quantifier!universal}
-The \textbf{universal quantifier} is the quantifier $\forall$ \inlatex{forall}\lindexmmc{forall}{$\forall$}; if $p(x)$ is a logical formula with free variable $x$ with range $X$, then $\forall x \in X,\, p(x)$ is the logical formula defined according to the following rules:
+\textbf{全称量词}是量词$\forall$ \inlatex{forall}\lindexmmc{forall}{$\forall$}；如果 $p(x)$ 是一个逻辑公式，其中自由变量 $x$ 的范围为 $X$，则逻辑公式 $\forall x \in X,\, p(x)$ 根据以下规则定义：
 \begin{itemize}
-\item \introrule{\forall} If $p(x)$ can be derived from the assumption that $x$ is an arbitrary element of $X$, then $\forall x \in X,\, p(x)$;
-\item \elimrule{\forall} If $a \in X$ and $\forall x \in X,\, p(x)$ is true, then $p(a)$ is true.
+\item \introrule{\forall} 如果 $p(x)$ 可以从 $x$ 是 $X$ 的任意元素的假设推导出，那么 $\forall x \in X,\, p(x)$;
+\item \elimrule{\forall} 如果 $a \in X$ 且 $\forall x \in X,\, p(x)$ 为真，则 $p(a)$ 为真。
 \end{itemize}
-The expression $\forall x \in X,\, p(x)$ represents `for all $x \in X$, $p(x)$'.
+表达式 $\forall x \in X,\, p(x)$ 表示`对于所有 $x \in X$, $p(x)$'。
 \end{definition}
 
 \begin{center}
@@ -188,97 +187,95 @@ The expression $\forall x \in X,\, p(x)$ represents `for all $x \in X$, $p(x)$'.
 \end{minipage}
 \end{center}
 
-\begin{strategy}[Proving universally quantified statements]
+\begin{strategy}[全称量化陈述证明]
 \label{strProvingUniversal}
-To prove a proposition of the form $\forall x \in X,\, p(x)$, it suffices to prove $p(x)$ for an arbitrary element $x \in X$---in other words, prove $p(x)$ whilst assuming nothing about the variable $x$ other than that it is an element of $X$.
+要想证明形式为 $\forall x \in X,\, p(x)$ 的命题，只需对任意元素 $x \in X$ 证明 $p(x)$ --- 换句话说， 证明 $p(x)$，同时不对 $x$ 做任何假设，除了它是 $X$ 的一个元素。
 \end{strategy}
 
-Useful phrases for introducing an arbitrary variable of a set $X$ in a proof include `fix $x \in X$' or `let $x \in X$' or `take $x \in X$'---more on this is discussed in \Cref{secVocabulary}.
-
-The proofs of the following propositions illustrate how a proof of a universally quantified statement might look.
+我们可以用诸如`固定 $x \in X$'或`设 $x \in X$'或`令 $x \in X$'等短语引入集合 $X$ 中任意变量 --- 更多内容在 \Cref{secVocabulary} 中讨论。
 
 \begin{proposition}
 \label{exSquareOfOddIntegerIsOdd}
-The square of every odd integer is odd.
+奇数的平方都是奇数。
 \end{proposition}
 
 \begin{cproof}
-Let $n$ be an odd integer. Then $n=2k+1$ for some $k \in \mathbb{Z}$ by the division theorem (\Cref{thmDivisionPreliminary}), and so
+设 $n$ 为奇数。则根据除法定理（\Cref{thmDivisionPreliminary}）对于某整数 $k \in \mathbb{Z}, n=2k+1$，所以
 \[n^2 = (2k+1)^2 = 4k^2+4k+1 = 2(2k^2+2k) + 1\]
-Since $2k^2+2k \in \mathbb{Z}$, we have that $n^2$ is odd, as required.
+因为 $2k^2+2k \in \mathbb{Z}$，我们有 $n^2$ 是奇数。
 \end{cproof}
 
-Note that in the proof of \Cref{exSquareOfOddIntegerIsOdd}, we did not assume anything about $n$ other than that it is an odd integer.
+请注意，在 \Cref{exSquareOfOddIntegerIsOdd} 的证明中，除了 $n$ 是奇数外，我们没有做任何假设。
 
 \begin{proposition}
-The base-$10$ expansion of the square of every natural number ends in one of the digits $0$, $1$, $4$, $5$, $6$ or $9$.
+每个自然数的平方的 base-$10$ 扩展以 $0$、$1$、$4$、$5$、$6$ 或 $9$ 中的一个数字结尾。
 \end{proposition}
 
 \begin{cproof}
-Fix $n \in \mathbb{N}$, and let
+固定 $n \in \mathbb{N}$，并设
 \[n=d_rd_{r-1} \dots d_0\]
-be its base-$10$ expansion. Write
+是其 base-$10$ 展开。我们将其改写成
 \[n=10m+d_0\]
-where $m \in \mathbb{N}$---that is, $m$ is the natural number obtained by removing the final digit from $n$. Then
+其中 $m \in \mathbb{N}$ --- 也就是说，$m$ 是从 $n$ 中去掉最后一位得到的自然数。那么
 \[n^2=100m^2+20md_0+d_0^2 = 10m(10m+2d_0)+d_0^2\]
-Hence the final digit of $n^2$ is equal to the final digit of $d_0^2$. But the possible values of $d_0^2$ are
+因此 $n^2$ 的最后一位等于 $d_0^2$ 的最后一位。而 $d_0^2$ 可能的值为
 \[0 \quad 1 \quad 4 \quad 9 \quad 16 \quad 25 \quad 36 \quad 49 \quad 64 \quad 81\]
-all of which end in one of the digits $0$, $1$, $4$, $5$, $6$ or $9$.
+所有这些数字最后一位为 $0$, $1$, $4$, $5$, $6$ 或 $9$。
 \end{cproof}
 
 \begin{exercise}
 \label{exEveryIntegerIsRational}
-Prove that every integer is rational.
+证明所有整数都是有理数。
 \end{exercise}
 
 \begin{exercise}
-Prove that every linear polynomial over $\mathbb{Q}$ has a rational root.
+证明 $\mathbb{Q}$ 上的每个线性多项式都有有理根。
 \end{exercise}
 
 \begin{exercise}
-Prove that, for all real numbers $x$ and $y$, if $x$ is irrational, then $x+y$ and $x-y$ are not both rational.
+证明，对于所有实数 $x$ 和 $y$，如果 $x$ 是无理数，则 $x+y$ 和 $x-y$ 不都是有理数。
 \hintlabel{exIrrationalPlusMinusRealNotBothRational}{%
-Consider the sum of $x+y$ and $x-y$.
+考虑 $x+y$ 和 $x-y$ 之和。
 }
 \end{exercise}
 
-Before advancing too much further, beware of the following common error that arises when dealing with universal quantifiers.
+在进一步深入之前，请注意以下处理全称量词时出现的常见错误。
 
 \begin{commonerror}
-Consider the following (non-)proof of the proposition $\forall n \in \mathbb{Z},\, n^2 \ge 0$.
+考虑命题 $\forall n \in \mathbb{Z},\, n^2 \ge 0$ 的如下（错误）证明。
 
 \begin{quote}
-Let $n$ be an arbitrary integer, say $n=17$. Then $17^2 = 289 \ge 0$, so the statement is true.
+设 $n$ 为任意整数，比如 $n=17$。那么 $17^2 = 289 \ge 0$，所以这个说法是正确的。
 \end{quote}
 
-The error made here is that the \textit{writer} has picked an arbitrary value of $n$, not the \textit{reader}. (In fact, the above argument actually proves $\exists n \in \mathbb{Z},\, n^2 \ge 0$.)
+这里犯的错误是 $n$ 的任意值是\textit{作者}选择的，而不是\textit{读者}。（实际上，上面的论证证明的是 $\exists n \in \mathbb{Z},\, n^2 \ge 0$。）
 
-The proof should make no assumptions about the value of $n$ other than that it is an integer. Here is a correct proof:
+除了 $n$ 是一个整数外，证明不应对 $n$ 的值做出任何假设。下面是正确的证明：
 
 \begin{quote}
-Let $n$ be an arbitrary integer. Either $n \ge 0$ or $n < 0$. If $n \ge 0$ then $n^2 \ge 0$, since the product of two nonnegative numbers is nonnegative; if $n<0$ then $n^2 \ge 0$, since the product of two negative numbers is positive.
+设 $n$ 为任意整数。$n \ge 0$ 或 $n < 0$。如果 $n \ge 0$ 则 $n^2 \ge 0$，因为两个非负数的乘积是非负的；如果 $n<0$ 则 $n^2 \ge 0$，因为两个负数的乘积是正数。
 \end{quote}
 \end{commonerror}
 
-The strategy suggested by the elimination rule for the universal quantifier is one that we use almost without thinking about it.
+全称量词的消除规则所建议的策略是我们几乎不假思索就会使用的策略。
 
-\begin{strategy}[Assuming universally quantified statements]
+\begin{strategy}[全称量化陈述假设]
 \label{strAssumingUniversal}
-If an assumption in a proof has the form $\forall x \in X,\, p(x)$, then we may assume that $p(a)$ is true whenever $a$ is an element of $X$.
+如果证明中的假设具有 $\forall x \in X,\, p(x)$ 的形式，那么只要 $a$ 是 $X$ 的元素，我们就可以假设 $p(a)$ 为真。
 \end{strategy}
 
-\subsubsection*{Existential quantification (`there exists', $\exists$)}
+\subsubsection*{存在量化 (`存在', $\exists$)}
 
 \begin{definition}
 \label{defExistentialQuantifier}
 \index{existential quantifier}
 \index{quantifier!existential}
-The \textbf{existential quantifier} is the quantifier $\exists$ \inlatex{exists}\nindex{exists}{$\exists$}; if $p(x)$ is a logical formula with free variable $x$ with range $X$, then $\exists x \in X,\, p(x)$ is the logical formula defined according to the following rules:
+\textbf{存在量词} 是量词$\exists$ \inlatex{exists}\nindex{exists}{$\exists$}；如果 $p(x)$ 是一个逻辑公式，其中自由变量 $x$ 的范围为 $X$，则逻辑公式 $\exists x \in X,\, p(x)$ 根据以下规则定义：
 \begin{itemize}
-\item \introrule{\exists} If $a \in X$ and $p(a)$ is true, then $\exists x \in X,\, p(x)$;
-\item \elimrule{\exists} If $\exists x \in X,\, p(x)$ is true, and $q$ can be derived from the assumption that $p(a)$ is true for some fixed $a \in X$, then $q$ is true.
+\item \introrule{\exists} 如果 $a \in X$ 且 $p(a)$ 为真，则 $\exists x \in X,\, p(x)$;
+\item \elimrule{\exists} 如果 $\exists x \in X,\, p(x)$ 为真，则 $q$ 可以从假设 $p(a)$ 对于某些固定的 $a \in X$ 为真推导出，则 $q$ 为真。
 \end{itemize}
-The expression $\exists x \in X,\, p(x)$ represents `there exists $x \in X$ such that $p(x)$'.
+表达式 $\exists x \in X,\, p(x)$ 表示`存在 $x \in X$ 使得 $p(x)$'。
 \end{definition}
 
 \begin{center}
@@ -309,62 +306,62 @@ The expression $\exists x \in X,\, p(x)$ represents `there exists $x \in X$ such
 \end{minipage}
 \end{center}
 
-\begin{strategy}[Proving existentially quantified statements]
+\begin{strategy}[存在量化陈述证明]
 \label{strProvingExistential}
-To prove a proposition of the form $\exists x \in X,\, p(x)$, it suffices to prove $p(a)$ for some specific element $a \in X$, which should be explicitly defined.
+要证明形式为 $\exists x \in X,\, p(x)$ 的命题，只需对某个特定元素 $a \in X$ 证明 $p(a)$ 即可，该元素应明确定义。
 \end{strategy}
 
 \begin{example}
-We prove that there is a natural number that is a perfect square and is one more than a perfect cube. That is, we prove
+证明存在一个自然数是一个完全平方数并且比一个完全立方数多 1。也就是说，我们证明
 \[\exists n \in \mathbb{N},\, ([\exists k \in \mathbb{Z},\, n=k^2] \wedge [\exists \ell \in \mathbb{Z},\, n=\ell^3 + 1])\]
-So define $n=9$. Then $n=3^2$ and $n=2^3+1$, so that $n$ is a perfect square and is one more than a perfect cube, as required.
+定义 $n=9$。那么 $n=3^2$ 且 $n=2^3+1$，所以 $n$ 是一个完全平方数且比某个完全立方数多1。
 \end{example}
 
-The following proposition involves an existentially quantified statement---indeed, to say that a polynomial $f(x)$ has a real root is to say $\exists x \in \mathbb{R},\, f(x) = 0$.
+下面的命题涉及一个存在量化陈述 --- 事实上，说多项式 $f(x)$ 有实根就是说 $\exists x \in \mathbb{R},\, f(x) = 0 $。
 
 \begin{proposition}
-Fix $a \in \mathbb{R}$. The cubic polynomial $x^3 + (1-a^2)x - a$ has a real root.
+固定 $a \in \mathbb{R}$。三次多项式 $x^3 + (1-a^2)x - a$ 有实根。
 \end{proposition}
 \begin{cproof}
-Let $f(x)=x^3+(1-a^2)x-a$. Define $x=a$; then
+设 $f(x)=x^3+(1-a^2)x-a$。定义 $x=a$；则
 \[f(x) = f(a) = a^3 + (1-a^2)a - a = a^3 + a - a^3 - a = 0\]
-Hence $a$ is a root of $f(x)$. Since $a$ is real, $f(x)$ has a real root.
+因此 $a$ 是 $f(x)$ 的一个根。因为 $a$ 实数，所以 $f(x)$ 有实根。
 \end{cproof}
 
-The following exercises require you to prove existentially quantified statements.
+以下练习要求您证明存在量化陈述。
 
 \begin{exercise}
-Prove that there is a real number which is irrational but whose square is rational.
+证明存在一个实数，它是无理数但其平方是有理数。
 \end{exercise}
 
 \begin{exercise}
-Prove that there is an integer which is divisible by zero.
+证明存在一个能被零整除的整数。
 \hintlabel{exZeroDividesSomeInteger}{%
-Look carefully at the definition of divisibility (\Cref{defDivisionPreliminary}).
+仔细查看整除性的定义 (\Cref{defDivisionPreliminary})。
 }
 \end{exercise}
 
 \begin{example}
-Prove that, for all $x,y \in \mathbb{Q}$, if $x < y$ then there is some $z \in \mathbb{Q}$ with $x<z<y$.
+证明，对于所有 $x,y \in \mathbb{Q}$，如果 $x < y$ 则存在某些 $z \in \mathbb{Q}$ 且 $x<z<y$。
 \end{example}
 
-The elimination rule for the existential quantifier gives rise to the following proof strategy.
+存在量词的消除规则产生了以下证明策略。
 
-\begin{strategy}[Assuming existentially quantified statements]
+\begin{strategy}[存在量化陈述假设]
 \label{strAssumingExistential}
-If an assumption in the proof has the form $\exists x \in X,\, p(x)$, then we may introduce a new variable $a \in X$ and assume that $p(a)$ is true.
+如果证明中的假设具有 $\exists x \in X,\, p(x)$ 的形式，那么我们可以引入一个新变量 $a \in X$ 并假设 $p(a)$ 为真。
 \end{strategy}
 
-It ought to be said that when using existential elimination in a proof, the variable $a$ used to denote a particular element of $X$ for which $p(a)$ is true should not already be in use earlier in the proof.
+应该说，当在证明中使用存在消除时，用于表示 $X$ 中使得 $p(a)$ 为真的特定元素的变量 $a$ 不应该在证明的早期使用。
 
-\Cref{strAssumingExistential} is very useful in proofs of divisibility, since the expression `$a$ divides $b$' is an existentially quantified statement---this was \Cref{exLogicalFormulaeToEnglish}(a).
+\Cref{strAssumingExistential} 在可除性证明中非常有用，因为表达式`$a$ 除以 $b$'是一个存在量化陈述 --- 就是 \Cref{exLogicalFormulaeToEnglish}(a)。
 
 \begin{proposition}
 Let $n \in \mathbb{Z}$. If $n^3$ is divisible by $3$, then $(n+1)^3 - 1$ is divisible by $3$.
 \end{proposition}
 
 \begin{cproof}
-Suppose $n^3$ is divisible by $3$. Take $q \in \mathbb{Z}$ such that $n^3 = 3q$. Then
+假设 $n \in \mathbb{Z}$。如果 $n^3$ 可以被 $3$ 整除，则 $(n+1)^3 - 1$ 也可以被 $3$ 整除。
 \begin{align*}
 & (n+1)^3 - 1 && \\
 &= (n^3 + 3n^2 + 3n + 1) - 1 && \text{expanding} \\
@@ -372,143 +369,140 @@ Suppose $n^3$ is divisible by $3$. Take $q \in \mathbb{Z}$ such that $n^3 = 3q$.
 &= 3q + 3n^2 + 3n && \text{since $n^3 = 3q$} \\
 &= 3(q+n^2+n) && \text{factorising}
 \end{align*}
-Since $q+n^2+n \in \mathbb{Z}$, we have proved that $(n+1)^3 - 1$ is divisible by $3$, as required.
+因为 $q+n^2+n \in \mathbb{Z}$，我们已经证明 $(n+1)^3 - 1$ 可以按要求被 $3$ 整除。
 \end{cproof}
 
-\subsubsection*{Uniqueness}
+\subsubsection*{唯一性}
 
-The concept of uniqueness arises whenever we want to use the word `the'. For example, in \Cref{defBaseBExpansionPreliminary} we defined the base-$b$ expansion of a natural number $n$ to be \textit{the} string $d_r d_{r-1} \dots d_1 d_0$ satisfying some properties. The issue with the word `the' here is that we don't know ahead of time whether a natural number $n$ may have base-$b$ expansions other than $d_r d_{r-1} \dots d_1 d_0$---this fact actually requires proof. To prove this fact, we would need to assume that $e_s e_{s-1} \dots e_1 e_0$ were another base-$b$ expansion of $n$, and prove that the strings $d_r d_{r-1} \dots d_1 d_0$ and $e_s e_{s-1} \dots e_1 e_0$ are the same---this is done in \Cref{thmBaseBExpansion}.
+每当我们想使用`特定'这个词时，就会出现唯一性的概念。例如，在 \Cref{defBaseBExpansionPreliminary} 中，我们将自然数 $n$ 的 base-$b$ 展开定义为满足某些性质的\textbf{特定}字符串 $d_r d_{r-1} \dots d_1 d_0$。这里`特定'这个词的问题在于，我们无法提前知道一个自然数 $n$ 是否有除 $d_r d_{r-1} \dots d_1 d_0$ 之外的 base-$b$ 展开 --- 这个事实其实是需要证明的。为了证明这个事实，我们需要假设 $e_s e_{s-1} \dots e_1 e_0$ 是 $n$ 的另一个 base-$b$ 展开，并证明字符串 $d_r d_{r-1} \dots d_1 d_0$ 和 $e_s e_{s-1} \dots e_1 e_0$ 是一样的 --- 这是在 \Cref{thmBaseBExpansion} 中完成的。
 
-Uniqueness is typically coupled with \textit{existence}, since we usually want to know if there is \textit{exactly one} object satisfying a property. This motivates the definition of the \textit{unique existential} quantifier, which encodes what we mean when we say `there is exactly one $x \in X$ such that $p(x)$ is true'. The `existence' part ensures that at least one $x \in X$ makes $p(x)$ true; the `uniqueness' part ensures that $x$ is the only element of $X$ making $p(x)$ true.
+唯一性通常与\textit{存在性}相关联，因为我们通常想知道是否\textit{仅有一个}对象满足某个属性。这激发了\textit{唯一存在}量词的定义，当我们说`仅有一个 $x \in X$ 使得 $p(x)$ 为真'时，它蕴涵了我们的意思。`存在'确保至少有一个 $x \in X$ 使 $p(x)$ 为真； `唯一'确保 $x$ 是 $X$ 使 $p(x)$ 为真的唯一元素。
 
 \begin{definition}
 \label{defUniqueExistentialQuantifier}
 \index{quantifier!unique existential}
-The \textbf{unique existential quantifier} is the quantifier $\exists !$ (\inlatex{exists!}\lindexmmc{\exists!}{$\exists!$}) defined such that $\exists ! x \in X,\, p(x)$ is shorthand for
-\[(\underbrace{\exists x \in X,\, p(x)}_{\text{existence}}) ~ \wedge ~ (\underbrace{\forall a \in X,\, \forall b \in X,\, [p(a) \wedge p(b) \Rightarrow a=b]}_{\text{uniqueness}})\]
+\textbf{唯一存在量词}是量词 $\exists !$ (\inlatex{exists!}\lindexmmc{\exists!}{$\exists!$}) 定义为 $\exists ! x \in X,\, p(x)$ 是 \[(\underbrace{\exists x \in X,\, p(x)}_{\text{existence}}) ~ \wedge ~ (\underbrace{\forall a \in X,\, \forall b \in X,\, [p(a) \wedge p(b) \Rightarrow a=b]}_{\text{uniqueness}})\] 的缩写。
 \end{definition}
 
 \begin{example}
 \label{exEveryPositiveRealHasUniqueSquareRoot}
-Every positive real number has a unique positive square root. We can write this symbolically as
-\[\forall a \in \mathbb{R},\, (a > 0 \Rightarrow \exists ! b \in \mathbb{R},\, (b > 0 \wedge b^2=a))\]
-Reading this from left to right, this says: for every real number $a$, if $a$ is positive, then there exists a unique real number $b$, which is positive and whose square is $a$. 
+每个正实数都有唯一的正平方根。我们可以符号化地写成
+\[\forall a \in \mathbb{R},\, (a > 0 \Rightarrow \exists !b \in \mathbb{R},\, (b > 0 \wedge b^2=a))\]
+从左到右读，其表示：对于每个实数 $a$，如果 $a$ 是正数，则存在唯一实数 $b$，它是正数，其平方是 $a$。
 \end{example}
 
 \begin{discussion}
-Explain why \Cref{defUniqueExistentialQuantifier} captures the notion of there being `exactly one' element $x \in X$ making $p(x)$ true. Can you think of any other ways that $\exists ! x \in X,\, p(x)$ could be defined?
+解释为什么 \Cref{defUniqueExistentialQuantifier} 具有存在`恰好一个'元素 $x \in X$ 使得 $p(x)$ 为真的概念。你能想到任何其他方式定义 $\exists ! x \in X,\, p(x)$ 吗？
 \end{discussion}
 
-\begin{strategy}[Proving unique-existentially quantified statements]
-A proof of a statement of the form $\exists ! x \in X,\, p(x)$, consists of two parts:
+\begin{strategy}[唯一存在量化陈述证明]
+具有 $\exists ! x \in X,\, p(x)$ 形式的陈述的证明，由两部分组成：
 \begin{itemize}
-\item \textbf{Existence} --- prove that $\exists x \in X,\, p(x)$ is true (e.g.\ using \Cref{strProvingExistential});
-\item \textbf{Uniqueness} --- let $a,b \in X$, assume that $p(a)$ and $p(b)$ are true, and derive $a=b$.
+\item \textbf{存在} --- 证明 $\exists x \in X,\, p(x)$ 为真（例如，使用 \Cref{strProvingExistential}）；
+\item \textbf{唯一} --- 设 $a,b \in X$，假设 $p(a)$ 和 $p(b)$ 为真，推导出 $a=b$。
 \end{itemize}
-
-Alternatively, prove existence to obtain a fixed $a \in X$ such that $p(a)$ is true, and then prove $\forall x \in X,\, [p(x) \Rightarrow x=a]$.
+或者，证明存在固定的 $a \in X$ 使得 $p(a)$ 为真，然后证明 $\forall x \in X,\, [p(x) \Rightarrow x=a]$。
 \end{strategy}
 
 \begin{example}
 \label{exEveryPositiveRealHasUniqueSquareRootProof}
-We prove \Cref{exEveryPositiveRealHasUniqueSquareRoot}, namely that for each real $a>0$ there is a unique $b>0$ such that $b^2=a$. So first fix $a > 0$.
+证明 \Cref{exEveryPositiveRealHasUniqueSquareRoot}，即对于每个实数 $a>0$ 都有唯一的 $b>0$ 使得 $b^2=a$。首先固定 $a > 0$。
 \begin{itemize}
-\item (\textbf{Existence}) The real number $\sqrt{a}$ is positive and satisfies $(\sqrt{a})^2=a$ by definition. Its existence will be deferred to a later time, but an informal argument for its existence could be provided using `number line' arguments as in \Cref{chGettingStarted}.
-\item (\textbf{Uniqueness}) Let $y,z > 0$ be real numbers such that $y^2=a$ and $z^2=a$. Then $y^2=z^2$. Rearranging and factorising yields
+\item (\textbf{存在}) 实数 $\sqrt{a}$ 是正数并且根据定义满足 $(\sqrt{a})^2=a$。它的存在性后面再讨论，但是可以使用 \Cref{chGettingStarted} 中的`数轴'来提供其存在性的非正式论证。
+\item (\textbf{唯一}) 设 $y,z > 0$ 为实数，使得 $y^2=a$ 和 $z^2=a$。那么$y^2=z^2$。用平方差公式得
 \[(y-z)(y+z)=0\]
-so either $y-z=0$ or $y+z=0$. If $y+z=0$ then $z=-y$, and since $y>0$, this means that $z<0$. But this contradicts the assumption that $z>0$. As such, it must be the case that $y-z=0$, and hence $y=z$, as required.
+所以 $y-z=0$ 或 $y+z=0$。如果 $y+z=0$ 那么 $z=-y$，并且因为 $y>0$，这意味着 $z<0$。但这与 $z>0$ 的假设相矛盾。因此，根据需要，只能是 $y-z=0$，所以必然是 $y=z$。
 \end{itemize}
 \end{example}
 
 \begin{exercise}
 \label{exExamplesOfUniqueExistentialQuantifier}
-For each of the propositions, write it out as a logical formula involving the $\exists !$ quantifier and then prove it, using the structure of the logical formula as a guide.
+对于每个命题，将其写成包含 $\exists !$ 量词的逻辑公式，然后使用逻辑公式的结构作为指导来证明它。
 \begin{enumerate}[(a)]
-\item For each real number $a$, the equation $x^2+2ax+a^2=0$ has exactly one real solution $x$.
-\item There is a unique real number $a$ for which the equation $x^2+a^2=0$ has a real solution $x$.
-\item There is a unique natural number with exactly one positive divisor.
+\item 对于每个实数 $a$，方程 $x^2+2ax+a^2=0$ 恰好有一个实数解 $x$。
+\item 存在唯一一个实数 $a$，使得方程 $x^2+a^2=0$ 的实数解为 $x$。
+\item 有唯一一个自然数，其只有一个正约数。
 \end{enumerate}
 \end{exercise}
 
-The unique existential quantifier will play a large role when we study functions in \Cref{secFunctions}.
+当我们研究 \Cref{secFunctions} 中的函数时，唯一存在量词将发挥巨大作用。
 
-\subsection*{Quantifier alternation}
+\subsection*{量词交替}
 \index{quantifier alternation}
-Compare the following two statements:
+比较如下两个陈述：
 \begin{enumerate}[(i)] 
-\item For every door, there is a key that can unlock it.
-\item There is a key that can unlock every door.
+\item 对于每一扇门，都有一把可以解锁的钥匙。
+\item 有一把钥匙可以打开每扇门。
 \end{enumerate}
 
-Letting the variables $x$ and $y$ refer to doors and keys, respectively, and letting $p(x,y)$ be the statement `door $x$ can be unlocked by key $y$', we can formulate these statements as:
+设变量 $x$ 和 $y$ 分别指代门和钥匙，并设 $p(x,y)$ 为语句`门 $x$ 可以用钥匙 $y$ 解锁'，我们将陈述写做：
 \begin{enumerate}[(i)] 
 \item $\forall x,\, \exists y,\, p(x,y)$
 \item $\exists y,\, \forall x,\, p(x,y)$
 \end{enumerate}
 
-This is a typical `real-world' example of what is known as \textit{quantifier alternation}---the two statements differ only by the order of the front-loaded quantifiers, and yet they say very different things. Statement (i) requires every door to be unlockable, but the keys might be different for different doors; statement (ii), however, implies the existence of some kind of `master key' that can unlock all the doors.
+这就是所谓的\textit{量词交替}的典型`真实'示例 --- 这两个语句的区别仅在于前置量词的顺序，但它们表达的内容却截然不同。陈述 (i) 要求每扇门都可以解锁，但不同门的钥匙可能不同；然而，陈述 (ii) 暗示存在某种可以打开所有门的`万能钥匙'。
 
-Here's another example with a more mathematical nature:
+这是另一个更具数学性质的例子：
 
 \begin{exercise}
-Let $p(x,y)$ be the statement `$x + y$ is even'.
+设 $p(x,y)$ 代表陈述`$x + y$ 为偶数'。
 \begin{itemize}
-\item Prove that $\forall x \in \mathbb{Z},\, \exists y \in \mathbb{Z},\, p(x,y)$ is true.
-\item Prove that $\exists y \in \mathbb{Z},\, \forall x \in \mathbb{Z},\, p(x,y)$ is false.
+\item 证明 $\forall x \in \mathbb{Z},\, \exists y \in \mathbb{Z},\, p(x,y)$ 为真。
+\item 证明 $\exists y \in \mathbb{Z},\, \forall x \in \mathbb{Z},\, p(x,y)$ 为假。
 \end{itemize}
 \end{exercise}
 
-In both of the foregoing examples, you might have noticed that the `$\forall\exists$' statement says something \textit{weaker} than the `$\exists\forall$' statement---in some sense, it is easier to make a $\forall\exists$ statement true than it is to make an $\exists\forall$ statement true.
+在前面的两个例子中，你可能已经注意到 `$\forall\exists$' 陈述比 `$\exists\forall$' 陈述\textit{更弱} --- 在某种意义上，更容易让 $ \forall\exists$ 陈述为真，而更难让 $\exists\forall$ 陈述为真。
 
-This idea is formalised in \Cref{thmQuantifierAlternation} below, which despite its abstract nature, has an extremely simple proof.
+这个想法在下面的 \Cref{thmQuantifierAlternation} 中形式化，尽管它具有抽象的性质，但有一个非常简单的证明。
 
 \begin{theorem}
 \label{thmQuantifierAlternation}
-Let $p(x,y)$ be a logical formula with free variables $x \in X$ and $y \in Y$. Then
+设 $p(x,y)$ 是一个包含自由变量 $x \in X$ 和 $y \in Y$ 的逻辑公式。则
 \[\exists y \in Y,\, \forall x \in X,\, p(x,y) \Rightarrow \forall x \in X,\, \exists y \in Y,\, p(x,y)\]
 \end{theorem}
 
 \begin{cproof}
-Suppose $\exists y \in Y,\, \forall x \in X,\, p(x,y)$ is true. We need to prove $\forall x \in X,\, \exists y \in Y,\, p(x,y)$, so fix $a \in X$---our goal is now to prove $\exists y \in Y,\, p(a,y)$.
+假设 $\exists y \in Y,\, \forall x \in X,\, p(x,y)$ 成立。我们需要证明 $\forall x \in X,\, \exists y \in Y,\, p(x,y)$，因此固定 $a \in X$ --- 现在我们的目标是证明 $\exists y \in Y,\, p(a,y)$。
 
-Using our assumption $\exists y \in Y,\, \forall x \in X,\, p(x,y)$, we may choose $b \in Y$ such that $\forall x,\, p(x,b)$ is true. But then $p(a, b)$ is true, so we have proved $\exists y \in Y,\, p(a,y)$, as required.
+使用假设 $\exists y \in Y,\, \forall x \in X,\, p(x,y)$，我们可以选择 $b \in Y$ 使得 $\forall x,\, p(x,b)$ 成立。所以我们按要求证明了。
 \end{cproof}
 
-Statements of the form $\exists y \in Y,\, \forall x \in X,\, p(x,y)$ imply some kind of \textit{uniformity}: a value of $y$ making $\forall x \in X,\, p(x,y)$ true can be thought of as a `one size fits all' solution to the problem of proving $p(x,y)$ for a given $x \in X$. Later in your studies, it is likely that you will encounter the word `uniform' many times---it is precisely this notion of quantifier alternation that the word `uniform' refers to.
+$\exists y \in Y,\, \forall x \in X,\, p(x,y)$ 形式的陈述蕴含了某种\textit{一致性}：$y$ 的值使 $\forall x \in X ,\, p(x,y)$ 成立可以被认为是针对给定 $x \in X$ 证明 $p(x,y)$ 问题的`一刀切'解决方案。在以后的学习中，你可能会多次遇到`统一'这个词 --- `统一'这个词所指的正是这种量词交替的概念。
 
 \begin{tldr}{secVariablesQuantifiers}
 
-\subsubsection*{Variables and logical formulae}
+\subsubsection*{变量和逻辑公式}
 
 \begin{tldrlist}
 \tldritem{defFreeVariable}
-A variable is \textit{free} if a value can be substituted for it; otherwise it is \textit{bound}.
+如果一个值可以代替它，则该变量是\textit{自由}变量；否则它是\textit{约束}变量。
 
 \tldritem{defPredicate}
-A \textit{predicate} $p(x,y,z,\dots)$ represents a statement involving some free variables $x,y,z,\dots{}$ that becomes a proposition when values for the variables are substituted.
+\textit{谓词} $p(x,y,z,\dots)$ 表示涉及自由变量 $x,y,z,\dots{}$ 的陈述，当变量的值被替换时，该陈述变为命题。
 
 \tldritem{defLogicalFormula}
-A \textit{logical formula} is an expression built using predicates, logical operators and quantifiers.
+\textit{逻辑公式} 是使用谓词、逻辑运算符和量词构建的表达式。
 \end{tldrlist}
 
-\subsubsection*{Quantifiers}
+\subsubsection*{量词}
 
 \begin{tldrlist}
 \tldritem{defUniversalQuantifier}
-The \textit{universal quantifier} ($\forall$) represents `for all'. We prove $\forall x \in X,\, p(x)$ by introducing a variable $x \in X$ and, assuming nothing about $x$ other than that it is an element of $X$, deriving $p(x)$; we can use an assumption of the form $\forall x \in X,\, p(x)$ by deducing $p(a)$ whenever we know that $a \in X$.
+\textit{全称量词} ($\forall$) 表示`对于所有'。我们通过引入变量 $x \in X$ 来证明 $\forall x \in X,\, p(x)$ ，除了假设 $x$ 是 $X$ 的一个元素外，不假设任何关于 $x$ 的信息，推导 $p (x)$ 成立；只要我们知道 $a \in X$，我们就可以通过推导 $p(a)$ 来使用 $\forall x \in X,\, p(x)$ 形式的假设。
 
 \tldritem{defExistentialQuantifier}
-The \textit{existential quantifier} ($\exists$) represents `there exists\dots{} such that\dots{}'. We prove $\exists x \in X,\, p(x)$ by finding (with proof) an element $a \in X$ for which $p(a)$ is true; we can use an assumption of the form $\exists x \in X,\, p(x)$ by introducing a variable $a \in X$ and assuming that $p(a)$ is true.
+\textit{存在量词} ($\exists$) 表示`存在\dots{}使得\dots{}'。我们通过找到（证明）一个元素 $a \in X$ 来证明 $\exists x \in X,\, p(x)$，其中 $p(a)$ 为真；我们可以通过引入变量 $a \in X$ 并假设 $p(a)$ 为真来使用 $\exists x \in X,\, p(x)$ 形式的假设。
 
 \tldritem{defUniqueExistentialQuantifier}
-The \textit{unique existential quantifier} ($\exists !)$ represents `there exists a unique\dots{} such that\dots{}'. We prove $\exists ! x \in X,\, p(x)$ in two parts: (1) Prove $\exists x \in X,\, p(x)$; and (2) Let $a,b \in X$, assume that $p(a)$ and $p(b)$ are true, and derive $a=b$.
-\end{tldrlist}
+\textit{唯一存在量词} ($\exists !)$ 表示`存在一个唯一的\dots{} 使得\dots{}'。我们证明 $\exists ! x \in X,\, p(x)$ 分两部分：(1) 证明 $\exists x \in X,\, p(x)$；(2) 令 $a,b \in X$，假设 $p(a)$ 和 $p(b)$ 为真，并推导出 $a=b$。
 
-\subsubsection*{Quantifier alternation}
+\subsubsection*{量词交替}
 
 \begin{tldrlist}
 \tldritem{thmQuantifierAlternation}
-For any logical formula $p(x,y)$, we have that $\exists y \in Y,\, \forall x \in X,\, p(x,y)$ implies $\forall x \in X,\, \exists y \in Y,\, p(x,y)$, but not necessarily vice versa.
+对于任意逻辑公式 $p(x,y)$，我们有 $\exists y \in Y,\, \forall x \in X,\, p(x,y)$ 蕴含 $\forall x \in X ,\, \exists y \in Y,\, p(x,y)$，但反之不一定成立。
 \end{tldrlist}
 
 \end{tldr}
