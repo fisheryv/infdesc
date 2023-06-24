@@ -68,6 +68,7 @@
 
 \begin{itemize}
 \item 首先假设 $p \Rightarrow q$ 为真。根据排中律 (\Cref{axLE})，要么 $p$ 为真，要么 $\neg p$ 为真 --- 在每种情况下我们都导出 $(\neg p) \vee q$。
+\begin{itemize}
 \item 如果 $p$ 为真，则因为 $p \Rightarrow q$ 为真, 由 \elimrule{\Rightarrow} 可得 $q$ 为真，因此由 \introrulesub{\vee}{2} 可得 $(\neg p) \vee q$ 为真；
 \item 如果 $\neg p$ 为真，则根据 \introrulesub{\vee}{1} 可得 $(\neg p) \vee q$ 为真。
 \end{itemize}
