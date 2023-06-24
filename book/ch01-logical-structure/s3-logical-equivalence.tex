@@ -1,125 +1,124 @@
 % !TeX root = ../../book.tex
-\section{Logical equivalence}
+\section{逻辑等价}
 \secbegin{secLogicalEquivalence}
 
-We motivate the content of this section with an example.
+我们用一个例子来引出本节的内容。
 
 \begin{example}
 \label{exNoEvenPrimeGreaterThanTwo}
-Consider the following two logical formulae, where $P$ denotes the set of all prime numbers.
+考虑以下两个逻辑公式，其中 $P$ 表示所有质数的集合。
 \begin{enumerate}[(1)]
 \item $\forall n \in P,\, (n > 2 \Rightarrow [\exists k \in \mathbb{Z},\, n=2k+1])$;
 \item $\neg \exists n \in P,\, (n > 2 \wedge [\exists k \in \mathbb{Z},\, n=2k])$.
 \end{enumerate}
-The logical formula (1) translates to `every prime number greater than two is odd', and the logical formula (2) translates to `there does not exist an even prime number greater than two'. These statements are evidently \textit{equivalent}---they mean the same thing---but they suggest different proof strategies:
+逻辑公式（1）可以翻译为`每个大于二的质数都是奇数'，逻辑公式（2）翻译为`不存在大于二的偶质数'。这两个陈述显然是 \textit{等价的} --- 它们的意思相同 --- 但它们提出了不同的证明策略：
 
 \begin{enumerate}[(1)]
-\item Fix a prime number $n$, assume that $n>2$, and then prove that $n = 2k+1$ for some $k \in \mathbb{Z}$.
-\item Assume that there is some prime number $n$ such that $n>2$ and $n=2k$ for some $k \in \mathbb{Z}$, and derive a contradiction.
+\item 固定一个质数 $n$，假设 $n>2$，然后证明对于某些 $k \in \mathbb{Z}$, $n = 2k+1$ 。
+\item 假设存在某个质数 $n$ 使得 $n>2$ 且对于某些 $k \in \mathbb{Z}$, $n=2k$，并推导出矛盾。
 \end{enumerate}
 
-While statement (1) more directly translates the plain English statement `every prime number greater than two is odd', it is the proof strategy suggested by (2) that is easier to use. Indeed, if $n$ is a prime number such that $n>2$ and $n=2k$ for some $k \in \mathbb{Z}$, then $2$ is a divisor of $n$ other than $1$ and $n$ (since $1<2<n$), contradicting the assumption that $n$ is prime.
+虽然陈述 (1) 更直接地翻译成中文陈述`每个大于二的素数都是奇数'，但陈述 (2) 所建议的证明策略更易于使用。实际上，如果 $n$ 是质数，使得 $n>2$ 且对于某些 $k \in \mathbb{Z}$, $n=2k$，则 $2$ 是 $n$ 的约数，不只有 $1$ 和 $n$（因为 $1<2<n$），与 $n$ 是质数的假设相矛盾。
 \end{example}
 
-The notion of \textit{logical equivalence}, captures precisely the sense in which the logical formulae in (1) and (2) in \Cref{exNoEvenPrimeGreaterThanTwo} `mean the same thing'. Being able to transform a logical formula into a different (but equivalent) form allows us to identify a wider range of feasible proof strategies.
+\textit{逻辑等价}的概念准确地抓住了 \Cref{exNoEvenPrimeGreaterThanTwo} 中 (1) 和 (2) 逻辑公式`意思相同'的意义。能够将逻辑公式转换为不同（但等价）的形式使我们能够确定更广泛的可行证明策略。
 
 \begin{definition}
 \label{defLogicalEquivalence}
 \index{logical equivalence}
 \index{equivalence!logical}
 \nindex{logical equivalence}{$\equiv$}{logical equivalence}
-Let $p$ and $q$ be logical formulae. We say that $p$ and $q$ are \textbf{logically equivalent}, and write $p \equiv q$ \inlatex{equiv}\lindexmmc{equiv}{$\equiv$}, if $q$ can be derived from $p$ and $p$ can be derived from $q$.
+设 $p$ 和 $q$ 为逻辑公式。如果 $q$ 可以从 $p$ 推导出，$p$ 可以从 $q$ 推导出，则我们说 $p$ 和 $q$ 是\textbf{逻辑等价}的，写做 $p \equiv q$ \inlatex{equiv}\lindexmmc{equiv}{$\equiv$}。
 \end{definition}
 
-\subsection*{Logical equivalence of propositional formulae}
+\subsection*{命题公式的逻辑等价}
 
-While \Cref{defLogicalEquivalence} defines logical equivalence between arbitrary logical formulae, we will start by focusing our attention on logical equivalence between \textit{propositional} formulae, like those we saw in \Cref{secPropositionalLogic}.
+虽然 \Cref{defLogicalEquivalence} 定义了任意逻辑公式之间的逻辑等价，但我们将首先关注\textit{命题}公式之间的逻辑等价，就像我们在 \Cref{secPropositionalLogic} 中看到的那样。
 
-First, let's look at a couple of examples of what proofs of logical equivalence might look like. Be warned---they're not very nice to read! But there is light at the end of the tunnel. After struggling through \Cref{exConjunctionDistributesOverDisjunction,exImplicationInTermsOfDisjunction} and \Cref{exPAndQImpliesRIffPImpliesRAndQImpliesR}, we will introduce a very quick and easy tool for proving propositional formulae are logically equivalent.
+首先，我们先看几个例子，看看逻辑等价的证明可能是什么样子。前方高能 --- 他们读起来不是很友好！但隧道的尽头会有光。在经历了 \Cref{exConjunctionDistributesOverDisjunction,exImplicationInTermsOfDisjunction} 和 \Cref{exPAndQImpliesRIffPImpliesRAndQImpliesR} 之后，我们将介绍一个非常快速而简单的工具来证明命题公式在逻辑上是等价的。
 
 \begin{example}
 \label{exConjunctionDistributesOverDisjunction}
-We demonstrate that $p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$, where $p$, $q$ and $r$ are propositional variables.
+证明 $p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$，其中 $p$、$q$ 和 $r$ 是命题变量。
 
 \begin{itemize}
-\item First assume that $p \wedge (q \vee r)$ is true. Then $p$ is true and $q \vee r$ is true by definition of conjunction. By definition of disjunction, either $q$ is true or $r$ is true.
+\item 首先假设 $p \wedge (q \vee r)$ 为真。那么根据合取的定义，$p$ 为真且 $q \vee r$ 为真。根据析取的定义，$q$ 为真或 $r$ 为真。
 \begin{itemize}
-\item If $q$ is true, then $p \wedge q$ is true by definition of conjunction.
-\item If $r$ is true, then $p \wedge r$ is true by definition of conjunction.
+\item 如果 $q$ 为真，则 $p \wedge q$ 根据合取的定义为真。
+\item 如果 $r$ 为真，则 $p \wedge r$ 根据合取的定义为真。
 \end{itemize}
-In both cases we have that $(p \wedge q) \vee (p \wedge r)$ is true by definition of disjunction.
+在这两种情况下，根据析取的定义，$(p \wedge q) \vee (p \wedge r)$ 为真。
 
-\item Now assume that $(p \wedge q) \vee (p \wedge r)$ is true. Then either $p \wedge q$ is true or $p \wedge r$ is true, by definition of disjunction.
+\item 假设 $(p \wedge q) \vee (p \wedge r)$ 为真。那么根据析取的定义，要么 $p \wedge q$ 为真，要么 $p \wedge r$ 为真。
 \begin{itemize}
-\item If $p \wedge q$ is true, then $p$ is true and $q$ is true by definition of conjunction.
-\item If $p \wedge r$ is true, then $p$ is true and $r$ is true by definition of conjunction.
+\item 如果 $p \wedge q$ 为真，则根据合取的定义，$p$ 为真且 $q$ 为真。
+\item 如果 $p \wedge r$ 为真，则根据合取的定义，$p$ 为真且 $r$ 为真。
 \end{itemize}
-In both cases we have that $p$ is true, and that $q \vee r$ is true by definition of disjunction. Hence $p \wedge (q \vee r)$ is true by definition of conjunction.
+在这两种情况下，根据析取的定义，$p$ 为真，$q \vee r$ 为真。因此，根据合取的定义，$p \wedge (q \vee r)$ 为真。
 \end{itemize}
 
-Since we can derive $(p \wedge q) \vee (p \wedge r)$ from $p \wedge (q \vee r)$ and vice versa, it follows that
+因为我们可以从 $p \wedge (q \vee r)$ 推导出 $(p \wedge q) \vee (p \wedge r)$，反之亦然，它满足
 \[ p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)\]
-as required.
+的要求。
 \end{example}
 
 \begin{example}
 \label{exImplicationInTermsOfDisjunction}
-We prove that $p \Rightarrow q \equiv (\neg p) \vee q$, where $p$, $q$ and $r$ are propositional variables.
+我们证明 $p \Rightarrow q \equiv (\neg p) \vee q$，其中 $p$、$q$ 和 $r$ 是命题变量。
 
 \begin{itemize}
-\item First assume that $p \Rightarrow q$ is true. By the law of exluded middle (\Cref{axLEM}), either $p$ is true or $\neg p$ is true---we derive $(\neg p) \vee q$ in each case.
-\begin{itemize}
-\item If $p$ is true, then since $p \Rightarrow q$ is true, it follows from \elimrule{\Rightarrow} that $q$ is true, and so $(\neg p) \vee q$ is true by \introrulesub{\vee}{2};
-\item If $\neg p$ is true, then $(\neg p) \vee q$ is true by \introrulesub{\vee}{1}.
+\item 首先假设 $p \Rightarrow q$ 为真。根据排中律 (\Cref{axLE})，要么 $p$ 为真，要么 $\neg p$ 为真 --- 在每种情况下我们都导出 $(\neg p) \vee q$。
+\item 如果 $p$ 为真，则因为 $p \Rightarrow q$ 为真, 由 \elimrule{\Rightarrow} 可得 $q$ 为真，因此由 \introrulesub{\vee}{2} 可得 $(\neg p) \vee q$ 为真；
+\item 如果 $\neg p$ 为真，则根据 \introrulesub{\vee}{1} 可得 $(\neg p) \vee q$ 为真。
 \end{itemize}
-In both cases, we see that $(\neg p) \vee q$ is true.
+两种情况下，我们得到 $(\neg p) \vee q$ 为真。
 
-\item Now assume that $(\neg p) \vee q$ is true. To prove that $p \Rightarrow q$ is true, it suffices by \introrule{\Rightarrow} to assume that $p$ is true and derive $q$. So assume $p$ is true. Since $(\neg p) \vee q$ is true, we have that either $\neg p$ is true or $q$ is true.
+\item 假设 $(\neg p) \vee q$ 为真。证明 $p \Rightarrow q$ 为真，根据 \introrule{\Rightarrow} ，假设 $p$ 为真并推导出 $q$ 就可以了。所以假设 $p$ 为真。由于 $(\neg p) \vee q$ 为真，所以我们有 $\neg p$ 为真或 $q$ 为真。
 \begin{itemize}
-\item If $\neg p$ is true, then we obtain a contradiction from the assumption that $p$ is true, and so $q$ is true by the principle of explosion (\Cref{axPrincipleOfExplosion}).
-\item If $q$ is true\dots{} well, then $q$ is true---there is nothing more to prove!
+\item 如果 $\neg p$ 为真，则与假设 $p$ 为真矛盾，因此根据爆炸原理 (\Cref{axPrincipleOfExplosion}) $q$ 为真。
+\item 如果 $q$ 为真\dots{} 那么 $q$ 就是真的 --- 没有什么要证明的了！
 \end{itemize}
-In both cases we have that $q$ is true. Hence $p \Rightarrow q$ is true.
+两种情况下，我们都得到 $q$ 为真。因此 $p \Rightarrow q$ 为真。
 \end{itemize}
 
-We have derived $(\neg p) \vee q$ from $p \Rightarrow q$ and vice versa, and so the two formulae are logically equivalent.
+我们从 $p \Rightarrow q$ 推导出 $(\neg p) \vee q$ ，反之亦然，因此这两个公式逻辑等价。
 \end{example}
 
 \begin{exercise}
 \label{exPAndQImpliesRIffPImpliesRAndQImpliesR}
-Let $p$, $q$ and $r$ be propositional variables. Prove that the propositional formula $(p \vee q) \Rightarrow r$ is logically equivalent to $(p \Rightarrow r) \wedge (q \Rightarrow r)$.
+设 $p$、$q$ 和 $r$ 为命题变量。证明命题公式$(p \vee q) \Rightarrow r$ 在逻辑上等价于 $(p \Rightarrow r) \wedge (q \Rightarrow r)$。
 \end{exercise}
 
-Working through the derivations each time we want to prove logical equivalence can become cumbersome even for small examples like \Cref{exConjunctionDistributesOverDisjunction,exImplicationInTermsOfDisjunction} and \Cref{exPAndQImpliesRIffPImpliesRAndQImpliesR}.
+证明逻辑等价的推导可能会很麻烦，即使是对于像 \Cref{exConjunctionDistributesOverDisjunction,exImplicationInTermsOfDisjunction} 和 \Cref{exPAndQImpliesRIffPImpliesRAndQImpliesR} 这样的小例子也是如此。
 
-The following theorem reduces the problem of proving logical equivalence between \textit{propositional} formulae to the purely algorithmic task of checking when the formulae are true and when they are false in a (relatively) small list of cases. We will streamline this process even further using \textit{truth tables} (\Cref{defTruthTable}).
+下面的定理将证明\textit{命题}公式之间的逻辑等价性问题简化为纯粹的算法任务，即在（相对）小的情况列表中检查公式何时为真，何时为假。我们将使用 \textit{真值表} (\Cref{defTruthTable}) 进一步简化这个过程。
 
 \begin{theorem}
 \label{thmLogicalEquivalentIffSameTruthValues}
-Two propositional formulae are logically equivalent if and only if their truth values are the same under any assignment of truth values to their constituent propositional variables.
+两个命题公式逻辑等价，当且仅当构成命题的变量取任何真值下，两个命题的真值都是相同的。
 \end{theorem}
 
 \begin{cidea}
-A formal proof of this fact is slightly beyond our reach at this point, although we will be able to prove it formally by \textit{structural induction}, introduced in \Cref{secStructuralInduction}.
+尽管我们可以通过 \Cref{secStructuralInduction} 中介绍的\textit{结构归纳}严格证明上面的定理，但这在当下有点超纲。
 
-The idea of the proof is that, since propositional formulae are built up from simpler propositional formulae using logical operators, the truth value of a more complex propositional formula is determined by the truth values of its simpler subformulae. If we keep `chasing' these subformulae, we end up with just propositional variables.
+证明思路是，由于命题公式是使用逻辑运算符从更简单的命题公式构建的，因此更复杂的命题公式的真值由其更简单的子公式的真值决定。如果我们继续`追踪'这些子公式，我们最终只会得到命题变量。
 
-For example, the truth value of $(p \Rightarrow r) \wedge (q \Rightarrow r)$ is determined by the truth values of $p \Rightarrow r$ and $q \Rightarrow r$ according to the rules for the conjunction operator $\wedge$. In turn, the truth value of $p \Rightarrow r$ is determined by the truth values of $p$ and $r$ according to the implication operator $\Rightarrow$, and the truth value of $q \Rightarrow r$ is determined by the truth values of $q$ and $r$ according to the implication operator again. It follows that the truth value of the whole propositional formula $(p \Rightarrow r) \wedge (q \Rightarrow r)$ is determined by the truth values of $p,q,r$ according to the rules for $\wedge$ and $\Rightarrow$.
+例如 $(p \Rightarrow r) \wedge (q \Rightarrow r)$ 的真值由 $p \Rightarrow r$ 和 $q \Rightarrow r$ 的真值根据合取运算符 $\wedge$ 的规则确定 。接着，$p \Rightarrow r$ 的真值由 $p$ 和 $r$ 的真值根据蕴涵运算符 $\Rightarrow$ 决定，$q \Rightarrow r$ 的真值由 $q$ 和 $r$ 的真值再次根据蕴涵运算符决定。由此可见，整个命题公式 $(p \Rightarrow r) \wedge (q \Rightarrow r)$ 的真值根据 $\wedge$ 和 $\Rightarrow$ 的规则由 $p,q,r$ 的真值决定。
 
-If some assignment of truth values to propositional variables makes one propositional formula true but another false, then it must be impossible to derive one from the other---otherwise we'd obtain a contradiction. Hence both propositional formulae must have the same truth values no matter what assignment of truth values is given to their constituent propositional variables.
+如果将真值赋给命题变量使得一个命题公式为真而另一个为假，那么肯定不可能从一个推导出另一个 --- 否则我们会得到一个矛盾。因此，无论对命题变量的真值赋什么值，两个命题公式必须具有相同的真值。
 \end{cidea}
 
-We now develop a systematic way of checking the truth values of a propositional formula under each assignment of truth values to its constituent propositional variables.
+现在，我们开发一套系统的方法来检查命题变量赋值后命题公式的真值。
 
 \begin{definition}
 \label{defTruthTable}
 \index{truth table}
-The \textbf{truth table} of a propositional formula is the table with one row for each possible assignment of truth values to its constituent propositional variables, and one column for each subformula (including the propositional variables and the propositional formula itself). The entries of the truth table are the truth values of the subformulae.
+命题公式的\textbf{真值表}是一张表，其中每行表示命题变量可能的赋值，每列表示一个子公式（包括命题变量和命题公式本身）。真值表的条目是子公式的真值。
 \end{definition}
 
 \begin{example}
 \label{exNegationConjunctionDisjunctionImplicationTruthTable}
-The following are the truth tables for $\neg p$, $p \wedge q$, $p \vee q$ and $p \Rightarrow q$.
+一下是 $\neg p$, $p \wedge q$, $p \vee q$ 和 $p \Rightarrow q$ 的真值表。
 
 \begin{center}
 \begin{tabular}{c|c}
@@ -162,18 +161,18 @@ $p$ & $q$ & $p \Rightarrow q$ \\ \hline
 \end{center}
 \end{example}
 
-In \Cref{exNegationConjunctionDisjunctionImplicationTruthTable} we have used the symbol \TT{} \inlatex{checkmark}\lindexmmc{checkmark}{$\checkmark$} to mean `true' and \FF{} \inlatex{times}\lindexmmc{times}{$\times$} to mean `false'. Some authors adopt other conventions, such as $T,F$ or $\top,\bot$ \inlatex{top,\textbackslash{}bot}\lindexmmc{top}{$\top$}\lindexmmc{bot}{$\bot$} or $1,0$ or $0,1$---the possibilites are endless!
+在 \Cref{exNegationConjunctionDisjunctionImplicationTruthTable} 中，我们使用符号 \TT{} \inlatex{checkmark}\lindexmmc{checkmark}{$\checkmark$} 表示`真'，用 \FF{} \inlatex{times}\lindexmmc{times }{$\times$} 表示`假'。一些作者采用其他约定，例如 $T,F$ 或 $\top,\bot$ \inlatex{top,\textbackslash{}bot}\lindexmmc{top}{$\top$}\lindexmmc{bot}{$ \bot$} 或 $1,0$ 或 $0,1$--- 无限可能！
 
 \begin{exercise}
-Use the definitions of $\wedge$, $\vee$ and $\Rightarrow$ to justify the truth tables in \Cref{exNegationConjunctionDisjunctionImplicationTruthTable}.
-\hintlabel{exJustifyBasicTruthTables}{Note that you may need to use the law of excluded middle (\Cref{axLEM}) and the principle of explosion (\Cref{axPrincipleOfExplosion}).}
+使用 $\wedge$、$\vee$ 和 $\Rightarrow$ 的定义来证明 \Cref{exNegationConjunctionDisjunctionImplicationTruthTable} 中的真值表。
+\hintlabel{exJustifyBasicTruthTables}{请注意，您可能需要使用排中律 (\Cref{axLEM}) 和爆炸原理 (\Cref{axPrincipleOfExplosion})。}
 \end{exercise}
 
-The next example shows how the truth tables for the individual logical operators (as in \Cref{exNegationConjunctionDisjunctionImplicationTruthTable}) may be combined to form a truth table for a more complicated propositional formula that involves three propositional variables.
+下一个例子展示了如何将各个逻辑运算符的真值表（如 \Cref{exNegationConjunctionDisjunctionImplicationTruthTable}）组合起来，形成一个涉及三个命题变量的复杂命题公式的真值表。
 
 \begin{example}
 \label{exFirstExampleOfTruthTable}
-The following is the truth table for $(p \wedge q) \vee (p \wedge r)$.
+以下是 $(p \wedge q) \vee (p \wedge r)$ 的真值表。
 \begin{center}
 \begin{tabular}{ccc|cc|c}
 $p$ & $q$ & $r$ & $p \wedge q$  & $p \wedge r$ & $(p \wedge q) \vee (p \wedge r)$\\ \hline
@@ -186,27 +185,27 @@ $p$ & $q$ & $r$ & $p \wedge q$  & $p \wedge r$ & $(p \wedge q) \vee (p \wedge r)
 \FF & \FF & \TT & \FF           & \FF          & \FF \\
 \FF & \FF & \FF & \FF           & \FF          & \FF \\
 \multicolumn{3}{c}{\upbracefill} & \multicolumn{2}{c}{\upbracefill} & \multicolumn{1}{c}{\upbracefill} \\
-\multicolumn{3}{c}{\begin{minipage}{40pt}\centering\scriptsize propositional\\ variables\end{minipage}} & \multicolumn{2}{c}{\begin{minipage}{40pt}\centering\scriptsize intermediate\\ subformulae\end{minipage}} & \multicolumn{1}{c}{\scriptsize main formula}
+\multicolumn{3}{c}{\begin{minipage}{40pt}\centering\scriptsize 命题变量\end{minipage}} & \multicolumn{2}{c}{\begin{minipage}{40pt}\centering\scriptsize 中间子公式\end{minipage}} & \multicolumn{1}{c}{\scriptsize 主公式}
 \end{tabular}
 \end{center}
-Some comments about the construction of this truth table are pertinent:
+下面是关于这个真值表构造的一些详细解释：
 \begin{itemize}
-\item The propositional variables appear first. Since there are three of them, there are $2^3=8$ rows. The column for $p$ contains four \TT{}s followed by four \FF{}s; the column for $q$ contains two \TT{}s, two \FF{}s, and then repeats; and the column for $r$ contains one \TT{}, one \FF{}, and then repeats.
-\item The next group of columns are the next-most complicated subformulae. Each is constructed by looking at the relevant columns further to the left and comparing with the truth table for conjunction.
-\item The final column is the main formula itself, which again is constructed by looking at the relevant columns further to the left and comparing with the truth table for disjunction.
+\item 首先列出命题变量。因为有 3 个，所以有 $2^3=8$ 行。$p$ 列包含四个 \TT{} 后跟四个 \FF{}; $q$ 列包含两个 \TT{}，两个 \FF{}，然后重复；$r$ 列包含一个 \TT{}，一个 \FF{}，然后重复。
+\item 下一组列是较复杂的子公式。每个子公式都是通过查看左侧相关列并与合取真值表进行比较来构建的。
+\item 最后一列是主公式本身，它也是通过查看左侧相关列并与析取真值表进行比较来构造的。
 \end{itemize}
-Our choices of where to put the vertical bars and what order to put the rows in were not the only choices that could have been made, but when constructing truth tables for more complex logical formulae, it is useful to develop a system and stick to it.
+竖线的放置位置以及行的放置顺序并不是唯一的，但是在为更复杂的逻辑公式构建真值表时，开发一个系统并坚持下去很有必要。
 \end{example}
 
-Returning to \Cref{thmLogicalEquivalentIffSameTruthValues}, we obtain the following strategy for proving that two propositional formulae are logically equivalent.
+回到\Cref{thmLogicalEquivalentIffSameTruthValues}，我们得到以下证明两个命题公式逻辑等价的策略。
 
-\begin{strategy}[Logical equivalence using truth tables]
+\begin{strategy}[用真值表证明逻辑等价]
 \label{strTruthTable}
-In order to prove that propositional formulae are logically equivalent, it suffices to show that they have identical columns in a truth table.
+要想证明命题公式逻辑等价，只要证明它们有相同的真值表即可。
 \end{strategy}
 
 \begin{example}
-In \Cref{exConjunctionDistributesOverDisjunction} we proved that $p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$. We prove this again using truth tables. First we construct the truth table for $p \wedge (q \vee r)$:
+在\Cref{exConjunctionDistributesOverDisjunction}中我们证明了 $p \wedge (q \vee r) \equiv (p \wedge q) \vee (p \wedge r)$。我们使用真值表再证明一次。首先构造$p \wedge (q \vee r)$的真值表：
 \begin{center}
 \begin{tabular}{ccc|c|c}
 $p$ & $q$ & $r$ & $q \vee r$ & $p \wedge (q \vee r)$ \\ \hline
@@ -220,10 +219,10 @@ $p$ & $q$ & $r$ & $q \vee r$ & $p \wedge (q \vee r)$ \\ \hline
 \FF & \FF & \FF & \FF & \FF
 \end{tabular}
 \end{center}
-Note that the column for $p \wedge (q \vee r)$ is identical to that of $(p \wedge q) \vee (p \wedge r)$ in \Cref{exFirstExampleOfTruthTable}. Hence the two formulae are logically equivalent.
+请注意，$p \wedge (q \vee r)$ 列与 \Cref{exFirstExampleOfTruthTable} 中 $(p \wedge q) \vee (p \wedge r)$ 列的真值相同。 因此这两个公式逻辑等价。
 \end{example}
 
-To avoid having to write out two truth tables, it can be helpful to combine them into one. For example, the following truth table exhibits that $p \wedge (q \vee r)$ is logically equivalent to $(p \wedge q) \vee (p \wedge r)$:
+为了避免写两个真值表，将它们合并成一个真值表。例如，下面的真值表表明 $p \wedge (q \vee r)$ 在逻辑上等价于 $(p \wedge q) \vee (p \wedge r)$：
 
 \begin{center}
 \begin{tabular}{ccc||c|c||cc|c}
@@ -239,29 +238,29 @@ $p$ & $q$ & $r$ & $q \vee r$ & $p \wedge (q \vee r)$ & $p \wedge q$  & $p \wedge
 \end{tabular}
 \end{center}
 
-In the following exercises, we use truth tables to repeat the proofs of logical equivalence from \Cref{exImplicationInTermsOfDisjunction} and \Cref{exPAndQImpliesRIffPImpliesRAndQImpliesR}.
+在下面的练习中，我们使用真值表来重写 \Cref{exImplicationInTermsOfDisjunction} 和 \Cref{exPAndQImpliesRIffPImpliesRAndQImpliesR} 的逻辑等价证明。
 
 \begin{exercise}
 \label{exImplicationInTermsOfDisjunctionWithTruthTables}
-Use a truth table to prove that $p \Rightarrow q \equiv (\neg p) \vee q$.
+用真值表证明 $p \Rightarrow q \equiv (\neg p) \vee q$。
 \end{exercise}
 
 \begin{exercise}
 \label{exPAndQImpliesRIffPImpliesRAndQImpliesRWithTruthTables}
-Let $p$, $q$ and $r$ be propositional variables. Use a truth table to prove that the propositional formula $(p \vee q) \Rightarrow r$ is logically equivalent to $(p \Rightarrow r) \wedge (q \Rightarrow r)$.
+设 $p$、$q$ 和 $r$ 为命题变量。用真值表证明命题公式 $(p \vee q) \Rightarrow r$ 在逻辑上等价于 $(p \Rightarrow r) \wedge(q \Rightarrow r)$。
 \end{exercise}
 
-\subsection*{Some proof strategies}
+\subsection*{一些证明策略}
 
-We are now in good shape to use logical equivalence to derive some more sophisticated proof strategies.
+现在，我们可以很好地使用逻辑等价来推导一些更复杂的证明策略。
 
-\begin{theorem}[Law of double negation]
+\begin{theorem}[双重否定律]
 \label{thmDoubleNegation}
-Let $p$ be a propositional variable. Then $p \equiv \neg \neg p$.
+设 $p$ 为命题变量，则 $p \equiv \neg \neg p$。
 \end{theorem}
 
 \begin{cproof}
-The proof is almost trivialised using truth tables. Indeed, consider the following truth table.
+使用真值表可以轻而易举地证明出来。事实上，请考虑以下真值表。
 \begin{center}
 \begin{tabular}{c|c|c}
 $p$ & $\neg p$ & $\neg \neg p$ \\ \hline
@@ -269,51 +268,51 @@ $p$ & $\neg p$ & $\neg \neg p$ \\ \hline
 \FF & \TT & \FF
 \end{tabular}
 \end{center}
-The columns for $p$ and $\neg \neg p$ are identical, and so $p \equiv \neg \neg p$.
+$p$ 列和 $\neg \neg p$ 列是相同的，因此 $p \equiv \neg \neg p$。
 \end{cproof}
 
-The law of double negation is important because it suggests a second way that we can prove statements by contradiction. Indeed, it says that proving a proposition $p$ is equivalent to proving $\neg \neg p$, which amounts to assuming $\neg p$ and deriving a contradiction.
+双重否定律很重要，因为它给出了通过矛盾来证明陈述的第二种方法。事实上，它说的是证明一个命题 $p$ 相当于证明 $\neg \neg p$，这相当于假设 $\neg p$ 并导出矛盾。
 
-\begin{strategy}[Proof by contradiction (indirect version)]
+\begin{strategy}[反证法（间接版）]
 \label{strProofByContradictionIndirect}
 \index{contradiction!(indirect) proof by}
 \index{proof!by contradiction (indirect)}
-In order to prove a proposition $p$ is true, it suffices to assume that $p$ is false and derive a contradiction.
+为了证明命题 $p$ 为真，只需假设 $p$ 为假并导出矛盾即可。
 \end{strategy}
 
-At first sight, \Cref{strProofByContradictionIndirect} looks very similar to \Cref{strProvingNegationsDirect}, which we also termed \textit{proof by contradiction}. But there is an important difference between the two:
+乍一看，\Cref{strProofByContradictionIndirect} 看起来与 \Cref{strProvingNegationsDirect} 非常相似，我们也将其称为 \textit{矛盾证明}。但两者之间有一个重要的区别：
 \begin{itemize}
-\item \Cref{strProvingNegationsDirect} says that to prove that a proposition is \textit{false}, it suffices to assume that it is \textit{true} and derive a contradiction;
-\item \Cref{strProofByContradictionIndirect} says that to prove that a proposition is \textit{true}, it suffices to assume that it is \textit{false} and derive a contradiction.
+\item \Cref{strProvingNegationsDirect} 说的是，要想证明一个命题为\textit{假}，只需假设它为\textit{真}并导出矛盾即可；
+\item \Cref{strProofByContradictionIndirect} 说的是，要想证明一个命题为\textit{真}，只需假设它为\textit{假} 并导出矛盾即可。
 \end{itemize}
 
-The former is a \textit{direct} proof technique, since it arises directly from the definition of the negation operator; the latter is an \textit{indirect} proof technique, since it arises from a logical equivalence, namely the law of double negation.
+前者是一种\textit{直接}证明技术，因为它直接源于否定运算符的定义；后者是一种\textit{间接}证明技术，因为它源于逻辑等价，即双重否定律。
 
 \begin{example}
-We prove that if $a$, $b$ and $c$ are non-negative real numbers satisfying $a^2+b^2=c^2$, then $a+b \ge c$.
+我们要证明，如果 $a$、$b$ 和 $c$ 是满足 $a^2+b^2=c^2$ 的非负实数，则 $a+b \ge c$。
 
-Indeed, let $a,b,c \in \mathbb{R}$ with $a,b,c \ge 0$, and assume that $a^2+b^2=c^2$. Towards a contradiction, assume that it is not the case that $a+b \ge c$. Then we must have $a+b < c$. But then
+事实上，令 $a,b,c \in \mathbb{R}$ 且 $a,b,c \ge 0$，并假设 $a^2+b^2=c^2$。为了引出矛盾，假设 $a+b \ge c$ 不成立。则必有 $a+b < c$。那么
 \[ (a+b)^2 = (a+b)(a+b) < (a+b) c < c \cdot c = c^2\]
-and so
+因此
 \[ c^2 > (a+b)^2 = a^2+2ab+b^2 = c^2+2ab \ge c^2\]
-This implies that $c^2 > c^2$, which is a contradiction. So it must be the case that $a + b \ge c$, as required.
+这意味着 $c^2 > c^2$，这明显矛盾。因此按要求一定是 $a + b \ge c$。
 \end{example}
 
-The next proof strategy we derive concerns proving implications.
+我们得出的下一个证明策略涉及证明蕴涵。
 
 \begin{definition}
 \label{defContrapositive}
 \index{contrapositive}
-The \textbf{contrapositive} of a proposition of the form $p \Rightarrow q$ is the proposition $\neg q \Rightarrow \neg p$.
+$p \Rightarrow q$ 形式的命题的\textbf{逆否}命题是 $\neg q \Rightarrow \neg p$。
 \end{definition}
 
-\begin{theorem}[Law of contraposition]
+\begin{theorem}[逆反律]
 \label{thmLawOfContraposition}
-Let $p$ and $q$ be propositional variables. Then $p \Rightarrow q \equiv (\neg q) \Rightarrow (\neg p)$.
+设 $p$ 和 $q$ 为命题变量。则 $p \Rightarrow q \equiv (\neg q) \Rightarrow (\neg p)$。
 \end{theorem}
 
 \begin{cproof}
-We build the truth tables for $p \Rightarrow q$ and $(\neg q) \Rightarrow (\neg p)$.
+我们构建 $p \Rightarrow q$ 和 $(\neg q) \Rightarrow (\neg p)$ 的真值表。
 
 \begin{center}
 \begin{tabular}{cc||c||cc|c}
@@ -325,64 +324,64 @@ $p$ & $q$ & $p \Rightarrow q$ & $\neg q$ & $\neg p$ & $(\neg q) \Rightarrow (\ne
 \end{tabular}
 \end{center}
 
-The columns for $p \Rightarrow q$ and $(\neg q) \Rightarrow (\neg p)$ are identical, so they are logically equivalent.
+$p \Rightarrow q$ 列和 $(\neg q) \Rightarrow (\neg p)$ 列相同，因此它们在逻辑上是等价的。
 \end{cproof}
 
-\Cref{thmLawOfContraposition} suggests the following proof strategy.
+\Cref{thmLawOfContraposition} 给出以下证明策略。
 
-\begin{strategy}[Proof by contraposition]
+\begin{strategy}[对位证明法]
 \label{strProofByContraposition}
 \index{contraposition!proof by}
 \index{proof!by contraposition}
-In order to prove a proposition of the form $p \Rightarrow q$, it suffices to assume that $q$ is false and derive that $p$ is false.
+为了证明 $p \Rightarrow q$ 形式的命题，只需假设 $q$ 为假并推导出 $p$ 为假。
 \end{strategy}
 
 \begin{example}
-Fix two natural numbers $m$ and $n$. We will prove that if $mn > 64$, then either $m>8$ or $n>8$.
+给定两个自然数 $m$ 和 $n$。证明，如果 $mn > 64$，则 $m>8$ 或 $n>8$。
 
-By contraposition, it suffices to assume that it is \textit{not} the case that $m > 8$ or $n > 8$, and derive that it is not the case that $mn > 64$.
+根据对位法，只需假设 $m > 8$ 或 $n > 8$ 不成立，并推导出 $mn > 64$ 不成立。
 
-So assume that neither $m>8$ nor $n>8$. Then $m \le 8$ and $n \le 8$, so that $mn \le 64$, as required.
+因此，假设 $m>8$ 和 $n>8$ 都不成立。则 $m \le 8$ 且 $n \le 8$，因此 $mn \le 64$。
 \end{example}
 
 \begin{exercise}
-Use the law of contraposition to prove that $p \Leftrightarrow q \equiv (p \Rightarrow q) \wedge ((\neg p) \Rightarrow (\neg q))$, and use the proof technique that this equivalence suggests to prove that an integer is even if and only if its square is even.
+使用逆反律证明 $p \Leftrightarrow q \equiv (p \Rightarrow q) \wedge ((\neg p) \Rightarrow (\neg q))$，并使用该等价给出的证明技术来证明一个整数是偶数当且仅当它的平方是偶数。
 \hintlabel{exIntegerEvenIffSquareEven}{%
-Express this statement as $\forall n \in \mathbb{Z},\, (n \text{ is even}) \Leftrightarrow (n^2 \text{ is even})$, and note that the negation of `$x$ is even' is `$x$ is odd'.
+将此语句表示为 $\forall n \in \mathbb{Z},\, (n \text{为偶数}) \Leftrightarrow (n^2 \text{为偶数})$，并注意 `$x$ 为偶数' 的逆命题是 `$x$ 为奇数'。
 }
 \end{exercise}
 
-It feels good to invoke impressive-sounding results like \textit{proof by contraposition}, but in practice, the logical equivalence between \textit{any} two different propositional formulae suggests a new proof technique, and not all of these techniques have names. And indeed, the proof strategy in the following exercise, while useful, has no slick-sounding name---at least, not one that would be widely understood.
+引用听起来令人印象深刻的结果（例如\textit{对位证明法}）感觉很好，但在实践中，\textit{任何}两个不同命题公式之间的逻辑等价都暗示着一种新的证明技术，而且并非所有这些技术都有名称。事实上，下面练习中的证明策略虽然有用，但却没有一个听起来很华而不实的名字 --- 至少没有一个能被广泛理解的名字。
 
 \begin{exercise}
-Prove that $p \vee q \equiv (\neg p) \Rightarrow q$. Use this logical equivalence to suggest a new strategy for proving propositions of the form $p \vee q$, and use this strategy to prove that if two integers sum to an even number, then either both integers are even or both are odd.
+证明 $p \vee q \equiv (\neg p) \Rightarrow q$。使用该逻辑等价给出证明 $p \vee q$ 形式命题的新的证明策略，并使用该策略证明如果两个整数之和为偶数，则两个整数要么都是偶数，要么都是奇数。
 \end{exercise}
 
-\subsection*{Negation}
+\subsection*{否定}
 
-In pure mathematics it is common to ask whether or not a certain property holds of a mathematical object. For example, in \Cref{secCompletenessConvergence}, we will look at convergence of sequences of real numbers: to say that a sequence $x_0,x_1,x_2,\dots$ of real numbers \textit{converges}\label{pConvergencePreliminary} (\Cref{defConvergenceOfSequence}) is to say
+在纯数学中，经常会问数学对象的某个属性是否成立。例如，在 \Cref{secCompletenessConvergence} 中，我们将研究实数序列的收敛性：假设实数序列 $x_0,x_1,x_2,\dots$ \textit{收敛}\label{pConvergencePreliminary} (\Cref{defConvergenceOfSequence }) 就是说
 \[ \exists a \in \mathbb{R},\, \forall \varepsilon \in \mathbb{R},\, (\varepsilon > 0 \Rightarrow \exists N \in \mathbb{N},\, \forall n \in \mathbb{N},\, [n \ge N \Rightarrow |x_n-a| < \varepsilon])\]
-This is already a relatively complicated logical formula. But what if we wanted to prove that a sequence \textit{does not} converge? Simply assuming the logical formula above and deriving a contradiction might work sometimes, but it is not particularly enlightening.
+这已经是一个比较复杂的逻辑公式了。但是如果我们想证明一个序列\textit{不}收敛怎么办？简单地假设上面的逻辑公式成立并推导出矛盾有时可能会起作用，但并不是特别有启发性。
 
-Our next goal is to develop a systematic method for negating complicated logical formulae. With this done, we will be able to negate the logical formula expressing `the sequence $x_0, x_1, x_2, \dots$ converges' as follows
+我们的下一目标是开发一种系统方法来否定复杂的逻辑公式。完成此操作后，我们将能够否定表示`序列 $x_0, x_1, x_2, \dots$ 收敛'的逻辑公式，如下所示
 \[ \forall a \in \mathbb{R},\, \exists \varepsilon \in \mathbb{R},\, (\varepsilon > 0 \wedge \forall N \in \mathbb{N},\, \exists n \in \mathbb{N},\, [n \ge N \wedge |x_n-a| \ge \varepsilon])\]
 
-Granted, this is still a complicated expression, but when broken down element by element, it provides useful information about how it may be proved.
+诚然，这仍然是一个复杂的表达式，但是当逐个元素分解后，它提供了有关如何证明它的有用信息。
 
-The rules for negating conjunctions and disjunctions are instances of \textit{de Morgan's laws}, which exhibit a kind of duality between $\wedge$ and $\vee$.
+否定合取和析取法则是\textit{德摩根定律}的实例，它揭露出 $\wedge$ 和 $\vee$ 之间的一种对偶性。
 
-\begin{theorem}[de Morgan's laws for logical operators]
+\begin{theorem}[逻辑运算符德摩根定律]
 \label{thmDeMorganLogicalOperators}
 \index{de Morgan's laws!for logical operators}
-Let $p$ and $q$ be logical formulae. Then:
+设 $p$ 和 $q$ 为逻辑公式。则：
 \begin{enumerate}[(a)]
-\item $\neg (p \wedge q) \equiv (\neg p) \vee (\neg q)$; and
-\item $\neg (p \vee q) \equiv (\neg p) \wedge (\neg q)$.
+\item $\neg (p \wedge q) \equiv (\neg p) \vee (\neg q)$；且
+\item $\neg (p \vee q) \equiv (\neg p) \wedge (\neg q)$。
 \end{enumerate}
 \end{theorem}
 
 \begin{cproof}[of (a)]
-Consider the following truth table.
+考虑下面的真值表。
 \begin{center}
 \begin{tabular}{cc||c|c||cc|c}
 $p$ & $q$ & $p \wedge q$ & $\neg (p \wedge q)$ & $\neg p$ & $\neg q$ & $(\neg p) \vee (\neg q)$ \\ \hline
@@ -392,96 +391,95 @@ $p$ & $q$ & $p \wedge q$ & $\neg (p \wedge q)$ & $\neg p$ & $\neg q$ & $(\neg p)
 \FF & \FF & \FF & \TT & \TT & \TT & \TT \\
 \end{tabular}
 \end{center}
-The columns for $\neg (p \wedge q)$ and $(\neg p) \vee (\neg q)$ are identical, so they are logically equivalent.
+$\neg (p \wedge q)$ 列和 $(\neg p) \vee (\neg q)$ 列相同，因此它们在逻辑上是等价的。
 \end{cproof}
 
 \begin{exercise}
-Prove \Cref{thmDeMorganLogicalOperators}(b) thrice: once using the definition of logical equivalence directly (like we did in \Cref{exConjunctionDistributesOverDisjunction,exImplicationInTermsOfDisjunction} and \Cref{exPAndQImpliesRIffPImpliesRAndQImpliesR}), once using a truth table, and once using part (a) together with the law of double negation.
+用三种方法证明 \Cref{thmDeMorganLogicalOperators}(b)：一次直接使用逻辑等价的定义（就像我们在 \Cref{exConjunctionDistributesOverDisjunction,exImplicationInTermsOfDisjunction} 和 \Cref{exPAndQImpliesRIffPImpliesRAndQImpliesR} 中所做的那样），一次使用真值表，一次使用 (a) 和双重否定定律。
 \end{exercise}
 
 \begin{example}
-We often use de Morgan's laws for logical operators without thinking about it. For example to say that `neither $3$ nor $7$ is even' is equivalent to saying `$3$ is odd and $7$ is odd'. The former statement translates to
-\[ \neg [(3 \text{ is even}) \vee (7 \text{ is even})]\]
-while the second statement translates to
-\[ [\neg (3 \text{ is even})] \wedge [\neg (7 \text{ is even})]\]
+我们经常不假思索地将德摩根定律用于逻辑运算符。例如，说 `$3$ 和 $7$ 都不是偶数' 相当于说 `$3$ 是奇数，$7$ 也是奇数'。前一个陈述翻译为
+\[ \neg [(3 \text{为偶数}) \vee (7 \text{为偶数})]\]
+后一个陈述翻译为
+\[ [\neg (3 \text{为偶数})] \wedge [\neg (7 \text{为偶数})]\]
 \end{example}
 
 \begin{exercise}
 \label{exNegationOfImplication}
-Prove that $\neg (p \Rightarrow q) \equiv p \wedge (\neg q)$ twice, once using a truth table, and once using \Cref{exImplicationInTermsOfDisjunctionWithTruthTables} together with de Morgan's laws and the law of double negation.
+用两种方法证明 $\neg (p \Rightarrow q) \equiv p \wedge (\neg q)$，一次使用真值表，一次使用 \Cref{exImplicationInTermsOfDisjunctionWithTruthTables} 以及德摩根定律和双重否定定律。
 \end{exercise}
 
-De Morgan's laws for logical operators generalise to statements about quantifiers, expressing a similar duality between $\forall$ and $\exists$ as we have between $\wedge$ and $\vee$.
+逻辑运算符的德摩根定律推广到有关量词的陈述，表达了 $\forall$ 和 $\exists$ 之间的对偶性，就像 $\wedge$ 和 $\vee$ 之间的对偶性一样。
 
-\begin{theorem}[de Morgan's laws for quantifiers]
+\begin{theorem}[量词德摩根定律]
 \label{thmDeMorganQuantifiers}
 \index{de Morgan's laws!for quantifiers}
-let $p(x)$ be a logical formula with free variable $x$ ranging over a set $X$. Then:
+设 $p(x)$ 是一个逻辑公式，其中自由变量 $x$ 的取值范围在集合 $X$ 上。则：
 \begin{enumerate}[(a)]
-\item $\neg \forall x \in X,\, p(x) \equiv \exists x \in X,\, \neg p(x)$; and
-\item $\neg \exists x \in X,\, p(x) \equiv \forall x \in X,\, \neg p(x)$.
+\item $\neg \forall x \in X,\, p(x) \equiv \exists x \in X,\, \neg p(x)$；且
+\item $\neg \exists x \in X,\, p(x) \equiv \forall x \in X,\, \neg p(x)$。
 \end{enumerate}
 \end{theorem}
 
 \begin{cproof}
-Unfortunately, since these logical formulae involve quantifiers, we do not have truth tables at our disposal, so we must assume each formula and derive the other.
+不幸的是，由于这些逻辑公式涉及量词，我们没有可用的真值表，因此我们必须假设每个公式并导出另一个公式。
 
-We start by proving the equivalence in part (b), and then we derive (a) as a consequence.
+我们首先证明(b)的等价性，然后在推导出(a)结果。
 
 \begin{itemize}
-\item Assume $\neg \exists x \in X,\, p(x)$. To prove $\forall x \in X,\, \neg p(x)$, fix some $x \in X$. If $p(x)$ were true, then we'd have $\exists x \in X,\, p(x)$, which contradicts our main assumption; so we have $\neg p(x)$. But then $\forall x \in X,\, \neg p(x)$ is true.
+\item 假设 $\neg \exists x \in X,\, p(x)$。为了证明 $\forall x \in X,\, \neg p(x)$，给定某些 $x \in X$。如果 $p(x)$ 为真，那么我们就会有 $\exists x \in X,\, p(x)$，这与我们的主要假设相矛盾；于是我们有 $\neg p(x)$。因此 $\forall x \in X,\, \neg p(x)$ 为真。
 
-\item Assume $\forall x \in X,\, \neg p(x)$. For the sake of contradiction, assume $\exists x \in X,\, p(x)$ were true. Then we obtain some $a \in X$ for which $p(a)$ is true. But $\neg p(a)$ is true by the assumption that $\forall x \in X,\, \neg p(a)$, so we obtain a contradiction. Hence $\neg \exists x \in X,\, p(x)$ is true.
+\item 假设 $\forall x \in X,\, \neg p(x)$。为了得到矛盾，假设 $\exists x \in X,\, p(x)$ 为真。则我们有某些 $a \in X$ ，其中 $p(a)$ 为真。但是 $\neg p(a)$ 通过假设 $\forall x \in X,\, \neg p(a)$ 为真，因此我们得到了矛盾。因此 $\neg \exists x \in X,\, p(x)$ 为真。
 \end{itemize}
 
-This proves that $\neg \exists x \in X,\, p(x) \equiv \forall x \in X,\, \neg p(x)$.
+这就证明了 $\neg \exists x \in X,\, p(x) \equiv \forall x \in X,\, \neg p(x)$。
 
-Now (a) follows from (b) using the law of double negation (\Cref{thmDoubleNegation}):
+现在，使用双重否定定律 (\Cref{thmDoubleNegation}) 从 (b) 得出 (a)：
 \[ \exists x \in X,\, \neg p(x) \equiv \neg\neg \exists x \in X,\, \neg p(x) \overset{(b)}{\equiv} \neg \forall x \in X,\, \neg \neg p(x) \equiv \neg \forall x \in X,\, p(x)\]
-as required.
 \end{cproof}
 
-The proof strategy suggested by the logical equivalence in \Cref{thmDeMorganQuantifiers}(b) is so important that it has its own name.
+\Cref{thmDeMorganQuantifiers}(b) 中的逻辑等价所给出的证明策略非常重要，以至于它有自己的名字。
 
-\begin{strategy}[Proof by counterexample]
+\begin{strategy}[反例证明]
 \label{strCounterexample}
 \index{counterexample}
 \index{proof!by counterexample}
-To prove that a proposition of the form $\forall x \in X,\, p(x)$ is false, it suffices to find a single element $a \in X$ such that $p(a)$ is false. The element $a$ is called a \textbf{counterexample} to the proposition $\forall x \in X,\, p(x)$.
+为了证明 $\forall x \in X,\, p(x)$ 形式的命题为假，只需找到单个元素 $a \in X$ 使得 $p(a)$ 为假。元素 $a$ 被称为命题$\forall x \in X,\, p(x)$ 的\textbf{反例}。
 \end{strategy}
 
 \begin{example}
-We prove by counterexample that not every integer is divisible by a prime number. Indeed, let $x = 1$. The only integral factors of $1$ are $1$ and $-1$, neither of which are prime, so that $1$ is not divisible by any primes.
+我们通过反例证明，并不是每个整数都能被质数整除。事实上，令 $x = 1$。$1$ 的唯一整数因子是 $1$ 和 $-1$，它们都不是质数，因此 $1$ 不能被任何质数整除。
 \end{example}
 
 \begin{exercise}
-Prove by counterexample that not every rational number can be expressed as $\dfrac{a}{b}$ where $a \in \mathbb{Z}$ is even and $b \in \mathbb{Z}$ is odd.
+通过反例证明，并非所有有理数都可以表示为 $\dfrac{a}{b}$，其中 $a \in \mathbb{Z}$ 为偶数，$b \in \mathbb{Z}$ 为奇数。
 \hintlabel{exNotEveryRationalIsEvenDividedByOdd}{%
-Find a rational number all of whose representations as a ratio of two integers have an even denominator.
+找到一个有理数，其所有表示为两个整数之比的分母均为偶数。
 }
 \end{exercise}
 
-We have now seen how to negate the logical operators $\neg$, $\wedge$, $\vee$ and $\Rightarrow$, as well as the quantifiers $\forall$ and $\exists$. 
+我们现在已经了解了如何对逻辑运算符 $\neg$、$\wedge$、$\vee$ 和 $\Rightarrow$ 以及量词 $\forall$ 和 $\exists$ 求反。
 
 \begin{definition}
 \label{defMaximallyNegatedLogicalFormula}
 \index{negation!maximal}
 \index{logical formula!maximally negated}
-A logical formula is \textbf{maximally negated} if the only instances of the negation operator $\neg$ appear immediately before a predicate (or other proposition not involving logical operators or quantifiers).
+如果唯一的否定运算符 $\neg$ 直接出现在谓词（或不涉及逻辑运算符或量词的其他命题）之前，则逻辑公式为 \textbf{最大否定}。
 \end{definition}
 
 \begin{example}
-The following propositional formula is maximally negated:
+下面的命题公式为最大否定：
 \[ [p \wedge (q \Rightarrow (\neg r))] \Leftrightarrow (s \wedge (\neg t))\]
-Indeed, all instances of $\neg$ appear immediately before propositional variables.
+事实上，所有 $\neg$ 都直接出现在命题变量之前。
 
-However the following propositional formula is \textit{not} maximally negated:
+然而，下面的命题公式\textit{不}是最大否定：
 \[ (\neg \neg q) \Rightarrow q\]
-Here the subformula $\neg \neg q$ contains a negation operator immediately before another negation operator ($\neg \neg q$). However by the law of double negation, this is equivalent to $q \Rightarrow q$, which is maximally negated trivially since there are no negation operators to speak of.
+这里，子公式 $\neg \neg q$ 在否定运算符 ($\neg \neg q$) 之前包含另一个否定运算符。然而，根据双重否定定律，这相当于 $q \Rightarrow q$，因为没有否定运算符可言，因此不存在最大否定。
 \end{example}
 
 \begin{exercise}
-Determine which of the following logical formulae are maximally negated.
+判断下列逻辑公式中哪些是最大否定。
 \begin{enumerate}[(a)]
 \item $\forall x \in X,\, (\neg p(x)) \Rightarrow \forall y \in X, \neg (r(x,y) \wedge s(x,y))$;
 \item $\forall x \in X,\, (\neg p(x)) \Rightarrow \forall y \in X, (\neg r(x,y)) \vee (\neg s(x,y))$;
@@ -490,22 +488,22 @@ Determine which of the following logical formulae are maximally negated.
 \end{enumerate}
 \end{exercise}
 
-The following theorem allows us to replace logical formulae by maximally negated ones, which in turn suggests proof strategies that we can use for proving that complicated-looking propositions are \textit{false}.
+下面的定理允许我们用最大否定逻辑公式来代替逻辑公式，这反过来又提出了证明策略，我们可以使用这些策略来证明看起来复杂的命题\textit{不成立}。
 
 \begin{theorem}
 \label{thmLogicalFormulaEquivalentToMaximallyNegated}
-Every logical formula (built using only the logical operators and quantifiers we have seen so far) is logically equivalent to a maximally negated logical formula.
+每个逻辑公式（仅使用我们迄今为止看到的逻辑运算符和量词构建）在逻辑上都相当于最大否定逻辑公式。
 \end{theorem}
 
 \begin{cidea}
-Much like \Cref{thmLogicalEquivalentIffSameTruthValues}, a precise proof of \Cref{thmLogicalFormulaEquivalentToMaximallyNegated} requires some form of induction argument, so instead we will give an idea of the proof.
+与 \Cref{thmLogicalEquivalentIffSameTruthValues} 类似，\Cref{thmLogicalFormulaEquivalentToMaximallyNeated} 的严格证明需要某种形式的归纳论证，因此我们只给出证明思路。
 
-Every logical formula we have seen so far is built from predicates using the logical operators ${\wedge}, {\vee}, {\Rightarrow}$ and $\neg$ and the quantifiers $\forall$ and $\exists$---indeed, the logical operator $\Leftrightarrow$ was defined in terms of $\wedge$ and $\Rightarrow$, and the quantifier $\exists$ was defined in terms of the quantifiers $\forall$ and $\exists$ and the logical operators $\wedge$ and $\Rightarrow$.
+到目前为止，我们看到的每个逻辑公式都是使用逻辑运算符 ${\wedge}、{\vee}、{\Rightarrow}$ 和 $\neg$ 以及量词 $\forall$ 和 $\exists$ 从谓词中构建的 --- 事实上，逻辑运算符 $\Leftrightarrow$ 是根据 $\wedge$ 和 $\Rightarrow$ 定义的，量词 $\exists$ 是根据量词 $\forall$ 和 $\exists$ 以及逻辑运算符 $\wedge$ 和 $\Rightarrow$ 定义的。
 
-But the results in this section allow us to push negations `inside' each of these logical operators and quantifiers, as summarised in the following table.
+但是本节的结果允许我们将否定加入每个逻辑运算符和量词 `内部'，如下表所示。
 \begin{center}
 \begin{tabular}{rcll}
-Negation outside & & Negation inside & Proof \\ \hline
+外部否定 & & 内部否定 & 证明 \\ \hline
 $\neg (p \wedge q)$ &$\equiv$& $(\neg p) \vee (\neg q)$ & \Cref{thmDeMorganLogicalOperators}(a) \\
 $\neg (p \vee q)$ &$\equiv$& $(\neg p) \wedge (\neg q)$ &  \Cref{thmDeMorganLogicalOperators}(b) \\
 $\neg (p \Rightarrow q)$ &$\equiv$& $p \wedge (\neg q)$ & \Cref{exNegationOfImplication} \\
@@ -515,79 +513,79 @@ $\neg \exists x \in X,\, p(x)$ &$\equiv$& $\forall x \in X,\, \neg p(x)$ & \Cref
 \end{tabular}
 \end{center}
 
-Repeatedly applying these rules to a logical formula eventually yields a logically equivalent, maximally negated logical formula.
+重复将这些规则应用于逻辑公式最终会得到逻辑等价的、最大否定的逻辑公式。
 \end{cidea}
 
 \begin{example}
-Recall the logical formula from page \pageref{pConvergencePreliminary} expressing the assertion that a sequence $x_0, x_1, x_2, \dots$ of real numbers converges:
+回想一下 \pageref{pConvergencePreliminary} 页中的逻辑公式，表述实数序列 $x_0, x_1, x_2, \dots$ 收敛的断言：
 \[ \exists a \in \mathbb{R},\, \forall \varepsilon \in \mathbb{R},\, (\varepsilon > 0 \Rightarrow \exists N \in \mathbb{N},\, \forall n \in \mathbb{N},\, [n \ge N \Rightarrow |x_n-a| < \varepsilon])\]
-We will maximally negate this to obtain a logical formula expressing the assertion that the sequence does not converge.
+我们将最大限度地否定它，以获得表达序列不收敛的逻辑公式。
 
-Let's start at the beginning. The negation of the formula we started with is:
+让我们从头开始吧。我们一开始的否定公式是：
 \[ \neg \exists a \in \mathbb{R},\, \forall \varepsilon \in \mathbb{R},\, (\varepsilon > 0 \Rightarrow \exists N \in \mathbb{N},\, \forall n \in \mathbb{N},\, [n \ge N \Rightarrow |x_n-a| < \varepsilon])\]
 %
-The key to maximally negating a logical formula is to ignore information that is not immediately relevant. Here, the expression that we are negating takes the form $\neg \exists a \in \mathbb{R},\, (\text{stuff})$. It doesn't matter what the `stuff' is just yet; all that matters is that we are negating an existentially quantified statement, and so de Morgan's laws for quantifiers tells us that this is logically equivalent to $\forall a \in \mathbb{R},\, \neg (\text{stuff})$. We apply this rule and just re-write the `stuff', to obtain:
+最大限度地否定逻辑公式的关键是忽略非密切相关的信息。在这里，我们要求反的表达式采用 $\neg \exists a \in \mathbb{R},\, (\text{占位内容})$ 的形式。`占位内容'是什么并不重要；重要的是我们正在否定一个存在量化的陈述，因此德摩根量词定律告诉我们，这在逻辑上等价于 $\forall a \in \mathbb{R},\, \neg (\text{占位内容})$。 我们应用这个规则并重写`占位内容'，得到：
 \[ \forall a \in \mathbb{R},\, \neg \forall \varepsilon \in \mathbb{R},\, (\varepsilon > 0 \Rightarrow \exists N \in \mathbb{N},\, \forall n \in \mathbb{N},\, [n \ge N \Rightarrow |x_n-a| < \varepsilon])\]
 %
-Now we are negating a universally quantified statement, $\neg \forall \varepsilon \in \mathbb{R},\, (\text{stuff})$ which, by de Morgan's laws for quantifiers, is equivalent to $\exists \varepsilon \in \mathbb{R},\, \neg (\text{stuff})$:
+接下来我们否定全称量化陈述，$\neg \forall \varepsilon \in \mathbb{R},\, (\text{占位内容})$，根据德摩根量词定律，它等价于 $\exists \varepsilon \in \mathbb{R},\, \neg (\text{占位内容})$:
 \[ \forall a \in \mathbb{R},\, \exists \varepsilon \in \mathbb{R},\, \neg (\varepsilon > 0 \Rightarrow \exists N \in \mathbb{N},\, \forall n \in \mathbb{N},\, [n \ge N \Rightarrow |x_n-a| < \varepsilon])\]
 %
-At this point, the statement being negated is of the form $(\text{stuff}) \Rightarrow (\text{junk})$, which by \Cref{exNegationOfImplication} negates to $(\text{stuff}) \wedge \neg (\text{junk})$. Here, `stuff' is $\varepsilon > 0$ and `junk' is $\exists N \in \mathbb{N}, \forall n \in \mathbb{N},\, [n \ge N \Rightarrow |x_n - a| < \varepsilon]$. So performing this negation yields:
+此时，被否定的陈述的形式为 $(\text{占位A}) \Rightarrow (\text{占位B})$，它通过 \Cref{exNegationOfImplication} 否定为 $(\text{占位A}) \wedge \neg (\text{占位B})$。其中，`占位A'为 $\varepsilon > 0$，`占位B'为 $\exists N \in \mathbb{N}, \forall n \in \mathbb{N},\, [n \ge N \Rightarrow |x_n - a| < \varepsilon]$。因此执行这个否定会产生：
 \[ \forall a \in \mathbb{R},\, \exists \varepsilon \in \mathbb{R},\, (\varepsilon > 0 \wedge \neg \exists N \in \mathbb{N},\, \forall n \in \mathbb{N},\, [n \ge N \Rightarrow |x_n-a| < \varepsilon])\]
 %
-Now we are negating an existentially quantified formula again, so using de Morgan's laws for quantifiers gives:
+现在我们再次否定存在量化公式，因此使用德摩根量词定律，得出：
 \[ \forall a \in \mathbb{R},\, \exists \varepsilon \in \mathbb{R},\, (\varepsilon > 0 \wedge \forall N \in \mathbb{N},\, \neg \forall n \in \mathbb{N},\, [n \ge N \Rightarrow |x_n-a| < \varepsilon])\]
 %
-The formula being negated here is univerally quantified, so using de Morgan's laws for quantifiers \textit{again} gives:
+这里被否定的公式是全称量化公式，因此\textit{再次}使用德摩根量词定律，得出：
 \[ \forall a \in \mathbb{R},\, \exists \varepsilon \in \mathbb{R},\, (\varepsilon > 0 \wedge \forall N \in \mathbb{N},\, \exists n \in \mathbb{N},\, \neg [n \ge N \Rightarrow |x_n-a| < \varepsilon])\]
 %
-We're almost there! The statement being negated here is an implication, so applying the rule $\neg (p \Rightarrow q) \equiv p \wedge (\neg q)$ again yields:
+我们就快成功！这里被否定的陈述是一个蕴涵式，因此应用规则 $\neg (p \Rightarrow q) \equiv p \wedge (\neg q)$ 再次产生：
 \[ \forall a \in \mathbb{R},\, \exists \varepsilon \in \mathbb{R},\, (\varepsilon > 0 \wedge \forall N \in \mathbb{N},\, \exists n \in \mathbb{N},\, [n \ge N \wedge \neg (|x_n - a| < \varepsilon)])\]
 %
-At this point, strictly speaking, the formula is maximally negated, since the statement being negated does not involve any other logical opreators or quantifiers. However, since $\neg (|x_n-a| < \varepsilon)$ is equivalent to $|x_n - a| \ge \varepsilon$, we can go one step further to obtain:
+此时，严格来说，公式已经被最大限度地否定，因为被否定的语句不涉及任何其他逻辑运算符或量词。然而，由于 $\neg (|x_n-a| < \varepsilon)$ 等价于 $|x_n - a| \ge \varepsilon$，我们可以进一步得到：
 \[ \forall a \in \mathbb{R},\, \exists \varepsilon \in \mathbb{R},\, (\varepsilon > 0 \wedge \forall N \in \mathbb{N},\, \exists n \in \mathbb{N},\, [n \ge N \wedge |x_n - a| \ge \varepsilon])\]
 %
-This is as negated as we could ever dream of, and so we stop here.
+这就是我们所能想到的最大限度的否定，所以我们就到此为止吧。
 \end{example}
 
 \begin{exercise}
-Find a maximally negated propositional formula that is logically equivalent to $\neg (p \Leftrightarrow q)$.
+找到一个逻辑上等价于 $\neg (p \Leftrightarrow q)$ 的最大化否定命题公式。
 \hintlabel{exMaximallyNegateBiconditional}{%
-Start by expressing $\Leftrightarrow$ in terms of $\Rightarrow$ and $\wedge$, as in \Cref{defBiconditional}.
+首先用 $\Rightarrow$ 和 $\wedge$ 表示 $\Leftrightarrow$，如 \Cref{defBiconditional} 中所示。
 }
 \end{exercise}
 
 \begin{exercise}
-Maximally negate the following logical formula, then prove that it is true or prove that it is false.
+最大程度地否定下列逻辑公式，然后证明其为真或证明其为假。
 \[ \exists x \in \mathbb{R},\, [x > 1 \wedge (\forall y \in \mathbb{R},\, [x < y \Rightarrow x^2 \le y])]\]
 \end{exercise}
 
-\subsection*{Tautologies}
+\subsection*{永真式}
 
-The final concept that we introduce in this chapter is that of a \textit{tautology}, which can be thought of as the opposite of a contradiction. The word `tautology' has other implications when used colloquially, but in the context of symbolic logic it has a precise definition.
+在本章介绍的最后一个概念是\textit{永真式}，它可以被认为是矛盾的对立面。`永真'一词在口语中还有其他含义，但在符号逻辑的背景下它有一个精确定义。
 
 \begin{definition}
 \label{defTautology}
 \index{tautology}
-A \textbf{tautology} is a proposition or logical formula that is true, no matter how truth values are assigned to its component propositional variables and predicates.
+\textbf{永真式}是一个命题或逻辑公式，无论赋值给其组成命题变量和谓词的真值如何，它总为真。
 \end{definition}
 
-The reason we are interested in tautologies is that tautologies can be used as assumptions at any point in a proof, for any reason.
+我们对永真式感兴趣的原因是，永真式可以出于任意原因在证明中的任意地方用作假设。
 
-\begin{strategy}[Assuming tautologies]
-Let $p$ be a proposition. Any tautology may be assumed in any proof of $p$.
+\begin{strategy}[永真假设]
+设 $p$ 为一个命题。任何永真式都可以在 $p$ 的任何证明中假设。
 \end{strategy}
 
 \begin{example}
-The law of excluded middle (\Cref{axLEM}) says precisely that $p \vee (\neg p)$ is a tautology. This means that when proving any result, we may split into cases based on whether a proposition is true or false, just as we did in \Cref{propIfProductEvenThenSomeFactorEven}.
+排中律 (\Cref{axLEM}) 准确地指出 $p \vee (\neg p)$ 是永真式。这意味着在证明任何结果时，我们可以根据命题是真还是假来划分情况，就像我们在 \Cref{propIfProductEvenThenSomeFactorEven} 中所做的那样。
 \end{example}
 
 \begin{example}
-The formula $p \Rightarrow (q \Rightarrow p)$ is a tautology.
+公式 $p \Rightarrow (q \Rightarrow p)$ 是永真式。
 
-A direct proof of this fact is as follows. In order to prove $p \Rightarrow (q \Rightarrow p)$ is true, it suffices to assume $p$ and derive $q \Rightarrow p$. So assume $p$. Now in order to prove $q \Rightarrow p$, it suffices to assume $q$ and derive $p$. So assume $q$. But we're already assuming that $p$ is true! So $q \Rightarrow p$ is true, and hence $p \Rightarrow (q \Rightarrow p)$ is true.
+直接证明如下。为了证明 $p \Rightarrow (q \Rightarrow p)$ 为真，只需假设 $p$ 并导出 $q \Rightarrow p$ 即可。所以假设$p$。现在为了证明 $q \Rightarrow p$，只需假设 $q$ 并导出 $p$ 即可。所以假设$q$。但我们已经假设 $p$ 是真的！所以 $q \Rightarrow p$ 为真，因此 $p \Rightarrow (q \Rightarrow p)$ 为真。
 
-A proof using truth tables is as follows:
+真值表证明如下：
 \begin{center}
 \begin{tabular}{cc|c|c}
 $p$ & $q$ & $q \Rightarrow p$ & $p \Rightarrow (q \Rightarrow p)$ \\ \hline
@@ -597,12 +595,12 @@ $p$ & $q$ & $q \Rightarrow p$ & $p \Rightarrow (q \Rightarrow p)$ \\ \hline
 \FF & \FF & \TT & \TT
 \end{tabular}
 \end{center}
-We see that $p \Rightarrow (q \Rightarrow p)$ is true regardless of the truth values of $p$ and $q$.
+我们可以看到，无论 $p$ 和 $q$ 的真值如何，$p \Rightarrow (q \Rightarrow p)$ 都是真。
 \end{example}
 
 \begin{exercise}
 \label{exTautologies}
-Prove that each of the following is a tautology:
+证明以下每一个逻辑公式都是永真式：
 \begin{enumerate}[(a)]
 \item $[(p \Rightarrow q) \wedge (q \Rightarrow r)] \Rightarrow (p \Rightarrow r)$;
 \item $[p \Rightarrow (q \Rightarrow r)] \Rightarrow [(p \Rightarrow q) \Rightarrow (p \Rightarrow r)]$;
@@ -610,77 +608,77 @@ Prove that each of the following is a tautology:
 \item $[\neg (p \wedge q)] \Leftrightarrow [(\neg p) \vee (\neg q)]$;
 \item $(\neg \forall x \in X,\, p(x)) \Leftrightarrow (\exists x \in X,\, \neg p(x))$.
 \end{enumerate}
-For each, try to interpret what it means, and how it might be useful in a proof.
+尝试解释每一个的含义，以及它如何用在证明中。
 \end{exercise}
 
-You may have noticed parallels between de Morgan's laws for logical operators and quantifiers, and parts (d) and (e) of \Cref{exTautologies}, respectively. They almost seem to say the same thing, except that in \Cref{exTautologies} we used `$\Leftrightarrow$' and in \Cref{thmDeMorganLogicalOperators,thmDeMorganQuantifiers} we used `$\equiv$'. There is an important difference, though: if $p$ and $q$ are logical formulae, then $p \Rightarrow q$ is itself a logical formula, which we may study as a mathematical object in its own right. However, $p \equiv q$ is not a logical formula: it is an assertion \textit{about} logical formulae, namely that the logical formulae $p$ and $q$ are equivalent.
+您可能已经注意到逻辑运算符和量词的德摩根定律与 \Cref{exTautologies} 的 (d) 和 (e) 之间的相似之处。它们似乎在说同样的事情，不同点在与 \Cref{exTautologies} 中我们使用 `$\Leftrightarrow$'，而在 \Cref{thmDeMorganLogicalOperators,thmDeMorganQuantifiers} 中我们使用 `$\equiv$'。不过，有一个重要的区别：如果 $p$ 和 $q$ 是逻辑公式，那么 $p \Rightarrow q$ 本身也是一个逻辑公式，我们可以将其作为一个数学对象来研究。然而，$p \equiv q$ 不是一个逻辑公式：它是一个\textit{关于}逻辑公式的断言，即逻辑公式 $p$ 和 $q$ 是等价的。
 
-There is, nonetheless, a close relationship between $\Leftrightarrow$ and $\equiv$---this relationship is summarised in the following theorem.
+尽管如此，$\Leftrightarrow$ 和 $\equiv$ 之间存在着密切的关系 --- 这种关系总结为以下定理。
 
 \begin{theorem}
 \label{thmTautologyAndDerivation}
-Let $p$ and $q$ be logical formulae.
+设 $p$ 和 $q$ 为逻辑公式。
 \begin{enumerate}[(a)]
-\item $q$ can be derived from $p$ if and only if $p \Rightarrow q$ is a tautology;
-\item $p \equiv q$ if and only if $p \Leftrightarrow q$ is a tautology.
+\item $q$ 可以从 $p$ 推导出当且仅当 $p \Rightarrow q$ 是永真式；
+\item $p \equiv q$ 当且仅当 $p \Leftrightarrow q$ 是永真式。
 \end{enumerate}
 \end{theorem}
 
 \begin{cproof}
-For (a), note that a derivation of $q$ from $p$ is sufficient to establish the truth of $p \Rightarrow q$ by the introduction rule for implication \introrule{\Rightarrow}, and so if $q$ can be derived from $p$, then $p \Rightarrow q$ is a tautology. Conversely, if $p \Rightarrow q$ is a tautology, then $q$ can be derived from $p$ using the elimination rule for implication \elimrule{\Rightarrow} together with the (tautological) assumption that $p \Rightarrow q$ is true.
+对于 (a)，请注意，从 $p$ 推导出 $q$ 足以通过蕴涵 \introrule{\Rightarrow} 的引入规则来确定 $p \Rightarrow q$ 的真实性，因此如果 $q$ 可以从 $p$ 推导出，则 $p \Rightarrow q$ 是永真式。相反，如果 $p \Rightarrow q$ 是永真式，则 $q$ 可以使用蕴涵消除规则 \elimrule{\Rightarrow} 以及（永真式）假设 $p \Rightarrow q$ 为真从 $p$ 推导出。
 
-Now (b) follows from (a), since logical equivalence is defined in terms of derivation in each direction, and $\Leftrightarrow$ is simply the conjunction of two implications.
+接着由 (a) 推出 (b) ，因为逻辑等价是根据每个方向的推导来定义的，而 $\Leftrightarrow$ 是两个含义的合取。
 \end{cproof}
 
-%\textit{Aaand breathe!} All this new notation can be overwhelming at first, but it will be worth it in the end. This chapter was all about teaching you a new language---new symbols, new terminology---because without it, our future pursuits will be impossible. If you're stuck now, then don't worry: you'll soon get the hang of it, especially when we start using this new language in context. You can, of course, refer back to the results in this chapter for reference at any point in the future.
+%\textit{深呼吸！} 所有这些新的符号一开始可能会让人不知所措，但最终会让你收益匪浅。本章主要是教您一门新语言 --- 新符号、新术语 --- 因为没有它，我们未来的探索无法开展。如果您现在遇到困难，请不要担心：您很快就会掌握它的窍门，尤其是当我们开始在上下文中使用这种新语言时。当然，您也可以随时参考本章中的结果以供参考。
 
 \begin{tldr}{secLogicalEquivalence}
-\subsubsection*{Logical equivalence}
+\subsubsection*{逻辑等价}
 
 \begin{tldrlist}
 \tldritem{defLogicalEquivalence}
-Two logical formulae are \textit{logically equivalent} (written $\equiv$) if each can be derived from the other.
+如果两个逻辑公式每一个都可以从另一个推导出来，则它们\textit{逻辑等价}（写作$\equiv$）。
 
 \tldritem{defTruthTable}
-The \textit{truth table} of a propositional formula is a tabulation of its truth values under all assignments of truth values to its constituent propositional variables. Two propositional formulae are logically equivalent if and only if they have identical columns in a truth table.
+命题公式的\textit{真值表}是对所有构成命题变量赋予真值下命题公式真值的列表。两个命题公式逻辑等价当且仅当它们在真值表中具有相同的列。
 \end{tldrlist}
 
-\subsubsection*{Some specific logical equivalences}
+\subsubsection*{一些特定的逻辑等价}
 
 \begin{tldrlist}
 \tldritem{thmDoubleNegation}
-The double-negation of a proposition is equivalent to the original proposition. This gives rise to `indirect' proof by contradiction: in order to prove that a proposition $p$ is \textit{true}, assume $p$ is false and derive a contradiction.
+命题的双重否定与原命题等价。这就产生了`间接'反证法：为了证明命题 $p$ 为\textit{真}，假设 $p$ 为假并推导出矛盾。
 
 \tldritem{defContrapositive}
-The \textit{contrapositive} of an implication $p \Rightarrow q$ is the implication $(\neg q) \Rightarrow (\neg p)$. Every implication is equivalent to its contrapositive, so in order to prove $p \Rightarrow q$, it suffices to assume that $q$ is false, and derive that $p$ is false.
+蕴涵式 $p \Rightarrow q$ 的逆否公式是 $(\neg q) \Rightarrow (\neg p)$。每个蕴涵式都等价于它的逆否式，因此为了证明 $p \Rightarrow q$，只需假设 $q$ 为假，并推导出 $p$ 为假。
 
 \tldritem{thmDeMorganLogicalOperators}
-De Morgan's laws for logical operators say that $\neg (p \wedge q) \equiv (\neg p) \vee (\neg q)$ and $\neg (p \vee q) \equiv (\neg p) \wedge (\neg q)$.
+德摩根逻辑运算符定律指出 $\neg (p \wedge q) \equiv (\neg p) \vee (\neg q)$ 且 $\neg (p \vee q) \equiv (\neg p) \wedge (\neg q)$。
 
 \tldritem{exNegationOfImplication}
-The negation of $p \Rightarrow q$ is logically equivalent to $p \wedge (\neg q)$, so in order to prove that $p \Rightarrow q$ is \textit{false}, it suffices to prove that $p$ is true but $q$ is false.
+$p \Rightarrow q$ 的否定在逻辑上等价于 $p \wedge (\neg q)$，因此为了证明 $p \Rightarrow q$ 为假，只需证明 $p$ 为真，但 $q$ 为假。
 
 \tldritem{thmDeMorganQuantifiers}
-De Morgan's laws for quantifiers say that $\neg \forall x \in X,\, p(x) \equiv \exists x \in X,\, \neg p(x)$ and $\neg \exists x \in X,\, p(x) \equiv \forall x \in X,\, \neg p(x)$. The first of these suggests the strategy of \textit{proof by counterexample}.
+德摩根量词定律指出 $\neg \forall x \in X,\, p(x) \equiv \exists x \in X,\, \neg p(x)$ 且 $\neg \exists x \in X,\, p(x) \equiv \forall x \in X,\, \neg p(x)$。其中第一个给出了采用\textit{反例证明}的策略。
 \end{tldrlist}
 
-\subsubsection*{Maximal negation}
+\subsubsection*{最大化否定}
 
 \begin{tldrlist}
 \tldritem{defMaximallyNegatedLogicalFormula}
-A logical formula is \textit{maximally negated} if it contains no negation operators (except, perhaps, immediately before a propositional variable or predicate).
+如果逻辑公式不包含否定运算符（除了紧接在命题变量或谓词之前），则它被最大化否定。
 
 \tldritem{thmLogicalFormulaEquivalentToMaximallyNegated}
-Every logical formula built using the logical operators and quantifiers in this section is logically equivalent to a maximally negated one.
+本节中使用逻辑运算符和量词构建的每个逻辑公式在逻辑上都相当于最大化否定公式。
 \end{tldrlist}
 
-\subsubsection*{Tautologies}
+\subsubsection*{永真式}
 
 \begin{tldrlist}
 \tldritem{defTautology}
-A \textit{tautology} is a logical formula that is true no matter what assignment of truth values is given to its constituent propositional variables or what values are substituted for its free variables. Tautologies can be invoked as assumptions at any point in a proof.
+\textit{永真式}是一个逻辑公式，无论对其构成命题变量赋予什么真值，或者用什么值代替其自由变量，该公式都为真。永真式可以在证明中的任意地方用作假设。
 
 \tldritem{thmTautologyAndDerivation}
-A proposition $p$ can be derived from a proposition $q$ if and only if $p \Rightarrow q$ is a tautology; and $p \equiv q$ if and only if $p \Leftrightarrow q$ is a tautology.
+命题 $p$ 可以从命题 $q$ 推导出当且仅当 $p \Rightarrow q$ 是永真式；$p \equiv q$ 当且仅当 $p \Leftrightarrow q$ 是同永真式。
 \end{tldrlist}
 \end{tldr}
