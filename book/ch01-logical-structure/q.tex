@@ -1,7 +1,7 @@
 % !TeX root = ../../book.tex
 \begin{chapex}
 \label{cqTranslatePropositionalFormulaeToEnglish}
-For fixed $n \in \mathbb{N}$, let $p$ represent the proposition `$n$ is even', let $q$ represent the proposition `$n$ is prime' and let $r$ represent the proposition `$n = 2$'. For each of the following propositional formulae, translate it into plain English and determine whether it is true for all $n \in \mathbb{N}$, true for some values of $n$ and false for some values of $n$, or false for all $n \in \mathbb{N}$.
+对于给定的 $n \in \mathbb{N}$，设 $p$ 表示命题`$n$是偶数'，设 $q$ 表示命题`$n$是质数'，设 $r$ 表示命题 `$n = 2$'。 对于以下每个命题公式，将其翻译成简单的中文并确定是否对所有 $n \in \mathbb{N}$ 都为真，还是对于 $n$ 的某些值为真，某些值为假，抑或是对于所有 $n \in \mathbb{N}$ 都为假。
 
 \begin{enumerate}[(a)]
 \item $(p \wedge q) \Rightarrow r$
@@ -12,25 +12,25 @@ For fixed $n \in \mathbb{N}$, let $p$ represent the proposition `$n$ is even', l
 \end{chapex}
 
 \begin{chapex}
-For each of the following plain English statements, translate it into a symbolic propositional formula. The propositional variables in your formulae should represent the simplest propositions that they can.
+对于以下每个中文陈述，将其翻译成符号命题公式。公式中的命题变量应尽可能代表最简单的命题。
 \begin{enumerate}[(a)]
-\item Guinea pigs are quiet, but they're loud when they're hungry.
-\item It doesn't matter that $2$ is even, it's still a prime number.
-\item $\sqrt{2}$ can't be an integer because it is an irrational number.
+\item 豚鼠很安静，但饥饿时会大声吵叫。
+\item $2$ 是偶数并不影响它仍是一个质数。
+\item $\sqrt{2}$ 不可能是整数，因为它是无理数。
 \end{enumerate}
 \end{chapex}
 
 \begin{chapex}
-Let $p$ and $q$ be propositions, and assume that $p \Rightarrow (\neg q)$ is true and that $(\neg q) \Rightarrow p$ is false. Which of the following are true, and which are false?
+设 $p$ 和$q$ 为命题，并假设 $p \Rightarrow (\neg q)$ 为真，而 $(\neg q) \Rightarrow p$ 为假。以下哪些是正确的，哪些是错误的？
 \begin{enumerate}[(a)]
-\item $q$ being false is necessary for $p$ to be true.
-\item $q$ being false is sufficient for $p$ to be true.
-\item $p$ being true is necessary for $q$ to be false.
-\item $p$ being true is sufficient for $p$ to be false.
+\item $q$ 为假是 $p$ 为真的必要条件。
+\item $q$ 为假是 $p$ 为真的充分条件。
+\item $p$ 为真是 $q$ 为假的必要条件。
+\item $p$ 为真是 $p$ 为假的充分条件。
 \end{enumerate}
 \end{chapex}
 
-In \Crefrange{cqStructureProofBegin}{cqStructureProofEnd}, use the definitions of the logical operators in \Cref{secPropositionalLogic} to describe what steps should be followed in order to prove the propositional formula in the question; the letters $p$, $q$, $r$ and $s$ are propositional variables.
+在\Crefrange{cqStructureProofBegin}{cqStructureProofEnd}中，使用\Cref{secPropositionalLogic}中逻辑运算符的定义来描述应遵循哪些步骤来证明问题中的命题公式；字母 $p$、$q$、$r$ 和 $s$ 是命题变量。
 
 \begin{chapex}
 \label{cqStructureProofBegin}
@@ -50,35 +50,37 @@ $(p \Rightarrow q) \Leftrightarrow (\neg p \Rightarrow \neg q)$
 $(p \wedge (\neg q)) \vee (q \wedge (\neg p))$
 \end{chapex}
 
-% Variables and quantifiers %
+% 变量和量词 %
 
 \begin{chapex}
-Find a statement in plain English, involving no variables at all, that is equivalent to the logical formula $\forall a \in \mathbb{Q},\, \forall b \in \mathbb{Q},\, (a < b \Rightarrow \exists c \in \mathbb{R},\, [a < c < b ~\wedge~ \neg (c \in \mathbb{Q})])$. Then prove this statement, using the structure of the logical formula as a guide.
+找到一个完全不涉及任何变量的简单中文陈述，相当于逻辑公式
+$\forall a \in \mathbb{Q},\, \forall b \in \mathbb{Q},\, (a < b \Rightarrow \exists c \in \mathbb{R},\, [a < c < b ~\wedge~ \neg (c \in \mathbb{Q})])$。然后以逻辑公式的结构指导该命题的证明。
 \end{chapex}
 
 \begin{chapex}
-Find a purely symbolic logical formula that is equivalent to the following statement, and then prove it: ``\textit{No matter which integer you may choose, there will be an integer greater than it.}''
+找出一个与下面的命题等价的纯符号逻辑公式，并证明：
+``\textit{无论你选择哪个整数，都会有一个比它大的整数。}''
 \end{chapex}
 
 \begin{chapex}
-Let $X$ be a set and let $p(x)$ be a predicate. Find a logical formula representing the statement `there are exactly two elements $x \in X$ such that $p(x)$ is true'. Use the structure of this logical formula to describe how a proof should be structured, and use this structure to prove that there are exactly two real numbers $x$ such that $x^2=1$.
+设 $X$ 为集合，$p(x)$ 为谓词。找到一个逻辑公式表示`恰好有两个元素 $x \in X$ 使得 $p(x)$ 为真'。使用这个逻辑公式的结构来描述应该如何构造一个证明，并使用这个结构来证明恰好有两个实数 $x$ 使得 $x^2=1$。
 \end{chapex}
 
-% Logical equivalence %
+% 逻辑等价 %
 
 \begin{chapex}
-Prove that
+证明
 \[
 p \Leftrightarrow q \equiv (p \Rightarrow q) \wedge ((\neg p) \Rightarrow (\neg q))
 \]
-How might this logical equivalence help you to prove statements of the form `$p$ if and only if $q$'?
+这种逻辑等价如何帮助您证明`$p$ 当且仅当 $q$'形式的陈述？
 \end{chapex}
 
 \begin{chapex}
-Prove using truth tables that $p \Rightarrow q \not\equiv q \Rightarrow p$. Give an example of propositions $p$ and $q$ such that $p \Rightarrow q$ is true but $q \Rightarrow p$ is false.
+使用真值表证明 $p \Rightarrow q \not\equiv q \Rightarrow p$。给出一个命题 $p$ 和 $q$ 的例子，使得 $p \Rightarrow q$ 为真，但 $q \Rightarrow p$ 为假。
 \end{chapex}
 
-In \Crefrange{cqTruthTablesBegin}{cqTruthTablesEnd}, find a logical formula whose column in a truth table is as shown.
+在\Crefrange{cqTruthTablesBegin}{cqTruthTablesEnd}中，找到一个逻辑公式，其真值表中的列如图所示。
 
 \begin{chapex}
 \label{cqTruthTablesBegin}
@@ -131,103 +133,103 @@ $p$ & $q$ & $r$ & \hspace{50pt} \\ \hline
 \end{chapex}
 
 \begin{chapex}
-A new logical operator $\uparrow$ is defined by the following rules:
+新的逻辑运算符 $\uparrow$ 由以下规则定义：
 \begin{enumerate}[(i)]
-\item If a contradiction can be derived from the assumption that $p$ is true, then $p \uparrow q$ is true;
-\item If a contradiction can be derived from the assumption that $q$ is true, then $p \uparrow q$ is true;
-\item If $r$ is any proposition, and if $p \uparrow q$, $p$ and $q$ are all true, then $r$ is true.
+\item 如果从 $p$ 为真的假设中可以引出矛盾，则 $p \uparrow q$ 为真；
+\item 如果从 $q$ 为真的假设中可以引出矛盾，则 $p \uparrow q$ 为真；
+\item 如果 $r$ 是任意命题，并且如果 $p \uparrow q$、$p$ 和 $q$ 都为真，则 $r$ 为真。
 \end{enumerate}
 
-This question explores this curious new logical operator.
+这个问题探讨了这个奇怪的新逻辑运算符。
 \begin{enumerate}[(a)]
-\item Prove that $p \uparrow p \equiv \neg p$, and deduce that $((p \uparrow p) \uparrow (p \uparrow p)) \equiv p$.
-\item Prove that $p \vee q \equiv (p \uparrow p) \uparrow (q \uparrow q)$ and $p \wedge q \equiv (p \uparrow q) \uparrow (p \uparrow q)$.
-\item Find a propositional formula using only the logical operator $\uparrow$ that is equivalent to $p \Rightarrow q$.
+\item 证明 $p \up arrow p \equiv \neg p$，并推导出 $((p \up arrow p) \uparrow (p \uparrow p)) \equiv p$。
+\item 证明 $p \vee q \equiv (p \uparrow p) \uparrow (q \uparrow q)$ 和 $p \wedge q \equiv (p \uparrow q) \uparrow (p \uparrow q)$。
+\item 仅使用逻辑运算符 $\uparrow$ 构建等价于 $p \Rightarrow q$ 的命题公式。
 \end{enumerate}
 \end{chapex}
 
 \begin{chapex}
-Let $X$ be $\mathbb{Z}$ or $\mathbb{Q}$, and define a logical formula $p$ by:
+设 $X$ 为 $\mathbb{Z}$ 或 $\mathbb{Q}$，并定义逻辑公式 $p$ 为:
 $$\forall x \in X,\, \exists y \in X,\, (x<y \wedge [\forall z \in X,\, \neg (x<z \wedge z<y)])$$
-Write out $\neg p$ as a maximally negated logical formula. Prove that $p$ is true when $X = \mathbb{Z}$, and $p$ is false when $X = \mathbb{Q}$.
+将 $\neg p$ 写为最大否定逻辑公式。证明当 $X = \mathbb{Z}$ 时 $p$ 为真，当 $X = \mathbb{Q}$ 时 $p$ 为假。
 \end{chapex}
 
 \begin{chapex}
-Use \Cref{defUniqueExistentialQuantifier} to write out a maximally negated logical formula that is equivalent to $\neg \exists! x \in X,\, p(x)$. Describe the strategy that this equivalence suggests for proving that there is not a unique $x \in X$ such that $p(x)$ is true, and use this strategy to prove that, for all $a \in \mathbb{R}$, if $a \ne -1$ then there is not a unique $x \in \mathbb{R}$ such that $x^4-2ax^2+a^2-1=0$.
+使用 \Cref{defUniqueExistentialQuantifier} 写出一个最大否定逻辑公式，等价于 $\neg \exists! x \in X,\, p(x)$。描述该等式给出的用于证明不存在唯一的 $x \in X$ 使得 $p(x)$ 为真的策略，并使用该策略来证明，对于所有 $a \in \mathbb{R }$，如果 $a \ne -1$ 则不存在唯一的 $x \in \mathbb{R}$，使得 $x^4-2ax^2+a^2-1=0$。
 \end{chapex}
 
 \begin{chapex}
-Define a new quantifier $\forall !$ such that de Morgan's laws for quantifiers (\Cref{thmDeMorganQuantifiers}) hold with $\forall$ and $\exists$ replaced by $\forall !$ and $\exists !$, respectively.
+定义一个新的量词 $\forall !$，使得德摩根量词定律 (\Cref{thmDeMorganQuantifiers}) 成立，并将 $\forall$ 和 $\exists$ 分别替换为 $\forall!$ 和 $\exists!$。
 \end{chapex}
 
-\subsection*{True--False questions}
+\subsection*{判断题}
 
 \tfquestiontext{cqLogicTFBegin}{cqLogicTFEnd}
 
 \begin{chapex} % True
 \label{cqLogicTFBegin}
-Every implication is logically equivalent to its contrapositive.
+每个蕴涵式都逻辑等价于它的逆否命题。
 \end{chapex}
 
 \begin{chapex} % False
-Every implication is logically equivalent to its converse.
+每个蕴涵式都逻辑等价于它的逆命题。
 \end{chapex}
 
 \begin{chapex} % True
-Every propositional formula whose only logical operators are conjunctions and negations is logically equivalent to a propositional formula whose only logical operators are disjunctions and negations.
+每个逻辑运算符仅为合取和否定的命题公式逻辑等价于逻辑运算符仅为析取和否定的命题公式。
 \end{chapex}
 
 \begin{chapex} % False
-Every propositional formula whose only logical operators are conjunctions is logically equivalent to a propositional formula whose only logical operators are disjunctions.
+每个逻辑运算符仅为合取的命题公式逻辑等价于逻辑运算符仅为析取的命题公式。
 \end{chapex}
 
 \begin{chapex} % False
-The formulae $p \wedge (q \vee r)$ and $(p \wedge q) \vee r$ are logically equivalent.
+公式 $p \wedge (q \vee r)$ 与 $(p \wedge q) \vee r$ 逻辑等价。
 \end{chapex}
 
 \begin{chapex} % True
-The formulae $p \vee (q \vee r)$ and $(p \vee q) \wedge (p \vee r)$ are logically equivalent.
+公式 $p \vee (q \vee r)$ 与 $(p \vee q) \wedge (p \vee r)$ 逻辑等价。
 \end{chapex}
 
 \begin{chapex} % False
-The logical formulae $\neg \forall x \in X,\, \forall y \in Y,\, p(x,y)$ and $\exists x \in X,\, \forall y \in Y,\, p(x,y)$ are logically equivalent.
+逻辑公式 $\neg \forall x \in X,\, \forall y \in Y,\, p(x,y)$ 与 $\exists x \in X,\, \forall y \in Y,\ , p(x,y)$ 逻辑等价。
 \end{chapex}
 
 \begin{chapex} % False
-$\neg \forall x \ge 0,\, \exists y \in \mathbb{R},\, y^2=x$ is logically equivalent to $\forall x < 0,\, \exists y \not\in \mathbb{R},\, y^2 \ne x$.
+$\neg \forall x \ge 0,\, \exists y \in \mathbb{R},\, y^2=x$ 逻辑等价于 $\forall x < 0,\, \exists y \not\in \mathbb{R},\, y^2 \ne x$。
 \end{chapex}
 
 \begin{chapex} % True
-$\neg \forall x \ge 0,\, \exists y \in \mathbb{R},\, y^2=x$ is logically equivalent to $\exists x \ge 0,\, \forall y \in \mathbb{R},\, y^2 \ne x$.
+$\neg \forall x \ge 0,\, \exists y \in \mathbb{R},\, y^2=x$ 逻辑等价于 $\exists x \ge 0,\, \forall y \in \mathbb{R},\, y^2 \ne x$.
 \end{chapex}
 
 \begin{chapex} % False
 \label{cqLogicTFEnd}
-$\neg \forall x \ge 0,\, \exists y \in \mathbb{R},\, y^2=x$ is logically equivalent to $\exists x < 0,\, \forall y \in \mathbb{R},\, y^2 = x$.
+$\neg \forall x \ge 0,\, \exists y \in \mathbb{R},\, y^2=x$ 逻辑等价于 $\exists x < 0,\, \forall y \in \mathbb{R},\, y^2 = x$.
 \end{chapex}
 
-\subsection*{Always--Sometimes--Never questions}
+\subsection*{可能性问题}
 
 \asnquestiontext{cqLogicASNBegin}{cqLogicASNEnd}
 
 \begin{chapex} % Sometimes
 \label{cqLogicASNBegin}
-Let $p$ and $q$ be propositions and assume that $p$ is true. Then $p \Rightarrow q$ is true.
+设 $p$ 和 $q$ 为命题并假设 $p$ 为真。那么 $p \Rightarrow q$ 为真。
 \end{chapex}
 
 \begin{chapex} % Always
-Let $p$ and $q$ be propositions and assume that $p$ is false. Then $p \Rightarrow q$ is true.
+设 $p$ 和 $q$ 为命题并假设 $p$ 为假。那么 $p \Rightarrow q$ 为真。
 \end{chapex}
 
 \begin{chapex} % Always
-Let $X$ and $Y$ be sets and let $p(x,y)$ be a predicate with free variables $x \in X$ and $y \in Y$. Then the logical formulae $\forall x \in X,\, \forall y \in Y,\, p(x,y)$ and $\forall y \in Y,\, \forall x \in X,\, p(x,y)$ are logically equivalent.
+设 $X$ 和 $Y$ 为集合，并设 $p(x,y)$ 是具有自由变量 $x \in X$ 和 $y \in Y$ 的谓词。那么逻辑公式 $\forall x \in X,\, \forall y \in Y,\, p(x,y)$ 与 $\forall y \in Y,\, \forall x \in X,\, p(x,y)$ 逻辑等价。
 \end{chapex}
 
 \begin{chapex} % Sometimes
-Let $X$ and $Y$ be sets and let $p(x,y)$ be a predicate with free variables $x \in X$ and $y \in Y$. Then the logical formulae $\forall x \in X,\, \exists y \in Y,\, p(x,y)$ and $\exists y \in Y,\, \forall x \in X,\, p(x,y)$ are logically equivalent.
+设 $X$ 和 $Y$ 为集合，并设 $p(x,y)$ 是具有自由变量 $x \in X$ 和 $y \in Y$ 的谓词。那么逻辑公式 $\forall x \in X,\, \exists y \in Y,\, p(x,y)$ 与 $\exists y \in Y,\, \forall x \in X,\, p(x,y)$ 逻辑等价。
 \end{chapex}
 
 \begin{chapex} % Never
 \label{cqLogicASNEnd}
-Let $X$ and $Y$ be sets and let $p(x,y)$ be a predicate with free variables $x \in X$ and $y \in Y$. Then the logical formulae $\forall x \in X,\, \forall y \in Y,\, p(x,y)$ and $\exists x \in X,\, \exists y \in Y,\, \neg p(x,y)$ are logically equivalent.
+设 $X$ 和 $Y$ 为集合，并设 $p(x,y)$ 是具有自由变量 $x \in X$ 和 $y \in Y$ 的谓词。那么逻辑公式 $\forall x \in X,\, \forall y \in Y,\, p(x,y)$ 与 $\exists x \in X,\, \exists y \in Y,\, \neg p(x,y)$ 逻辑等价。
 \end{chapex}
