@@ -1,136 +1,136 @@
 % !TeX root = ../../book.tex
-\section{Set operations}
+\section{集合运算}
 \secbegin{secSetOperations}
 
-In \Cref{exPositiveNegativeSetBuilderNotation} we noted that $[0,\infty)$ is the set of all non-negative real numbers. What if we wanted to talk about the set of all non-negative rational numbers instead? It would be nice if there was some expression in terms of $[0,\infty)$ and $\mathbb{Q}$ to denote this set.
+在 \Cref{exPositiveNegativeSetBuilderNotation} 中，我们注意到 $[0,\infty)$ 是所有非负实数的集合。如果我们想讨论所有非负有理数的集合怎么办？如果能用 $[0,\infty)$ 和 $\mathbb{Q}$ 来表示这个集合就好了。
 
-This is where \textit{set operations} come in---they allow us to use previously defined sets to introduce new sets.
+这就是\textit{集合运算}的用武之地 --- 它们允许我们使用先前定义的集合来引入新的集合。
 
-\subsubsection*{Intersection ($\cap$)}
-The \textit{intersection} of two sets is the set of things which are elements of both sets.
+\subsubsection*{交集 ($\cap$)}
+两个集合的\textit{交集}是两个集合共同元素的集合。
 
 \begin{definition}
 \label{defIntersection}
 \index{intersection!pairwise}
 \nindex{intersection}{$\cap$}{intersection}
-Let $X$ and $Y$ be sets. The (\textbf{pairwise}) \textbf{intersection} of $X$ and $Y$, denoted $X \cap Y$ \inlatex{cap}\lindexmmc{cap}{$\cap$}, is defined by
+设 $X$ 和 $Y$ 为集合。 $X$ 和 $Y$ 的（\textbf{成对}）\textbf{交集}，表示为 $X \cap Y$ \inlatex{cap}\lindexmmc{cap}{$\cap$}，定义为
 \[ X \cap Y = \{ a \mid a \in X \wedge a \in Y \} \]
 \end{definition}
 
 \begin{example}
-By definition of intersection, we have $x \in [0,\infty) \cap \mathbb{Q}$ if and only if $x \in [0,\infty)$ and $x \in \mathbb{Q}$. Since $x \in [0,\infty)$ if and only if $x$ is a non-negative real number (see \Cref{exPositiveNegativeSetBuilderNotation}), it follows that $[0,\infty) \cap \mathbb{Q}$ is the set of all non-negative rational numbers.
+根据交集的定义，我们有 $x \in [0,\infty) \cap \mathbb{Q}$ 当且仅当 $x \in [0,\infty)$ 且 $x \in \mathbb{Q} $。由于 $x \in [0,\infty)$ 当且仅当 $x$ 是非负实数（参见 \Cref{exPositiveNegativeSetBuilderNotation}），因此 $[0,\infty) \cap \mathbb{ Q}$ 是所有非负有理数的集合。
 \end{example}
 
 \begin{exercise}
-Prove that $[0,\infty) \cap \mathbb{Z} = \mathbb{N}$.
+证明 $[0,\infty) \cap \mathbb{Z} = \mathbb{N}$。
 \end{exercise}
 
 \begin{exercise}
-Write down the elements of the set
+写出下面集合的元素
 \[ \{ 0, 1, 4, 7 \} \cap \{ 1, 2, 3, 4, 5 \} \]
 \end{exercise}
 
 \begin{exercise}
-Express $[-2,5) \cap [4,7)$ as a single interval.
+将 $[-2,5) \cap [4,7)$ 表示为单个区间。
 \end{exercise}
 
 \begin{proposition}
 \label{propSubsetFromIntersection}
-Let $X$ and $Y$ be sets. Prove that $X \subseteq Y$ if and only if $X \cap Y = X$.
+设 $X$ 和 $Y$ 为集合。证明 $X \subseteq Y$ 当且仅当 $X \cap Y = X$。
 \end{proposition}
 
 \begin{cproof}
 %% BEGIN QUOTATION (xtrSoExample) %%
-Suppose that $X \subseteq Y$. We prove $X \cap Y = X$ by double containment.
+假设 $X \subseteq Y$。我们通过双重包含证明 $X \cap Y = X$。
 \begin{itemize}
-\item ($\subseteq$) Suppose $a \in X \cap Y$. Then $a \in X$ and $a \in Y$ by definition of intersection, so in particular we have $a \in X$.
-\item ($\supseteq$) Suppose $a \in X$. Then $a \in Y$ since $X \subseteq Y$, so that $a \in X \cap Y$ by definition of intersection.
+\item ($\subseteq$) 假设 $a \in X \cap Y$。则根据交集的定义 $a \in X$ 且 $a \in Y$，所以我们有 $a \in X$。
+\item ($\supseteq$) 假设 $a \in X$。因为 $X \subseteq Y$，所以 $a \in Y$，根据交集的定义，我们有 $a \in X \cap Y$。
 \end{itemize}
 %% END QUOTATION %%
 
-Conversely, suppose that $X \cap Y = X$. To prove that $X \subseteq Y$, let $a \in X$. Then $a \in X \cap Y$ since $X = X \cap Y$, so that $a \in Y$ by definition of intersection, as required.
+反过来，假设 $X \cap Y = X$。为了证明 $X \subseteq Y$，令 $a \in X$。因为 $X = X \cap Y$，所以 $a \in X \cap Y$，因此根据交集的定义 $a \in Y$。
 \end{cproof}
 
 \begin{exercise}
-Let $X$ be a set. Prove that $X \cap \varnothing = \varnothing$.
+设 $X$ 为集合。证明 $X \cap \varnothing = \varnothing$。
 \end{exercise}
 
 \begin{definition}
 \label{defDisjoint}
-Let $X$ and $Y$ be sets. We say $X$ and $Y$ are \textbf{disjoint} if $X \cap Y$ is empty.
+设 $X$ 和 $Y$ 为集合。如果$X \cap Y$ 为空，则我们说 $X$ 和 $Y$ \textbf{不相交}。
 \end{definition}
 
 \begin{example}
-The sets $\{ 0,2,4 \}$ and $\{ 1,3,5 \}$ are disjoint, since they have no elements in common.
+集合 $\{ 0,2,4 \}$ 与 $\{ 1,3,5 \}$ 不相交，因为它们没有共同的元素。
 \end{example}
 
 \begin{exercise}
-Let $a,b,c,d \in \mathbb{R}$ with $a<b$ and $c<d$. Prove that the open intervals $(a,b)$ and $(c,d)$ are disjoint if and only if $b<c$ or $d<a$.
+设 $a,b,c,d \in \mathbb{R}$ 其中 $a<b$ 且 $c<d$。证明开区间 $(a,b)$ 和 $(c,d)$ 不相交，当且仅当 $b<c$ 或 $d<a$。
 \end{exercise}
 
-\subsubsection*{Union ($\cup$)}
-The \textit{union} of two sets is the set of things which are elements of at least one of the sets.
+\subsubsection*{并集 ($\cup$)}
+两个集合的\textit{并集}是至少属于其中一个集合的元素的集合。
 
 \begin{definition}
 \label{defUnion}
 \index{union!pairwise}
-Let $X$ and $Y$ be sets. The (\textbf{pairwise}) \textbf{union} of $X$ and $Y$, denoted $X \cup Y$\nindex{union}{$\cup$}{union} \inlatex{cup}\lindexmmc{cup}{$\cup$}, is defined by
+设 $X$ 和 $Y$ 为集合。$X$ 和 $Y$ 的（\textbf{成对}）\textbf{并集}，表示为 $X \cup Y$\nindex{union}{$\cup$}{union} \inlatex{cup}\lindexmmc{cup}{$\cup$}, 定义为
 \[ X \cup Y = \{ a \mid a \in X \vee a \in Y \} \]
 \end{definition}
 
 \begin{example}
-Let $E$ be the set of even integers and $O$ be the set of odd integers. Since every integer is either even or odd, $E \cup O = \mathbb{Z}$. Note that $E \cap O = \varnothing$, thus $\{E,O\}$ is an example of a \textit{partition} of $\mathbb{Z}$---see \Cref{defPartition}.
+设 $E$ 为偶数集合，$O$ 为奇数集合。由于每个整数要么是偶数要么是奇数，$E \cup O = \mathbb{Z}$。注意 $E \cap O = \varnothing$，因此 $\{E,O\}$ 是 $\mathbb{Z}$ \textit{分割} 的一个例子 --- 参见 \Cref{defPartition}。
 \end{example}
 
 \begin{exercise}
-Write down the elements of the set
+写出下面集合的元素
 \[ \{ 0, 1, 4, 7 \} \cup \{ 1, 2, 3, 4, 5 \} \]
 \end{exercise}
 
 \begin{exercise}
-Express $[-2,5) \cup [4,7)$ as a single interval.
+将 $[-2,5) \cup [4,7)$ 表示为单个区间。
 \end{exercise}
 
-The union operation allows us to define the following class of sets that will be particularly useful for us when studying counting principles in \Cref{secCountingPrinciples}.
+并集运算允许我们定义以下类别的集合，这对我们研究 \Cref{secCountingPrinciples} 中的计数原理特别有用。
 
 \begin{exercise}
-Let $X$ and $Y$ be sets. Prove that $X \subseteq Y$ if and only if $X \cup Y = Y$.
+设 $X$ 和 $Y$ 为集合。证明 $X \subseteq Y$ 当且仅当 $X \cup Y = Y$。
 \end{exercise}
 
 \begin{example}
 \label{exIntersectionDistributesOverUnion}
-Let $X,Y,Z$ be sets. We prove that $X \cap (Y \cup Z) = (X \cap Y) \cup (X \cap Z)$.
+设 $X,Y,Z$ 为集合。证明 $X \cap (Y \cup Z) = (X \cap Y) \cup (X \cap Z)$。
 \begin{itemize}
-\item ($\subseteq$) Let $x \in X \cap (Y \cup Z)$. Then $x \in X$, and either $x \in Y$ or $x \in Z$. If $x \in Y$ then $x \in X \cap Y$, and if $x \in Z$ then $x \in X \cap Z$. In either case, we have $x \in (X \cap Y) \cup (X \cap Z)$.
-\item ($\supseteq$) Let $x \in (X \cap Y) \cup (X \cap Z)$. Then either $x \in X \cap Y$ or $x \in X \cap Z$. In both cases we have $x \in X$ by definition of intersection 
-In the first case we have $x \in Y$, and in the second case we have $x \in Z$; in either case, we have $x \in Y \cup Z$, so that $x \in X \cap (Y \cup Z)$.
+\item ($\subseteq$) 设 $x \in X \cap (Y \cup Z)$。则 $x \in X$，且 $x \in Y$ 或 $x \in Z$。如果 $x \in Y$ 则 $x \in X \cap Y$，如果 $x \in Z$ 则 $x \in X \cap Z$。综合上述两种情况，我们有 $x \in (X \cap Y) \cup (X \cap Z)$。
+\item ($\supseteq$) 设 $x \in (X \cap Y) \cup (X \cap Z)$。则 $x \in X \cap Y$ 或 $x \in X \cap Z$。在这两种情况下，根据交集的定义，我们都有 $x \in X$。
+第一种情况下我们有 $x \in Y$，第二种情况下我们有 $x \in Z$；综合上述两种情况，我们有 $x \in Y \cup Z$，所以 $x \in X \cap (Y \cup Z)$。
 \end{itemize}
 \end{example}
 
 \begin{exercise}
 \label{exUnionDistributesOverIntersection}
-Let $X,Y,Z$ be sets. Prove that $X \cup (Y \cap Z) = (X \cup Y) \cap (X \cup Z)$.
+设 $X,Y,Z$ 为集合。证明 $X \cup (Y \cap Z) = (X \cup Y) \cap (X \cup Z)$。
 \end{exercise}
 
-\subsubsection*{Indexed families of sets}
+\subsubsection*{索引集合族}
 
-We will often have occasion to take the intersection or union not of just two sets, but of an arbitrary collection of sets (even of infinitely many sets). For example, we might want to know which real numbers are elements of $[0, 1+\frac{1}{n})$ for each $n \ge 1$, and which real numbers are elements of at least one of such sets.
+我们经常需要取两个以上（甚至无穷多个）集合的交集或并集。例如，我们可能想知道对于每个 $n \ge 1$ 哪些实数是 $[0, 1+\frac{1}{n})$ 的元素，以及哪些实数是其中至少一个集合的元素。
 
-Our task now is therefore to generalise our pairwise notions of intersection and union to arbitrary collections of sets, called \textit{indexed families} of sets.
+因此，我们现在的任务是将交集和并集的成对概念推广到任意多集合，称为集合的\textit{索引族}。
 
 \begin{definition}
 \label{defIndexedFamily}
 \index{set!indexed family of}
 \index{indexed family}
 \index{family of sets}
-An (\textbf{indexed}) \textbf{family of sets} is a specification of a set $X_i$ for each element $i$ of some \textbf{indexing set} $I$. We write $\{ X_i \mid i \in I \}$ for the indexed family of sets.
+（\textbf{索引}）\textbf{集合族}是某个\textbf{索引集合} $I$ 中每个元素 $i$ 的集合 $X_i$ 的规范。我们将 $\{ X_i \mid i \in I \}$ 写为索引集合族。
 \end{definition}
 
 \begin{example}
 \label{exIndexedFamilyOfHalfOpenIntervals}
-The sets $[0,1+\frac{1}{n})$ mentioned above assemble into an indexed family of sets, whose indexing set is $\{ n \in \mathbb{N} \mid n \ge 1 \}$. We can abbreviate this family of sets by
+上面提到的集合 $[0,1+\frac{1}{n})$ 组成一个索引集合族，其索引集合为 $\{ n \in \mathbb{N} \mid n \ge 1 \}$。我们可以将这个集合族缩写为
 \[ \{ [0,1+\textstyle\frac{1}{n}) \mid n \ge 1 \} \]
-Observe that we have left implicit the fact that the variable $n$ is ranging over the natural numbers and just written `$n \ge 1$' on the right of the vertical bar, rather than separately defining $I = \{ n \in \mathbb{N} \mid n \ge 1 \}$ and writing $\{ [0,1+\frac{1}{n}) \mid n \in I \}$.
+请注意，我们隐含了变量 $n$ 取值范围在自然数上这一事实，并且只是在竖线右侧写下 `$n \ge 1$'，而不是单独定义 $I = \{ n \in \mathbb{N} \mid n \ge 1 \}$ 中并写入 $\{ [0,1+\frac{1}{n}) \mid n \in I \}$。
 \end{example}
 
 \begin{definition}
@@ -141,103 +141,103 @@ Observe that we have left implicit the fact that the variable $n$ is ranging ove
 \index{union!indexed}
 \nindex{intersectionindexed}{$\bigcap_{i \in I}$}{indexed intersection}
 \nindex{unionindexed}{$\bigcup_{i \in I}$}{indexed union}
-The (\textbf{indexed}) \textbf{intersection} of an indexed family $\{ X_i \mid i \in I \}$ is defined by
+索引族 $\{ X_i \mid i \in I \}$ 的（\textbf{索引}）\textbf{交集}定义为
 \[ \bigcap_{i \in I} X_i = \{ a \mid \forall i \in I,\, a \in X_i \} \quad \text{\inlatex{bigcap\_\{i \textbackslash{}in I\}}} \]
-The (\textbf{indexed}) \textbf{union} of $\{ X_i \mid i \in I \}$ is defined by
+索引族 $\{ X_i \mid i \in I \}$ 的（\textbf{索引}）\textbf{并集}定义为
 \[ \bigcup_{i \in I} X_i = \{ a \mid \exists i \in I,\, a \in X_i \} \quad \text{\inlatex{bigcup\_\{i \textbackslash{}in I\}}} \]
 \end{definition}
 
 \begin{example}
 \label{exIndexedIntersectionOfHalfOpenIntervals}
-We prove that the intersection of the half-open intervals $[0,1+\frac{1}{n})$ for $n \ge 1$ is $[0,1]$. We will use the notation $\displaystyle \bigcap_{n \ge 1}$ as shorthand for $\displaystyle \bigcap_{n \in \{ x \in \mathbb{N} ~\mid~ x \ge 1 \}}$.
+证明半开区间 $[0,1+\frac{1}{n})$ 在 $n \ge 1$ 上的交集是 $[0,1]$。我们将用符号 $\displaystyle \bigcap_{n \ge 1}$ 作为 $\displaystyle \bigcap_{n \in \{ x \in \mathbb{N} ~\mid~ x \ge 1 \}}$ 的简写。
 
 \begin{itemize}
-\item $(\subseteq)$ Let $x \in \displaystyle\bigcap_{n \ge 1} [0,1+\frac{1}{n})$.
+\item $(\subseteq)$ 设 $x \in \displaystyle\bigcap_{n \ge 1} [0,1+\frac{1}{n})$。
 
-Then $x \in [0,1+\frac{1}{n})$ for all $n \ge 1$. In particular, $x \ge 0$.
+则对于所有 $n \ge 1$, $x \in [0,1+\frac{1}{n})$。特别是，$x \ge 0$。
 
-To see that $x \le 1$, assume that $x>1$---we will derive a contradiction. Since $x>1$, we have $x-1 > 0$. Let $N \ge 1$ be some natural number greater or equal to $\frac{1}{x-1}$, so that $\frac{1}{N} \le x-1$. Then $x \ge 1 + \frac{1}{N}$, and hence $x \not\in [0,1+\frac{1}{N})$, contradicting the assumption that $x \in [0,1+\frac{1}{n})$ for all $n \ge 1$.
+要得到 $x \le 1$，假设$x>1$ --- 我们将得出一个矛盾。由于 $x>1$，我们有 $x-1 > 0$。设 $N \ge 1$ 为大于或等于 $\frac{1}{x-1}$ 的某个自然数，因此 $\frac{1}{N} \le x-1$。那么 $x \ge 1 + \frac{1}{N}$，因此 $x \not\in [0,1+\frac{1}{N})$，与对于所有 $n \ge 1$, $x \in [0,1+\frac{1}{n})$ 的假设矛盾。
 
-So we must have $x \le 1$ after all, and hence $x \in [0,1]$.
+所以必有 $x \le 1$，因此 $x \in [0,1]$。
 
-\item ($\supseteq$) Let $x \in [0,1]$.
+\item ($\supseteq$) 设 $x \in [0,1]$。
 
-To prove that $x \in \displaystyle \bigcap_{n \ge 1} [0,1+\frac{1}{n})$, we need to show that $x \in [0,1+\frac{1}{n})$ for all $n \ge 1$. So fix $n \ge 1$. Since $x \in [0,1]$, we have $x \ge 0$ and $x \le 1 < 1+\frac{1}{n}$, so that $x \in [0,1+\frac{1}{n})$, as required.
+为了证明 $x \in \displaystyle \bigcap_{n \ge 1} [0,1+\frac{1}{n})$，我们需要证明对于所有 $n \ge 1$, $x \in [0,1+\frac{1}{n})$ 。所以给定 $n \ge 1$。由于 $x \in [0,1]$，我们有 $x \ge 0$ 和 $x \le 1 < 1+\frac{1}{n}$，因此 $x \in [0,1+ \frac{1}{n})$。
 \end{itemize}
 
-Hence $\displaystyle\bigcap_{n \ge 1} [0,1+\frac{1}{n}) = [0,1]$ by double containment.
+因此根据双重包含，$\displaystyle\bigcap_{n \ge 1} [0,1+\frac{1}{n}) = [0,1]$。
 \end{example}
 
 \begin{exercise}
-Express $\displaystyle\bigcup_{n \ge 1} [0,1-\frac{1}{n}]$ as an interval.
+将 $\displaystyle\bigcup_{n \ge 1} [0,1-\frac{1}{n}]$ 表示为单个区间。
 \end{exercise}
 
 \begin{exercise}
-Prove that $\displaystyle\bigcap_{n \in \mathbb{N}} [n] = \varnothing$ and $\displaystyle\bigcup_{n \in \mathbb{N}} [n] = \{ k \in \mathbb{N} \mid k \ge 1 \}$.
+证明 $\displaystyle\bigcap_{n \in \mathbb{N}} [n] = \varnothing$ 和 $\displaystyle\bigcup_{n \in \mathbb{N}} [n] = \{ k \in \mathbb{N} \mid k \ge 1 \}$。
 \end{exercise}
 
-Indexed intersections and unions generalise their pairwise counterparts, as the following exercise proves.
+索引交集和并集泛化了它们的成对项，正如以下练习所证明的那样。
 
 \begin{exercise}
 \label{exIndexedIntersectionUnionGeneralisePairwise}
-Let $X_1$ and $X_2$ be sets. Prove that
+设 $X_1$ 和 $X_2$ 为集合。证明
 \[ X_1 \cap X_2 = \bigcap_{k \in [2]} X_k \quad \text{and} \quad X_1 \cup X_2 = \bigcup_{k \in [2]} X_k \]
 \end{exercise}
 
 \begin{exercise}
 \label{exSubsetsFiniteIntersectionInhabitedInfiniteIntersectionEmpty}
-Find a family of sets $\{ X_n \mid n \in \mathbb{N} \}$ such that:
+找到集合 $\{ X_n \mid n \in \mathbb{N} \}$ 的族，使得：
 \begin{enumerate}[(i)]
-\item $\displaystyle\bigcup_{n \in \mathbb{N}} X_n = \mathbb{N}$;
-\item $\displaystyle\bigcap_{n \in \mathbb{N}} X_n = \varnothing$; and
-\item $X_i \cap X_j \ne \varnothing$ for all $i,j \in \mathbb{N}$.
+\item $\displaystyle\bigcup_{n \in \mathbb{N}} X_n = \mathbb{N}$；
+\item $\displaystyle\bigcap_{n \in \mathbb{N}} X_n = \varnothing$；
+\item 对于所有 $i,j \in \mathbb{N}$, $X_i \cap X_j \ne \varnothing$。
 \end{enumerate}
 \begin{backhint}
 \hintref{exSubsetsFiniteIntersectionInhabitedInfiniteIntersectionEmpty}
-You need to find a family of subsets of $\mathbb{N}$ such that (i) any two of the subsets have infinitely many elements in common, but (ii) given any natural number, you can find one of the subsets that it is \textit{not} an element of.
+您需要找到 $\mathbb{N}$ 的一系列子集，使得 (i) 中任何两个子集都有无限多个共同元素，而 (ii) 给定任何自然数，都可以找到其中一个子集\textit{不是}其元素。
 \end{backhint}
 \end{exercise}
 
-\subsubsection*{Relative complement ($\setminus$)}
+\subsubsection*{补集 ($\setminus$)}
 
 \begin{definition}
 \label{defRelativeComplement}
 \index{relative complement}
 \index{complement!relative}
 \nindex{complement}{$\setminus$}{relative complement}
-Let $X$ and $Y$ be sets. The \textbf{relative complement} of $Y$ in $X$, denoted $X \setminus Y$ \inlatex{setminus}\lindexmmc{setminus}{$\setminus$}, is defined by
+设 $X$ 和 $Y$ 为集合。$Y$ 在 $X$ 上的\textbf{相对补集}，表示为 $X \setminus Y$ \inlatex{setminus}\lindexmmc{setminus}{$\setminus$}，定义为
 \[ X \setminus Y = \{ x \in X \mid x \not \in Y \} \]
-The operation $\setminus$ is also known as the \textbf{set difference} operation. Some authors write $Y - X$ instead of $Y \setminus X$.
+$\setminus$ 运算也叫\textbf{集合差}运算。有些作者写为 $Y - X$ 而不是 $Y \setminus X$。
 \end{definition}
 
 \begin{example}
-Let $E$ be the set of all even integers. Then $n \in \mathbb{Z} \setminus E$ if and only if $n$ is an integer and $n$ is not an even integer; that is, if and only if $n$ is odd. Thus $\mathbb{Z} \setminus E$ is the set of all odd integers.
+设 $E$ 为所有偶数的集合。那么 $n \in \mathbb{Z} \setminus E$ 当且仅当 $n$ 是整数且 $n$ 不是偶数；也就是说，当且仅当 $n$ 是奇数。因此 $\mathbb{Z} \setminus E$ 是所有奇数的集合。
 
-Moreover, $n \in \mathbb{N} \setminus E$ if and only if $n$ is a natural number and $n$ is not an even integer. Since the even integers which are natural numbers are precisely the even natural numbers, $\mathbb{N} \setminus E$ is precisely the set of all odd natural numbers.
+此外，$n \in \mathbb{N} \setminus E$ 当且仅当 $n$ 是自然数且 $n$ 不是偶数。由于作为自然数的偶整数正是偶自然数，因此 $\mathbb{N} \setminus E$ 正是所有奇自然数的集合。
 \end{example}
 
 \begin{exercise}
-Write down the elements of the set
+写出下面集合的元素
 \[ \{ 0, 1, 4, 7 \} \setminus \{ 1, 2, 3, 4, 5 \} \]
 \end{exercise}
 
 \begin{exercise}
-Express $[-2,5) \setminus [4,7)$ and $[4,7) \setminus [-2,5)$ as intervals.
+将 $[-2,5) \setminus [4,7)$ 和 $[4,7) \setminus [-2,5)$ 表示为单个区间。
 \end{exercise}
 
 \begin{exercise}
 \label{exSetMinusSetMinus}
-Let $X$ and $Y$ be sets. Prove that $Y \setminus (Y \setminus X)= X \cap Y$, and deduce that $X \subseteq Y$ if and only if $Y \setminus (Y \setminus X) = X$.
+设 $X$ 和 $Y$ 为集合。证明 $Y \setminus (Y \setminus X)= X \cap Y$，并推导出 $X \subseteq Y$ 当且仅当 $Y \setminus (Y \setminus X) = X$。
 \end{exercise}
 
-\subsubsection*{Comparison with logical operators and quantifiers}
+\subsubsection*{与逻辑运算符和量词的比较}
 
-The astute reader will have noticed some similarities between set operations and the logical operators and quantifiers that we saw in \Cref{chLogicalStructure}.
+精明的读者会注意到集合运算与我们在 \Cref{chLogicalStructure} 中看到的逻辑运算符和量词之间的某些相似之处。
 
-Indeed, this can be summarised in the following table. In each row, the expressions in both columns are equivalent, where $p$ denotes `$a \in X$', $q$ denotes `$a \in Y$', and $r(i)$ denotes `$a \in X_i$'.
+事实上，这可以总结为下表。每一行中，两列表达式是等效的，其中 $p$ 表示 `$a \in X$'，$q$ 表示`$a \in Y$'，$r(i)$ 表示`$a \in X_i$'。
 
 \begin{center}\begin{tabular}{c|c}
-sets & logic \\ \hline
+集合 & 逻辑 \\ \hline
 $a \not\in X$ & $\neg p$ \\
 $a \in X \cap Y$ & $p \wedge q$ \\
 $a \in X \cup Y$ & $p \vee q$ \\
@@ -246,12 +246,12 @@ $a \in \bigcup_{i \in I} X_i$ & $\exists i \in I,\, r(i)$ \\
 $a \in X \setminus Y$ & $p \wedge (\neg q)$
 \end{tabular}\end{center}
 
-This translation between logic and set theory does not stop there; in fact, as the following theorem shows, De Morgan's laws for the logical operators (\Cref{thmDeMorganLogicalOperators}) and for quantifiers (\Cref{thmDeMorganQuantifiers}) also carry over to the set operations of union and intersection.
+逻辑和集合论之间的转换不止于此。事实上，正如下面定理所示，逻辑运算符 (\Cref{thmDeMorganLogicalOperators}) 和量词 (\Cref{thmDeMorganQuantifiers}) 的德摩根定律也适用于并集和交集的集合运算。
 
-\begin{theorem}[De Morgan's laws for sets]
+\begin{theorem}[集合的德摩根定律]
 \label{thmDeMorganForSets}
 \index{de Morgan's laws!for sets}
-Given sets $A,X,Y$ and a family $\{ X_i \mid i \in I \}$, we have
+给定集合 $A,X,Y$ 和族 $\{ X_i \mid i \in I \}$，我们有
 \begin{enumerate}[(a)] 
 \item $A \setminus (X \cup Y) = (A \setminus X) \cap (A \setminus Y)$;
 \item $A \setminus (X \cap Y) = (A \setminus X) \cup (A \setminus Y)$;
@@ -261,97 +261,97 @@ Given sets $A,X,Y$ and a family $\{ X_i \mid i \in I \}$, we have
 \end{theorem}
 
 \begin{cproof}[of (a)]
-Let $a$ be arbitrary. By definition of union and relative complement, the assertion that $a \in A \setminus (X \cup Y)$ is equivalent to the logical formula
+设 $a$ 为任意的元素。根据并集和补集的定义，$a \in A \setminus (X \cup Y)$ 等价于逻辑公式
 \[ a \in A \wedge \neg (a \in X \vee a \in Y) \]
-By de Morgan's laws for logical operators, this is equivalent to
+根据逻辑运算符的德摩根定律，这等价于
 \[ a \in A \wedge (a \not\in X \wedge a \not\in Y) \]
-which, in turn, is equivalent to
-\[ a \in A \wedge a \not\in X) \wedge (a \in A \wedge a \not\in Y \]
-But then by definition of intersection and relative complement, this is equivalent to
+反过来，这等价于
+\[ (a \in A \wedge a \not\in X) \wedge (a \in A \wedge a \not\in Y) \]
+但根据交集和补集的定义，这相当于
 \[ a \in (A \setminus X) \cap (A \setminus Y) \]
-Hence $A \setminus (X \cup Y) = (A \setminus X) \cap (A \setminus Y)$, as required.
+因此 $A \setminus (X \cup Y) = (A \setminus X) \cap (A \setminus Y)$。
 \end{cproof}
 
 \begin{exercise}
-Complete the proof of de Morgan's laws for sets.
+完成集合的德摩根定律的证明。
 \end{exercise}
 
-\subsubsection*{Product ($\times$)}
+\subsubsection*{乘积 ($\times$)}
 
 \begin{definition}
 \label{defCartesianProductPairwise}
 \index{product of sets!pairwise}
 \index{ordered pair}
-Let $X$ and $Y$ be sets. The (\textbf{pairwise}) \textbf{cartesian product} of $X$ and $Y$ is the set $X \times Y$\nindex{cartesian product}{$\times$}{cartesian product} \inlatex{times}\lindexmmc{times}{$\times$} defined by
+设 $X$ 和 $Y$ 为集合。 $X$ 和 $Y$ 的（\textbf{成对}）\textbf{笛卡尔积} 是集合 $X \times Y$\nindex{cartesian product}{$\times$}{cartesian product} \inlatex{times}\lindexmmc{times}{$\times$} 定义为
 \[ X \times Y = \{ (a,b) \mid a \in X \wedge b \in Y \} \]
-The elements $(a,b) \in X \times Y$ are called \textbf{ordered pairs}, whose defining property is that, for all $a,x \in X$ and all $b,y \in Y$, we have $(a,b) = (x,y)$ if and only if $a=x$ and $b=y$.
+元素 $(a,b) \in X \times Y$ 称为 \textbf{有序对}，其定义属性为，对于所有 $a,x \in X$ 和所有 $b,y \in Y$ ，当且仅当 $a=x$ 且 $b=y$ 时，我们有 $(a,b) = (x,y)$。
 \end{definition}
 
 \begin{example}
-If you have ever taken calculus, you will probably be familiar with the set $\mathbb{R} \times \mathbb{R}$.
+如果您学过微积分，您可能对集合 $\mathbb{R} \times \mathbb{R}$ 很熟悉。
 \[ \mathbb{R} \times \mathbb{R} = \{ (x,y) \mid x,y \in \mathbb{R} \} \]
-Formally, this is the set of ordered pairs of real numbers. Geometrically, if we interpret $\mathbb{R}$ as an infinite line, the set $\mathbb{R} \times \mathbb{R}$ is the (real) plane: an element $(x,y) \in \mathbb{R} \times \mathbb{R}$ describes the point in the plane with coordinates $(x,y)$.
+形式上，这是一组有序的实数对。从几何角度来说，如果我们将 $\mathbb{R}$ 解释为无限延伸的直线，则集合 $\mathbb{R} \times \mathbb{R}$ 是（实）平面：元素 $(x,y) \in \mathbb{R} \times \mathbb{R}$ 描述了平面上坐标为 $(x,y)$ 的点。
 
-We can investigate this further. For example, the following set:
+我们可以更进一步。例如，下面的集合：
 \[ \mathbb{R} \times \{ 0 \} = \{ (x,0) \mid x \in \mathbb{R} \} \]
-is precisely the $x$-axis. We can describe graphs as subsets of $\mathbb{R} \times \mathbb{R}$. Indeed, the graph of $y=x^2$ is given by
+正是 $x$ 轴。我们可以将图描述为 $\mathbb{R} \times \mathbb{R}$ 的子集。事实上，$y=x^2$ 的图由下面式子给出
 \[ G = \{ (x,y) \in \mathbb{R} \times \mathbb{R} \mid y = x^2 \} = \{ (x,x^2) \mid x \in \mathbb{R} \} \subseteq \mathbb{R} \times \mathbb{R} \]
 \end{example}
 
 \begin{exercise}
-Write down the elements of the set $\{ 1, 2 \} \times \{ 3, 4, 5 \}$.
+写出集合 $\{ 1, 2 \} \times \{ 3, 4, 5 \}$ 的所有元素。
 \end{exercise}
 
 \begin{exercise}
-Let $X$ be a set. Prove that $X \times \varnothing = \varnothing$.
+设 $X$ 为集合。证明 $X \times \varnothing = \varnothing$。
 \end{exercise}
 
 \begin{exercise}
 \label{exCartesianProductNotAssociative}
-Let $X$, $Y$ and $Z$ be sets. Under what conditions is it true that $X \times Y = Y \times X$? Under what conditions is it true that $(X \times Y) \times Z = X \times (Y \times Z)$?
+设 $X$, $Y$ 和 $Z$ 为集合。在什么条件下 $X \times Y = Y \times X$ 成立？在什么条件下 $(X \times Y) \times Z = X \times (Y \times Z)$ 成立？
 \end{exercise}
 
-We might have occasion to take cartesian products of more than two sets. For example, whatever the set $\mathbb{R} \times \mathbb{R} \times \mathbb{R}$ is, its elements \textit{should} be ordered triples $(a,b,c)$ consisting of elements $a,b,c \in \mathbb{R}$. This is where the following definition comes in handy.
+我们可能需要计算两个以上集合的笛卡尔积。例如，无论集合 $\mathbb{R} \times \mathbb{R} \times \mathbb{R}$ 是什么，它的元素\textit{应该}是由元素 $a,b,c \in \mathbb{R}$ 构成的有序三元组 $(a,b,c)$。这就是下面定义派上用场的地方。
 
 \begin{definition}
 \label{defCartesianProductNFold}
 \index{product of sets!nfold@$n$-fold}
 \index{ordered $n$-tuple}
-Let $n \in \mathbb{N}$ and let $X_1, X_2, \dots, X_n$ be sets. The (\textbf{$n$-fold}) \textbf{cartesian product} of $X_1, X_2, \dots, X_n$ is the set $\prod_{k=1}^n X_k$\nindex{cartesian product nfold}{$\Pi_{k=1}^n$}{cartesian product ($n$-fold)} \inlatex{prod\_\{k=1\}\^{}\{n\}}\lindexmmc{prod}{$\Pi_{k=1}^{n}$} defined by
+设 $n \in \mathbb{N}$ 并设 $X_1, X_2, \dots, X_n$ 为集合。$X_1, X_2, \dots, X_n$ 的（\textbf{$n$ 折}）\textbf{笛卡尔积}是集合 $\prod_{k=1}^n X_k$\nindex{cartesian product nfold}{$\Pi_{k=1}^n$}{cartesian product ($n$-fold)} \inlatex{prod\_\{k=1\}\^{}\{n\}}\lindexmmc{prod}{$\Pi_{k=1}^{n}$} 定义为 
 \[ \prod_{k=1}^n X_k = \{ (a_1, a_2, \dots, a_n) \mid a_k \in X_k \text{ for all } 1 \le k \le n \} \]
-The elements $(a_1, a_2, \dots, a_n) \in \prod_{k=1}^n X_k$ are called \textbf{ordered $k$-tuples}, whose defining property is that, for all $1 \le k \le n$ and all $a_k,b_k \in X_k$, we have $(a_1, a_2, \dots, a_n) = (b_1, b_2, \dots, b_n)$ if and only if $a_k = b_k$ for all $1 \le k \le n$.
+元素 $(a_1, a_2, \dots, a_n) \in \prod_{k=1}^n X_k$ 称为\textbf{有序 $k$ 元组}，其定义属性为，对于所有 $1 \le k \le n $ 和所有 $a_k,b_k \in X_k$，我们有 $(a_1, a_2, \dots, a_n) = (b_1, b_2, \dots, b_n)$ 当且仅当对于所有 $1 \ le k \le n$, $a_k = b_k$。
 
-Given a set $X$, write $X^n$\nindex{cartesian product nfold}{$X^n$}{cartesian product ($n$-fold)} to denote the set $\prod_{k=1}^n X$. We might on occasion also write
+给定一个集合$X$，$X^n$\nindex{cartesian product nfold}{$X^n$}{cartesian product ($n$-fold)} 表示集合 $\prod_{k=1}^n X$。有时我们也会写做
 \[ X_1 \times X_2 \times \cdots \times X_n = \prod_{k=1}^n X_k \]
 \end{definition}
 
 \begin{example}
-In \Cref{exCartesianProductNotAssociative} you might have noticed that the sets $(X \times Y) \times Z$ and $X \times (Y \times Z)$ are not always equal---\Cref{defCartesianProductNFold} introduces a \textit{third} potentially non-equal cartesian product of $X$, $Y$ and $Z$. For example, consider when $X=Y=Z=\mathbb{R}$. Then
+在 \Cref{exCartesianProductNotAssociative} 中您可能已经注意到集合 $(X \times Y) \times Z$ 和 $X \times (Y \times Z)$ 并不总是相等 --- \Cref{defCartesianProductNFold} 引入了第三个 $X$、$Y$ 和 $Z$ 可能不相等的笛卡尔积。例如，考虑当 $X=Y=Z=\mathbb{R}$ 时。则
 \begin{itemize}
-\item The elements of $(\mathbb{R} \times \mathbb{R}) \times \mathbb{R}$ are ordered pairs $((a,b),c)$, where $(a,b)$ is itself an ordered pair of real numbers and $c$ is a real number.
-\item The elements of $\mathbb{R} \times (\mathbb{R} \times \mathbb{R})$ are ordered pairs $(a,(b,c))$, where $a$ is a real number and $(b,c)$ is an ordered pair of real numbers.
-\item The elements of $\mathbb{R} \times \mathbb{R} \times \mathbb{R}$ ($=\mathbb{R}^3$) are ordered triples $(a,b,c)$, where $a$, $b$ and $c$ are real numbers.
+\item $(\mathbb{R} \times \mathbb{R}) \times \mathbb{R}$ 的元素是有序对 $((a,b),c)$，其中 $(a,b)$ 本身是一对有序实数，$c$ 是一个实数。
+\item $\mathbb{R} \times (\mathbb{R} \times \mathbb{R})$ 的元素是有序对 $(a,(b,c))$，其中 $a$ 是实数， $(b,c)$ 是一对有序实数。
+\item $\mathbb{R} \times \mathbb{R} \times \mathbb{R}$ ($=\mathbb{R}^3$) 的元素是有序三元组 $(a,b,c)$，其中 $a$、$b$ 和 $c$ 是实数。
 \end{itemize}
-So, although these three sets \textit{appear} to be the same, zooming in closely on the definitions reveals that there are subtle differences between them. A sense in which they are the same is that there are \textit{bijections} between them---the notion of a bijection will be introduced in \Cref{secInjectionsSurjections}.
+因此，尽管这三个集合\textit{看起来}相同，但仔细观察定义就会发现它们之间存在细微差异。从某种意义上说，它们的相同之处在于它们之间存在\textit{双射} --- 双射的概念将在\Cref{secInjectionsSurjections}中引入。
 \end{example}
 
 \begin{tldr}{secSetOperations}
 
-\subsubsection*{Binary set operations}
+\subsubsection*{二元集合运算}
 
 \begin{tldrlist}
-\tldritem{defIntersection} The \textit{intersection} of sets $X$ and $Y$ is $X \cap Y = \{ a \mid a \in X \wedge a \in Y \}$.
-\tldritem{defUnion} The \textit{union} of sets $X$ and $Y$ is $X \cup Y = \{ a \mid a \in X \vee a \in Y \}$.
-\tldritem{defRelativeComplement} The \textit{relative complement} of a set $X$ in a set $Y$ is $Y \setminus X = \{ a \mid a \in X \wedge a \not\in Y \}$.
-\tldritem{defCartesianProductPairwise} The \textit{cartesian product} of sets $X$ and $Y$ is $X \times Y = \{ (a,b) \mid a \in X \wedge b \in Y \}$, where $(a,b)$ is an \textit{ordered pair}.
+\tldritem{defIntersection} 集合 $X$ 和 $Y$ 的\textit{交集}为 $X \cap Y = \{ a \mid a \in X \wedge a \in Y \}$。
+\tldritem{defUnion} 集合 $X$ 和 $Y$ 的\textit{并集}为 $X \cup Y = \{ a \mid a \in X \vee a \in Y \}$。
+\tldritem{defRelativeComplement} 集合 $Y$ 在集合 $X$ 上的\textit{相对补集}为 $X \setminus Y = \{ a \mid a \in X \wedge a \not\in Y \}$。
+\tldritem{defCartesianProductPairwise} 集合 $X$ 和 $Y$ 的\textit{笛卡尔积}为 $X \times Y = \{ (a,b) \mid a \in X \wedge b \in Y \}$，其中 $(a,b)$ 是一个\textit{有序对}。
 \end{tldrlist}
 
-\subsubsection*{Indexed set operations}
+\subsubsection*{索引集合运算}
 
 \begin{tldrlist}
-\tldritem{defIndexedFamily} An \textit{indexed family of sets} $\{ X_i \mid i \in I \}$ is a specification of a set $X_i$ for each element $i$ of some \textit{indexing set} $I$.
-\tldritem{defIndexedIntersectionUnion} The \textit{indexed intersection} of a family $\{ X_i \mid i \in I \}$ is $\bigcap_{i \in I} X_i = \{ a \mid \forall i \in I,\, a \in X_i \}$; the \textit{indexed union} of the family is $\bigcup_{i \in I} X_i = \{ a \mid \exists i \in I,\, a \in X_i \}$.
-\tldritem{defCartesianProductNFold} The \textit{$n$-fold cartesian product} of an $[n]$-indexed family $\{ X_i \mid i \in [n] \}$ is the set $\prod_{k=1}^n X_k = \{ (a_1, \dots, a_n) \mid a_k \in X_k \textbf{ for all } k \in [n] \}$, where $(a_1, \dots, a_n)$ is an \textit{ordered $n$-tuple}.
+\tldritem{defIndexedFamily} \textit{索引集合族} $\{ X_i \mid i \in I \}$ 是某个\textit{索引集合} $I$ 中每个元素 $i$ 的集合 $X_i$ 的规范。
+\tldritem{defIndexedIntersectionUnion} 族 $\{ X_i \mid i \in I \}$ 的\textit{索引交集}为 $\bigcap_{i \in I} X_i = \{ a \mid \forall i \in I,\, a \in X_i \}$；该族的 \textit{索引并集} 为 $\bigcup_{i \in I} X_i = \{ a \mid \exists i \in I,\, a \in X_i \}$。
+\tldritem{defCartesianProductNFold} $[n]$ 索引族 $\{ X_i \mid i \in [n] \}$ 的 \textit{$n$ 次笛卡尔积}是集合   $\prod_{k=1}^n X_k = \{ (a_1, \dots, a_n) \mid a_k \in X_k \textbf{ for all } k \in [n] \}$，其中 $(a_1, \dots, a_n)$ 为 \textit{有序 $n$ 元组}。
 \end{tldrlist}
 
 \end{tldr}

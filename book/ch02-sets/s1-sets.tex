@@ -1,11 +1,11 @@
 % !TeX root = ../../book.tex
-\section{Sets}
+\section{集合}
 \secbegin{secSets}
 \index{set|(}
 
-We begin by redefining the notion of a \textit{set} with a notch more precision than we provided in \Cref{chGettingStarted}. At their core, sets seem extremely simple---sets are just collections of objects---except that if not kept in check, this characterisation of a set leads to logical inconsistencies, such as the infamous \textit{Russell's paradox}.
+我们首先重新定义\textit{集合}的概念，其精度比我们在 \Cref{chGettingStarted} 中给出的精度更高。从本质上讲，集合看起来非常简单 --- 集合只是对象的汇集 --- 但如果不加以控制，集合的这种特性会导致逻辑上的不一致，例如臭名昭著的\textit{罗素悖论}。
 
-These logical paradoxes can be overcome by restricting ourselves to working inside a \textit{universe} $\mathcal{U}$, which we consider to be a set which is so big that it contains all of the mathematical objects that we want to talk about. This is a subtle issue, which is well beyond the scope of this section, but is discussed further in \Cref{secZFC}.
+这些逻辑悖论可以通过将我们的工作限制在\textit{全集} $\mathcal{U}$ 内来克服，我们认为这个全集是一个非常大的集合，包含了我们想要讨论的所有数学对象。这是一个微妙的问题，远远超出本节的范围，但会在 \Cref{secZFC} 中进一步讨论。
 
 \begin{definition}
 \label{defSet}
@@ -13,104 +13,104 @@ These logical paradoxes can be overcome by restricting ourselves to working insi
 \index{element}
 \index{universal set}
 \index{universe!of discourse}
-A \textbf{set}\index{set} is a collection of \textbf{elements} from a specified \textbf{universe of discourse}\index{universe of discourse}. The collection of everything in the universe of discourse is called the \textbf{universal set}\index{set!universal}, denoted by $\mathcal{U}$\nindex{U}{$\mathcal{U}$}{universal set} \inlatex{mathcal\{U\}}\lindexmmc{mathcal}{$\mathcal{A}, \mathcal{B}, \dots$}.
+\textbf{集合}\index{set}是来自指定\textbf{论域}\index{universe of discourse}的\textbf{元素}的汇集。论域中所有事物的汇集称为\textbf{全集}\index{set!universal}，写做 $\mathcal{U}$\nindex{U}{$\mathcal{U}$}{全集} \inlatex{mathcal\{U\}}\lindexmmc{mathcal}{$\mathcal{A}, \mathcal{B}, \dots$}。
 
-The expression $x \in X$\nindex{in}{$\in$}{element} \inlatex{in}\lindexmmc{in}{$\in$} denotes the statement that $x$ is an element of $X$; we write $x \not \in X$ \inlatex{not\textbackslash{}in}\lindexmmc{not}{$\not\in, \not\equiv, \dots$} to mean $\neg (x \in X)$, that is that $x$ is not an element of $X$.
+表达式 $x \in X$\nindex{in}{$\in$}{元素} \inlatex{in}\lindexmmc{in}{$\in$} 表示 $x$ 是 $X$ 的元素；$x \not \in X$ \inlatex{not\textbackslash{}in}\lindexmmc{not}{$\not\in, \not\equiv, \dots$} 表示 $\neg (x \in X)$，即 $x$ 不是 $X$ 的元素。
 \end{definition}
 
 \begin{example}
-In \Cref{chGettingStarted}, we introduced five sets: the set $\mathbb{N}$ of natural numbers, the set $\mathbb{Z}$ of integers, the set $\mathbb{Q}$ of rational numbers, the set $\mathbb{R}$ of real numbers and the set $\mathbb{C}$ of complex numbers.
+在\Cref{chGettingStarted}中，我们引入了五个集合：自然数集合 $\mathbb{N}$、整数集合 $\mathbb{Z}$、有理数集合 $\mathbb{Q}$，实数集合 $\mathbb{R}$ 和复数集合 $\mathbb{C}$。
 \end{example}
 
 \begin{exercise}
-Which of the following propositions are true, and which are false?
+以下命题哪些是正确的，哪些是错误的？
 \[ \frac{1}{2} \in \mathbb{Z} \qquad \frac{1}{2} \in \mathbb{Q} \qquad \mathbb{Z} \in \mathbb{Q} \qquad \mathbb{Z} \in \mathcal{U} \qquad \frac{1}{2} \in \mathcal{U} \]
 \hintlabel{exElementsOfSets}{%
-Think about what `$a \in X$' \textit{really means}---don't let your intuition fool you.
+想一想 `$a \in X$' \textit{真正的含义}是什么 --- 不要让直觉欺骗了你。
 }
 \end{exercise}
 
-We will avoid referring explicitly to the universal set $\mathcal{U}$ whenever possible, but it will always be there in the background. This is convenient because we no longer need to worry about the domain of discourse of free variables (as we did in \Cref{defPredicate}), so that we can abbreviate `$\forall x \in \mathcal{U},\, p(x)$' by `$\forall x,\, p(x)$', and `$\exists x \in \mathcal{U},\, p(x)$' by `$\exists x,\, p(x)$'.
+我们尽可能避免显式引用全集 $\mathcal{U}$，但它始终存在于背后。这样会很方便，因为我们不再需要担心自由变量的论域（就像我们在 \Cref{defPredicate} 中所做的那样），因此我们可以将 `$\forall x \in \mathcal{U},\, p(x)$' 缩写成 `$\forall x,\, p(x)$'，并且将 `$\exists x \in \mathcal{U},\, p(x)$' 缩写成 `$\exists x ,\,p(x)$'。
 
-Note that under this convention:
+请注意，根据该约定：
 \begin{itemize}
-\item $\forall x \in X,\, p(x)$ is logically equivalent to $\forall x,\, (x \in X \Rightarrow p(x))$; and
-\item $\exists x \in X,\, p(x)$ is logically equivalent to $\exists x,\, (x \in X \wedge p(x))$.
+\item $\forall x \in X,\, p(x)$ 逻辑等价于 $\forall x,\, (x \in X \Rightarrow p(x))$；
+\item $\exists x \in X,\, p(x)$ 逻辑等价于 $\exists x,\, (x \in X \wedge p(x))$。
 \end{itemize}
 
-\subsection*{Specifying a set}
-One way of defining a set is simply to describe it in words, like we have done up to now. There are other, more concise ways of specifying sets, which also remove such ambiguity from the process.
+\subsection*{指定一个集合}
+定义集合的一种方法就是简单地用文字描述它，就像我们到之前所做的那样。当然还有其他更简洁的方法，这些方法也可以消除过程中的某些歧义。
 
-\textbf{Lists.}\index{list notation}
-One way is simply to provide a \textbf{list} of the elements of the set. To specify that the list denotes a set, we enclose the list with $\{$curly brackets$\}$\nindex{set}{$\{ \cdots \}$}{set notation} \inlatex{\{,\textbackslash{}\}}\lindexmmc{\{\dots\textbackslash{}\}}{$\{\dots\}$}. For example, the following is a specification of a set $X$, whose elements are the natural numbers between $0$ and $5$ (inclusive):
+\textbf{列表}\index{list notation}
+一种方法是简单地提供集合元素的\textbf{列表}。为了表明列表表示一个集合，我们用 $\{$ 大括号 $\}$\nindex{set}{$\{ \cdots \}$}{set notation} \inlatex{\{,\textbackslash{}\}}\lindexmmc{\{\dots\textbackslash{}\}}{$\{\dots\}$} 将列表括起来。 例如，下面指定了一个集合 $X$，其元素是 $0$ 到 $5$（含）之间的自然数：
 \[ X = \{ 0, 1, 2, 3, 4, 5 \} \]
 
-\textbf{Implied lists.}\index{implied list notation}
-Sometimes a list might be too long to write out---maybe even infinite---or the length of the list might depend on a variable. In these cases it will be convenient to use an \textbf{implied list}, in which some elements of the list are written, and the rest are left implicit by writing an ellipsis `$\dots$' \inlatex{dots}\lindexmmc{dots}{$\dots$}. For example, the statement
+\textbf{隐式列表}\index{implied list notation}
+有时列表可能太长而无法写出 --- 甚至可能是无限的 --- 或者列表的长度取决于变量。在这些情况下，使用\textbf{隐式列表}会很更方便，其中写入列表的某些元素，并通过省略号 `$\dots$' \inlatex{dots}\lindexmmc{dots}{ $\dots$} 来隐式保留其余元素 。 例如，
 \[ X = \{ 1, 4, 9, \dots, n^2 \} \]
-means that $X$ is the set whose elements are all the square numbers from $1$ to $n^2$, where $n$ is some number. Implied lists can be ambiguous, since they rely on the reader's ability to infer the pattern being followed, so use with caution!
+表示 $X$ 是一个集合，其元素是 $1$ 到 $n^2$ 之间的所有平方数，其中 $n$ 是某个数字。隐式列表可能不明确，因为它依赖读者推断遵循模式的能力，因此请谨慎使用！
 
-\textbf{Set-builder notation.}\index{set-builder notation}
-In general, implied lists can be ambiguous, so in practice they are avoided unless the implied list is very simple, such as a set of consecutive numbers like $\{3, 4, \dots, 9 \}$. In fact, many sets can't even be listed in this way.
+\textbf{集合构建表示法}\index{set-builder notation}
+一般来说，隐式列表可能是不明确的，因此在实践中应避免使用它们，除非隐式列表非常简单，例如一组连续的数字，如 $\{3, 4, \dots, 9 \}$。事实上，很多集合无法以这种方式给出。
 
-To get around this, we can use \textit{set-builder notation}, which is a means of specifying a set in terms of the properties its elements satisfy. Given a set $X$, the set of elements of $X$ satisfying some property $p(x)$ is denoted
+为了解决这个问题，我们可以使用\textit{集合构建表示法}，这是一种根据集合元素满足的属性来指定集合的方法。给定一个集合 $X$, $X$ 满足某些属性 $p(x)$ 的元素集合表示为
 \[ \{ x \in X \mid p(x) \} \]
-The bar `$\mid$' \inlatex{mid}\lindexmmc{mid}{$\mid$} separates the variable name from the formula that they make true---some authors use a colon instead (as in $\{ x \in X : p(x) \}$).
+竖线 `$\mid$' \inlatex{mid}\lindexmmc{mid}{$\mid$} 将变量名与它所在的公式分开 --- 一些作者会用冒号代替（如 $\{ x \in X : p(x) \}$）。
 
-The set $\{ x \in X \mid p(x) \}$ is read aloud as `the set of $x \in X$ such that $p(x)$', but beware---neither the bar `$\mid$' nor the colon `$:$' mean `such that' in other contexts.
+集合 $\{ x \in X \mid p(x) \}$ 读作 `$x \in X$ 使得 $p(x)$ 的集合'，但是要注意 --- 无论是竖线 `$\mid$' 还是冒号 `$:$' 在其他场景中均表示`使得'。
 
 \begin{example}
 \label{exSetsSpecifyUniverses}
-The set of all even integers can be written in set-builder notation as
-\[ \{ n \in \mathbb{Z} \mid n \text{ is even} \} \]
-For comparison, the set of all even natural numbers can be written as
-\[ \{ n \in \mathbb{N} \mid n \text{ is even} \} = \{ 0, 2, 4, 6, \dots \} \]
-Note that $-6$ is an element of the former set but not of the latter set, since $-6$ is an integer but is not a natural number.
+所有偶数的集合可以用集合构建表示法写为
+\[ \{ n \in \mathbb{Z} \mid n \text{为偶数} \} \]
+为了比较，所有偶自然数的集合可以写为
+\[ \{ n \in \mathbb{N} \mid n \text{为偶数} \} = \{ 0, 2, 4, 6, \dots \} \]
+请注意，$-6$ 是前一个集合的元素，但不是后一个集合的元素，因为 $-6$ 是整数但不是自然数。
 
-Note moreover that the expression
-\[ \{ n \in \mathbb{Q} \mid n \text{ is even} \} \]
-is meaningless, since we have not defined a notion of `evenness' for rational numbers.
+此外还请注意，表达式
+\[ \{ n \in \mathbb{Q} \mid n \text{为偶数} \} \]
+是没有意义的，因为我们没有为有理数定义 `奇偶' 的概念。
 \end{example}
 
 \begin{strategy}
-Let $X$ be a set and let $p(x)$ be a logical formula with free variable $x \in X$. In order to prove $a \in \{ x \in X \mid p(x) \}$, it suffices to prove $a \in X$ and that $p(a)$ is true.
+设$X$ 为集合，$p(x)$ 为带有自由变量 $x \in X$ 的逻辑公式。为了证明 $a \in \{ x \in X \mid p(x) \}$，只需证明 $a \in X$ 且 $p(a)$ 为真。
 \end{strategy}
 
 \begin{exercise}
 \label{exDyadicRatioal}
 \index{rational number!dyadic}
-A \textbf{dyadic rational} is a rational number that can be expressed as an integer divided by a power of $2$. Express the set of all dyadic rationals using set-builder notation.
+\textbf{二进有理数} 指分母为 $2$ 的幂分子为整数的有理数。使用集合构建表示法表示出所有二进有理数的集合。
 \end{exercise}
 
-An alternate form of set-builder notation uses an expression involving one or more variables to the left of the vertical bar, and the range of the variable(s) to the right. The elements of the set are then the values of the expression as the variable(s) vary as indicated---that is:
-\[ \{ \mathsf{expr}(x) \mid x \in X \} \text{ is defined to mean } \{ y \mid \exists x \in X,\, y = \mathsf{expr}(x) \} \]
-where $\mathsf{expr}(x)$ is the expression in question.
+集合构建表示法的另一种形式是将包含一个或多个变量的表达式放在竖线左侧，变量的取值范围放在竖线右侧。当变量按指示变化时，集合的元素就是表达式的值，即：
+\[ \{ \mathsf{expr}(x) \mid x \in X \} \text{意味着} \{ y \mid \exists x \in X,\, y = \mathsf{expr}(x) \} \]
+其中 $\mathsf{expr}(x)$ 是表达式。
 
 \begin{example}
-The expression $\{ 3k+2 \mid k \in \mathbb{Z} \}$ denotes the set of all integers of the form $3k+2$, where $k \in \mathbb{Z}$. It is shorthand for $\{ n \in \mathbb{Z} \mid \exists k \in \mathbb{Z},\, n=3k+2 \}$. In implied list notation, we could write this set as $\{ \dots, {-4}, {-1}, 2, 5, 8, \dots \}$.
+表达式 $\{ 3k+2 \mid k \in \mathbb{Z} \}$ 表示 $3k+2$ 形式的所有整数的集合，其中 $k \in \mathbb{Z}$。它是 $\{ n \in \mathbb{Z} \mid \exists k \in \mathbb{Z},\, n=3k+2 \}$ 的简写。在隐式列表表示法中，我们可以将这个集合写为 $\{ \dots, {-4}, {-1}, 2, 5, 8, \dots \}$。
 \end{example}
 
 \begin{exercise}
-Express the set of dyadic rationals (defined in \Cref{exDyadicRatioal}) in this alternate form of set-builder notation.
+用集合构建表示法的替代形式表达二进有理数集（在 \Cref{exDyadicRatioal} 中定义）。
 \end{exercise}
 
-Set-builder notation is useful for defining sets based on the properties they satisfy, as in \Cref{defBracketN,defIntervals} below.
+集合构建表示法对于根据集合满足的属性定义集合非常有用，如下面的 \Cref{defBracketN,defIntervals} 所示。
 
 \begin{restatable}{definition}{RSdefBracketN}
 \label{defBracketN}
-Let $n \in \mathbb{N}$. The set $[n]$ is defined by $[n] = \{ k \in \mathbb{N} \mid 1 \le k \le n \}$.
+设 $n \in \mathbb{N}$。集合 $[n]$ 定义为 $[n] = \{ k \in \mathbb{N} \mid 1 \le k \le n \}$。
 \end{restatable}
 
 \begin{example}
 \label{exBracketN}
-In implied list notation, $[n] = \{ 1, 2, \dots, n \}$. For example, $[4] = \{ 1, 2, 3, 4 \}$. Note that $[0]$ has no elements (it is \textit{empty}---see \Cref{defInhabited}), since there are no natural numbers $k$ satisfying the inequality $1 \le k \le 0$.
+在隐式列表表示法中，$[n] = \{ 1, 2, \dots, n \}$。例如，$[4] = \{ 1, 2, 3, 4 \}$。注意 $[0]$ 没有元素（它是 \textit{空集} --- 参见 \Cref{defInhabited}），因为不存在满足不等式 $1 \le k \le 0$ 的自然数 $k$。
 \end{example}
 
-While not particularly interesting yet, sets of the form $[n]$ will be fundamental throughout \Cref{chCombinatorics}, as they are used to define the notion of a \textit{finite set}, as well as the \textit{size} of a finite set.
+虽然还不是特别有趣，但 $[n]$ 形式的集合将是整个 \Cref{chCombinatorics} 的基础，因为它们用于定义\textit{有限集}的概念，以及有限集的\textit{大小} 。
 
-Intervals are particular subsets of $\mathbb{R}$ that are ubiquitous in mathematics, particularly in analysis and topology.
+区间是 $\mathbb{R}$ 的特定子集，在数学中普遍存在，特别是在分析和拓扑中。
 
-\begin{definition}[Intervals of the real line]
+\begin{definition}[实数的区间]
 \label{defIntervals}
 \index{interval!open}
 \index{interval!closed}
@@ -123,7 +123,7 @@ Intervals are particular subsets of $\mathbb{R}$ that are ubiquitous in mathemat
 \nindex{abint4}{$[a,b)$}{half-open interval}
 \nindex{abint5}{$(-\infty,a)$}{unbounded interval}
 \nindex{abint6}{$(a,\infty)$}{unbounded interval}
-Let $a,b \in \mathbb{R}$. The \textbf{open interval} $(a,b)$, the \textbf{closed interval} $[a,b]$, and the \textbf{half-open intervals} $[a,b)$ and $(a,b]$ from $a$ to $b$ are defined by
+设 $a,b \in \mathbb{R}$。\textbf{开区间} $(a,b)$、\textbf{闭区间} $[a,b]$ 以及 \textbf{半开区间} $[a,b)$ 和 $( a,b]$ 从 $a$ 到 $b$ 定义为
 \begin{align*}
 \hspace{35pt} (a,b) &= \{ x \in \mathbb{R} \mid a < x < b \}
 &
@@ -133,7 +133,7 @@ Let $a,b \in \mathbb{R}$. The \textbf{open interval} $(a,b)$, the \textbf{closed
 &
 [a,b] &= \{ x \in \mathbb{R} \mid a \le x \le b \}
 \end{align*}
-We further define the \textbf{unbounded intervals} $(-\infty, a)$, $(-\infty, a]$, $[a, \infty)$ and $(a, \infty)$ \inlatex{infty}\lindexmmc{infty}{$\infty$} by
+我们进一步定义\textbf{无界区间} $(-\infty, a)$, $(-\infty, a]$, $[a, \infty)$ 和 $(a, \infty)$ \inlatex{infty}\lindexmmc{infty}{$\infty$}
 \begin{align*}
 \hspace{35pt} (-\infty,a) &= \{ x \in \mathbb{R} \mid x < a \}
 &
@@ -146,7 +146,7 @@ We further define the \textbf{unbounded intervals} $(-\infty, a)$, $(-\infty, a]
 \end{definition}
 
 \begin{example}
-The following illustration depicts the open interval $(-2,5)$.
+下图描述了开区间 $(-2,5)$。
 
 \vspace{-10pt}
 \begin{center}
@@ -161,13 +161,13 @@ The following illustration depicts the open interval $(-2,5)$.
 \node[at={(3,3pt)},above]{$5$};
 \end{tikzpicture}
 \end{center}
-The hollow circles $\circ$ indicate that the endpoints are not included in the interval.
+空心圆 $\circ$ 表示端点不包含在区间内。
 \end{example}
 
-Be warned that the use of the symbol $\infty$ is misleading, since it suggests that the symbol $\infty$ on its own has a specific meaning (or, worse, that it refers to a real number). It doesn't---it is just a symbol that suggests unboundedness of the interval in question. A less misleading way of writing $[a, \infty)$, for instance, might be $[a, {\to})$ or $\mathbb{R}^{\ge a}$; however, $[a,\infty)$ is standard, so it is what we will write.
+请注意，符号 $\infty$ 的使用具有误导性，因为它表明符号 $\infty$ 本身具有特定含义（或者更糟糕的是，它指的是实数）。实际上它不是实数 --- 它只是表明所讨论的区间为无界区间的符号。例如，$[a, \infty)$ 的一种较少误导性的书写方式可能是 $[a, {\to})$ 或 $\mathbb{R}^{\ge a}$；然而，$[a,\infty)$ 是标准，所以我们就要这么写。
 
 \begin{exercise}
-For each of the following illustrations, find the interval that it depicts. A filled circle $\bullet$ indicates that an end-point is included in the interval, whereas a hollow circle $\circ$ indicates that an end-point is not included in the interval.
+对于以下每个图示，找出它所描绘的区间。实心圆 $\bullet$ 表示该区间包含端点，而空心圆 $\circ$ 表示该区间不包含端点。
 
 \begin{enumerate}[(a)]
 \item
@@ -211,119 +211,119 @@ For each of the following illustrations, find the interval that it depicts. A fi
 \end{enumerate}
 \end{exercise}
 
-\subsection*{Subsets}
+\subsection*{子集}
 
-It is often the case that everything that is also an element of one set is an element of another set. For example, every integer is a rational number; that is
+通常情况下，某个集合的所有元素也是另一个集合的元素。例如，每个整数都是有理数；即
 \[ \forall n \in \mathbb{Z},\, n \in \mathbb{Q} \]
-We can say this more concisely by saying that $\mathbb{Z}$ is a \textit{subset} of $\mathbb{Q}$.
+我们可以更简洁地说 $\mathbb{Z}$ 是 $\mathbb{Q}$ 的\textit{子集}。
 
 \begin{definition}
 \label{defSubset}
 \index{subset}
-Let $X$ be a set. A \textbf{subset} of $X$ is a set $U$ such that
+设 $X$ 为一个集合。$X$ 的\textbf{子集}是一个集合 $U$，满足
 \[ \forall a,\, (a \in U \Rightarrow a \in X) \]
-We write $U \subseteq X$\nindex{subset}{$\subseteq$}{subset} \inlatex{subseteq}\lindexmmc{subseteq}{$\subseteq$} for the assertion that $U$ is a subset of $X$.
+我们用 $U \subseteq X$\nindex{subset}{$\subseteq$}{subset} \inlatex{subseteq}\lindexmmc{subseteq}{$\subseteq$} 来表示 $U$ 是 $X$ 的子集。
 
-Additionally, the notation $U \nsubseteq X$ \inlatex{nsubseteq}\lindexmmc{nsubseteq}{$\nsubseteq$} means that $U$ is not a subset of $X$, and the notation $U \subsetneqq X$ \inlatex{subsetneqq}\lindexmmc{subsetneqq}{$\subsetneqq$} means that $U$ is a \textbf{proper subset} of $X$, that is a subset of $X$ that is not equal to $X$.
+此外，符号 $U \nsubseteq X$ \inlatex{nsubseteq}\lindexmmc{nsubseteq}{$\nsubseteq$} 表示 $U$ 不是 $X$ 的子集，而符号 $U \subsetneqq X$ \inlatex{subsetneqq}\lindexmmc{subsetneqq}{$\subsetneqq$} 表示 $U$ 是 $X$ 的\textbf{真子集}，即 $X$ 的子集不等于 $X$。
 \end{definition}
 
-\begin{strategy}[Proving a subset containment]
-In order to prove that a set $U$ is a subset of a set $X$, it suffices to take an arbitrary element $a \in U$ and prove that $a \in X$.
+\begin{strategy}[证明子集包含]
+要想证明集合 $U$ 是集合 $X$ 的子集，只需取任意元素 $a \in U$ 并证明 $a \in X$ 即可。
 \end{strategy}
 
 \begin{example}
-Every set is a subset of itself---that is, $X \subseteq X$ for all sets $X$. The proof of this is extremely simple: we must prove $\forall x \in X,\, x \in X$. But then this is trivial: let $x \in X$, then $x \in X$ by assumption. Done!
+每个集合都是其自身的子集 --- 即对于所有集合 $X$, $X \subseteq X$。这个证明非常简单：我们只须证明  $\forall x \in X,\, x \in X$。但这是显而易见的：假设 $x \in X$，则 $x \in X$。搞定！
 \end{example}
 
 \begin{example}
-Let $a,b,c,d \in \mathbb{R}$ with $a<c<d<b$. Then $[c,d] \subseteq (a,b)$. Indeed, let $x \in [c,d]$. Then $c \le x \le d$. But then
+设 $a,b,c,d \in \mathbb{R}$ 且 $a<c<d<b$。则 $[c,d] \subseteq (a,b)$。事实上，让 $x \in [c,d]$。 则 $c \le x \le d$。因此
 \[ a < c \le x \le d < b \quad \Rightarrow \quad a < x < b \]
-so that $[c,d] \subseteq (a,b)$, as required.
+所以 $[c,d] \subseteq (a,b)$。
 \end{example}
 
 \begin{exercise}
-Let $a,b,c,d \in \mathbb{R}$ with $a<b$ and $c<d$. Prove that $[a,b) \subseteq (c,d]$ if and only if $a > c$ and $b \le d$.
+设 $a,b,c,d \in \mathbb{R}$ 其中 $a<b$ 且 $c<d$。证明 $[a,b) \subseteq (c,d]$ 当且仅当 $a > c$ 且 $b \le d$。
 \end{exercise}
 
 \begin{example}
-The number sets from \Cref{chGettingStarted} are related by the following chain of subset inclusions.
+\Cref{chGettingStarted} 中的数集通过以下子集包含链关联。
 \[ \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C} \]
 \end{example}
 
-The following proposition proves a property of subsethood known as \textit{transitivity}---we'll revisit this property in \Cref{secRelations}.
+下面的命题证明了子集的\textit{传递性} --- 我们将在 \Cref{secRelations} 中重新审视这个性质。
 
 \begin{proposition}
 \label{propSubsetTransitive}
-Let $X,Y,Z$ be sets. If $X \subseteq Y$ and $Y \subseteq Z$, then $X \subseteq Z$.
+设 $X,Y,Z$ 为集合。如果 $X \subseteq Y$ 且 $Y \subseteq Z$，则 $X \subseteq Z$。
 \end{proposition}
 
 \begin{cproof}
-Suppose that $X \subseteq Y$ and $Y \subseteq Z$. We need to prove $X \subseteq Z$.
+假设 $X \subseteq Y$ 且 $Y \subseteq Z$。我们需要证明 $X \subseteq Z$。
 
-So let $a \in X$. Since $X \subseteq Y$, it follows from \Cref{defSubset} that $a \in Y$; and since $Y \subseteq Z$, it follows again from \Cref{defSubset} that $a \in Z$.
+设 $a \in X$。因为 $X \subseteq Y$, 根据 \Cref{defSubset} 可得 $a \in Y$；又因为 $Y \subseteq Z$，再次根据 \Cref{defSubset} 可得 $a \in Z$。
 
-Hence $X \subseteq Z$, as required.
+因此 $X \subseteq Z$。
 \end{cproof}
 
-\subsection*{Set equality}
+\subsection*{集合相等}
 
-This section is all about defining sets, comparing sets, and building new sets from old, and so to make much more progress, we first need to establish what we mean when we say that two sets are \textit{equal}.
+本节主要讨论定义集合、比较集合以及从原集合构建新集合，因此为了取得更大进展，我们首先需要明确当我们说两个集合\textit{相等}时我们具体指什么。
 
 \begin{discussion}
 \label{dscSetEquality}
-Let $X$ and $Y$ be sets. What should it mean to say that $X$ and $Y$ are equal? Try to provide a precise definition of equality of sets before reading on.
+设 $X$ 和 $Y$ 为集合。$X$ 和 $Y$ 相等是什么意思？在继续阅读之前，尝试给出集合相等的精确定义。
 \end{discussion}
 
-There are different possible notions of `sameness' for sets: we might want to say that two sets $X$ and $Y$ are equal when they have quite literally the same definition; or we might want to say that $X$ and $Y$ are equal when they contain the same objects as elements. For instance, suppose $X$ is `the set of all odd natural numbers' and $Y$ is `the set of all integers that are differences of consecutive perfect squares'---in this case, the first of these characterisations of equality might lead us to say $X \ne Y$, whereas the second would lead us to say $X = Y$.
+集合的 `相同性' 可能有不同的概念：当两个集合 $X$ 和 $Y$ 具有完全相同的定义时，我们可能说它们相等；或者我们可能说，当 $X$ 和 $Y$ 包含相同的对象作为元素时，它们是相等的。例如，假设 $X$ 是 `所有奇自然数的集合'，而 $Y$ 是 `连续完全平方差的所有整数的集合' --- 在这种情况下，第一种说法可能会导致我们说 $X \ne Y$，而第二种说法会导致我们说 $X = Y$。
 
-Clearly, we have to state our terms at some point. And that point is now.
+很明显，我们必须在适当的时候给出严格的定义。而现在正是时候。
 
-\begin{axiom}[Set extensionality]
+\begin{axiom}[集合外延性]
 \label{axSetEquality}
 \index{set equality}
 \index{extensionality}
-Let $X$ and $Y$ be sets. Then $X=Y$ if and only if $\forall a,\, (a \in X \Leftrightarrow a \in Y)$, or equivalently, if $X \subseteq Y$ and $Y \subseteq X$.
+设 $X$ 和 $Y$ 为集合。则 $X=Y$ 当且仅当 $\forall a,\, (a \in X \Leftrightarrow a \in Y)$，或等价地，如果 $X \subseteq Y$ 且 $Y \subseteq X$。
 \end{axiom}
 
-This characterisation of set equality suggests the following strategy for proving that two sets are equal.
+集合相等的这种特征给出了以下证明两个集合相等的策略。
 
-\begin{strategy}[Proof by double containment]
-In order to prove that a set $X$ is equal to a set $Y$, it suffices to:
+\begin{strategy}[双重包含证明]
+要想证明集合 $X$ 等于集合 $Y$，只需：
 \begin{itemize}
-\item Prove $X \subseteq Y$, i.e.\ let $a \in X$ be an arbitrary element, and derive $a \in Y$; and then
-\item Prove $X \supseteq Y$, i.e.\ let $a \in Y$ be an arbitrary element, and derive $a \in X$.
+\item 证明 $X \subseteq Y$，例如，设 $a \in X$ 为任意元素，然后推导出 $a \in Y$；
+\item 证明 $Y \supseteq X$, 例如，设 $a \in Y$ 为任意元素，然后推导出 $a \in X$。
 \end{itemize}
-We often write `($\subseteq$)' and `($\supseteq$)' to indicate the direction of the containment being proved.
+我们经常用 `($\subseteq$)' 和 `($\supseteq$)' 表示要证明的包含性的方向。
 \end{strategy}
 
 \begin{example}
 \label{exPositiveNegativeSetBuilderNotation}
-We prove that $\{ x \in \mathbb{R} \mid x^2 \le 1 \} = [-1,1]$ by double containment.
+用双重包含证明 $\{ x \in \mathbb{R} \mid x^2 \le 1 \} = [-1,1]$。
 \begin{itemize}
-\item ($\subseteq$) Let $a \in \{ x \in \mathbb{R} \mid x^2 \le 1 \}$. Then $a \in \mathbb{R}$ and $a^2 \le 1$, so that $(1-a)(1+a) = 1-a^2 \ge 0$. It follows that either:
+\item ($\subseteq$) 设 $a \in \{ x \in \mathbb{R} \mid x^2 \le 1 \}$。则 $a \in \mathbb{R}$ 且 $a^2 \le 1$ 所以 $(1-a)(1+a) = 1-a^2 \ge 0$。则有如下 2 种情况:
 \begin{itemize}
-\item $1-a \ge 0$ and $1+a \ge 0$, in which case $a \le 1$ and $a \ge -1$, so that $a \in [-1,1]$.
-\item $1-a \le 0$ and $1+a \le 0$, in which case $a \ge 1$ and $a \le -1$, which is a contradiction since $-1 < 1$.
+\item $1-a \ge 0$ 且 $1+a \ge 0$，这种情况下 $a \le 1$ 且 $a \ge -1$，所以 $a \in [-1,1]$。
+\item $1-a \le 0$ 且 $1+a \le 0$, 这种情况下 $a \ge 1$ 且 $a \le -1$, 这会引出矛盾 $-1 < 1$.
 \end{itemize}
-So we must have $a \in [-1,1]$, as required.
+所以满足条件的只能是 $a \in [-1,1]$。
 
-\item ($\supseteq$) Let $a \in [-1,1]$. Then $-1 \le a \le 1$, so $|a| \le 1$, and hence $a^2 = |a|^2 \le 1$, so that $a \in \{ x \in \mathbb{R} \mid x^2 \le 1 \}$, as required.
+\item ($\supseteq$) 设 $a \in [-1,1]$。则 $-1 \le a \le 1$，所以 $|a| \le 1$，又因为 $a^2 = |a|^2 \le 1$，所以 $a \in \{ x \in \mathbb{R} \mid x^2 \le 1 \}$。
 \end{itemize}
 \end{example}
 
 \begin{exercise}
-Prove that $\{ x \in \mathbb{R} \mid x^2 < x \} = (0,1)$.
+证明 $\{ x \in \mathbb{R} \mid x^2 < x \} = (0,1)$。
 \end{exercise}
 
-The set extensionality axiom has the consequence that sets are independent of the order in which their elements appear in list notation, and they are independent of how many times a single element is written---that is, an element of a set is only `counted' once, even if it appears multiple times in list notation. This is illustrated in the following exercise.
+集合外延性公理的结论是，集合与其元素在列表表示法中出现的顺序无关，并且与单个元素被写入的次数无关 --- 也就是说，集合的元素仅`计数'一次，即使它在列表表示法中出现多次。下面的练习对此进行了说明。
 
 \begin{exercise}
-Prove by double containment that $\{ 0, 1 \} = \{ 1, 0 \}$ and $\{ 0, 0 \} = \{ 0 \}$.
+用双重包含证明 $\{ 0, 1 \} = \{ 1, 0 \}$ 且 $\{ 0, 0 \} = \{ 0 \}$。
 \end{exercise}
 
-\subsection*{Inhabitation and emptiness}
+\subsection*{空集和非空集}
 
-Another fundamental example of a set is the \textit{empty set}, which is the set with no elements. But we have to be slightly careful about how we use the word `the', since it implies \textit{uniqueness}, and we don't know (yet) that two sets with no elements are necessarily equal. So first we will define what it means for a set to be empty, and then we'll show that there is exactly one empty set.
+集合的另一个基本示例是\textit{空集}，即没有任何元素的特定集合。这里我们必须留意`特定'这个词，因为它意味着\textit{唯一性}，而且我们（还）不知道两个没有元素的集合一定是相等的。因此，首先我们将定义空集的含义，然后我们将证明只有一个空集。
 
 \begin{definition}
 \label{defInhabited}
@@ -332,139 +332,139 @@ Another fundamental example of a set is the \textit{empty set}, which is the set
 \index{set!empty}
 \index{inhabited set}
 \index{set!inhabited}
-A set $X$ is \textbf{inhabited} (or \textbf{nonempty}) if it has at least one element; otherwise, it is \textbf{empty}.
+如果集合 $X$ 至少有一个元素，则该集合是\textbf{有元的（inhabited）}（或\textbf{非空的（nonempty）}）；否则，它就是\textbf{空的（empty）}。
 \end{definition}
 
-The assertion that $X$ is inhabited is equivalent to the logical formula $\exists a,\, a \in X$, and the assertion that $X$ is empty is equivalent to the logical formula $\neg \exists a,\, a \in X$. This suggests the following strategy for proving that a set is inhabited, or that it is empty.
+集合 $X$ 非空的断言等价于逻辑公式 $\exists a,\, a \in X$，而集合 $X$ 为空的断言等价于逻辑公式 $\neg \exists a,\, a \in X$。这表明可以采用以下策略来证明一个集合是空集还是非空集。
 
-\begin{strategy}[Proving that a set is inhabited or empty]
-In order to prove a set $X$ is inhabited, it suffices to exhibit an element. In order to prove a set $X$ is empty, assume that $X$ is inhabited---that is, that there is some element $a \in X$---and derive a contradiction.
+\begin{strategy}[证明集合是空集还是非空集]
+要想证明集合 $X$ 是非空集，只要展示一个元素即可。为了证明集合 $X$ 是空集，假设 $X$ 是非空集 --- 也就是说，存在某个元素$a \in X$ --- 并导出矛盾。
 \end{strategy}
 
-In other texts, the term \textit{nonempty} is more common than \textit{inhabited}, but there are reasons to prefer latter. Indeed, the statement `$X$ is non-empty' translates more directly to $\neg(\neg \exists a,\, a \in X)$, which has an unnecessary double-negative and suggests a proof of inhabitation by contradiction. For this reason, we use the term \textit{inhabited} in this book.
+其他教科书中，术语\textit{非空（nonempty）}比\textit{有元（inhabited）}更常见，但有理由更喜欢后者。事实上，语句`$X$ 是非空的'更直接地翻译为 $\neg(\neg \exists a,\, a \in X)$，它有一个不必要的双重否定，并暗示了通过矛盾来证明。因此，我们在本书中使用术语 \textit{有元（inhabited）}。
 
-Emptiness may seem like a trivial condition---and it is---but owing to its canonicity, it arises all over the place.
+为空似乎是一种微不足道的状况 --- 事实确实如此 --- 但由于它的经典性，它无处不在。
 
 \begin{example}
-The set $\{ x \in \mathbb{R} \mid x^2 = 2 \}$ is inhabited since, for example $\sqrt{2} \in \mathbb{R}$ and $\sqrt{2}^2 = 2$. However, the set $\{ x \in \mathbb{Q} \mid x^2 = 2 \}$ is empty since, if it were inhabited, then there would be a rational number $x$ such that $x^2 = 2$, contrary to \Cref{propSqrt2IrrationalPreliminary}.
+集合 $\{ x \in \mathbb{R} \mid x^2 = 2 \}$ 非空，例如 $\sqrt{2} \in \mathbb{R}$ 且 $\sqrt{2} ^2 = 2$。然而，集合 $\{ x \in \mathbb{Q} \mid x^2 = 2 \}$ 为空，因为如果非空，则存在一个有理数 $x$ 使得 $x^2 = 2$，而这与 \Cref{propSqrt2IrrationalPreliminary} 矛盾。
 \end{example}
 
 \begin{example}
-We observed in \Cref{exBracketN} that the set $[0]$ is empty; here's a more formal proof. Towards a contradiction, suppose $[0]$ is inhabited. Then there is some $k \in \mathbb{N}$ such that $1 \le k \le 0$. It follows that $1 \le 0$, which contradicts the fact that $0<1$. Hence $[0]$ is empty, after all.
+我们在 \Cref{exBracketN} 中观察到集合 $[0]$ 为空；这是一个更正式的证明。为了引出矛盾，我们假设 $[0]$ 非空。则存在某些 $k \in \mathbb{N}$ 使得 $1 \le k \le 0$。由此可得 $1 \le 0$，这与 $0<1$ 的事实相矛盾。 因此 $[0]$ 一定为空。
 \end{example}
 
 \begin{exercise}
-Let $a,b \in \mathbb{R}$. Prove that $[a,b]$ is empty if and only if $a > b$, and that $(a,b)$ is empty if and only if $a \ge b$.
+设 $a,b \in \mathbb{R}$。证明 $[a,b]$ 为空，当且仅当 $a > b$; $(a,b)$ 为空，当且仅当 $a \ge b$。
 \end{exercise}
 
-The next exercise is a logical technicality, which is counterintuitive for the same reason that makes the principle of explosion (\Cref{axPrincipleOfExplosion}) difficult to grasp. However, it is extremely useful for proving facts about the empty set, as we will see soon in \Cref{thmEmptySetIsUnique}.
+下一个练习涉及细致的逻辑技术，它有些反直觉，与爆炸原理（\Cref{axPrincipleOfExplosion}）难以掌握的原因相同。然而，它对于证明空集的事实非常有用，我们很快就会在 \Cref{thmEmptySetIsUnique} 中看到。
 
 \begin{exercise}
-Let $E$ be an empty set and let $p(x)$ be a predicate with one free variable $x$ with domain of discourse $E$. Show that the proposition $\forall x \in E,\, p(x)$ is true, and that the proposition $\exists x \in E,\, p(x)$ is false. What does the proposition $\forall x \in E,\, x \ne x$ mean in English? Is it true?
+设 $E$ 为空集，并设 $p(x)$ 为具有一个自由变量 $x$ 且论域为 $E$ 的谓词。证明命题 $\forall x \in E,\, p(x)$ 为真，命题 $\exists x \in E,\, p(x)$ 为假。命题 $\forall x \in E,\, x \ne x$ 在中文里是什么意思？这是真的吗？
 \hintlabel{exEverythingIsTrueOfElementsOfEmptySet}{%
-Recall from the beginning of \Cref{secSets} that $\forall x \in X,\, p(x)$ is equivalent to $\forall x,\, (x \in X \Rightarrow p(x))$ and $\exists x \in X,\, p(x)$ is equivalent to $\exists x,\, (x \in X \wedge p(x))$. What can be said about the truth value of $x \in E$ when $E$ is empty?
+回想一下 \Cref{secSets} 的开头，$\forall x \in X,\, p(x)$ 等价于 $\forall x,\, (x \in X \Rightarrow p(x))$ 并且 $\exists x \in X,\, p(x)$ 等价于 $\exists x,\, (x \in X \wedge p(x))$。当 $E$ 为空时，$x \in E$ 的真值可以怎么说？
 }
 \end{exercise}
 
-Thanks to the axiom of extensionality (\Cref{axSetEquality}), any two empty sets must be equal since they both contain the same elements---namely, no elements at all! This is made formal in the following theorem.
+由于外延性公理 (\Cref{axSetEquality})，任何两个空集都必须相等，因为它们都包含相同的元素 --- 即根本没有元素！以下定理给出了正式阐述。
 
 \begin{theorem}
 \label{thmEmptySetIsUnique}
-Let $E$ and $E'$ be sets. If $E$ and $E'$ are empty, then $E=E'$.
+设 $E$ 和 $E'$ 为集合。如果 $E$ 和 $E'$ 为空，则 $E=E'$。
 \end{theorem}
 \begin{proof}
-Suppose that $E$ and $E'$ are empty. The assertion that $E=E'$ is equivalent to
+假设 $E$ 和 $E'$ 为空集。断言 $E=E'$ 等价于
 \[ (\forall a \in E,\, a \in E') \wedge (\forall a \in E',\, a \in E) \]
-But $\forall a \in E,\, a \in E'$ and $\forall a \in E',\, a \in E$ are both true by \Cref{exEverythingIsTrueOfElementsOfEmptySet} since $E$ and $E'$ are empty. So $E=E'$, as claimed.
+因为 $E$ 和 $E'$ 为空集，根据 \Cref{exEverythingIsTrueOfElementsOfEmptySet}，$\forall a \in E,\, a \in E'$ 和 $\forall a \in E',\, a \in E$ 均为真。所以 $E=E'$。
 \end{proof}
 
-Knowing that there is one and only one empty set means that we may now make the following definition, without worrying about whether the word `the' is problematic.
+知道只有一个空集意味着我们现在可以做出以下定义，而不必担心`特定'这个词是否有问题。
 
 \begin{definition}
 \label{defEmptySet}
 \nindex{O}{$\varnothing$}{empty set}
 \index{empty set}
 \index{set!empty}
-The \textbf{empty set} (also known as the \textbf{null set}) is the set with no elements, and is denoted by $\varnothing$ \inlatex{varnothing}\lindexmmc{varnothing}{$\varnothing$}.
+\textbf{空集}（也叫 \textbf{null集}）是没有元素的集合，用 $\varnothing$ \inlatex{varnothing}\lindexmmc{varnothing}{$\varnothing$} 表示。
 \end{definition}
 
-Some authors write $\{ \}$ instead of $\varnothing$, since $\{ \}$ is simply the empty set expressed in list notation.
+有些作者将空集写做 $\{ \}$ 而不是 $\varnothing$，那是因为 $\{ \}$ 是用列表表示法表示的空集。
 
 \begin{exercise}
 \label{exEmptySetSubsetOfEverySet}
-Let $X$ be a set. Prove that $\varnothing \subseteq X$.
+设 $X$ 是一个集合。证明 $\varnothing \subseteq X$。
 \end{exercise}
 
-\subsection*{Power sets}
+\subsection*{幂集}
 
 \begin{definition}
 \label{defPowerSet}
 \index{power set}
-Let $X$ be a set. The \textbf{power set} of $X$, written $\mathcal{P}(X)$\nindex{PX}{$\mathcal{P}(X)$}{power set} \inlatex{mathcal\{P\}}\lindexmmc{mathcal}{$\mathcal{A}, \mathcal{B}, \dots$}, is the set of all subsets of $X$.
+设 $X$ 为一个集合。$X$ 的 \textbf{幂集}，写作 $\mathcal{P}(X)$\nindex{PX}{$\mathcal{P}(X)$}{power set} \inlatex{mathcal\{P\}}\lindexmmc{mathcal}{$\mathcal{A}, \mathcal{B}, \dots$} 是 $X$ 所有子集的集合。
 \end{definition}
 
 \begin{example}
-There are four subsets of $\{ 1, 2 \}$, namely
+$\{ 1, 2 \}$ 有四个子集，即
 \[ \varnothing, \quad \{ 1 \}, \quad \{ 2 \}, \quad \{ 1, 2 \} \]
-so $\mathcal{P}(X) = \{\varnothing, \{ 1 \}, \{ 2 \}, \{ 1, 2 \}\}$.
+所以 $\mathcal{P}(X) = \{\varnothing, \{ 1 \}, \{ 2 \}, \{ 1, 2 \}\}$。
 \end{example}
 
 \begin{exercise}
-Write out the elements of $\mathcal{P}(\{1, 2, 3\})$.
+写出 $\mathcal{P}(\{1, 2, 3\})$ 的所有元素。
 \end{exercise}
 
 \begin{exercise}
-Let $X$ be a set. Show that $\varnothing \in \mathcal{P}(X)$ and $X \in \mathcal{P}(X)$.
+设 $X$ 为一个集合。证明 $\varnothing \in \mathcal{P}(X)$ 且 $X \in \mathcal{P}(X)$。
 \end{exercise}
 
 \begin{exercise}
-Write out the elements of $\mathcal{P}(\varnothing)$, $\mathcal{P}(\mathcal{P}(\varnothing))$ and $\mathcal{P}(\mathcal{P}(\mathcal{P}(\varnothing)))$.
+写出 $\mathcal{P}(\varnothing)$, $\mathcal{P}(\mathcal{P}(\varnothing))$ 和 $\mathcal{P}(\mathcal{P}(\mathcal{P}(\varnothing)))$ 的所有元素。
 \end{exercise}
 
-Power sets are often a point of confusion because they bring the property of being a \textit{subset} of one set to that of being an \textit{element} of another, in the sense that for all sets $U$ and $X$ we have
+幂集常常是一个令人困惑的点，因为它们将一个集合的\textit{子集}带到另一个集合的\textit{元素}中，从某种意义上说，对于所有集合 $U$ 和 $X$ 我们有
 \[ U \subseteq X \quad \Leftrightarrow \quad U \in \mathcal{P}(X) \]
-This distinction looks easy to grasp, but when the sets $U$ and $X$ look alike, it's easy to fall into various traps. Here's a simple example.
+这种区别看起来很容易掌握，但是当集合 $U$ 和 $X$ 看起来很相似时，很容易陷入各种陷阱。这里有一个简单的例子。
 
 \begin{example}
-It is true that $\varnothing \subseteq \varnothing$, but false that $\varnothing \in \varnothing$. Indeed,
+$\varnothing \subseteq \varnothing$ 为真，但 $\varnothing \in \varnothing$ 为假。的确，
 \begin{itemize}
-\item $\varnothing \subseteq \varnothing$ means $\forall x \in \varnothing,\, x \in \varnothing$; but propositions of the form $\forall x \in \varnothing,\, p(x)$ are always true, as discussed in \Cref{exEverythingIsTrueOfElementsOfEmptySet}.
-\item The empty set has no elements; if $\varnothing \in \varnothing$ were true, it would mean that $\varnothing$ had an element (that element being $\varnothing$). So it must be the case that $\varnothing \not \in \varnothing$.
+\item $\varnothing \subseteq \varnothing$ 意味着 $\forall x \in \varnothing,\, x \in \varnothing$；如 \Cref{exEverythingIsTrueOfElementsOfEmptySet} 中所述，$\forall x \in \varnothing,\, p(x)$ 形式的命题始终为真。
+\item 空集没有元素；如果 $\varnothing \in \varnothing$ 为真，则意味着 $\varnothing$ 有一个元素（该元素是 $\varnothing$）。所以情况一定是 $\varnothing \not \in \varnothing$。
 \end{itemize}
 \end{example}
 
-The following exercise is intended to help you overcome similar potential kinds of confusion by means of practice. Try to think precisely about what the definitions involved are.
+以下练习旨在帮助您通过练习克服类似的潜在困惑。尝试精确思考所涉及的定义是什么。
 
 \begin{exercise}
-Determine, with proof, whether or not each of the following statements is true.
+通过证明判断以下每项陈述是否正确。
 \begin{enumerate}[(a)]
 \item $\mathcal{P}(\varnothing) \in \mathcal{P}(\mathcal{P}(\varnothing))$;
 \item $\varnothing \in \{ \{ \varnothing \} \}$;
 \item $\{ \varnothing \} \in \{ \{ \varnothing \} \}$;
 \item $\mathcal{P}(\mathcal{P}(\varnothing)) \in \{ \varnothing, \{ \varnothing, \{ \varnothing \} \} \}$.
 \end{enumerate}
-Repeat the exercise with all instances of `$\in$' replaced by `$\subseteq$'.
+重复以上练习，将 `$\in$' 全部替换为 `$\subseteq$'。
 \end{exercise}
 
 \begin{tldr}{secSets}
 
-\subsubsection*{Sets and subsets}
+\subsubsection*{集合与子集}
 
 \begin{tldrlist}
-\tldritem{defSet} A \textit{set} is a collection of objects (called \textit{elements}) from a fixed \textit{universe of discourse} $\mathcal{U}$; we write $x \in X$ to mean that $x$ is an element of the set $X$. Sets can be specified by (explicitly or implicitly) listing their elements $\{ x_1, x_2, \dots, x_n, \dots \}$, or by using \textit{set-builder notation} $\{ x \in X \mid p(x) \}$.
-\tldritem{defSubset} A set $U$ is a \textit{subset} of a set $X$, written $U \subseteq X$, if $\forall a,\, (a \in U \Rightarrow a \in X)$. To prove that $U \subseteq X$, it suffices to introduce a variable $a$, assume that $a \in U$, and derive $a \in X$.
-\tldritem{axSetEquality} Sets $X$ and $Y$ are equal if and only if $\forall a,\, (a \in X \Leftrightarrow a \in Y)$. In order to prove that $X = Y$, it suffices to prove separately that $X \subseteq Y$ and $Y \subseteq X$---this method is called \textit{double containment}.
+\tldritem{defSet} \textit{集合}是来自固定\textit{论域} $\mathcal{U}$ 的对象（称为\textit{元素}）的汇集；写做 $x \in X$ 表示 $x$ 是集合 $X$ 的一个元素。集合可以通过（显式或隐式）列出其元素 $\{ x_1, x_2, \dots, x_n, \dots \}$ 或使用\textit{集合构建表示法}来指定。
+\tldritem{defSubset} 如果 $\forall a,\, (a \in U \Rightarrow a \in X)$，则集合 $U$ 是集合 $X$ 的\textit{子集}，写作 $U \subseteq X$。为了证明 $U \subseteq X$，只需引入一个变量 $a$，假设 $a \in U$，并推导出 $a \in X$。
+\tldritem{axSetEquality} 集合 $X$ 和 $Y$ 相等，当且仅当 $\forall a,\, (a \in X \Leftrightarrow a \in Y)$。为了证明 $X = Y$，只需分别证明 $X \subseteq Y$ 且 $Y \subseteq X$ 即可 --- 这种方法称为\textit{双重包含}。
 \end{tldrlist}
 
-\subsubsection*{Inhabitation and emptiness}
+\subsubsection*{空集和非空集}
 
 \begin{tldrlist}
-\tldritem{defInhabited} A set $X$ is \textit{inhabited} if it has at least one element; otherwise, it is \textit{empty}.
-\tldritem{thmEmptySetIsUnique} There is a unique empty set, denoted by $\varnothing$ or $\{ \}$.
+\tldritem{defInhabited} 一个集合 $X$ 如果至少有一个元素，则是\textit{非空的}；否则，便是\textit{空的}。
+\tldritem{thmEmptySetIsUnique} 只有唯一一个空集，用 $\varnothing$ 或 $\{ \}$ 表示。
 \end{tldrlist}
 
-\subsubsection*{Power sets}
+\subsubsection*{幂集}
 \begin{tldrlist}
-\tldritem{defPowerSet} The \textit{power set} of a set $X$ is the set of all subsets of $X$.
+\tldritem{defPowerSet} 集合 $X$ 的\textit{幂集}是 $X$ 所有子集的集合。
 \end{tldrlist}
 \end{tldr}
