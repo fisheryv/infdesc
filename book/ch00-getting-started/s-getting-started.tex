@@ -10,7 +10,7 @@
 \begin{center} \textit{世界上最快乐的驴。} \end{center}
 这句话是真的还是假的？好吧，它甚至都不是一个句子；连\textit{问}是真是假的意义都没有！
 
-很明显尝试给出上面了两个陈述的证明是在浪费时间 --- 我们需要将范围缩小到我们实际上可能有机会证明（或可能反驳）的陈述上！这激发了以下（非正式）定义。
+很明显尝试给出上面了两个陈述的证明是在浪费时间 --- 我们需要将范围缩小到我们实际上可能有机会证明（或可能证伪）的陈述上！这引出了以下（非正式）定义。
 
 \begin{definition}
 \label{defProposition}
@@ -35,7 +35,7 @@
 \item \textbf{推论} 是无需太多额外工作即可从定理得出的结果。
 \end{itemize}
 
-这些不是精确定义，也不是有意而为之 --- 如果你愿意，你可以将每个结果都称为一个\textit{命题} --- 但适当地使用这些词汇可以帮助读者搞清如何阅读论文。例如，如果你只想浏览一篇论文并找到其关键结果，您会寻找标记为\textit{定理}的结果。
+这些不是精确定义，也不是有意为之 --- 如果你愿意，你可以将每个结果都称为一个\textit{命题} --- 但适当地使用这些词汇可以帮助读者搞清如何阅读论文。例如，如果你只想浏览一篇论文并找到其关键结果，您可以寻找标记为\textit{定理}的结果。
 
 如果我们没有任何东西可以证明结果，那么试图证明结果就毫无意义。考虑到这一点，我们现在将介绍\textit{数集}，并在整数除法、基数、有理数和无理数、多项式这四个主题的基础上证明关于它们的一些结论，这些主题将为 \Cref{ptCoreConcepts} 中的内容提供背景，并作为对 \Cref{ptTopics} 所涵盖主题的导论。
 
@@ -45,7 +45,7 @@
 
 在本章后面，以及 \Cref{chSets} 的详细介绍中，我们将遇到\textit{集合}的概念；集合可以被认为是对象的汇集。这个看似简单的概念是数学的基础，它是如此之复杂以至于我们不会在本书中正式地讨论集合。目前，以下定义就足够了。
 
-\begin{definition}[\Cref{defSet}中会被修订]
+\begin{definition}[\Cref{defSet}中会给出严格定义]
 \label{defSetsPreliminary}
 \lindexmmc{in}{$\in$}
 \textbf{集合}是对象的汇集。集合中的对象称为集合的\textbf{元素}。如果 $X$ 是一个集合，$x$ 是一个对象，那么 $x \in X$ \inlatexnb{x \textbackslash{}in X} 表示 $x$ 是 $X$ 的一个元素。
@@ -61,25 +61,25 @@
 \draw[latex-latex] (-5.5, 0) -- (5.5, 0) ;
 \end{tikzpicture}
 \end{center}
-箭头表示它可以在两个方向上无限延伸。直线上的点代表数字（具体来说，是\textit{实数}，这是一个具有误导性的术语，将在 \Cref{defRealsInformal} 中定义）。现在我们在这条直线上固定一个点，并将其标记为 `$0$'：
+箭头表示它可以在两个方向上无限延伸。直线上的点代表数字（具体来说，是\textit{实数}，这是一个具有误导性的术语，将在 \Cref{defRealsInformal} 中定义）。现在我们在这条直线上固定一个点，并将其标记为`$0$'：
 \begin{center}
 \begin{tikzpicture}
 \draw[latex-latex] (-5.5, 0) -- (5.5, 0) ; 
 \draw (0, 0) -- (0, 0.1) node[above] {$0$} ;
 \end{tikzpicture}
 \end{center}
-这个点可以被认为代表数字零；这是衡量所有其他数字的点。最后，让我们固定一个单位长度：
+这个点代表数字 0 ；这是衡量所有其他数字的点。最后，让我们固定一个单位长度：
 \begin{center}
 \begin{tikzpicture}
 \draw (0, 0) -- (1, 0) ; 
 \foreach \x in {0,1} \draw (\x, -0.1) -- (\x, 0.1)  ;
 \end{tikzpicture}
 \end{center}
-这个单位长度用于比较其他数字与零的不同程度。
+这个单位长度用于比较其他数字与 0 的不同程度。
 
 \begin{definition}
 \label{defNumberLine}
-上述无限延伸的直线连同其上固定的零点和固定的单位长度，构成了(\textbf{实})\textbf{数轴}。
+上述无限延伸的直线连同其上固定零点和固定单位长度，构成了(\textbf{实})\textbf{数轴}。
 \end{definition}
 
 我们将用数轴来构造我们感兴趣的五个数字集合：
@@ -91,13 +91,13 @@
 \item \textit{复数}集 $\mathbb{C}$ --- \Cref{defComplexNumbersInformal}。
 \end{itemize}
 
-正如我们将在本章后面以及整本书中看到的那样，这些集合彼此有着不同的特征，用于不同的目的。
+正如我们将在本章后面以及整本书中看到的那样，这些集合彼此有着不同的特性，用于不同的目的。
 
 \subsection*{自然数 ($\mathbb{N}$)}
 
 自然数是用于计数的数字 --- 它们是`有多少'类型问题的答案 --- 例如，我有\textit{三}个叔叔、\textit{一}只狗和\textit{零}只猫。
 
-数数是人类长期以来的一项技能。我们之所以知道这一点，是因为有证据表明人们在数万年前就使用了计数标记。计数标记提供了一种计数较小数字的方法：从零开始，逐一计数你要数的对象，然后为每个对象做一个标记。当完成时，有多少对象就有多少标记。我们从小就被教导用手指数数；这是另一个使用计数标记的例子，只不过我们把做记号变为了伸手指。
+数数是人类长期以来的一项技能。我们之所以知道这一点，是因为有证据表明人们在数万年前就使用了计数标记。计数标记提供了一种计量较小数字的方法：从零开始，逐一计数你要数的对象，然后为每个对象做一个标记。当完成时，有多少对象就有多少标记。我们从小就被教导用手指数数；这是另一个使用计数标记的例子，只不过我们把做标记变为了掰手指。
 
 做一个计数标记代表数量上的\textit{增加} --- 即增加一个。在数轴上，我们可以通过向右移动单位长度来表示数量的增加。那么我们从零开始移动的距离，等于我们向右移动单位长度的次数，因此等于被计数对象的数量。
 
@@ -113,7 +113,7 @@
 用更熟悉的术语来说，自然数是\textit{非负整数}。全体自然数的集合写做 $\mathbb{N}$ \inlatex{mathbb\{N\}}\lindexmmc{mathbb}{$\mathbb{A}, \mathbb{B}, \dots$}；因此，符号 `$n \in \mathbb{N}$' 表示 $n$ 是一个自然数。
 \end{definition}
 
-自然数具有非常重要和有趣的数学结构，并且是 \Cref{chCombinatorics} 内容的核心。\Cref{secPeanosAxioms} 中将提供对自然数更加精确的描述，并且可以在 \Cref{secZFC} 中找到自然数集的数学构造（参见 \Cref{cnsNaturalNumbersVonNeumann}）。这些更加精确的描述的核心是`零'和`加一'概念 --- 就像计数标记一样。
+自然数具有非常重要和有趣的数学结构，并且是 \Cref{chCombinatorics} 内容的核心。\Cref{secPeanosAxioms} 将提供对自然数更加精确的描述，并且可以在 \Cref{secZFC} 中找到自然数集的数学构造（参见 \Cref{cnsNaturalNumbersVonNeumann}）。这些更加精确的描述的核心是`零'和`加一'概念 --- 就像计数标记一样。
 
 \begin{aside}
 一些作者将自然数定义为\textit{正}整数，不包括零。我们将 $0$ 视为一个自然数，是因为我们对自然数的主要用途是计算有限集，而一个什么都没有的集合肯定是有限集！也就是说，与任何其他数学定义一样，选择 $0 \in \mathbb{N}$ 还是 $0 \not \in \mathbb{N}$ 只是品味或方便的问题，并且仅仅是一个约定 --- 这不是可以证明或证伪的事情。
@@ -121,41 +121,40 @@
 
 \subsection*{基数}
 
-写下数字现在对你来说似乎轻而易举，但在你小时候可能需要几年时间才能真正理解发生了什么。从历史上看，有许多不同的系统用于象征性地表示数字，即所谓的\textit{数字系统}。\index{numeral system}首先出现的是最原始的计数标记，它出现在石器时代，至今仍被用于某些目的。几千年和数百个数字系统之后，出现了一个占主导地位的数字系统，就是现在全世界都知道的：\textbf{印度-阿拉伯数字系统}。\index{numeral system!Hindu--Arabic}这个数字系统由十个符号组成，称为\textit{数字}。它是一个\textit{位置}数字系统，意味着符号在字符串中的位置决定了它的数值。
+写下数字现在对你来说似乎轻而易举，但在你小时候可能需要几年时间才能真正理解发生了什么。从历史上看，有许多不同的系统用于象征性地表示数字，即所谓的\textit{数字系统}\index{numeral system}。首先出现的是最原始的计数标记，它出现在石器时代，至今仍被用于某些目的。几千年和数百个数字系统之后，出现了一个占主导地位的数字系统，就是现在全世界都知道的：\textbf{印度-阿拉伯数字系统\index{numeral system!Hindu--Arabic}}。这个数字系统由十个符号组成，称为\textit{数字}。它是一个\textit{位置}数字系统，意味着符号在字符串中的位置决定了它的数值。
 
 在英语中（汉语也一样），这十个数字用\textit{阿拉伯数字}表示：
 \[ 0 \quad 1 \quad 2 \quad 3 \quad 4 \quad 5 \quad 6 \quad 7 \quad 8 \quad 9 \]
 字符串中最右边的数字在单位位置，每个数字向左移动一位它的数值增加十倍。例如，当我们写下`$2812$'时，最左边的`$2$'代表数字二千，而最后一个`$2$'代表数字二。
 
-事实上，有十个数字，且数字系统基于十的幂，这是生物学上的巧合，这与大多数人有十根手指这一事实有关。对于许多用途，这是不方便的。例如，10 的正因数不多（只有 4 个） --- 这对算术的简易性有影响；基于十二的系统有六个正因数，可能更方便。另一个例子是在计算机和数字电子中，用\textit{二进制}系统会更方便。二进制系统只有2个数字, 分别代表 `关' 和 `开'（或`低电压'和`高电压'）；这样就可以使用电路中的\textit{逻辑门}序列直接执行算术运算。
+事实上，有十个数字，且数字系统基于十的幂，这是生物学上的巧合，这与大多数人有十根手指这一事实有关。对于许多用途，这是不方便的。例如，十的正因数不多（只有四个） --- 这对算术的简易性有影响；基于十二的系统有六个正因数，可能更方便。另一个例子是在计算机和数字电路中，用\textit{二进制}系统会更方便。二进制系统只有 2 个数字, 分别代表`关'和`开'（或`低电压'和`高电压'）；这样就可以使用电路中的\textit{逻辑门}序列直接执行算术运算。
 
-因此，了解一些非十进制的位置数字系统是值得的。我们所做的数学抽象带来了 \textit{base-$b$ 展开} 的定义。
+因此，了解一些非十进制的位置数字系统很有用。我们所做的数学抽象带来了 \textit{base-$b$ 展开}的定义。
 
 \begin{definition}
 \label{defBaseBExpansionPreliminary}
 \index{base-$b$ expansion}
 \index{number base}
-设 $b>1$。自然数 $n$ 的 \textbf{base-$b$ 展开} 是一个\footnote{这里使用`一个'这个词会引来麻烦，因为它假定每个自然数只有一个 base-$b$ 展开。这个事实实际上需要证明 --- 参见 \Cref{thmBaseBExpansion}。} 字符串 $d_r d_{r-1} \dots d_0$ 满足
+设 $b>1$。自然数 $n$ 的 \textbf{base-$b$ 展开}是一个\footnote{这里使用`一个'这个词会引来麻烦，因为它假定每个自然数只有一个 base-$b$ 展开。这个事实实际上需要证明 --- 参见 \Cref{thmBaseBExpansion}。} 字符串 $d_r d_{r-1} \dots d_0$ 满足
 \begin{itemize}
 \item $n = d_r \cdot b^r + d_{r-1} \cdot b^{r-1} + \cdots + d_0 \cdot b^0$;
 \item 对于任意 $i$, $0 \le d_i < b$;
 \item 如果 $n>0$ 那么 $d_r \ne 0$ --- 零的 base-$b$ 展开在所有 base-$b$ 上都是 $0$。
 \end{itemize}
-某些基数有名称；例如，以 $2$, $3$, $8$, $10$ 和 $16$ 为基数的展开式分别称为\textit{二进制}、\textit{三进制}、\textit{八进制}、\textit{十进制}和\textit{十六进制}。
+某些基数有名称；例如，以 $2$, $3$, $8$, $10$ 和 $16$ 为基数的展开分别称为\textit{二进制}、\textit{三进制}、\textit{八进制}、\textit{十进制}和\textit{十六进制}。
 \end{definition}
 
 \begin{example}
-考虑数字 $1023$。他的十进制（base-$10$）展开为 $1023$，因为
+考虑数字 $1023$。他的十进制（ base-$10$ ）展开为 $1023$，因为
 \[ 1023 = 1 \cdot 10^3 + 0 \cdot 10^2 + 2 \cdot 10^1 + 3 \cdot 10^0 \]
-它的二进制（base-$2$）展开为 $1111111111$，因为
+它的二进制（ base-$2$ ）展开为 $1111111111$，因为
 \[ 1023 = 1 \cdot 2^9 + 1 \cdot 2^8 + 1 \cdot 2^7 + 1 \cdot 2^6 + 1 \cdot 2^5 + 1 \cdot 2^4 + 1 \cdot 2^3 + 1 \cdot 2^2 + 1 \cdot 2^1 + 1 \cdot 2^0 \]
-我们可以用常用的十位数字 $0$ 到 $9$ 和二十六个字母 $\mathrm{A}$ 到 $\mathrm{A}$ 来表示 $36$ 进制数；例如，$\mathrm{A}$ 表示 $10$、$\mathrm{M}$ 表示 $22$、$\mathrm{Z}$ 表示 $35$。$1023$ 的 base-$36$ 展开是 $\mathrm{SF}$，因为
-
+我们可以用常用的十个数字 $0$ 到 $9$ 和二十六个字母 $\mathrm{A}$ 到 $\mathrm{Z}$ 来表示 base-$36$ 展开；例如，$\mathrm{A}$ 表示 $10$、$\mathrm{M}$ 表示 $22$、$\mathrm{Z}$ 表示 $35$。$1023$ 的 base-$36$ 展开是 $\mathrm{SF}$，因为
 \[ 1023 = 28 \cdot 36^1 + 15 \cdot 36^0 = \mathrm{S} \cdot 36^1 + \mathrm{F} \cdot 36^0 \]
 \end{example}
 
 \begin{exercise}
-给出数字 $21127$ 的二进制、三进制、八进制、十进制、十六进制和 $36$ 进制展开，使用字母 $\mathrm{A}$--$\mathrm{F}$ 作为十六进制展开的附加数字，使用字母 $\mathrm{A}$--$\mathrm{Z}$ 作为 $36$ 进制展开的附加数字。
+给出数字 $21127$ 的二进制、三进制、八进制、十进制、十六进制和 base-$36$ 展开，使用字母 $\mathrm{A}$--$\mathrm{F}$ 作为十六进制展开的附加数字，使用字母 $\mathrm{A}$--$\mathrm{Z}$ 作为 base-$36$ 展开的附加数字。
 \end{exercise}
 
 我们有时希望用一个自然数的 base-$b$ 展开来表示它；对此有一些注释。
@@ -194,7 +193,7 @@
 \subsection*{整数除法}
 \label{pGettingStartedDivision}
 
-有理数定义 (\Cref{defRationalsInformal}) 的动机是一个整数除以另一个整数的结果不一定是一个整数。然而，结果\textit{有时}又是一个整数；例如，我可以把六个苹果分给三个人，每人分得整数个苹果。这使得除法变得很有趣：我们如何衡量一个整数不能被另一个整数整除的情况？我们如何推断一个整数何时可以被另一个整数整除？从除法的角度来看，整数集的结构是什么？这激发了 \Cref{defDivisionPreliminary}。
+有理数定义 (\Cref{defRationalsInformal}) 的动机是一个整数除以另一个整数的结果不一定是一个整数。然而，结果\textit{有时}又是一个整数；例如，我可以把六个苹果分给三个人，每人分得整数个苹果。这使得除法变得很有趣：我们如何衡量一个整数不能被另一个整数整除的情况？我们如何判断一个整数能否被另一个整数整除？从除法的角度来看，整数集的结构是什么？这引出了 \Cref{defDivisionPreliminary}。
 
 \begin{definition}[\Cref{defDivision}中会重申]
 \label{defDivisionPreliminary}
@@ -202,7 +201,7 @@
 \index{divisor}
 \index{factor}
 \index{multiple}
-设 $a,b \in \mathbb{Z}$。如果对于某个整数 $q$ 我们有 $a=qb$，那么我们说 $b$ \textbf{整除} $a$。$b$ 整除 $a$ 的其他说法还有：$b$ 是 $a$ 的\textit{约数}，或 $b$ 是 $a$ 的 \textit{因数}，或 $a$ 是 $b$ 的 \textit{倍数}。
+设 $a,b \in \mathbb{Z}$。如果对于某个整数 $q$ 我们有 $a=qb$，那么我们说 $b$ \textbf{整除} $a$。$b$ 整除 $a$ 的其他说法还有：$b$ 是 $a$ 的\textit{约数}，或 $b$ 是 $a$ 的\textit{因数}，或 $a$ 是 $b$ 的\textit{倍数}。
 \end{definition}
 
 \begin{example}
@@ -224,10 +223,10 @@
 
 \begin{cproof}
 假设 $c$ 整除 $b$ 且 $b$ 整除 $a$。根据\Cref{defDivisionPreliminary}，对于某整数 $q$ 和 $r$，它遵循
-\[ b=qc \quad \text{and} \quad a=rb \]
+\[ b=qc \quad \text{且} \quad a=rb \]
 用第一个等式 $qc$ 替换第二个等式中的 $b$，得
 \[ a=r(qc) \]
-$r(qc) = (rq)c$，且 $rq$ 是一个整数，所以从\Cref{defDivisionPreliminary}可得出 $c$ 整除 $a$。
+$r(qc) = (rq)c$，且 $rq$ 是一个整数，所以根据\Cref{defDivisionPreliminary}可得 $c$ 整除 $a$。
 \end{cproof}
 
 % To do: draw attention to the wording of the proof, and the 'unpack definition - do something - apply definition' style of the proof.
@@ -237,13 +236,13 @@ $r(qc) = (rq)c$，且 $rq$ 是一个整数，所以从\Cref{defDivisionPrelimina
 设 $a,b,d \in \mathbb{Z}$。假设 $d$ 整除 $a$ 且 $d$ 整除 $b$。给定整数 $u$ 和 $v$，证明 $d$ 整除 $au+bv$。
 \end{exercise}
 
-一些熟悉的概念，例如偶数和奇数，可以用可分性来表征。
+一些熟悉的概念，例如偶数和奇数，可以用整除性来表示。
 
 \begin{definition}
 \label{defEvenOdd}
 \index{even!integer}
 \index{odd!integer}
-整数 $n$ 如果能被 $2$ 整除则为 \textbf{偶数}；否则, $n$ 为 \textbf{奇数}。
+整数 $n$ 如果能被 $2$ 整除则为\textbf{偶数}；否则, $n$ 为\textbf{奇数}。
 \end{definition}
 
 知道一个整数何时\textit{能}整除另一个整数很有趣；然而，证明一个整数\textit{不能}整除另一个整数要困难得多。实际上，要证明整数 $b$ 不能整除整数 $a$，我们必须证明对于\textit{任何}整数 $q$ 都有 $a \ne qb$。我们将在 \Cref{chLogicalStructure} 中看到具体的证明方法；这些方法使用以下极其重要的结论，它将成为整个 \Cref{chNumberTheory} 的基础。
@@ -253,7 +252,7 @@ $r(qc) = (rq)c$，且 $rq$ 是一个整数，所以从\Cref{defDivisionPrelimina
 \index{division theorem}
 设 $a,b \in \mathbb{Z}$ 其中 $b \ne 0$。只有唯一一种写法
 \[ a = qb + r \]
-使得 $q$ 和 $r$ 为整数，且 $0 \le r < b$ (如果 $b > 0$) 或 $0 \le r < -b$ (如果 $b < 0$).
+使得 $q$ 和 $r$ 为整数，且 $0 \le r < b$ (如果 $b > 0$) 或 $0 \le r < -b$ (如果 $b < 0$)。
 \end{theorem}
 
 \Cref{thmDivisionPreliminary}中，$q$ 称为 $a$ 除以 $b$ 的\textbf{商}\index{quotient}，$r$ 称为\textbf{余数}\index{remainder}。
@@ -438,12 +437,12 @@ $\frac{n-d_0}{b}$ 的 base-$b$ 展开为
 \subsection*{有理数和无理数}
 \label{pGettingStartedRationalNumbers}
 
-在我们讨论无理数之前，我们应该先说说它是什么。
+在我们讨论无理数之前，我们应该先明确什么是无理数。
 
 \begin{definition}
 \label{defIrrationalNumber}
 \index{irrational number}
-\textbf{无理数}是不是有理数的实数。
+\textbf{无理数}是非有理数的实数。
 \end{definition}
 
 与 $\mathbb{N},\mathbb{Z},\mathbb{Q},\mathbb{R},\mathbb{C}$ 不同，没有标准的单个字母表示无理数。然而，在 \Cref{secSetOperations} 结束时，我们会将无理数集写为 $\mathbb{R} \setminus \mathbb{Q}$。
@@ -457,7 +456,7 @@ $\frac{n-d_0}{b}$ 的 base-$b$ 展开为
 实数 $\sqrt{2}$ 是无理数。 \qed
 \end{proposition}
 
-我们可以用 $\sqrt{2}$ 是无理数这一事实来证明一些有理数和无理数之间关系的事实。
+我们可以用 $\sqrt{2}$ 是无理数这一事实来证明一些有理数和无理数之间的关系。
 
 \begin{proposition}
 设 $a$ 和 $b$ 是无理数。$ab$ 可能是有理数。
@@ -475,7 +474,7 @@ $\frac{n-d_0}{b}$ 的 base-$b$ 展开为
 
 我们已经看到，乘以实数对应于数轴的缩放和反转 --- 当被乘数为正时单独缩放，当被乘数为负时先反转再缩放。我们也可以将这种反转解释为\textit{旋转}半圈，因为对数轴的影响是相同的。这时你可能会问如果我们将数轴旋转任意角度而不是只旋转半圈会发生什么。
 
-我们最终得到的是一个数字\textit{平面}，而不仅仅是一条直线 --- 参见 \Cref{figComplexNumbers}。此外，我们期望算术运算满足的规则仍然成立 --- 加法对应于平移，乘法对应于缩放和旋转。这个结果数集就是\textit{复数}集。
+我们最终得到的是一个数字\textit{平面}，而不仅仅是一条直线 --- 参见 \Cref{figComplexNumbers}。此外，我们期望算术运算满足的规则仍然成立 --- 加法对应于平移，乘法对应于缩放和旋转。由此得到的数集就是\textit{复数}集。
 
 \begin{definition}
 \label{defComplexNumbersInformal}
@@ -552,7 +551,7 @@ $\frac{n-d_0}{b}$ 的 base-$b$ 展开为
 \end{exercise}
 
 \begin{notation}
-我们经常用类似 $p(x)$ 或 $q(x)$ 的形式表示多项式，代替写出多项式的系数。`$(x)$' 表示 $x$ 是多项式的不定项。如果 $\alpha$ 是一个数\footnote{在处理多项式时，我们通常会为不定变量保留字母 $x$，并用希腊字母 $\alpha,\beta,\gamma$ \inlatex{alpha, \textbackslash{}beta, \textbackslash {}gamma} 表示代入多项式的数字。}，且 $p(x)$ 是不定项 $x$ 的多项式，那么 $p(\alpha)$ 表示用 $\alpha$ \textbf{代替}表达式 $p(x)$ 中 $x$ 之后的结果。
+我们经常用类似 $p(x)$ 或 $q(x)$ 的形式表示多项式，而不写出多项式的系数。`$(x)$' 表示 $x$ 是多项式的不定项。如果 $\alpha$ 是一个数\footnote{在处理多项式时，我们通常会为不定变量保留字母 $x$，并用希腊字母 $\alpha,\beta,\gamma$ \inlatex{alpha, \textbackslash{}beta, \textbackslash {}gamma} 表示代入多项式的数字。}，且 $p(x)$ 是不定项 $x$ 的多项式，那么 $p(\alpha)$ 表示用 $\alpha$ \textbf{代替}表达式 $p(x)$ 中 $x$ 之后的结果。
 \end{notation}
 
 请注意，如果 $A$ 是集合 $\mathbb{N}$、$\mathbb{Z}$、$\mathbb{Q}$、$\mathbb{R}$ 或 $\mathbb{C}$ 中的任何一个，且 $p(x)$ 是 $A$ 上的多项式，则对于所有 $\alpha \in A$, $p(\alpha) \in A$。
