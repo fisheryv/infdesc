@@ -2,32 +2,32 @@
 \section{命题逻辑}
 \secbegin{secPropositionalLogic}
 
-每个数学证明都是在做出某些\textit{假设}和实现某些\textit{目标}的背景下书写的。
+每个数学证明都是在做出某些\textit{假设}并实现某些\textit{目标}的前提下完成的。
 
 \begin{itemize}
 \item \textbf{假设 } 是已知为真的命题，或我们为了证明某事而假定为真的命题。这即包括已经证明的定理、假定读者已有的先验知识，也包括使用`假设'或`假定'等词明确做出的假设。
 \item \textbf{目标 } 是我们为了完成结果的证明而试图证明的命题，或者可能只是证明中的一个步骤。
 \end{itemize}
 
-我们的假设和目标都会随着我们写下的短语改变。这也许最好用例子来说明。在下面的 \Cref{exAssumptionsGoals} 中，我们将详细检查 \Cref{propDivisibilityIsTransitive} 的证明，以便我们可以看到我们所写的文字如何影响证明中每个阶段的假设和目标。 我们将在任何给定阶段使用表格表明我们的假设和目标 --- 列出的假设仅是那些明确做出的假设；先验知识和先前证明的定理将被隐含。
+我们的假设和目标都会随着我们写下的短语而改变。这也许最好用例子来说明。在下面的 \Cref{exAssumptionsGoals} 中，我们将详细检视 \Cref{propDivisibilityIsTransitive} 的证明，以便我们可以看到我们所写的文字如何影响证明中每个阶段的假设和目标。我们将在任何给定阶段使用表格表明我们的假设和目标 --- 列出的假设仅是那些明确做出的假设；先验知识和先前证明的定理将被隐含。
 
 
 \begin{example}
 \label{exAssumptionsGoals}
 \Cref{propDivisibilityIsTransitive} 的陈述如下：
 \begin{quote}
-设 $a,b,c \in \mathbb{Z}$。如果 $c$ 整除 $b$ 且 $b$ 整除 $a$，那么 $c$ 整除 $a$。
+设 $a,b,c \in \mathbb{Z}$。如果 $c$ 整除 $b$ 且 $b$ 整除 $a$，则 $c$ 整除 $a$。
 \end{quote}
 命题的设置立即给了我们最初的假设和目标：
 \begin{center}
 \begin{tabular}{C{150pt}|C{150pt}}
 \textbf{假设} & \textbf{目标} \\ \hline
-$a,b,c \in \mathbb{Z}$ & 如果 $c$ 整除 $b$ 且 $b$ 整除 $a$，那么 $c$ 整除 $a$
+$a,b,c \in \mathbb{Z}$ & 如果 $c$ 整除 $b$ 且 $b$ 整除 $a$，则 $c$ 整除 $a$
 \end{tabular}
 \end{center}
 接下来我们将逐行进行证明，看看我们写的文字对假设和目标有什么影响。
 
-由于我们的目标是 `如果\dots{}那么\dots{}' 形式的表达式，一个合理的想法是从假设 `如果' 语句开始，然后使用该假设来证明`那么' 语句。因此，我们在证明中写的第一句话是：
+由于我们的目标是`如果\dots{}那么\dots{}'形式的表达式，一个合理的想法是从假设`如果'语句开始，然后使用该假设来证明`那么'语句。因此，我们在证明中写的第一句话是：
 \begin{quote}
 假设 $c$ 整除 $b$ 且 $b$ 整除 $a$。
 \end{quote}
@@ -41,7 +41,7 @@ $b$ 整除 $a$ &
 \end{tabular}
 \end{center}
 
-我们证明的下一步是给出 `$c$ 整除 $b$' 和 `$b$ 整除 $a$' 的定义，让我们可以更进一步。
+我们证明的下一步是给出`$c$ 整除 $b$'和`$b$ 整除 $a$'的定义，让我们可以更进一步。
 
 \begin{quote}
 {\color{gray} 假设 $c$ 整除 $b$ 且 $b$ 整除 $a$。} 根据 \Cref{defDivisionPreliminary}，对于某整数 $q$ 和 $r$，可得
@@ -50,7 +50,7 @@ b=qc \quad \text{且} \quad a=rb
 \]
 \end{quote}
 
-这里引入了两个新变量 $q,r$，并且允许我们用它们的定义替换假设 `$c$ 整除 $b$' 和 `$b$ 整除 $a$'。
+这里引入了两个新变量 $q,r$，并且允许我们用它们的定义替换假设`$c$ 整除 $b$'和`$b$ 整除 $a$'。
 
 \begin{center}
 \begin{tabular}{C{150pt}|C{150pt}}

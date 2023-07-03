@@ -1,13 +1,13 @@
 % !TeX root = ../../book.tex
-\section{Functions}
+\section{函数}
 \secbegin{secFunctions}
 \index{function|(}
 
-One way of studying interactions between sets is by studying \textit{functions} between them, which we will define informally in \Cref{defFunction}. Functions are mathematical objects which assign to each element of one set exactly one element of another. Almost every branch of mathematics studies functions, be it directly or indirectly, and almost every application of mathematics arises from a translation of the abstract notion of a function to the real world. Just one example of this is the theory of computation---functions provide precisely the language necessary to describe the deterministic input-output behaviour of algorithms.
+研究集合之间相互作用的一种方法是研究它们之间的\textit{函数}，我们将在 \Cref{defFunction} 中给出非正式定义。函数是数学对象，它将集合中的每个元素精确地匹配给另一个集合的元素。几乎数学的每个分支都直接或间接地研究函数，几乎每个数学应用都源于函数的抽象概念对现实世界的解释。计算理论就是其中一个例子 --- 函数精确地提供了描述算法确定性输入输出行为所需的语言。
 
-You might have come across the notion of a function before now. In schools, functions are often introduced as being like \textit{machines}---they have inputs and outputs, and on a given input they always return the same output. For instance, there is a function which takes integers as inputs and gives integers as outputs, which on the input $x$ returns the integer $x+3$.
+你之前可能已经遇到过函数的概念。在学校里，函数经常被描述为像\textit{机器}一样 --- 它们有输入和输出，并且根据给定的输入，它们总是返回相同的输出。例如，有一个函数将整数作为输入并给出整数作为输出，该函数在输入 $x$ 上返回整数 $x+3$。
 
-This characterisation of functions, however, is clearly not precise enough for the purposes of mathematical proof. A next approximation to a precise definition of a function might look something like this:
+然而，对于数学证明来说，函数的这种表述显然不够精确。下面可是更接近函数精确定义的一种表述：
 
 \begin{definition}
 \label{defFunction}
@@ -17,126 +17,127 @@ This characterisation of functions, however, is clearly not precise enough for t
 \index{value!of a function}
 \nindex{function}{$f : X \to Y$}{function}
 \nindex{function value}{$f(x)$}{value of a function}
-A \textbf{function} $f$ from a set $X$ to a set $Y$ is a specification of elements $f(x) \in Y$ for $x \in X$, such that
+集合 $X$ 到集合 $Y$ 的\textbf{函数} $f$ 是对于元素 $x \in X$ 有 $f(x) \in Y$ 的规则，满足
 \[ \forall x \in X,\, \exists ! y \in Y,\, y = f(x) \]
-Given $x \in X$, the (unique!) element $f(x) \in Y$ is called the \textbf{value} of $f$ at $x$.
+给定 $x \in X$，存在（唯一！）元素 $f(x) \in Y$ 称为 $x$ 处 $f$ 的\textbf{值}。
 
-The set $X$ is called the \textbf{domain} (or \textbf{source}) of $f$, and $Y$ is called the \textbf{codomain} (or \textbf{target}) of $f$. We write $f : X \to Y$ \inlatexnb{f :\ X \textbackslash{}to Y}\lindexmmc{to}{$\to$} to denote the assertion that $f$ is a function with domain $X$ and codomain $Y$.
+集合 $X$ 称为 $f$ 的\textbf{定义域}（或\textbf{源}），$Y$ 称为 $f$ 的\textbf{值域}（或\textbf{目标}）。我们写做 $f : X \to Y$ \inlatexnb{f :\ X \textbackslash{}to Y}\lindexmmc{to}{$\to$} 表示断言 $f$ 是定义域为 $X$ 值域为 $Y$ 的函数。
 \end{definition}
 
-This is better---we're now talking about sets, and not mysterious `machines'.
+这样好很多 --- 因为我们现在谈论的是集合，而不再是神秘的`机器'。
 
-Moreover, this definition establishes a close relationship between functions and the $\exists !$ quantifier: indeed, to say that $f$ assigns to each element of $X$ a unique element of $Y$ is to say precisely that
+此外，该定义在函数和 $\exists !$ 量词之间建立了密切的联系：事实上，说 $f$ 为 $X$ 的每个元素匹配 $Y$ 的唯一元素说的就是
 \[ \forall x \in X,\, \exists ! y \in Y,\, y = f(x) \]
 
-Conversely, any true proposition of the form $\forall x \in X,\, \exists ! y \in Y,\, p(x,y)$ defines a function $f : X \to Y$: the function $f$ assigns to each $x \in X$ the unique $y \in Y$ such that $p(x,y)$ is true. In other words, $\forall x \in X,\, p(x,f(x))$ is true!
+反过来，任何 $\forall x \in X,\, \exists ! y \in Y,\, p(x,y)$ 形式的真命都定义了一个函数 $f : X \to Y$：函数 $f$ 将唯一的 $y \in Y$ 分配给每个 $x \in X$，使得 $p(x,y)$ 为真。换句话说，$\forall x \in X,\, p(x,f(x))$ 为真！
 
-We can use this to generate some examples of functions.
+我们可以用它来生成一系列函数示例。
 
 \begin{example}
 \label{exPositiveSquareRootFunction}
-\Cref{exEveryPositiveRealHasUniqueSquareRoot} said that every positive real number has a unique positive square root; we proved this in \Cref{exEveryPositiveRealHasUniqueSquareRootProof}. What this means is that there is a function
-\[ r : \mathbb{R}^{>0} \to \mathbb{R}^{>0} \qquad \text{where } \mathbb{R}^{>0} = \{ x \in \mathbb{R} \mid x > 0 \} \]
-defined by letting $r(x)$ be the (unique) positive square root of $x$, for each $x \in \mathbb{R}^{>0}$. That is, we have a function $r$ defined by $r(x)=\sqrt{x}$.
+\Cref{exEveryPositiveRealHasUniqueSquareRoot} 表示每个正实数都有唯一的正平方根； 我们在 \Cref{exEveryPositiveRealHasUniqueSquareRootProof} 中证明了这一点。 这意味着存在一个函数
+\[ r : \mathbb{R}^{>0} \to \mathbb{R}^{>0} \qquad \text{其中} \mathbb{R}^{>0} = \{ x \in \mathbb{R} \mid x > 0 \} \]
+使得对于每个 $x \in \mathbb{R}^{>0}$, $r(x)$ 为 $x$ 的（唯一）正平方根。也就是说，我们有一个由 $r(x)=\sqrt{x}$ 定义的函数 $r$。
 \end{example}
 
 \begin{exercise}
-Recall \Cref{exExamplesOfUniqueExistentialQuantifier}. Which of the statements (a), (b) or (c) is of the form $\forall x \in X,\, \exists ! y \in Y,\, p(x,y)$? For each statement of this form, determine the domain and codomain of the corresponding function, and write an expression defining this function.
+回想一下 \Cref{exExamplesOfUniqueExistentialQuantifier}。陈述 (a)、(b) 或 (c) 中哪一个的形式为 $\forall x \in X,\, \exists ! y \in Y,\, p(x,y)$？对于每个这种形式的语句，确定相应函数的定义域和值域，并编写该函数的定义表达式。
 \end{exercise}
 
-\subsection*{Specifying a function}
+\subsection*{定义函数}
 
-Just like with sets, there are many ways to specify a function $f : X \to Y$, but when we do so, we must be careful that what we write really \textit{does} define a function!
+就像集合一样，有很多方法可以定义函数 $f : X \to Y$，但是当我们定义函数，我们必须小心我们编写的内容\textit{确实}定义了一个函数！
 
-This correctness of specification is known as \textit{well-definedness}, and ultimately amounts to verifying that the condition $\forall x \in X,\, \exists ! y \in Y,\, f(x)=y$ holds for the specification of $f$. Namely \textit{totality}, \textit{existence} and \textit{uniqueness}:
+这种定义的正确性被称为\textit{明确定义}，最终相当于验证条件 $\forall x \in X,\, \exists ! y \in Y,\, f(x)=y$ 对于 $f$ 的定义成立。即\textit{整体性}、\textit{存在性}和\textit{唯一性}：
 \begin{itemize}
-\item \textbf{Totality.} A value $f(x)$ should be specified for each $x \in X$---this corresponds to the `$\forall x \in X$' quantifier in the definition of functions.
-\item \textbf{Existence.} For each $x \in X$, the specified value $f(x)$ should actually exist, and should be an element of $Y$---this corresponds to the \textit{existence} part of the `$\exists ! y \in Y$' quantifier in the definition of functions.
-\item \textbf{Uniqueness.} For each $x \in X$, the specified value $f(x)$ should refer to only one element of $Y$---this corresponds to the \textit{uniqueness} part of the `$\exists ! y \in Y$' quantifier in the definition of functions.
+\item \textbf{整体性. } 应该为每个 $x \in X$ 指定一个值 $f(x)$ --- 这对应于函数定义中的量词`$\forall x \in X$'。
+\item \textbf{存在性. } 对于每个 $x \in X$，$f(x)$ 的值应该实际存在，并且应该是 $Y$ 的元素 --- 这对应于函数定义中的量词`$\exists ! y \in Y$'的\textit{存在}部分。
+\item \textbf{唯一性. } 对于每个 $x \in X$，$f(x)$ 的值应该仅为 $Y$ 中的一个元素 --- 这对应于函数定义中的量词`$\exists ! y \in Y$'的\textit{唯一}部分。
 \end{itemize}
 
-When specifying a function, you should justify each of these components of well-definedness unless they are extremely obvious. You will probably find that, in most cases, the only component in need of justification is uniqueness, but keep all three in mind.
+在定义函数时，你应该验证每个部分都定义良好，除非它们非常明显。你可能会发现，在大多数情况下，唯一需要验证的部分是唯一性，但请牢记函数需要满足三个部分。
 
-\textbf{Lists.} If $X$ is finite, then we can specify a function $f : X \to Y$ by simply listing the values of $f$ at all possible elements $x \in X$. For example, we can define a function
-\[ f : \{ 1, 2, 3 \} \to \{ \mathsf{red}, \mathsf{yellow}, \mathsf{green}, \mathsf{blue}, \mathsf{purple} \} \]
-by declaring
+\textbf{列表. } 如果 $X$ 是有限的，则我们可以通过简单列出对于所有可能元素 $x \in X$, $f$ 的值来定义函数 $f : X \to Y$。例如，我们可以通过声明
 \[ f(1) = \mathsf{red}, \quad f(2) = \mathsf{purple}, \quad f(3) = \mathsf{green} \]
-Note that the function is at this point completely specified: we know its values at all elements of the domain $\{ 1, 2, 3 \}$. It doesn't matter that some of the elements of the codomain ($\mathsf{yellow}$ and $\mathsf{blue}$) are unaccounted for---all that matters is that each element of the domain is associated with exactly one element of the codomain.
+来定义函数
+\[ f : \{ 1, 2, 3 \} \to \{ \mathsf{red}, \mathsf{yellow}, \mathsf{green}, \mathsf{blue}, \mathsf{purple} \} \]
+请注意，此时函数已完全定义：我们知道定义域 $\{ 1, 2, 3 \}$ 中所有元素的值。值域的某些元素（$\mathsf{yellow}$ 和 $\mathsf{blue}$）未使用并不重要 --- 重要的是定义域中的每个元素都与值域中的唯一一个元素确切关联。
 
-Unfortunately, most of the sets that we work with will be infinite, or of an unspecified finite size; in these cases, simply writing a list of values isn't sufficient. Fortunately for us, there are other ways of specifying functions.
+不幸的是，我们使用的大多数集合都是无限的，或者具有未指定的有限大小；这种情况下，仅仅列出值列表是不够的。好在还有其他定义函数的方法。
 
-\textbf{Formulae.} In many cases, particularly when the domain $X$ and codomain $Y$ are number sets, we can define a function by giving a formula for the value of $f(x)$ for each $x \in X$. For example, we can define a function $f : \mathbb{R} \to \mathbb{R}$ by letting
-\[ f(x) = x^2 + 3 \text{ for all } x \in \mathbb{R} \]
+\textbf{公式. } 在许多情况下，特别是当定义域 $X$ 和值域 $Y$ 是数集时，我们可以通过给出每个 $x \in X$ 的 $f(x)$ 值的公式来定义函数。例如，我们可以令 
+\[ f(x) = x^2 + 3 \text{ for all } x \in \mathbb{R} \] 
+来定义函数 $f : \mathbb{R} \to \mathbb{R}$。
 
-\textbf{By cases.} It will at times be convenient to define a function using different specifications for different elements of the domain.  A very simple example is the \textit{absolute value function} $|{-}| : \mathbb{R} \to \mathbb{R}$, defined for $x \in \mathbb{R}$
-\[ |x| = \begin{cases} x & \text{if } x \ge 0 \\ -x & \text{if } x \le 0 \end{cases} \]
-Here we have split into two cases based on the conditions $x \ge 0$ and $x \le 0$.
+\textbf{分段. } 有时，将定义域中不同元素分别使用不同规则来定义函数会更方便。一个非常简单的例子是\textit{绝对值函数} $|{-}| : \mathbb{R} \to \mathbb{R}$，定义域为 $x \in \mathbb{R}$
+\[ |x| = \begin{cases} x & \text{如果} x \ge 0 \\ -x & \text{如果} x \le 0 \end{cases} \]
+这里我们根据条件 $x \ge 0$ 和 $x \le 0$ 分为两种情况。
 
-When specifying a function $f : X \to Y$ by cases, it is important that the conditions be:
+当分段定义函数 $f : X \to Y$ 时，条件要满足如下 2 点：
 \begin{itemize}
-\item \textbf{exhaustive}: given $x \in X$, at least one of the conditions on $X$ must hold; and
-\item \textbf{compatible}: if any $x \in X$ satisfies more than one condition, the specified value must be the same no matter which condition is picked.
+\item \textbf{全面}: 给定 $x \in X$，至少满足 $X$ 上的一个条件；
+\item \textbf{兼容}: 如果任何 $x \in X$ 满足多个条件，则无论选择哪个条件，得到的值必须相同。
 \end{itemize}
 
-For the absolute value function defined above, these conditions are satisfied. Indeed, for $x \in \mathbb{R}$, it is certainly the case that $x \ge 0$ or $x \le 0$, so the conditions are exhaustive. Moreover, given $x \in \mathbb{R}$, if both $x \ge 0$ and $x \le 0$, then $x=0$---so we need to check that the specification yields the same value when $x=0$ regardless of which condition we pick. The $x \ge 0$ condition yields the value $0$, and the $x \le 0$ condition yields the value $-0$, which is equal to $0$---so the conditions are compatible. We could have used $x<0$ instead of $x \le 0$; in this case the conditions are \textit{mutually exclusive}, so certainly compatible because they do not overlap.
+对于上面定义的绝对值函数，这些条件都满足。事实上，对于 $x \in \mathbb{R}$，肯定是 $x \ge 0$ 或 $x \le 0$，所以条件是全面的。此外，给定 $x \in \mathbb{R}$，如果 $x \ge 0$ 且 $x \le 0$，则 $x=0$ --- 因此我们需要检查当 $x=0$ 时，无论哪个条件，规则是否产生相同的结果。$x \ge 0$ 时值为 $0$，而 $x \le 0$ 时值为 $-0$，等于 $0$ --- 因此条件是兼容的。我们可以使用 $x<0$ 代替 $x \le 0$；在这种情况下，条件是 \textit{互斥的}，因此肯定是兼容的，因为它们不重叠。
 
-\textbf{Algorithms.} You might, on first exposure to functions, have been taught to think of a function as a \textit{machine} which, when given an \textit{input}, produces an \textit{output}. This `machine' is defined by saying what the possible inputs and outputs are, and then providing a list of instructions (an \textit{algorithm}) for the machine to follow, which on any input produces an output---and, moreover, if fed the same input, the machine always produces the same output. 
+\textbf{算法. } 第一次接触函数时，老师可能会教你将函数视为一台\textit{机器}，当给定一个\textit{输入}时，它会产生一个\textit{输出}。这个`机器'的定义是，说出可能的输入和输出是什么，然后提供机器要遵循的指令列表（\textit{算法}），该指令在任何输入上都会产生一个输出 --- 而且，如果输入相同，机器总是产生相同的输出。
 
-For example, we might instruct a machine to take rational numbers as inputs and give rational numbers as outputs, and to follow the following sequence of steps on a given input
+例如，我们可以指示机器将有理数作为输入并给出有理数作为输出，且在给定输入上遵循以下步骤
 \begin{center}
 \label{txtAlgorithmicallyDefinedFunctionExample}
-multiply by $2$ $\to$ add $5$ $\to$ square the result $\to$ divide by $6$
+乘以 $2$ $\to$ 加 $5$ $\to$ 平方 $\to$ 除以 $6$
 \end{center}
-This `machine' defines a function $M : \mathbb{Q} \to \mathbb{Q}$ which, in equation form, is specified by
+这个`机器'定义了一个函数 $M : \mathbb{Q} \to \mathbb{Q}$ ，其以方程形式表示为
 \[ M(x) = \frac{(2x+5)^2}{6} \text{ for all } x \in \mathbb{Q} \]
-In our more formal set-up, therefore, we can define a function $M : I \to O$ by specifying:
+因此，在更正式的定义中，我们可以通过以下方式定义函数 $M : I \to O$：
 \begin{itemize}
-\item a set $I$ of all \textbf{inputs};
-\item a set $O$ of potential \textbf{outputs}; and
-\item a deterministic\footnote{The word `deterministic' just means that the algorithm always produces the same output on a single input.} algorithm which describes how an input $x \in I$ is transformed into an output $M(x) \in O$.
+\item 所有\textbf{输入}的集合 $I$；
+\item 潜在\textbf{输出}的集合 $O$；
+\item 一种确定性\footnote{`确定性'这个词仅意味着算法总是在单个输入上产生相同的输出。}算法，描述输入 $x \in I$ 如何转换为输出 $M(x) \in O$。
 \end{itemize}
-That is, the domain is the set $I$ of all possible `inputs', the codomain is a set $O$ containing all the possible `outputs', and the function $M$ is a rule specifying how an input is associated with the corresponding output.
+也就是说，定义域是所有可能`输入'的集合 $I$，值域是包含所有可能`输出'的集合 $O$，函数 $M$ 指定输入如何与对应输出关联。
 
-For now, we will use algorithmic specifications of functions only sparingly---this is because it is much harder to make formal what is meant by an `algorithm', and it is important to check that a given algorithm is deterministic.
+目前，我们只会少量使用函数的算法定义 --- 这是因为将`算法'的含义形式化要困难得多，并且检查给定算法是否具有确定性非常重要。
 
-\subsection*{Function equality}
+\subsection*{函数相等}
 
-In \Cref{secSets} we discussed how there may be many different possible ways of characterising equality of sets. This matter was resolved by declaring that two sets are equal if and only if they have the same elements (this was \Cref{axSetEquality}).
+在 \Cref{secSets} 中，我们讨论了表示集合相等的多种不同方法。两个集合相等当且仅当它们具有相同的元素（参见 \Cref{axSetEquality}）。
 
-A similar matter arises for functions. For example, consider the function $f : \mathbb{R} \to \mathbb{R}$ defined by $f(x) = 2x$ for all $x \in \mathbb{R}$, and the function $g : \mathbb{R} \to \mathbb{R}$, defined by letting $g(x)$ be the result of taking $x$, multiplying it by three, dividing the result by four, dividing the result by six, and then multiplying the result by sixteen. It so happens that $g(x) = 2x$ for all $x \in \mathbb{R}$ as well, but that is not how $g$ is defined; moreover, if $f$ and $g$ were implemented as algorithms, then it would take longer to compute the values of $g$ than it would take to compute the values of $f$.
+函数也有类似的问题。例如，考虑函数 $f : \mathbb{R} \to \mathbb{R}$，定义为对于所有$x \in \mathbb{R}$, $f(x) = 2x$，和函数 $g : \mathbb{R} \to \mathbb{R}$，设 $g(x)$ 为 $x$ 乘以三，再除以四，再除以六，最后将结果乘以十六。恰好对于所有 $x \in \mathbb{R}$, $g(x) = 2x$，但这不是 $g$ 的定义方式；此外，如果 $f$ 和 $g$ 作为算法实现，那么计算 $g$ 的值将比计算 $f$ 的值要花费更长的时间。
 
-Should we consider $f$ and $g$ to be \textit{equal}? If we are only interested in whether $f$ and $g$ have the same values on each argument, then the answer should be `yes'; if we are interested in the algorithmic behaviour of $f$ and $g$, then the answer should be `no'.
+我们应该认为 $f$ 和 $g$ \textit{相等}吗？如果我们只关心 $f$ 和 $g$ 在每个参数上是否具有相同的值，那么答案应该是`肯定的'；如果我们对 $f$ 和 $g$ 的算法行为感兴趣，那么答案应该是`否定的'。
 
-We resolve this dilemma with the following axiom. By adopting this axiom, we are stating that the functions $f$ and $g$ discussed above are equal.
+我们用以下公理解决这个困境。通过使用这个公理，我们表明上面讨论的函数 $f$ 和 $g$ 是相等的。
 
-\begin{axiom}[Function extensionality]
+\begin{axiom}[函数外延性]
 \label{axFunctionExtensionality}
-Let $f : X \to Y$ and $g : A \to B$ be functions. Then $f = g$ if and only if the following conditions hold:
+设 $f : X \to Y$ 且 $g : A \to B$ 为函数。则 $f = g$ 当且仅当如下条件成立：
 \begin{enumerate}[(i)]
-\item $X=A$ and $Y=B$; and
-\item $f(x) = g(x)$ for all $x \in X$.
+\item $X=A$ 且 $Y=B$；
+\item 对于所有 $x \in X$, $f(x) = g(x)$。
 \end{enumerate}
 \end{axiom}
 
-\begin{strategy}[Proving two functions are equal]
+\begin{strategy}[证明两个函数相等]
 \label{strFunctionExtensionality}
-Given functions $f, g : X \to Y$ with the same domain and codomain, in order to prove that $f=g$, it suffices to prove that $f(x) = g(x)$ for all $x \in X$.
+给定函数 $f, g : X \to Y$ 具有相同的定义域和值域，为了证明 $f=g$，只要证明对于所有 $x \in X$, $f(x) = g(x)$ 即可。
 \end{strategy}
 
-A consequence of \Cref{axFunctionExtensionality} is that, for fixed sets $X$ and $Y$, a function $X \to Y$ is uniquely determined by its input-output pairs. This set is called the \textit{graph} of the function; the proof of the equivalence between functions and their graphs is the content of \Cref{thmFunctionsAsGraphs}.
+\Cref{axFunctionExtensionality} 的结论是，对于固定集合 $X$ 和 $Y$，函数 $X \to Y$ 由其输入输出对唯一确定。该集合称为函数的\textit{图像}；函数与其图像之间等价性的证明是 \Cref{thmFunctionsAsGraphs} 的内容。
 
 \begin{definition}
 \label{defFunctionGraph}
 \index{graph!of a function}
-Let $f : X \to Y$ be a function. The \textbf{graph} of $f$ is the subset $\mathrm{Gr}(f) \subseteq X \times Y$ \inlatex{mathrm\{Gr\}}\lindexmmc{mathrm}{$\mathrm{Aa}, \mathrm{Bb}, \dots$} defined by
+设 $f : X \to Y$ 为函数。则 $f$ 的\textbf{图像} 是 $\mathrm{Gr}(f) \subseteq X \times Y$ \inlatex{mathrm\{Gr\}}\lindexmmc{mathrm}{$\mathrm{Aa}, \mathrm{Bb}, \dots$} 的子集，定义为
 \[ \mathrm{Gr}(f) = \{ (x, f(x)) \mid x \in X \} = \{ (x,y) \in X \times Y \mid y=f(x) \} \]
 \end{definition}
 
 \begin{example}
 \label{exGraphsOfFunctionsRToR}
-Given a (sufficiently well-behaved) function $f : \mathbb{R} \to \mathbb{R}$, we can represent $\mathrm{Gr}(f) \subseteq \mathbb{R} \times \mathbb{R}$ by plotting it on a pair of axes using Cartesian coordinates in the usual way. For example, if $f$ is defined by $f(x)=\frac{x}{2}$ for all $x \in \mathbb{R}$, then its graph
+给定一个（足够良好的）函数 $f : \mathbb{R} \to \mathbb{R}$，我们可以通过笛卡尔坐标系用通常方式将其绘制出来，来表示 $\mathrm{Gr}(f) \subseteq \mathbb{R} \times \mathbb{R}$。例如，如果 $f$ 定义为对于所有$x \in \mathbb{R}$, $f(x)=\frac{x}{2}$，则它的图像
 \[ \mathrm{Gr}(f) = \left\{ \left( x, \frac{x}{2} \right) \ \bigg|\ x \in \mathbb{R} \right\} \]\nindex{graph}{$\mathrm{Gr}(f)$}{graph of a function}
-can be represented by graph plot in \Cref{figGraphOfXOverTwo}.
+可以用 \Cref{figGraphOfXOverTwo} 中的图形表示。
 
 \begin{figure}[H]
 \centering
@@ -154,41 +155,41 @@ can be represented by graph plot in \Cref{figGraphOfXOverTwo}.
 \draw[blue] (-7.2, -3.6) -- (7.2, 3.6) ;
 \draw[blue] (4.2, 2.1) node[above left, fill=white] {$y=\dfrac{x}{2}$} ;
 \end{tikzpicture}}
-\caption{Graph of the function $f : \mathbb{R} \to \mathbb{R}$ defined by $f(x) = \frac{x}{2}$ for all $x \in \mathbb{R}$}
+\caption{函数 $f : \mathbb{R} \to \mathbb{R}$ 定义为对于所有 $x \in \mathbb{R}$, $f(x) = \frac{x}{2}$ 的图像 }
 \label{figGraphOfXOverTwo}
 \end{figure}
 \end{example}
 
 \begin{exercise}
-Find a function $f : \mathbb{Z} \to \mathbb{Z}$ whose graph is equal to the set
+找到函数 $f : \mathbb{Z} \to \mathbb{Z}$，其图像等于集合
 \[ \{ \dots, ({-2}, {-5}), ({-1}, {-2}), (0, 1), (1, 4), (2, 7), (3, 10), \dots \} \]
 \end{exercise}
 
-\Cref{thmFunctionsAsGraphs} below provides a way of verifying that a function is well-defined by characterising their graphs.
+下面的 \Cref{thmFunctionsAsGraphs} 提供了一种通过函数图像来验证函数是否定义良好的方法。
 
 \begin{theorem}
 \label{thmFunctionsAsGraphs}
-Let $X$ and $Y$ be sets. A subset $G \subseteq X \times Y$ is the graph of a function if and only if
+设 $X$ 和 $Y$ 为集合。子集 $G \subseteq X \times Y$ 为函数图像当且仅当
 \[ \forall x \in X,\, \exists ! y \in Y,\, (x,y) \in G \]
 \end{theorem}
 \begin{cproof}
-($\Rightarrow$). Suppose $G \subseteq X \times Y$ is the graph of a function, say $G = \mathrm{Gr}(f)$ for some $f : X \to Y$. Then for each $x \in X$, it follows from well-definedness of $f$ that $f(x)$ is the unique element $y \in Y$ for which $(x, y) \in G$. That is, $(x,f(x)) \in G$, and if $y \in Y$ with $(x,y) \in G$, then $y=f(x)$.
+($\Rightarrow$). 假设 $G \subseteq X \times Y$ 是函数的图像，即对某函数 $f : X \to Y$, $G = \mathrm{Gr}(f)$。 则对于每个 $x \in X$，根据 $f$ 的明确定义，$f(x)$ 是唯一元素 $y \in Y$，其中$(x, y) \in G$。也就是说，$(x,f(x)) \in G$，并且如果 $y \in Y$ 且 $(x,y) \in G$，则 $y=f(x)$。
 
-($\Leftarrow$). Suppose $G \subseteq X \times Y$ satisfies $\forall x \in X,\, \exists ! y \in Y,\, (x,y) \in G$. Define a function $f : X \to Y$ by, for each $x \in X$, defining the value $f(x)$ to be the unique element $y \in Y$ for which $(x,y) \in G$. Well-definedness of $f$ is then immediate from our assumption of the existence and uniqueness of such a value of $y$ for each $x \in X$.
+($\Leftarrow$). 假设 $G \subseteq X \times Y$ 满足 $\forall x \in X,\, \exists ! y \in Y,\, (x,y) \in G$。对于每个 $x \in X$，定义函数 $f : X \to Y$，将值 $f(x)$ 定义为唯一元素 $y \in Y$，其中 $(x,y) \in G$。$f$ 的明确定义可以直接从对每个 $x \in X$ 的 $y$ 值的存在性和唯一性得到。
 \end{cproof}
 
 \begin{example}
-The set $G$ defined by
+集合 $G$ 定义为
 \[ G = \{ (1, \mathsf{red}), (2, \mathsf{red}), (3, \mathsf{green}) \} \]
-is the graph of a function $f : \{ 1, 2, 3 \} \to \{ \mathsf{red}, \mathsf{green}, \mathsf{blue} \}$. The function $f$ is defined by
+是函数 $f : \{ 1, 2, 3 \} \to \{ \mathsf{red}, \mathsf{green}, \mathsf{blue} \}$ 的图像。函数 $f$ 定义为
 \[ f(1) = \mathsf{red}, \quad f(2) = \mathsf{red}, \quad f(3) = \mathsf{green} \]
-However, $G$ is \textit{not} the graph of a function $\{ 1, 2, 3, 4 \} \to \{ \mathsf{red}, \mathsf{green}, \mathsf{blue} \}$, since $G$ contains no elements of the form $(4,y)$ for $y \in \{ \mathsf{red}, \mathsf{green}, \mathsf{blue} \}$. Moreover, the set $G'$ defined by
+然后, $G$ \textit{不}是函数 $\{ 1, 2, 3, 4 \} \to \{ \mathsf{red}, \mathsf{green}, \mathsf{blue} \}$ 的图像， 因为对于$y \in \{ \mathsf{red}, \mathsf{green}, \mathsf{blue} \}$, $G$ 不包含 $(4,y)$ 形式的元素。此外，集合 $G'$ 定义为
 \[ G' = \{ (1, \mathsf{red}), (2, \mathsf{red}), (2, \mathsf{blue}), (3, \mathsf{green}) \} \]
-does not define the graph of a function $\{ 1, 2, 3 \} \to \{ \mathsf{red}, \mathsf{green}, \mathsf{blue} \}$, since there is not a \textit{unique} element of the form $(2,y)$ in $G'$---rather, there are two of them!
+不是函数 $\{ 1, 2, 3 \} \to \{ \mathsf{red}, \mathsf{green}, \mathsf{blue} \}$ 的图像，因为 $G'$ 中不存在 $(2,y)$ 形式的\textit{唯一}元素 --- 相反，有两个！
 \end{example}
 
 \begin{exercise}
-For each of the following specifications of sets $X$, $Y$, $G$, determine whether or not $G$ is the graph of a function from $X$ to $Y$.
+对于以下集合 $X$、$Y$、$G$ 的每个定义，确定 $G$ 是否是从 $X$ 到 $Y$ 的函数图像。
 \begin{enumerate}[(a)]
 \item $X = \mathbb{R}$, $Y = \mathbb{R}$, $G = \{ (a, a^2) \mid a \in \mathbb{R} \}$;
 \item $X = \mathbb{R}$, $Y = \mathbb{R}$, $G = \{ (a^2, a) \mid a \in \mathbb{R} \}$;
@@ -199,98 +200,97 @@ For each of the following specifications of sets $X$, $Y$, $G$, determine whethe
 \end{exercise}
 
 \begin{aside}
-In light of \Cref{thmFunctionsAsGraphs}, some people choose to define functions $X \to Y$ as particular subsets of $X \times Y$---that is, they identify functions with their graphs. This is particularly useful when studying the logical foundations of mathematics. We avoid this practice here, because it is not conceptually necessary, and it would preclude other possible ways of encoding functions.
+根据 \Cref{thmFunctionsAsGraphs}，有些人选择将函数 $X \to Y$ 定义为 $X \times Y$ 的特定子集 --- 也就是说，他们用图像来识别函数。这在学习数学的逻辑基础时特别有用。我们在这里避免这种做法，因为它在概念上不是必需的，并且它会排除其他可能的函数编码方式。
 \end{aside}
 
-We will now look at some more examples (and non-examples) of functions.
+我们接下来将看到更多函数示例（和非示例）。
 
 \begin{example} \label{exFirstExamplesOfFunctions}
-\Cref{exEveryPositiveRealHasUniqueSquareRoot} gives a prime example of a function: it says that for every positive real number $a$ there is a unique positive real number $b$ such that $b^2=a$. This unique $b$ is precisely the positive square root $\sqrt{a}$ of $a$. Writing $\mathbb{R}^{>0}$ for the set of positive real numbers, we have thus established that taking the positive square root defines a function $\mathbb{R}^{>0} \to \mathbb{R}^{>0}$.
+\Cref{exEveryPositiveRealHasUniqueSquareRoot} 给出了函数的一个主要示例：它表示对于每个正实数 $a$，都有唯一一个正实数 $b$，使得 $b^2=a$。这个唯一的 $b$ 正是 $a$ 的正平方根 $\sqrt{a}$。将 $\mathbb{R}^{>0}$ 写为正实数集，我们因此确定取正平方根定义了一个函数 $\mathbb{R}^{>0} \to \mathbb{R}^{>0}$。
 \end{example}
 
-There is a class of functions called \textit{identity functions} that, despite being very simple, are so important that we will give them a numbered definition!
+有一类称为\textit{恒等函数}的函数，尽管非常简单，但非常重要，因此我们单独给它们一个定义！
 
 \begin{definition}
 \label{defIdentityFunction}
 \index{function!identity}
 \index{identity function}
-Let $X$ be a set. The \textbf{identity function} on $X$ is the function $\mathrm{id}_X : X \to X$\nindex{idX}{$\mathrm{id}_X$}{identity function} \inlatex{mathrm\{id\}\_X}\lindexmmc{mathrm}{$\mathrm{Aa}, \mathrm{Bb}, \dots$} defined by $\mathrm{id}_X(x)=x$ for all $x \in X$.
+设 $X$ 为集合。则 $X$ 上的\textbf{恒等函数}为函数 $\mathrm{id}_X : X \to X$\nindex{idX}{$\mathrm{id}_X$}{identity function} \inlatex{mathrm\{id\}\_X}\lindexmmc{mathrm}{$\mathrm{Aa}, \mathrm{Bb}, \dots$} 定义为对于所有 $x \in X$, $\mathrm{id}_X(x)=x$。
 \end{definition}
 
-You should convince yourself that the specification of $\mathrm{id}_X$ given in \Cref{defIdentityFunction} is well-defined.
+你应该能说服自己 \Cref{defIdentityFunction} 中给出的 $\mathrm{id}_X$ 是明确定义的。
 
-Another interesting example of a function is the \textit{empty function}, which is useful in coming up with counterexamples and proving combinatorial identities (see \Cref{secCountingPrinciples}).
+另一个有趣的函数是空函数，它对于提出反例和证明组合恒等式非常有用（参见 \Cref{secCountingPrinciples}）。
 
 \begin{definition}
 \label{defEmptyFunction}
 \index{function!empty}
 \index{empty function}
-Let $X$ be a set. The \textbf{empty function} with codomain $X$ is the (unique!) function $\varnothing \to X$. It has no values, since there are no elements of its domain.
-\end{definition}
+设 $X$ 为集合。值域为 $X$ 的 \textbf{空函数} 是（唯一的！）函数 $\varnothing \to X$。它没有值，因为它的定义域中没有元素。
 
-Again, you should convince yourself that this specification is well-defined. Conceptually, convincing yourself of this is not easy; but writing down the proof of well-definedness is extremely easy---you will find that there is simply nothing to prove!
+同样，你应该能说服自己空函数是明确定义的。从概念上讲，说服自己相信这一点并不容易。但是其证明是非常容易的 --- 你会发现根本没有什么可以证明的！
 
 \begin{example}
-Define $f : \mathbb{R} \to \mathbb{R}$ by the equation $f(x)^2=x$ for all $x \in \mathbb{R}$. This is not well-defined for a few reasons. First, if $x<0$ then there is no real number $y$ such that $y^2=x$, so for $x<0$ there are no possible values of $f(x)$ in the codomain of $f$, so \textit{existence} fails. Second, if $x>0$ then there are in fact \textit{two} real numbers $y$ such that $y^2=x$, namely the positive square root $\sqrt{x}$ and the negative square root $-\sqrt{x}$. The specification of $f$ does not indicate which of these values to take, so \textit{uniqueness} fails.
+对于所有 $x \in \mathbb{R}$，通过方程 $f(x)^2=x$ 定义 $f : \mathbb{R} \to \mathbb{R}$。由于某些原因，这一点没有明确定义。首先，如果 $x<0$ 则不存在实数 $y$ 使得 $y^2=x$，因此对于 $x<0$，在 $f$ 的值域上不存在 $f(x)$ 的可能值，所以\textit{存在}不成立。其次，如果 $x>0 $，那么实际上存在\textit{两个}实数 $y$，使得 $y^2=x$，即正平方根 $\sqrt{x}$ 和负平方根 $-\sqrt{x}$。$f$ 的定义并未指明采用哪个值，因此\textit{唯一性}不成立。
 
-Notice that the function $r : \mathbb{R}^{>0} \to \mathbb{R}^{>0}$ from \Cref{exPositiveSquareRootFunction} \textit{is} (well-)defined by the equation $r(x)^2 = x$ for all $x \in \mathbb{R}^{>0}$. This illustrates why it is very important to specify the domain and codomain when defining a function.
+请注意，\Cref{exPositiveSquareRootFunction} 中的函数 $r : \mathbb{R}^{>0} \to \mathbb{R}^{>0}$，对于所有 $x \in \mathbb{R}^{>0}$, \textit{是}由方程 $r(x)^2 = x$（明确）定义的。这说明了为什么在定义函数时指定定义域和值域非常重要。
 \end{example}
 
 \begin{exercise}
-Which of the following specifications of functions are well-defined?
+以下哪些函数是明确定义的？
 \begin{enumerate}[(a)]
-\item $g : \mathbb{Q} \to \mathbb{Q}$ defined by the equation $(x+1)g(x)=1$ for all $x \in \mathbb{Q}$;
-\item $h : \mathbb{N} \to \mathbb{Q}$ defined by $(x+1)h(x)=1$ for all $x \in \mathbb{N}$;
-\item $k : \mathbb{N} \to \mathbb{N}$ defined by $(x+1)k(x)=1$ for all $x \in \mathbb{N}$;
-\item $\ell : \mathbb{N} \to \mathbb{N}$ defined by $\ell(x)=\ell(x)$ for all $x \in \mathbb{N}$.
+\item $g : \mathbb{Q} \to \mathbb{Q}$ 定义为，对于所有 $x \in \mathbb{Q}$, $(x+1)g(x)=1$；
+\item $h : \mathbb{N} \to \mathbb{Q}$ 定义为，对于所有 $x \in \mathbb{N}$, $(x+1)h(x)=1$；
+\item $k : \mathbb{N} \to \mathbb{N}$ 定义为，对于所有 $x \in \mathbb{N}$, $(x+1)k(x)=1$；
+\item $\ell : \mathbb{N} \to \mathbb{N}$ 定义为，对于所有 $x \in \mathbb{N}$, $\ell(x)=\ell(x)$。
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
 \label{exWellDefinednessOfFunctionOnUnion}
-Find a condition on sets $X$ and $Y$ such that the specification of a function $i : X \cup Y \to \{ 0, 1 \}$ given by
-\[ i(z) = \begin{cases} 0 & \text{if } z \in X \\ 1 & \text{if } z \in Y \end{cases} \]
-to be well-defined.
+在集合 $X$ 和 $Y$ 上找到一个条件，使得函数 $i : X \cup Y \to \{ 0, 1 \}$ 定义为
+\[ i(z) = \begin{cases} 0 & \text{如果 } z \in X \\ 1 & \text{如果 } z \in Y \end{cases} \]
+是明确定义的。
 \begin{backhint}
 \hintref{exWellDefinednessOfFunctionOnUnion}
-What is the value of $i(z)$ if $z \in X \cap Y$?
+如果 $z \in X \cap Y$, $i(z)$ 的值是多少？
 \end{backhint}
 \end{exercise}
 
-\subsection*{Composition of functions}
+\subsection*{函数组合}
 
-In our section on sets, we talked about various operations that can be performed on sets---union, intersection, and so on. There are also operations on functions, by far the most important of which is \textit{composition}. To understand how composition works, let's revisit the algorithmically defined function $M : \mathbb{Q} \to \mathbb{Q}$ from page \pageref{txtAlgorithmicallyDefinedFunctionExample}:
+在介绍集合的章节中，我们讨论了集合上的各种运算 --- 并集、交集等等。函数上也有运算，其中最重要的便是\textit{组合}。要了解组合的工作原理，让我们重新审视一下 \pageref{txtAlgorithmicallyDefinedFunctionExample} 页用算法定义的函数 $M : \mathbb{Q} \to \mathbb{Q}$
 \begin{center}
-multiply by $2$ $\to$ add $5$ $\to$ square the result $\to$ divide by $6$
+乘以 $2$ $\to$ 加 $5$ $\to$ 平方 $\to$ 除以 $6$
 \end{center}
-The function $M$ is, in some sense, a \textit{sequence} of functions, performed one-by-one until the desired result is reached. This is precisely \textit{composition of functions}.
+从某种意义上说，函数 $M$ 是\textit{一系列}函数，逐个执行，直到获得所需的结果。这正是\textit{函数组合}。
 
 \begin{definition}
 \label{defComposition} \label{defComposite}
-Given functions $f : X \to Y$ and $g : Y \to Z$, their \textbf{composite} $g \circ f$\nindex{composition}{$\circ$}{composition} \inlatexnb{g \textbackslash{}circ f}\lindexmmc{circ}{$\circ$} (read `$g$ composed with $f$' or `$g$ after $f$' or even just `$g$ $f$') is the function $g \circ f : X \to Z$ defined by
-\[ (g \circ f)(x) = g(f(x)) \text{ for all } x \in X \]
+给定函数 $f : X \to Y$ 和 $g : Y \to Z$， 它们的\textbf{组合} $g \circ f$\nindex{composition}{$\circ$}{composition} \inlatexnb{g \textbackslash{}circ f}\lindexmmc{circ}{$\circ$} （读作 `$g$ 组合 $f$' 或 `$f$ 后 $g$' 或直接 `$g$ $f$'）是函数 $g \circ f : X \to Z$ 定义为
+\[ (g \circ f)(x) = g(f(x)) \text{ 对于所有 } x \in X \]
 \end{definition}
-Intuitively, $g \circ f$ is the function resulting from first applying $f$, and then applying $g$, to the given input.
+直观地说，$g \circ f$ 是首先对给定输入应用 $f$，然后应用 $g$ 所得到的函数。
 
 \begin{commonerror}
-Function composition is in some sense written `backwards': in the expression $g \circ f$, the function which is applied \textit{first} is written \textit{last}---there is a good reason for this: the argument to the function is written after the function! However, this mis-match often trips students up on their first exposure to function composition, so be careful!
+函数组合在某种意义上是`逆向'写的：在表达式 $g \circ f$ 中，\textit{首先}应用的函数写在\textit{最后} --- 这样做有一个很好的理由：函数的参数写在函数之后！然而，这种不匹配常常会让学生在第一次接触函数组合时陷入困境，所以要小心！
 \end{commonerror}
 
 \begin{example}
 \label{exDecompositionOfFunctionQToQ}
-The function $M$ from page \pageref{txtAlgorithmicallyDefinedFunctionExample} can be defined as the composite
+\pageref{txtAlgorithmicallyDefinedFunctionExample} 页中的函数 $M$ 可以定义为如下组合
 \[ M = ((k \circ h) \circ g) \circ f \]
-where
+其中
 \begin{itemize}
-\item $f : \mathbb{Q} \to \mathbb{Q}$ is defined by $f(x)=2x$ for all $x \in \mathbb{Q}$;
-\item $g : \mathbb{Q} \to \mathbb{Q}$ is defined by $g(x)=x+5$ for all $x \in \mathbb{Q}$;
-\item $h : \mathbb{Q} \to \mathbb{Q}$ is defined by $h(x)=x^2$ for all $x \in \mathbb{Q}$;
-\item $k : \mathbb{Q} \to \mathbb{Q}$ is defined by $k(x)=\frac{x}{6}$ for all $x \in \mathbb{Q}$.
+\item $f : \mathbb{Q} \to \mathbb{Q}$ 定义为，对于所有 $x \in \mathbb{Q}$, $f(x)=2x$；
+\item $g : \mathbb{Q} \to \mathbb{Q}$ 定义为，对于所有 $x \in \mathbb{Q}$, $g(x)=x+5$；
+\item $h : \mathbb{Q} \to \mathbb{Q}$ 定义为，对于所有 $x \in \mathbb{Q}$, $h(x)=x^2$；
+\item $k : \mathbb{Q} \to \mathbb{Q}$ 定义为，对于所有 $x \in \mathbb{Q}$, $k(x)=\frac{x}{6}$。
 \end{itemize}
 \end{example}
 
 \begin{exercise}
-Let $f,g,h,k : \mathbb{Q} \to \mathbb{Q}$ be as in \Cref{exDecompositionOfFunctionQToQ}. Compute equations defining the following composites:
+设 $f,g,h,k : \mathbb{Q} \to \mathbb{Q}$ 与 \Cref{exDecompositionOfFunctionQToQ} 相同。计算如下组合定义的方程：
 \begin{enumerate}[(a)]
 \item $f \circ g$;
 \item $g \circ f$;
@@ -302,54 +302,54 @@ Let $f,g,h,k : \mathbb{Q} \to \mathbb{Q}$ be as in \Cref{exDecompositionOfFuncti
 
 \begin{example}
 \label{exCompositionWithIdentityIsTrivial}
-Let $f : X \to Y$ be any function. Then
+设 $f : X \to Y$ 为任意函数。则
 \[ \mathrm{id}_Y \circ f = f = f \circ \mathrm{id}_X \]
-To see this, let $x \in X$. Then
+要看到这一点，令 $x \in X$。则
 \begin{align*}
-(\mathrm{id}_Y \circ f)(x) &= \mathrm{id}_Y(f(x)) && \text{by definition of composition} \\
-&= f(x) && \text{by definition of $\mathrm{id}_Y$} \\
-&= f(\mathrm{id}_X(x)) && \text{by definition of $\mathrm{id}_X$} \\
-&= (f \circ \mathrm{id}_X)(x) && \text{by definition of composition}
+(\mathrm{id}_Y \circ f)(x) &= \mathrm{id}_Y(f(x)) && \text{根据组合定义} \\
+&= f(x) && \text{根据 $\mathrm{id}_Y$ 的定义} \\
+&= f(\mathrm{id}_X(x)) && \text{根据 $\mathrm{id}_X$ 的定义} \\
+&= (f \circ \mathrm{id}_X)(x) && \text{根据组合定义}
 \end{align*}
-Equality of the three functions in question follows.
+所以问题中的三个函数相等。
 \end{example}
 
 \begin{exercise}
 \label{exCompositionIsAssociative}
-Prove that composition of functions is \textit{associative}, that is, if $f : X \to Y$, $g : Y \to Z$ and $h : Z \to W$ are functions, then
+证明函数组合满足\textit{结合律}，即如果 $f : X \to Y$, $g : Y \to Z$ 和 $h : Z \to W$ 为函数，则
 \[ h \circ (g \circ f) = (h \circ g) \circ f : X \to W \]
-As a consequence of associativity, when we want to compose more than two functions, it doesn't matter what order we compose the functions in. As such, we can just write $h \circ g \circ f$.
+由于满足结合律，当我们组合两个以上的函数时，组合函数的顺序并不重要。因此，我们可以直接写成 $h \circ g \circ f$。
 \end{exercise}
 
 \begin{exercise}
 \label{exCompositionWithoutMatchingCodomains}
-Let $f : X \to Y$ and $g : Z \to W$ be functions, and suppose that $Y \subsetneqq Z$. Note that there is a function $h : X \to W$ defined by $h(x)=g(f(x))$ for all $x \in X$. Write $h$ as a composite of functions involving $f$ and $g$.
+设 $f : X \to Y$ 和 $g : Z \to W$ 为函数，并假设 $Y \subsetneqq Z$。请注意，对于所有 $x \in X$，存在一个由 $h(x)=g(f(x))$ 定义的函数 $h : X \to W$。将 $h$ 写为 $f$ 和 $g$ 的函数组合。
 \begin{backhint}
 \hintref{exCompositionWithoutMatchingCodomains}
-Look closely at \Cref{defComposition}.
+认真阅读\Cref{defComposition}。
 \end{backhint}
 \end{exercise}
 
-\subsection*{Characteristic functions}
+\subsection*{特征函数}
 
-A class of functions that are particularly useful for proving results about sets are \textit{characteristic functions}.
+有一类函数对证明集合结论特别有用，称为\textit{特征函数}。
 
 \begin{definition}
 \label{defCharacteristicFunction}
 \index{characteristic function}
 \index{function!characteristic}
-Let $X$ be a set and let $U \subseteq X$. The \textbf{characteristic function} of $U$ in $X$ is the function $\chi_U : X \to \{ 0,1 \}$ \inlatex{chi\_\{U\}} defined by
-\[ \chi_U(a) = \begin{cases} 1 & \text{if } a \in U \\ 0 & \text{if } a \not\in U \end{cases} \]
+设 $X$ 为集合，并设 $U \subseteq X$。$U$ 在 $X$ 上的\textbf{特征函数}为函数 $\chi_U : X \to \{ 0,1 \}$ \inlatex{chi\_\{U\}} 定义为
+\[ \chi_U(a) = \begin{cases} 1 & \text{如果 } a \in U \\ 0 & \text{如果 } a \not\in U \end{cases} \]
 \end{definition}
 
 \begin{example}
-Consider the subset $U = \{ 1,3,5 \} \subseteq [6]$. Then the values of the characteristic function $\chi_U : [6] \to \{0,1\}$ are given by
+考虑子集 $U = \{ 1,3,5 \} \subseteq [6]$。则特征函数 $\chi_U : [6] \to \{0,1\}$ 的值为
 \[ \begin{matrix} \chi_U(1) = 1 & \chi_U(2) = 0 & \chi_U(3) = 1 \\ \chi_U(4) = 0 & \chi_U(5) = 1 & \chi_U(6) = 0 \end{matrix} \]
 \end{example}
 
 \begin{theorem}
 \label{thmCharacteristicFunctionsCharacteriseSubsets}
-Let $X$ be a set and let $U, V \subseteq X$. Then $U=V$ if and only if $\chi_U = \chi_V$.
+设 $X$ 为集合，并设 $U, V \subseteq X$。则 $U=V$ 当且仅当 $\chi_U = \chi_V$。
 \end{theorem}
 
 \begin{cproof}
@@ -357,114 +357,114 @@ Let $X$ be a set and let $U, V \subseteq X$. Then $U=V$ if and only if $\chi_U =
 \begin{itemize}
 \item ($\Rightarrow$)
 %% BEGIN EXTRACT (xtrAssumeExample) %%
-Assume $U=V$ and let $a \in X$. Then
+假设 $U=V$，并设 $a \in X$。则
 \begin{align*}
-\chi_U(a) = 1 & \Leftrightarrow a \in U && \text{by definition of $\chi_U$} \\
-&\Leftrightarrow a \in V && \text{since $U=V$} \\
-&\Leftrightarrow \chi_V(a) = 1 && \text{by definition of $\chi_V$}
+\chi_U(a) = 1 & \Leftrightarrow a \in U && \text{根据 $\chi_U$ 的定义} \\
+&\Leftrightarrow a \in V && \text{因为 $U=V$} \\
+&\Leftrightarrow \chi_V(a) = 1 && \text{根据 $\chi_V$ 的定义}
 \end{align*}
 %% END EXTRACT %%
-Likewise $\chi_U(a) = 0$ if and only if $\chi_V(a) = 0$, so that $\chi_U = \chi_V$ by function extensionality.
+同理，$\chi_U(a) = 0$ 当且仅当 $\chi_V(a) = 0$，所以根据函数外延性 $\chi_U = \chi_V$。
 
-\item ($\Leftarrow$) Assume $\chi_U = \chi_V$ and let $a \in X$. Then
+\item ($\Leftarrow$) 假设 $\chi_U = \chi_V$，并设 $a \in X$。则
 \begin{align*}
-a \in U & \Leftrightarrow \chi_U(a) = 1 && \text{by definition of $\chi_U$} \\
-&\Leftrightarrow \chi_V(a) = 1 && \text{since $\chi_U = \chi_V$} \\
-&\Leftrightarrow a \in V && \text{by definition of $\chi_V$}
+a \in U & \Leftrightarrow \chi_U(a) = 1 && \text{根据 $\chi_U$ 的定义} \\
+&\Leftrightarrow \chi_V(a) = 1 && \text{因为 $\chi_U = \chi_V$} \\
+&\Leftrightarrow a \in V && \text{根据 $\chi_V$ 的定义}
 \end{align*}
-so $U=V$ by set extensionality.
+根据集合外延性，$U=V$。
 \end{itemize}
 \end{cproof}
 
-\begin{strategy}[Proving set identities using characteristic functions]
+\begin{strategy}[用特征函数证明集合恒等式]
 \label{strSetIdentitiesFromCharacteristicFunctions}
-In order to prove that two subsets $U$ and $V$ of a set $X$ are equal, it suffices to prove that $\chi_U = \chi_V$.
+要想证明集合 $X$ 的两个子集 $U$ 和 $V$ 相等，只需证明 $\chi_U = \chi_V$ 即可。
 \end{strategy}
 
 \begin{theorem}
 \label{thmSetIdentitiesFromCharacteristicFunctions}
-Let $X$ be a set and let $U,V \subseteq X$. Then
+设 $X$ 为集合，并设 $U,V \subseteq X$。则
 \begin{enumerate}[(a)]
-\item $\chi_{U \cap V}(a) = \chi_U(a) \chi_V(a)$ for all $a \in X$;
-\item $\chi_{U \cup V}(a) = \chi_U(a) + \chi_V(a) - \chi_U(a)\chi_V(a)$ for all $a \in X$;
-\item $\chi_{X \setminus U}(a) = 1 - \chi_U(a)$ for all $a \in X$.
+\item 对于所有 $a \in X$, $\chi_{U \cap V}(a) = \chi_U(a) \chi_V(a)$；
+\item 对于所有 $a \in X$, $\chi_{U \cup V}(a) = \chi_U(a) + \chi_V(a) - \chi_U(a)\chi_V(a)$；
+\item 对于所有 $a \in X$, $\chi_{X \setminus U}(a) = 1 - \chi_U(a)$。
 \end{enumerate}
 \end{theorem}
 
 \begin{cproof}[of {(a)}]
-Let $a \in X$. Since the only values that $\chi_U(a)$ and $\chi_V(a)$ can take are $0$ and $1$, we have
+设 $a \in X$。因为 $\chi_U(a)$ 和 $\chi_V(a)$ 的取值只能是 $0$ 和 $1$，我们有
 \[ \chi_U(a) \chi_V(a) = \begin{cases} 1 & \text{if $\chi_U(a) = 1$ and $\chi_V(a) = 1$} \\ 0 & \text{otherwise} \end{cases} \]
-But $\chi_U(a) = 1$ if and only if $a \in U$ and $\chi_V(a) = 1$ if and only if $a \in V$, so that
+而 $\chi_U(a) = 1$ 当且仅当 $a \in U$ 且 $\chi_V(a) = 1$ 当且仅当 $a \in V$，所以
 \[ \chi_U(a) \chi_V(a) = \begin{cases} 1 & \text{if $a \in U \cap V$} \\ 0 & \text{if $a \not\in U \cap V$} \end{cases} \]
-This is exactly to say that $\chi_U(a) \chi_V(a) = \chi_{U \cap V}(a)$, as required.
+这正是要证明的 $\chi_U(a) \chi_V(a) = \chi_{U \cap V}(a)$。
 \end{cproof}
 
 \begin{exercise}
-Prove parts (b) and (c) of \Cref{thmSetIdentitiesFromCharacteristicFunctions}.
+证明 \Cref{thmSetIdentitiesFromCharacteristicFunctions} 中的 (b) 和 (c)。
 \end{exercise}
 
-\Cref{thmSetIdentitiesFromCharacteristicFunctions} can be used in conjunction with \Cref{strSetIdentitiesFromCharacteristicFunctions} to prove set theoretic identities using their characteristic functions.
+\Cref{thmSetIdentitiesFromCharacteristicFunctions} 可以与 \Cref{strSetIdentitiesFromCharacteristicFunctions} 结合使用，用其特征函数证明集合论恒等式。
 
 \begin{example}
-In \Cref{exIntersectionDistributesOverUnion} we proved that $X \cap (Y \cup Z) = (X \cap Y) \cup (X \cap Z)$ for all sets $X$, $Y$ and $Z$. We prove this again using characteristic functions, considering $X$, $Y$ and $Z$ as subsets of a universal set $\mathcal{U}$.
+在 \Cref{exIntersectionDistributesOverUnion} 中我们证明了对于所有集合 $X$, $Y$ 和 $Z$, $X \cap (Y \cup Z) = (X \cap Y) \cup (X \cap Z)$。我们将 $X$, $Y$ 和 $Z$ 视为全集 $\mathcal{U}$ 的子集，使用特征函数再次证明这一点。
 
-So let $a \in U$. Then
+设 $a \in U$。则
 \begin{align*}
 & \chi_{X \cap (Y \cup Z)}(a) && \\
-&= \chi_X(a) \chi_{Y \cup Z}(a) && \text{by \Cref{thmSetIdentitiesFromCharacteristicFunctions}(a)} \\
-&= \chi_X(a) (\chi_Y(a) + \chi_Z(a) - \chi_Y(a)\chi_Z(a)) && \text{by \Cref{thmSetIdentitiesFromCharacteristicFunctions}(b)} \\
-&= \chi_X(a)\chi_Y(a) + \chi_X(a)\chi_Z(a) - \chi_X(a)\chi_Y(a)\chi_Z(a) && \text{rearranging} \\
-&= \chi_X(a)\chi_Y(a) + \chi_X(a)\chi_Z(a) - \chi_X(a)^2\chi_Y(a)\chi_Z(a) && \text{since $\chi_X(a)^2=\chi_X(a)$} \\
-&= \chi_{X \cap Y}(a) + \chi_{X \cap Z}(a) - \chi_{X \cap Y}(a) \chi_{X \cap Z}(a) && \text{by \Cref{thmSetIdentitiesFromCharacteristicFunctions}(a)} \\
-&= \chi_{(X \cap Y) \cup (X \cap Z)}(a) && \text{by \Cref{thmSetIdentitiesFromCharacteristicFunctions}(b)}
+&= \chi_X(a) \chi_{Y \cup Z}(a) && \text{根据 \Cref{thmSetIdentitiesFromCharacteristicFunctions}(a)} \\
+&= \chi_X(a) (\chi_Y(a) + \chi_Z(a) - \chi_Y(a)\chi_Z(a)) && \text{根据 \Cref{thmSetIdentitiesFromCharacteristicFunctions}(b)} \\
+&= \chi_X(a)\chi_Y(a) + \chi_X(a)\chi_Z(a) - \chi_X(a)\chi_Y(a)\chi_Z(a) && \text{整理} \\
+&= \chi_X(a)\chi_Y(a) + \chi_X(a)\chi_Z(a) - \chi_X(a)^2\chi_Y(a)\chi_Z(a) && \text{因为 $\chi_X(a)^2=\chi_X(a)$} \\
+&= \chi_{X \cap Y}(a) + \chi_{X \cap Z}(a) - \chi_{X \cap Y}(a) \chi_{X \cap Z}(a) && \text{根据 \Cref{thmSetIdentitiesFromCharacteristicFunctions}(a)} \\
+&= \chi_{(X \cap Y) \cup (X \cap Z)}(a) && \text{根据 \Cref{thmSetIdentitiesFromCharacteristicFunctions}(b)}
 \end{align*}
-Using \Cref{strSetIdentitiesFromCharacteristicFunctions}, it follows that $X \cap (Y \cup Z) = (X \cap Y) \cup (X \cap Z)$.
+根据 \Cref{strSetIdentitiesFromCharacteristicFunctions}，可得 $X \cap (Y \cup Z) = (X \cap Y) \cup (X \cap Z)$。
 \end{example}
 
 \begin{exercise}
-Use characteristic functions to prove de Morgan's laws for pairwise unions and intersections (\Cref{thmDeMorganForSets}).
+使用特征函数证明两个集合并集和交集的德摩根定律 (\Cref{thmDeMorganForSets})。
 \end{exercise}
 
-\subsection*{Images and preimages}
+\subsection*{像和原像}
 
 \begin{definition}
 \label{defImage}
-Let $f : X \to Y$ be a function and let $U \subseteq X$. The \textbf{image of} $U$ \textbf{under} $f$ is the subset $f[U] \subseteq Y$\nindex{functionImage}{$f[U]$}{image} (also written $f_*(U)$ \inlatexnb{f\_*} or even just $f(U)$) is defined by
+设 $f : X \to Y$ 为函数，并设 $U \subseteq X$。$U$ 在 $f$ \textbf{下}的\textbf{像}是子集 $f[U] \subseteq Y$\nindex{functionImage}{$f[U]$}{image} (also written $f_*(U)$ \inlatexnb{f\_*} 或 $f(U)$) 定义为
 \[ f[U] = \{ f(x) \mid x \in U \} = \{ y \in Y \mid \exists x \in U,\, y = f(x) \} \]
-That is, $f[U]$ is the set of values that the function $f$ takes when given inputs from $U$.
+也就是说，$f[U]$ 是函数 $f$ 在给定来自 $U$ 的输入时给出值的集合。
 
-The \textbf{image of} $f$ is the image of the entire domain, i.e.\ the set $f[X]$.
+$f$ 的\textbf{像}是整个定义域的像，即集合 $f[X]$。
 \end{definition}
 
 \begin{example}
-Let $f : \mathbb{R} \to \mathbb{R}$ be defined by $f(x)=x^2$. The image of $f$ is the set $\mathbb{R}^{\ge 0}$ of all nonnegative real numbers. Let's prove this:
+设 $f : \mathbb{R} \to \mathbb{R}$ 定义为 $f(x)=x^2$。$f$ 的像为集合 $\mathbb{R}^{\ge 0}$ 即所有非负实数。我们证明一下这个结论：
 \begin{itemize}
-\item ($f[\mathbb{R}] \subseteq \mathbb{R}^{\ge 0}$). Let $y \in f[\mathbb{R}]$. Then $y=x^2$ for some $x \in \mathbb{R}$. But $x^2 \ge 0$, so we must have $y \in \mathbb{R}^{\ge 0}$, as required.
-\item ($\mathbb{R}^{\ge 0} \subseteq f[\mathbb{R}]$). Let $y \in \mathbb{R}^{\ge 0}$. Then $\sqrt{y} \in \mathbb{R}$, and $y = (\sqrt{y})^2 = f(\sqrt{y})$. Hence $y \in f[\mathbb{R}]$, as required.
+\item ($f[\mathbb{R}] \subseteq \mathbb{R}^{\ge 0}$)。设 $y \in f[\mathbb{R}]$。则对某个 $x \in \mathbb{R}$, $y=x^2$。而 $x^2 \ge 0$，所以必有 $y \in \mathbb{R}^{\ge 0}$。
+\item ($\mathbb{R}^{\ge 0} \subseteq f[\mathbb{R}]$)。设 $y \in \mathbb{R}^{\ge 0}$。则 $\sqrt{y} \in \mathbb{R}$，且 $y = (\sqrt{y})^2 = f(\sqrt{y})$。因此 $y \in f[\mathbb{R}]$。
 \end{itemize}
-We have shown by double containment that $f[\mathbb{R}] = \mathbb{R}^{\ge 0}$.
+我们通过双重包含证明了 $f[\mathbb{R}] = \mathbb{R}^{\ge 0}$。
 \end{example}
 
 \begin{exercise}
-For each of the following functions $f$ and subsets $U$ of their domain, describe the image $f[U]$.
+对于以下每个函数 $f$ 及其定义域的子集 $U$，描述像 $f[U]$。
 \begin{enumerate}[(a)]
-\item $f : \mathbb{Z} \to \mathbb{Z}$ defined by $f(n)=3n$, with $U = \mathbb{N}$;
-\item $f : X \to X \times X$ (where $X$ is any set) defined by $f(x)=(x,x)$ with $U=X$;
-\item $f : \{ a, b, c \} \to \{ 1, 2, 3 \}$ defined by $f(a)=1$, $f(b)=3$ and $f(c)=1$, with $U=\{a,b,c\}$.
+\item $f : \mathbb{Z} \to \mathbb{Z}$ 定义为 $f(n)=3n$，其中 $U = \mathbb{N}$；
+\item $f : X \to X \times X$ (其中 $X$ 为任意集合) 定义为 $f(x)=(x,x)$ 其中 $U=X$；
+\item $f : \{ a, b, c \} \to \{ 1, 2, 3 \}$ 定义为 $f(a)=1$, $f(b)=3$, $f(c)=1$，其中 $U=\{a,b,c\}$。
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-Prove that $f[\varnothing] = \varnothing$ for all functions $f$.
+证明对于所有函数 $f$, $f[\varnothing] = \varnothing$。
 \end{exercise}
 
 \begin{example}
 \label{exImageOfIntersectionSubsetIntersectionOfImage}
-Let $f : X \to Y$ be a function and let $U, V \subseteq X$. Then $f[U \cap V] \subseteq f[U] \cap f[V]$. To see this, let $y \in f[U \cap V]$. Then $y = f(x)$ for some $x \in U \cap V$. By definition of intersection, $x \in U$ and $x \in V$. Since $x \in U$ and $y=f(x)$, we have $y \in f[U]$; likewise, since $x \in V$, we have $y \in f[V]$. But then by definition of intersection, we have $y \in f[U] \cap f[V]$.
+设 $f : X \to Y$ 为函数，并设 $U, V \subseteq X$。则 $f[U \cap V] \subseteq f[U] \cap f[V]$。要想证明这点，设 $y \in f[U \cap V]$。则对于某 $x \in U \cap V$, $y = f(x)$。根据交集的定义， $x \in U$ 且 $x \in V$。因为 $x \in U$ 且 $y=f(x)$，我们有 $y \in f[U]$；同理，因为 $x \in V$，我们有 $y \in f[V]$。而根据交集的定义，我们有 $y \in f[U] \cap f[V]$。
 \end{example}
 
 \begin{exercise}
-Let $f : X \to Y$ be a function and let $U, V \subseteq X$. We saw in \Cref{exImageOfIntersectionSubsetIntersectionOfImage} that $f[U \cap V] \subseteq f[U] \cap f[V]$. Determine which of the following is true, and for each, provide a proof of its truth or falsity:
+设 $f : X \to Y$ 为函数，并设 $U, V \subseteq X$，在 \Cref{exImageOfIntersectionSubsetIntersectionOfImage} 中我们得到 $f[U \cap V] \subseteq f[U] \cap f[V]$。判断并证明以下哪些项为真，哪些项为假：
 \begin{enumerate}[(a)]
 \item $f[U] \cap f[V] \subseteq f[U \cap V]$;
 \item $f[U \cup V] \subseteq f[U] \cup f[V]$;
@@ -474,68 +474,69 @@ Let $f : X \to Y$ be a function and let $U, V \subseteq X$. We saw in \Cref{exIm
 
 \begin{definition}
 \label{defPreimage}
-Let $f : X \to Y$ be a function and let $V \subseteq Y$. The \textbf{preimage of} $V$ \textbf{under} $f$ is the subset $f^{-1}[V]$\nindex{functionPreImage}{$f^{-1}[V]$}{preimage} \inlatexnb{f\^{}\{-1\}} (also written $f^*(V)$ \inlatexnb{f\^{}*}, or just $f^{-1}(V)$) is defined by
+设 $f : X \to Y$ 为函数，并设 $V \subseteq Y$。$V$ 在 $f$ \textbf{下}的\textbf{原像}是子集 $f^{-1}[V]$\nindex{functionPreImage}{$f^{-1}[V]$}{preimage} \inlatexnb{f\^{}\{-1\}} (又写做 $f^*(V)$ \inlatexnb{f\^{}*}，或 $f^{-1}(V)$) 定义为
 \[ f^{-1}[V] = \{ x \in X \mid f(x) \in V \} = \{ x \in X \mid \exists y \in V,\, f(x) = y \} \]
-That is, $f^{-1}[V]$ is the set of all the elements of its domain $X$ that the function $f$ sends to elements of $V$.
+也就是说，$f^{-1}[V]$ 是函数 $f$ 值为 $V$ 中元素对应的定义域 $X$ 中所有元素的集合。
 \end{definition}
 
 \begin{example}
-Let $f : \mathbb{Z} \to \mathbb{Z}$ be the function defined by $f(x)=x^2$ for all $x \in X$. Then
+设 $f : \mathbb{Z} \to \mathbb{Z}$ 为函数，定义为对于所有 $x \in X$, $f(x)=x^2$。则
 \begin{itemize}
-\item $f^{-1}[ \{ 1, 4, 9 \} ] = \{ -3, -2, -1, 1, 2, 3 \}$;
-\item $f^{-1}[ \{ 1, 2, 3, 4, 5, 6, 7, 8, 9 \} ] =  \{ -3, -2, -1, 1, 2, 3 \}$ too, since the other elements of $[9]$ are not perfect squares, and hence not of the form $f(x)$ for $x \in \mathbb{Z}$;
-\item $f^{-1}[\mathbb{N}] = \mathbb{Z}$, since for any $x \in \mathbb{Z}$ we have $f(x) \ge 0$, so that $f(x) \in \mathbb{N}$.
+\item $f^{-1}[ \{ 1, 4, 9 \} ] = \{ -3, -2, -1, 1, 2, 3 \}$；
+\item $f^{-1}[ \{ 1, 2, 3, 4, 5, 6, 7, 8, 9 \} ] =  \{ -3, -2, -1, 1, 2, 3 \}$，由于 $[9]$ 的其他元素不是完全平方数，因此 $f(x)$ 不满足 $x \in \mathbb{Z}$；
+\item $f^{-1}[\mathbb{N}] = \mathbb{Z}$，因为对于任意 $x \in \mathbb{Z}$，我们都有 $f(x) \ge 0$，因此$f(x) \in \mathbb{N}$。
 \end{itemize}
 \end{example}
 
 \begin{example}
-Let $f : X \to Y$ be a function, let $U \subseteq X$ and let $V \subseteq Y$. Then $f[U] \subseteq V$ if and only if $U \subseteq f^{-1}[V]$. The proof is as follows.
+设 $f : X \to Y$ 为函数，并设 $U \subseteq X$ 且 $V \subseteq Y$。则 $f[U] \subseteq V$ 当且仅当 $U \subseteq f^{-1}[V]$。证明如下。
 
-($\Rightarrow$). Suppose $f[U] \subseteq V$; we'll prove $U \subseteq f^{-1}[V]$. So fix $x \in U$. Then $f(x) \in f[U]$ by definition of image. But then $f(x) \in V$ by our assumption that $f[U] \subseteq V$, and so $x \in f^{-1}[V]$ by definition of preimage. Since $x$ was arbitrarily chosen from $U$, it follows that $U \subseteq f^{-1}[V]$.
+($\Rightarrow$). 假设 $f[U] \subseteq V$；我们要证明 $U \subseteq f^{-1}[V]$。因此固定 $x \in U$，则根据像的定义可得 $f(x) \in f[U]$。由于我们假设 $f[U] \subseteq V$，所以 $f(x) \in V$，根据原像的定义可得 $x \in f^{-1}[V]$。 
+由于 $x$ 是从 $U$ 中任意选择的，因此 $U \subseteq f^{-1}[V]$。
 
-($\Leftarrow$). Suppose $U \subseteq f^{-1}[V]$; we'll prove $f[U] \subseteq V$. So fix $y \in f[U]$. Then $y=f(x)$ for some $x \in U$ by definition of image. But then $x \in f^{-1}[V]$ by our assumption that $U \subseteq f^{-1}[V]$, and so $f(x) \in V$ by definition of preimage. But $y=f(x)$, so $y \in V$, and since $y$ was arbitrarily chosen, it follows that $f[U] \subseteq V$.
+($\Leftarrow$). 假设 $U \subseteq f^{-1}[V]$；我们要证明 $f[U] \subseteq V$。因此固定 $y \in f[U]$，根据像的定义，对于某些 $x \in U$, $y=f(x)$。由于我们假设 $U \subseteq f^{-1}[V]$，所以 $x \in f^{-1}[V]$，根据原像的定义可得$f(x) \in V$。而 $y=f(x)$，所以 $y \in V$，又由于 $y$ 是任意选择的，因此 $f[U] \subseteq V$。
 \end{example}
 
-The following exercise demonstrates that preimages interact very nicely with the basic set operations (intersection, union and relative complement):
+以下练习演示了原像与基本集合运算（交集、并集和相对补集）的交互非常好：
 
 \begin{exercise}
-Let $f : X \to Y$ be a function. Prove that $f^{-1}[\varnothing] = \varnothing$ and $f^{-1}[Y]=X$.
+设 $f : X \to Y$ 为函数。证明 $f^{-1}[\varnothing] = \varnothing$ 且 $f^{-1}[Y]=X$。
 \end{exercise}
 
 \begin{exercise}
 \label{exCharacteristicFunctionsCorrespondWithSubsets}
-Let $X$ be a set. Prove that every function $f : X \to \{0,1\}$ is the characteristic function of the subset $f^{-1}[\{1\}] \subseteq X$.
+设 $X$ 为集合。证明每个函数 $f : X \to \{0,1\}$ 是子集 $f^{-1}[\{1\}] \subseteq X$ 的特征函数。
 \end{exercise}
 
 \begin{tldr}{secFunctions}
 
-\subsubsection*{Functions and graphs}
+\subsubsection*{函数与图像}
 
 \begin{tldrlist}
-\tldritem{defFunction} A \textit{function} $f$ from a set $X$ (called the \textit{domain}) to a set $Y$ (called the \textit{codomain}) assigns to each $x \in X$ a unique element $f(x) \in Y$; we write $f : X \to Y$ to mean that $f$ is a function from $X$ to $Y$.
-\tldritem{axFunctionExtensionality} Two functions are equal if and only if they have the same domain and codomain and the same values at all arguments.
-\tldritem{defFunctionGraph} The \textit{graph} of a function $f : X \to Y$ is $\mathrm{Gr}(f) = \{ (x,f(x)) \mid x \in X \} \subseteq X \times Y$. Two functions $f,g : X \to Y$ are equal if and only if they have the same graph.
+\tldritem{defFunction} 从集合 $X$（称为\textit{定义域}）到集合 $Y$（称为\textit{值域}）的\textit{函数} $f$ 为每个 $x \in X$ 分配一个唯一元素 $f(x) \in Y$；写做 $f : X \to Y$ 表示 $f$ 是从 $X$ 到 $Y$ 的函数。
+\tldritem{axFunctionExtensionality} 两个函数相等当且仅当它们具有相同的定义域和值域且所有参数的值都相同。
+\tldritem{defFunctionGraph} 函数 $f : X \to Y$ 的\textit{图像}为 $\mathrm{Gr}(f) = \{ (x,f(x)) \mid x \in X \} \subseteq X \times Y$。两个函数 $f,g : X \to Y$ 相等当且仅当它们有相同的图像。
 \end{tldrlist}
 
-\subsubsection*{Composition of functions}
+\subsubsection*{函数组合}
 
 \begin{tldrlist}
-\tldritem{defComposite} The \textit{composite} of $f : X \to Y$ and $g : Y \to Z$ is the function $g \circ f : X \to Z$ defined by $(g \circ f)(x) = g(f(x))$ for all $x \in X$.
+\tldritem{defComposite} $f : X \to Y$ 和 $g : Y \to Z$ 的\textit{组合}为函数 $g \circ f : X \to Z$ 定义为对于所有 $x \in X$, $(g \circ f)(x) = g(f(x))$。
 \end{tldrlist}
 
-\subsubsection*{Characteristic functions}
+\subsubsection*{特征函数}
 
 \begin{tldrlist}
-\tldritem{defCharacteristicFunction} The \textit{characteristic function} of a subset $U \subseteq X$ is the function $\chi_U : X \to \{ 0, 1 \}$ defined by, for each $a \in X$, letting $\chi_U(a) = 1$ if $a \in U$, and $\chi_U(a) = 0$ otherwise.
-\tldritem{thmCharacteristicFunctionsCharacteriseSubsets} Two subsets of a fixed set are equal if and only if they have equal characteristic functions.
-\tldritem{thmSetIdentitiesFromCharacteristicFunctions} The characteristic functions of intersections, unions and relative complements of subsets $U,V \subseteq X$ can be expressed in terms of $\chi_U$ and $\chi_V$ using arithmetic operations; this gives us another way of proving set identities.
+\tldritem{defCharacteristicFunction} 子集 $U \subseteq X$ 的\textit{特征函数}为函数 $\chi_U : X \to \{ 0, 1 \}$，定义为对于每个 $a \in X$，如果 $a \in U$，则 $\chi_U(a) = 1$，否则 $\chi_U(a) = 0$。
+\tldritem{thmCharacteristicFunctionsCharacteriseSubsets} 固定集合的两个子集相等当且仅当它们具有相等的特征函数。
+\tldritem{thmSetIdentitiesFromCharacteristicFunctions} 子集 $U,V \subseteq X$ 的交集、并集和相对补集的特征函数可以通过算术运算用 $\chi_U$ 和 $\chi_V$ 表示；这为我们提供了另一种证明集合恒等式的方法。
 \end{tldrlist}
 
-\subsubsection*{Images and preimages}
+\subsubsection*{像和原像}
 
 \begin{tldrlist}
-\tldritem{defImage} The \textit{image} of a subset $U \subseteq X$ under a function $f : X \to Y$ is the subset $f[U] = \{ f(x) \mid x \in U \} \subseteq Y$. The \textit{image of $f$} is the subset $f[X] \subseteq Y$.
-\tldritem{defPreimage} The \textit{preimage} of a subset $V \subseteq Y$ under a function $f : X \to Y$ is the subset $f^{-1}[V] = \{ x \in X \mid f(x) \in Y \} \subseteq X$.
+\tldritem{defImage} 子集 $U \subseteq X$ 在函数 $f : X \to Y$ 下的\textit{像}为子集 $f[U] = \{ f(x) \mid x \in U \} \subseteq Y$。\textit{$f$ 的像}为子集 $f[X] \subseteq Y$。
+\tldritem{defPreimage} 子集 $V \subseteq Y$ 在函数 $f : X \to Y$ 下的\textit{原像}为子集 $f^{-1}[V] = \{ x \in X \mid f(x) \in Y \} \subseteq X$。
 \end{tldrlist}
 
 \end{tldr}
