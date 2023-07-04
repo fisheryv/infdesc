@@ -1,6 +1,6 @@
 % !TeX root = ../../book.tex
 \begin{chapex}
-For each of the following equations, determine whether there exists a function $f : \mathbb{R} \to \mathbb{R}$ such that, for all $x,y \in \mathbb{R}$, the equation holds if and only if $y=f(x)$.
+判断下列方程是否存在函数 $f : \mathbb{R} \to \mathbb{R}$ 使得，对于所有 $x,y \in \mathbb{R}$，方程成立当且仅当 $y=f(x)$。
 \begin{multicols}{3}
 \begin{enumerate}[(a)]
 \item $x+y=1$
@@ -14,17 +14,17 @@ For each of the following equations, determine whether there exists a function $
 \end{chapex}
 
 \begin{chapex}
-Let $X$ be a set. Prove that
+设 $X$ 为集合。证明。
 \[ \forall a \in X,\, \exists ! U \in \mathcal{P}(X), (a \in U \wedge \exists ! x \in X,\, x \in U) \]
-Give an explicit description of the function $X \to \mathcal{P}(X)$ that is suggested by this logical formula.
+给出该逻辑公式所给出函数 $X \to \mathcal{P}(X)$ 的明确描述。
 \hintlabel{cqSingletonSubsetFunction}{%
 }
 \end{chapex}
 
 \begin{chapex}
-Show that there is only one function whose codomain is empty. What is its domain?
+证明只有一个函数的值域为空。它的定义域是什么？
 \hintlabel{cqFunctionEmptyCodomain}{%
-Given a function $f : X \to \varnothing$, we must have $f(a) \in \varnothing$ for each $a \in X$.
+给定一个函数 $f : X \to \varnothing$，对于每个 $a \in X$，我们必有 $f(a) \in \varnothing$。
 }
 \end{chapex}
 
@@ -32,278 +32,277 @@ Given a function $f : X \to \varnothing$, we must have $f(a) \in \varnothing$ fo
 \label{defEvenOddFunction}
 \index{even!function}
 \index{odd!function}
-A function $f : \mathbb{R} \to \mathbb{R}$ is \textbf{even} if $f(-x)=f(x)$ for all $x \in \mathbb{R}$, and it is \textbf{odd} if $f(-x)=-f(x)$ for all $x \in \mathbb{R}$.
+函数 $f : \mathbb{R} \to \mathbb{R}$ 如果对于所有 $x \in \mathbb{R}$，有 $f(-x)=f(x)$，则称 $f$ 为\textbf{偶函数}，如果对于所有 $x \in \mathbb{R}$，有 $f(-x)=-f(x)$，则称 $f$ 为\textbf{奇函数}。
 \end{definition}
 
 \begin{chapex}
-Let $n \in \mathbb{N}$. Prove that the function $f : \mathbb{R} \to \mathbb{R}$ defined by $f(x)=x^n$ for all $x \in \mathbb{R}$ is even if and only if $n$ is even, and odd if and only if $n$ is odd.
+设 $n \in \mathbb{N}$。函数 $f : \mathbb{R} \to \mathbb{R}$ 定义为对所有 $x \in \mathbb{R}$, $f(x)=x^n$。证明函数 $f$ 为偶函数当且仅当 $n$ 为偶数，$f$ 为奇函数当且仅当 $n$ 为奇数。
 \end{chapex}
 
 \begin{chapex}
-Prove that there is a unique function $f : \mathbb{R} \to \mathbb{R}$ that is both even and odd.
+证明只有唯一一个函数 $f : \mathbb{R} \to \mathbb{R}$ 既是奇函数又是偶函数。
 \end{chapex}
 
 \begin{chapex}
-Let $U \subseteq \mathbb{R}$, and let $\chi_U : \mathbb{R} \to \{0,1\}$ be the indicator function of $U$.
+设 $U \subseteq \mathbb{R}$，并设 $\chi_U : \mathbb{R} \to \{0,1\}$ 为 $U$ 的指示函数。
 \begin{enumerate}[(a)]
-\item Prove that $\chi_U$ is an even function if and only if $U = \{ -u \mid u \in U \}$;
-\item Prove that $\chi_U$ is an odd function if and only if $\mathbb{R} \setminus U = \{ -u \mid u \in U \}$.
+\item 证明 $\chi_U$ 为偶函数当且仅当 $U = \{ -u \mid u \in U \}$；
+\item 证明 $\chi_U$ 为奇函数当且仅当 $\mathbb{R} \setminus U = \{ -u \mid u \in U \}$。
 \end{enumerate}
 \end{chapex}
 
 \begin{chapex}
-Prove that for every function $f : \mathbb{R} \to \mathbb{R}$, there is a unique even function $g : \mathbb{R} \to \mathbb{R}$ and a unique odd function $h : \mathbb{R} \to \mathbb{R}$ such that $f(x)=g(x)+h(x)$ for all $x \in \mathbb{R}$.
+证明对于所有函数 $f : \mathbb{R} \to \mathbb{R}$，存在唯一偶函数 $g : \mathbb{R} \to \mathbb{R}$ 和唯一奇函数 $h : \mathbb{R} \to \mathbb{R}$ 使得对于所有 $x \in \mathbb{R}$，都有 $f(x)=g(x)+h(x)$。
 \hintlabel{cqEveryFunctionIsUniquelySumOfEvenAndOdd}{%
-Consider $f(x)+f(-x)$ and $f(x)-f(-x)$ for $x \in \mathbb{R}$.
+考虑对于 $x \in \mathbb{R}$, $f(x)+f(-x)$ 和 $f(x)-f(-x)$。
 }
 \end{chapex}
 
 \begin{chapex}
-Let $\{ \theta_n : [n] \to [n] \mid n \in \mathbb{N} \}$ be a family of functions such that $f \circ \theta_m = \theta_n \circ f$ for all $f : [m] \to [n]$. Prove that $\theta_n = \mathrm{id}_{[n]}$ for all $n \in \mathbb{N}$.
+设 $\{ \theta_n : [n] \to [n] \mid n \in \mathbb{N} \}$ 为函数族，满足对于所有 $f : [m] \to [n]$， $f \circ \theta_m = \theta_n \circ f$。证明对于所有 $n \in \mathbb{N}$, $\theta_n = \mathrm{id}_{[n]}$。
 \hintlabel{cqNaturalTransformationFromIdToId}{%
-Fix $n \in \mathbb{N}$ and consider how $\theta_n$ interacts with functions $f : [1] \to [n]$.
+给定 $n \in \mathbb{N}$ 并思考 $\theta_n$ 如何与函数 $f : [1] \to [n]$ 交互。
 }
 \end{chapex}
 
 \begin{chapex}
-Let $X$ be a set and let $U, V \subseteq X$. Describe the indicator function $\chi_{U \symmdiff V}$ of the symmetric difference of $U$ and $V$ (see \Cref{defSymmetricDifference}) in terms of $\chi_U$ and $\chi_V$.
+设 $X$ 为集合并设 $U, V \subseteq X$。用 $\chi_U$ 和 $\chi_V$ 描述 $U$ 和 $V$ 对称差的指示函数 $\chi_{U \symmdiff V}$（参见\Cref{defSymmetricDifference}）。
 \end{chapex}
 
 \begin{chapex}
 \label{cqAntiderivativeOfLogarithm}
-[This question assumes some familiarity with 
-integral calculus.] A lie that is commonly told to calculus students is that
+[本问题假设你对积分有一定了解。] 微积分学生经常听到的一个谎言是
 \[ \int \dfrac{1}{x} \, dx = \log(|x|) + c \]
-where $\log$ denotes the natural logarithm function and $c$ is an arbitrary real constant. Prove that it is actually the case that
+其中 $\log$ 表示自然对数函数，$c$ 是任意实数常数。证明正确积分公式如下
 \[ \int \dfrac{1}{x} \, dx = \log(|x|) + a \chi_U(x) + b \chi_V(x) \]
-where $a$ and $b$ are arbitrary real constants, and $U$ and $V$ are particular (inhabited) subsets of $\mathbb{R} \setminus \{ 0 \}$ that you should determine.
+其中 $a$ 和 $b$ 为任意实数常数，且 $U$ 和 $V$ 为由你确定的 $\mathbb{R} \setminus \{ 0 \}$ 的特定（非空）子集。
 \end{chapex}
 
-\subsection*{Images and preimages}
+\subsection*{像与原像}
 
-In \Crefrange{cqComputeImageBegin}{cqComputeImageEnd}, find the image $f[U]$ of the subset $U$ of the domain of the function $f$ described in the question.
+\Crefrange{cqComputeImageBegin}{cqComputeImageEnd}，找出问题描述函数 $f$ 定义域子集 $U$ 的像 $f[U]$。
 
 \begin{chapex}
 \label{cqComputeImageBegin}
-$f : \mathbb{R} \to \mathbb{R}$; $f(x) = \sqrt{1+x^2}$ for all $x \in \mathbb{R}$; $U = \mathbb{R}$.
+$f : \mathbb{R} \to \mathbb{R}$；对于所有 $x \in \mathbb{R}$; $U = \mathbb{R}$, $f(x) = \sqrt{1+x^2}$ 。
 \end{chapex}
 
 \begin{chapex}
-$f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$; $f(a,b) = a+2b$ for all $(a,b) \in \mathbb{Z} \times \mathbb{Z}$; $U = \{ 1 \} \times \mathbb{Z}$.
+$f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$；对于所有 $(a,b) \in \mathbb{Z} \times \mathbb{Z}$, $f(a,b) = a+2b$; $U = \{ 1 \} \times \mathbb{Z}$。
 \end{chapex}
 
 \begin{chapex}
-$f : \mathbb{N} \to \mathcal{P}(\mathbb{N})$; $f(0) = \varnothing$ and $f(n+1) = f(n) \cup \{ n \}$ for all $n \in \mathbb{N}$; $U = \mathbb{N}$.
+$f : \mathbb{N} \to \mathcal{P}(\mathbb{N})$；对于所有 $n \in \mathbb{N}$, $f(0) = \varnothing$ 且 $f(n+1) = f(n) \cup \{ n \}$; $U = \mathbb{N}$。
 \end{chapex}
 
 \begin{chapex}
-$f : \mathbb{R}^{\mathbb{R}} \to \mathbb{R}^{\mathbb{R}}$ (where $\mathbb{R}^{\mathbb{R}}$ is the set of all functions $\mathbb{R} \to \mathbb{R}$); $f(h)(x) = h(|x|)$ for all $h \in \mathbb{R}^{\mathbb{R}}$ and all $x \in \mathbb{R}$; $U = \mathbb{R}^{\mathbb{R}}$.
+$f : \mathbb{R}^{\mathbb{R}} \to \mathbb{R}^{\mathbb{R}}$ （其中 $\mathbb{R}^{\mathbb{R}}$ 为所有 $\mathbb{R} \to \mathbb{R}$ 函数的集合）；对于所有 $h \in \mathbb{R}^{\mathbb{R}}$ 和所有 $x \in \mathbb{R}$, $f(h)(x) = h(|x|)$; $U = \mathbb{R}^{\mathbb{R}}$.
 \hintlabel{cqComputeImageEnd}{%
-Begin by observing that each $h \in f[\mathbb{R}^{\mathbb{R}}]$ is an even function, in the sense of \Cref{defEvenOddFunction}.
+首先观察每个 $h \in f[\mathbb{R}^{\mathbb{R}}]$ 在 \Cref{defEvenOddFunction} 意义上为偶函数。
 }
 \end{chapex}
 
-In \Crefrange{cqComputePreimageBegin}{cqComputePreimageEnd}, find the preimage $f^{-1}[V]$ of the subset $V$ of the codomain of the function $f$ described in the question.
+\Crefrange{cqComputePreimageBegin}{cqComputePreimageEnd}，找出问题描述函数 $f$ 值域子集 $V$ 的原像 $f^{-1}[V]$。
 
 \begin{chapex}
 \label{cqComputePreimageBegin}
-$f : \mathbb{R} \to \mathbb{R}$; $f(x) = \sqrt{1+x^2}$ for all $x \in \mathbb{R}$; $V = (-5,5]$.
+$f : \mathbb{R} \to \mathbb{R}$；对于所有 $x \in \mathbb{R}$, $f(x) = \sqrt{1+x^2}$; $V = (-5,5]$。
 \end{chapex}
 
 \begin{chapex}
-$f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$; $f(a,b) = a+2b$ for all $(a,b) \in \mathbb{Z} \times \mathbb{Z}$; $V = \{ n \in \mathbb{Z} \mid n \text{ is odd} \}$.
+$f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$；对于所有 $(a,b) \in \mathbb{Z} \times \mathbb{Z}$, $f(a,b) = a+2b$; $V = \{ n \in \mathbb{Z} \mid n \text{为奇数} \}$。
 \end{chapex}
 
 \begin{chapex}
 \label{cqComputePreimageEnd}
-$f : \mathcal{P}(\mathbb{N}) \times \mathcal{P}(\mathbb{N}) \to \mathcal{P}(\mathbb{N})$; $f(A,B) = A \cap B$ for all $(A,B) \in \mathcal{P}(\mathbb{N}) \times \mathcal{P}(\mathbb{N})$; $V = \{ \varnothing \}$.
+$f : \mathcal{P}(\mathbb{N}) \times \mathcal{P}(\mathbb{N}) \to \mathcal{P}(\mathbb{N})$；对于所有 $(A,B) \in \mathcal{P}(\mathbb{N}) \times \mathcal{P}(\mathbb{N})$, $f(A,B) = A \cap B$; $V = \{ \varnothing \}$。
 \end{chapex}
 
 \begin{chapex}
-Let $f : X \to Y$ be a function. For each of the following statements, either prove it is true or find a counterexample.
+设 $f : X \to Y$ 为函数。对于以下陈述，证明其为真或给出一个反例。
 \begin{multicols}{2}
 \begin{enumerate}[(a)]
-\item $U \subseteq f^{-1}[f[U]]$ for all $U \subseteq X$;
-\item $f^{-1}[f[U]] \subseteq U$ for all $U \subseteq X$;
-\item $V \subseteq f[f^{-1}[V]]$ for all $V \subseteq Y$;
-\item $f[f^{-1}[V]] \subseteq V$ for all $V \subseteq Y$.
+\item 对于所有 $U \subseteq X$, $U \subseteq f^{-1}[f[U]]$;
+\item 对于所有 $U \subseteq X$, $f^{-1}[f[U]] \subseteq U$;
+\item 对于所有 $V \subseteq Y$, $V \subseteq f[f^{-1}[V]]$;
+\item 对于所有 $V \subseteq Y$, $f[f^{-1}[V]] \subseteq V$。
 \end{enumerate}
 \end{multicols}
 \end{chapex}
 
 \begin{chapex}
-Let $f : X \to Y$ be a function, let $A$ be a set, and let $p : X \to A$ and $i : A \to Y$ be functions such that the following conditions hold:
+设 $f : X \to Y$ 为函数，设 $A$ 为集合，并设 $p : X \to A$ 且 $i : A \to Y$ 为函数使得如下条件成立：
 \begin{enumerate}[(i)]
-\item $i$ is injective;
-\item $i \circ p = f$; and
-\item If $q : X \to B$ and $j : B \to Y$ are functions such that $j$ is injective and $j \circ q = f$, then there is a unique function $u : A \to B$ such that $j \circ u = i$.
+\item $i$ 为单射；
+\item $i \circ p = f$；
+\item 如果 $q : X \to B$ 和 $j : B \to Y$ 为函数，满足 $j$ 为单射且 $j \circ q = f$，则存在唯一函数 $u : A \to B$ 使得 $j \circ u = i$。
 \end{enumerate}
-Prove that there is a unique bijection $v : A \to f[X]$ such that $i(a)=v(a)$ for all $a \in f[X]$.
+证明存在唯一双射 $v : A \to f[X]$ 使得对于所有 $a \in f[X]$, $i(a)=v(a)$。
 \hintlabel{cqUniversalPropertyOfImage}{%
-This problem is very fiddly. First prove that conditions (i)--(iii) are satisfied when $A = f[X]$ and $p$ and $i$ are chosen appropriately. Then condition (iii) in each case (for $A$ and for $f[X]$) defines functions $v : A \to f[X]$ and $w : f[X] \to A$, and gives uniqueness of $v$. You can prove that these functions are mutually inverse using the `uniqueness' part of condition (iii).
+这个问题非常棘手。首先证明当 $A = f[X]$ 且适当选择 $p$ 和 $i$ 时，满足条件 (i)--(iii)。然后条件 (iii) 在每种情况下（对于 $A$ 和 $f[X]$）定义函数 $v : A \to f[X]$ 和 $w : f[X] \to A$，并给出 $v$ 的唯一性。您可以使用条件 (iii) 的`唯一性'部分证明这些函数是互逆的。
 }
 \end{chapex}
 
 \begin{chapex}
-Let $f : X \to Y$ be a function and let $U, V \subseteq Y$. Prove that:
+设 $f : X \to Y$ 为函数并设 $U, V \subseteq Y$。证明：
 \begin{enumerate}[(a)]
 \item $f^{-1}[U \cap V] = f^{-1}[U] \cap f^{-1}[V]$;
-\item $f^{-1}[U \cup V] = f^{-1}[U] \cup f^{-1}[V]$; and
-\item $f^{-1}[Y \setminus U] = X \setminus f^{-1}[U]$.
+\item $f^{-1}[U \cup V] = f^{-1}[U] \cup f^{-1}[V]$; 
+\item $f^{-1}[Y \setminus U] = X \setminus f^{-1}[U]$。
 \end{enumerate}
-Thus preimages preserve the basic set operations.
+因此原像保留了基本的集合运算。
 \end{chapex}
 
 \begin{chapex}
-Let $f : X \to Y$ and $g : Y \to Z$ be functions.
+设 $f : X \to Y$ 和 $g : Y \to Z$ 为函数。
 \begin{enumerate}[(a)]
-\item Prove that $(g \circ f)[U] = g[f[U]]$ for all $U \subseteq X$;
-\item Prove that $(g \circ f)^{-1}[W] = f^{-1}[g^{-1}[W]]$ for all $W \subseteq Z$.
+\item 证明对于所有 $U \subseteq X$, $(g \circ f)[U] = g[f[U]]$;
+\item 证明对于所有 $W \subseteq Z$, $(g \circ f)^{-1}[W] = f^{-1}[g^{-1}[W]]$。
 \end{enumerate}
 \end{chapex}
 
-\subsection*{Injections, surjections and bijections}
+\subsection*{单射、满射和双射}
 
 \begin{chapex}
 \begin{enumerate}[(a)]
-\item Prove that, for all functions $f : X \to Y$ and $g : Y \to Z$, if $g \circ f$ is bijective, then $f$ is injective and $g$ is surjective.
-\item Find an example of a function $f : X \to Y$ and a function $g : Y \to Z$ such that $g \circ f$ is bijective, $f$ is not surjective and $g$ is not injective.
+\item 证明对于所有函数 $f : X \to Y$ 和 $g : Y \to Z$，如果 $g \circ f$ 为双射，则 $f$ 为单射且 $g$ 为满射。
+\item 找到函数 $f : X \to Y$ 和函数 $g : Y \to Z$ 的一个例子，满足 $g \circ f$ 为双射，$f$ 不是满射且 $g$ 不是单射。
 \end{enumerate}
 \hintlabel{cqCompositeOfFunctionsIsBijection}{%
-Avoid the temptation to prove either part of this question by contradiction. For (a), a short proof is available directly from the definitions of `injection' and `surjection'. For (b), find as simple a counterexample as you can.
+避免通过矛盾来证明此问题的任何一部分。对于（a），可以直接通过`单射'和`满射'的定义获得简短的证明。对于 (b)，找到尽可能简单的反例。
 }
 \end{chapex}
 
 \begin{chapex}
 \label{cqInjectionSurjectionBijection}
-For each of the following pairs $(U,V)$ of subsets of $\mathbb{R}$, determine whether the specification `$f(x) = x^2-4x+7$ for all $x \in U$' defines a function $f : U \to V$ and, if it does, determine whether $f$ is injective and whether $f$ is surjective.
+对于下面 $\mathbb{R}$ 的每个子集对 $(U,V)$，判断 `对于所有 $x \in U$, $f(x) = x^2-4x+7$' 是否定义函数 $f : U \to V$，如果是，判断 $f$ 是单射还是满射。
 \begin{multicols}{2}
 \begin{enumerate}[(a)]
-\item $U = \mathbb{R}$ and $V = \mathbb{R}$;
-\item $U = (1, 4)$ and $V = [3, 7)$;
-\item $U = [3, 4)$ and $V = [4, 7)$;
-\item $U = (3, 4]$ and $V = [4, 7)$;
-\item $U = [2, \infty)$ and $V = [3, \infty)$;
-\item $U = [2,\infty)$ and $V = \mathbb{R}$.
+\item $U = \mathbb{R}$ 且 $V = \mathbb{R}$;
+\item $U = (1, 4)$ 且 $V = [3, 7)$;
+\item $U = [3, 4)$ 且 $V = [4, 7)$;
+\item $U = (3, 4]$ 且 $V = [4, 7)$;
+\item $U = [2, \infty)$ 且 $V = [3, \infty)$;
+\item $U = [2,\infty)$ 且 $V = \mathbb{R}$.
 \end{enumerate}
 \end{multicols}
 \end{chapex}
 
 \begin{chapex}
-For each of the following pairs of sets $X$ and $Y$, find (with proof) a bijection $f : X \to Y$.
+对于下面每组集合 $X$ 和 $Y$，找到（并证明）双射 $f : X \to Y$。
 \begin{enumerate}[(a)]
-\item $X = \mathbb{Z}$ and $Y = \mathbb{N}$;
-\item $X = \mathbb{R}$ and $Y = (-1,1)$;
-\item $X = [0,1]$ and $Y = (0,1)$;
-\item $X = [a,b]$ and $Y = (c,d)$, where $a,b,c,d \in \mathbb{R}$ with $a<b$ and $c<d$.
+\item $X = \mathbb{Z}$ 且 $Y = \mathbb{N}$;
+\item $X = \mathbb{R}$ 且 $Y = (-1,1)$;
+\item $X = [0,1]$ 且 $Y = (0,1)$;
+\item $X = [a,b]$ 且 $Y = (c,d)$, 其中 $a,b,c,d \in \mathbb{R}$ 且 $a<b$, $c<d$。
 \end{enumerate}
 \end{chapex}
 
 \begin{chapex}
-Prove that the function $f : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ defined by $f(a,b) = \dbinom{a+b+1}{2} + b$ for all $(a,b) \in \mathbb{N} \times \mathbb{N}$ is a bijection.
+证明函数 $f : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ 定义为对于所有 $(a,b) \in \mathbb{N} \times \mathbb{N}$, $f(a,b) = \dbinom{a+b+1}{2} + b$ 为双射。
 \hintlabel{cqElementaryBijectionNTimesNToN}{%
-Start by proving that $\dbinom{m}{2} < \dbinom{m+1}{2}$ for all $m \ge 1$. Deduce that, for all $n \in \mathbb{N}$, there is a unique natural number $k$ such that $\dbinom{k+1}{2} \le n < \dbinom{k+2}{2}$. Can you see what this has to do with the function $f$?
+首先证明对于所有 $m \ge 1$, $\dbinom{m}{2} < \dbinom{m+1}{2}$。推出对于所有 $n \in \mathbb{N}$，存在唯一自然数 $k$ 满足 $\dbinom{k+1}{2} \le n < \dbinom{k+2}{2}$。你能看出这与函数 $f$ 有什么关系吗？
 }
 \end{chapex}
 
 \begin{chapex}
-Let $e : X \to X$ be a function such that $e \circ e = e$. Prove that there exist a set $Y$ and functions $f : X \to Y$ and $g : Y \to X$ such that $g \circ f = e$ and $f \circ g = \mathrm{id}_Y$.
+设 $e : X \to X$ 为函数且满足 $e \circ e = e$。证明存在集合 $Y$ 和函数 $f : X \to Y$ 与 $g : Y \to X$ 满足 $g \circ f = e$ 且 $f \circ g = \mathrm{id}_Y$.
 \hintlabel{exSplitIdempotents}{%
-Consider the set of fixed points of $e$---that is, elements $x \in X$ such that $e(x)=x$.
+考虑 $e$ 的不动点集合 --- 即元素 $x \in X$ 使得 $e(x)=x$。
 }
 \end{chapex}
 
-\subsection*{True--False questions}
+\subsection*{判断题}
 
 \tfquestiontext{cqFunctionsTFBegin}{cqFunctionsTFEnd}
 
 \begin{chapex} % False
 \label{cqFunctionsTFBegin}
-The set $G = \{ (x,y) \in \mathbb{R} \times \mathbb{R} \mid x^2=y^2 \}$ is the graph of a function.
+集合 $G = \{ (x,y) \in \mathbb{R} \times \mathbb{R} \mid x^2=y^2 \}$ 是某函数的图像。
 \end{chapex}
 
 \begin{chapex} % True
-The set $G = \{ (x,y) \in \mathbb{Z}\times \mathbb{N} \mid x^2=y^2 \}$ is the graph of a function.
+集合 $G = \{ (x,y) \in \mathbb{Z}\times \mathbb{N} \mid x^2=y^2 \}$ 是某函数的图像。
 \end{chapex}
 
 \begin{chapex} % False
-Every function with empty domain has an empty codomain.
+每个具有空定义域的函数都有一个空值域。
 \end{chapex}
 
 \begin{chapex} % True
-Every function with empty codomain has an empty domain.
+每个具有空值域的函数都有一个空定义域。
 \end{chapex}
 
 \begin{chapex} % False (in general)
-The image of a function is a subset of its domain.
+函数的像是其定义域的子集
 \end{chapex}
 
 \begin{chapex} % True
-Given a function $f : X \to Y$, the assignment $V \mapsto f^{-1}[V]$ defines a function $\mathcal{P}(Y) \to \mathcal{P}(X)$.
+给定函数 $f : X \to Y$，赋值 $V \mapsto f^{-1}[V]$ 定义函数 $\mathcal{P}(Y) \to \mathcal{P}(X)$。
 \end{chapex}
 
 \begin{chapex} % True
-Let $f$, $g$ and $h$ be composable functions. If $h \circ g \circ f$ is injective, then $g$ is injective.
+设 $f$、$g$ 和 $h$ 为可组合函数。如果 $h \circ g \circ f$ 为单射，则 $g$ 为单射。
 \end{chapex}
 
 \begin{chapex} % True
 \label{cqFunctionsTFEnd}
-Every left inverse is surjective and every right inverse is injective.
+所有左逆都是满射，所有右逆都是单射。
 \end{chapex}
 
-\subsection*{Always--Sometimes--Never questions}
+\subsection*{可能性问题}
 
 \asnquestiontext{cqFunctionsASNBegin}{cqFunctionsASNEnd}
 
 \begin{chapex} % Always
 \label{cqFunctionsASNBegin}
-Let $f : X \to Y$ be a function and let $U \subseteq X$. Then there is a function $g : U \to Y$ defined by $g(x) = f(x)$ for all $x \in U$.
+设 $f : X \to Y$ 为函数，并设 $U \subseteq X$。则存在函数 $g : U \to Y$ 定义为对于所有 $x \in U$, $g(x) = f(x)$。
 \end{chapex}
 
 \begin{chapex} % Sometimes
-Let $f : X \to Y$ be a function and let $V \subseteq Y$. Then there is a function $g : X \to V$ defined by $g(x) = f(x)$ for all $x \in X$.
+设 $f : X \to Y$ 为函数，并设 $V \subseteq Y$。则存在函数 $g : X \to V$ 定义为对于所有 $x \in X$, $g(x) = f(x)$。
 \end{chapex}
 
 \begin{chapex} % Always
-Let $X$ be a set. Then there is a unique function $X \to \{ 0 \}$.
+设 $X$ 为集合。则存在唯一函数 $X \to \{ 0 \}$。
 \end{chapex}
 
 \begin{chapex} % Sometimes
-Let $X$ be a set. Then there is a unique function $X \to \varnothing$.
+设 $X$ 为集合。则存在唯一函数 $X \to \varnothing$。
 \end{chapex}
 
 \begin{chapex} % Sometimes
-Let $X$ and $Y$ be sets and let $G \subseteq X \times Y$. Then $G$ is the graph of a function $f : X \to Y$.
+设 $X$ 和 $Y$ 为集合，并设 $G \subseteq X \times Y$。则 $G$ 为函数 $f : X \to Y$ 的图像。
 \end{chapex}
 
 \begin{chapex} % Never
-Let $f : \{ 1, 2, 3 \} \to \{ 1, 2 \}$, let $G = \mathrm{Gr}(f)$ and let $G' = \{ (y,x) \mid (x,y) \in G \}$. Then $G'$ is the graph of a function $\{ 1, 2 \} \to \{ 1, 2, 3 \}$.
+设 $f : \{ 1, 2, 3 \} \to \{ 1, 2 \}$，设 $G = \mathrm{Gr}(f)$，设 $G' = \{ (y,x) \mid (x,y) \in G \}$。则 $G'$ 是函数 $\{ 1, 2 \} \to \{ 1, 2, 3 \}$ 的图像。
 \end{chapex}
 
 \begin{chapex} % Always
-Let $f : X \to Y$ be a function and let $U \subseteq X$ be inhabited. Then $f[U]$ is inhabited.
+设 $f : X \to Y$ 为函数，并设 $U \subseteq X$ 非空。则 $f[U]$ 非空。
 \end{chapex}
 
 \begin{chapex} % Sometimes
-Let $f : X \to Y$ be a function and let $V \subseteq Y$ be inhabited. Then $f^{-1}[V]$ is inhabited.
+设 $f : X \to Y$ 为函数，并设 $V \subseteq Y$ 非空。则 $f^{-1}[V]$ 非空。
 \end{chapex}
 
 \begin{chapex} % Sometimes
-Let $f : \{ 1, 2 \} \to \{ 1, 2, 3 \}$ be a function. Then $f$ is injective.
+设 $f : \{ 1, 2 \} \to \{ 1, 2, 3 \}$ 为函数。则 $f$ 为单射。
 \end{chapex}
 
 \begin{chapex} % Never
-Let $f : \{ 1, 2 \} \to \{ 1, 2, 3 \}$ be a function. Then $f$ is surjective.
+设 $f : \{ 1, 2 \} \to \{ 1, 2, 3 \}$ 为函数，则 $f$ 为满射。
 \end{chapex}
 
 \begin{chapex} % Always
-Let $a,b,c,d \in \mathbb{R}$ and define $f : \mathbb{R}^2 \to \mathbb{R}^2$ by $f(x,y) = (ax+by,cx+dy)$ for all $(x,y) \in \mathbb{R}^2$. Then $f$ is injective if and only if $f$ is surjective.
+设 $a,b,c,d \in \mathbb{R}$ 并定义函数 $f : \mathbb{R}^2 \to \mathbb{R}^2$ 为对于所有 $(x,y) \in \mathbb{R}^2$, $f(x,y) = (ax+by,cx+dy)$。则 $f$ 为单射当且仅当 $f$ 为满射。
 \hintlabel{cqLinearMapInjectiveIffSurjective}{%
-First prove that $f$ is bijective if and only if $ad \ne bc$.
+首先证明 $f$ 为双射当且仅当 $ad \ne bc$。
 }
 \end{chapex}
 
 \begin{chapex} % Sometimes
 \label{cqFunctionsASNEnd}
-Let $U, V \subseteq \mathbb{R}$ and suppose that $x^2 \in V$ for all $x \in U$. The function $f : U \to V$ defined by $f(x) = x^2$ is injective.
+设 $U, V \subseteq \mathbb{R}$ 并假设对于所有 $x \in U$, $x^2 \in V$。函数 $f : U \to V$ 定义为 $f(x) = x^2$ 为单射。
 \end{chapex}
