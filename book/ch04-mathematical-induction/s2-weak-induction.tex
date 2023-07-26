@@ -1,49 +1,49 @@
 % !TeX root = ../../book.tex
-\section{Weak induction}
+\section{弱归纳法}
 \secbegin{secWeakInduction}
 \index{induction!weak|(}
 
-Just as recursion exploited the structure of the natural numbers to \textit{define expressions} involving natural numbers, induction exploits the very same structure to \textit{prove results} about natural numbers.
+正如递归利用自然数的结构来\textit{定义}涉及自然数的\textit{表达式}一样，归纳法也利用相同的结构来\textit{证明}有关自然数的\textit{结果}。
 
-\begin{restatable}[Weak induction principle]{theorem}{rthmWeakInduction}
+\begin{restatable}[弱归纳原理]{theorem}{rthmWeakInduction}
 \label{thmWeakInduction}
 \index{induction!on $\mathbb{N}$ (weak)}
 \index{weak induction principle}
-Let $p(n)$ be logical formula with free variable $n \in \mathbb{N}$, and let $n_0 \in \mathbb{N}$. If
+设 $p(n)$ 为带有自由变量 $n \in \mathbb{N}$ 的逻辑公式，并设 $n_0 \in \mathbb{N}$。如果
 \begin{enumerate}[(i)] 
-\item $p(n_0)$ is true; and
-\item For all $n \ge n_0$, if $p(n)$ is true, then $p(n+1)$ is true;
+\item $p(n_0)$ 为真；
+\item 对于所有 $n \ge n_0$，如果 $p(n)$ 为真，则 $p(n+1)$ 为真；
 \end{enumerate}
-then $p(n)$ is true for all $n \ge n_0$.
+那么 $p(n)$ 对于所有 $n \ge n_0$ 为真。
 \end{restatable}
 
 \begin{cproof}
-Define $X = \{ n \in \mathbb{N} \mid p(n_0 + n) \text{ is true} \}$; that is, given a natural number $n$, we have $n \in X$ if and only if $p(n_0 + n)$ is true. Then
+定义 $X = \{ n \in \mathbb{N} \mid p(n_0 + n) \text{ 为真} \}$；也就是说，给定自然数 $n$，我们有 $n \in X$ 当且仅当 $p(n_0 + n)$ 为真。则
 \begin{itemize}
-\item $0 \in X$, since $n_0 + 0 = n_0$ and $p(n_0)$ is true by (i).
-\item Let $n \in \mathbb{N}$ and assume $n \in X$. Then $p(n_0+n)$ is true. Since $n_0 + n \ge n_0$ and $p(n_0+n)$ is true, we have $p(n_0+n+1)$ is true by (ii). But then $n+1 \in X$.
+\item $0 \in X$，因为 $n_0 + 0 = n_0$ 且根据 (i) $p(n_0)$ 为真。
+\item 设 $n \in \mathbb{N}$ 并假设 $n \in X$。则 $p(n_0+n)$ 为真，因为 $n_0 + n \ge n_0$ 且 $p(n_0+n)$ 为真，根据(ii) 我们有 $p(n_0+n+1)$ 为真。所以 $n+1 \in X$。
 \end{itemize}
 
-So by \Cref{defNotionOfNaturalNumbers}(iii) we have $\mathbb{N} \subseteq X$. Hence $p(n_0 + n)$ is true for all $n \in \mathbb{N}$. But this is equivalent to saying that $p(n)$ is true for all $n \ge n_0$.
+因此，根据 \Cref{defNotionOfNaturalNumbers}(iii) 我们有 $\mathbb{N} \subseteq X$。所以，$p(n_0 + n)$ 对于所有 $n \in \mathbb{N}$ 都为真。而这相当于说 $p(n)$ 对于所有 $n \ge n_0$ 都为真。
 \end{cproof}
 
-\begin{strategy}[Proof by {(weak)} induction]
+\begin{strategy}[{(弱)} 归纳法证明]
 \index{proof!by weak induction}
-In order to prove a proposition of the form $\forall n \ge n_0,\, p(n)$, it suffices to prove that:
+要想证明 $\forall n \ge n_0,\, p(n)$ 形式的命题，只需证明：
 \begin{itemize}
-\item $p(n_0)$ is true; and
-\item For all $n \ge n_0$, if $p(n)$ is true, then $p(n+1)$ is true.
+\item $p(n_0)$ 为真；
+\item 对于所有 $n \ge n_0$，如果 $p(n)$ 为真，则 $p(n+1)$ 为真。
 \end{itemize}
-Some terminology has evolved for proofs by induction:
+归纳法证明引入了一些术语：
 \begin{itemize}
-\item The proof of $p(n_0)$ is called the \textbf{base case};
-\item The proof of $\forall n \ge n_0,\, (p(n) \Rightarrow p(n+1))$ is called the \textbf{induction step};
-\item In the induction step, the assumption $p(n)$ is called the \textbf{induction hypothesis};
-\item In the induction step, the proposition $p(n+1)$ is called the \textbf{induction goal}.
+\item $p(n_0)$ 的证明称为\textbf{基本情况}；
+\item $\forall n \ge n_0,\, (p(n) \Rightarrow p(n+1))$ 的证明称为\textbf{归纳步骤}；
+\item 在归纳步骤中，假设 $p(n)$ 为真称为\textbf{归纳假设}；
+\item 在归纳步骤中，命题 $p(n+1)$ 称为\textbf{归纳结果}。
 \end{itemize}
 \end{strategy}
 
-The following diagram illustrates the weak induction principle.
+下图展示了弱归纳原理。
 
 \begin{center}
 \begin{tikzpicture}
@@ -58,426 +58,422 @@ The following diagram illustrates the weak induction principle.
 \end{tikzpicture}
 \end{center}
 
-To interpret this diagram:
+对上图做一些解释：
 \begin{itemize}
-\item The shaded diamond represents the base case $p(n_0)$;
-\item The square represents the induction hypothesis $p(n)$;
-\item The dashed circle represents the induction goal $p(n+1)$;
-\item The arrow represents the implication we must prove in the induction step.
+\item 阴影菱形代表基本情况 $p(n_0)$；
+\item 正方形代表归纳假设 $p(n)$；
+\item 虚线圆形代表归纳目标 $p(n+1)$；
+\item 箭头代表我们在归纳步骤中要证明的蕴涵关系。
 \end{itemize}
 
-We will use analogous diagrams to illustrate the other induction principles in this section.
+我们将使用类似的图来描述本节中的其他归纳原理。
 
 \begin{proposition}
 \label{propSumConsecInduction}
-Let $n \in \mathbb{N}$. Then $\displaystyle\sum_{k=1}^n k = \frac{n(n+1)}{2}$
+设 $n \in \mathbb{N}$。则 $\displaystyle\sum_{k=1}^n k = \frac{n(n+1)}{2}$
 \end{proposition}
 
 \begin{cproof}
-We proceed by induction on $n \ge 0$.
+我们在 $n \ge 0$ 上用归纳法进行证明。
 
 \begin{itemize}
-\item (\textbf{Base case}) We need to prove $\displaystyle\sum_{k=1}^0 k = \frac{0(0+1)}{2}$.
+\item (\textbf{基本情况})我们需要证明 $\displaystyle\sum_{k=1}^0 k = \frac{0(0+1)}{2}$。
 
-This is true, since $\dfrac{0(0+1)}{2} = 0$, and $\displaystyle\sum_{k=1}^0 k = 0$ by \Cref{defSumOfRealNumbers}.
+这明显成立。因为 $\dfrac{0(0+1)}{2} = 0$，而根据\Cref{defSumOfRealNumbers} $\displaystyle\sum_{k=1}^0 k = 0$。
 
-\item (\textbf{Induction step}) Let $n \ge 0$ and suppose that $\displaystyle\sum_{k=1}^n k = \dfrac{n(n+1)}{2}$; this is the induction hypothesis.
+\item (\textbf{归纳步骤}) 设 $n \ge 0$ 并假设 $\displaystyle\sum_{k=1}^n k = \dfrac{n(n+1)}{2}$；此为归纳假设。
 
-We need to prove that $\displaystyle\sum_{k=1}^{n+1} k = \frac{(n+1)(n+2)}{2}$; this is the induction goal.
+我们需要证明 $\displaystyle\sum_{k=1}^{n+1} k = \frac{(n+1)(n+2)}{2}$；此为归纳结果。
 
-We proceed by calculation:
+通过计算得：
 \begin{align*}
-\sum_{k=1}^{n+1} k &= \left( \sum_{k=1}^n k \right) + (n+1) && \text{by \Cref{defSumOfRealNumbers}} \\
-&= \frac{n(n+1)}{2} + (n+1) && \text{by induction hypothesis}\\
-&= (n+1)\left( \frac{n}{2} + 1 \right) && \text{factorising} \\
-&= \frac{(n+1)(n+2)}{2} && \text{rearranging}
+\sum_{k=1}^{n+1} k &= \left( \sum_{k=1}^n k \right) + (n+1) && \text{根据 \Cref{defSumOfRealNumbers}} \\
+&= \frac{n(n+1)}{2} + (n+1) && \text{根据归纳假设}\\
+&= (n+1)\left( \frac{n}{2} + 1 \right) && \text{提取公因式} \\
+&= \frac{(n+1)(n+2)}{2} && \text{整理}
 \end{align*}
 \end{itemize}
-The result follows by induction. 
+由归纳得出结果。
 \end{cproof}
 
-Before moving on, let's reflect on the proof of \Cref{propSumConsecInduction} to highlight some effective ways of writing a proof by induction.
-
+在继续深入之前，让我们回顾一下 \Cref{propSumConsecInduction} 的证明，强调一些通过归纳法编写证明的有效方法。
 \begin{itemize}
-\item We began the proof by indicating that it was a proof by induction. While it is clear in this section that most proofs will be by induction, that will not always be the case, so it is good practice to indicate the proof strategy at hand.
-\item The base case and induction step are clearly labelled in the proof. This is not strictly \textit{necessary} from a mathematical perspective, but it helps the reader to navigate the proof and to identify what the goal is at each step.
-\item We began the induction step by writing, `Let $n \ge n_0$ and suppose that [\dots{}\textit{induction hypothesis goes here}\dots{}]'. This is typically how your induction step should begin, since the proposition being proved in the induction step is of the form $\forall n \ge n_0,\, (p(n) \Rightarrow \cdots)$.
-\item Before proving anything in the base case or induction step, we wrote out what it was that we were trying to prove in that part of the proof. This is helpful because it helps to remind us (and the person reading the proof) what we are aiming to achieve.
+\item 我们在证明开始时指出这是一个归纳证明。虽然本节清楚表明大多数证明将通过归纳法进行证明，但情况并非总是如此，因此最好指出当下的证明策略。
+\item 证明中清楚地标记出基本情况和归纳步骤。从数学角度来看，这并不是严格\textit{必须的}，但它可以帮助读者了解证明结构并确定每一步的目标是什么。
+\item 我们通过写下`设 $n \ge n_0$ 并假设 [\dots{}\textit{此为归纳假设}\dots{}]'开始归纳步骤。归纳步骤通常都是这样开始的，因为在归纳步骤中证明的命题的形式为 $\forall n \ge n_0,\, (p(n) \Rightarrow \cdots)$。
+\item 在证明基本情况或归纳步骤之前，我们写下该部分试图证明的内容。这很有用，因为它有助于提醒我们（以及阅读证明的人）我们的目标是什么。
 \end{itemize}
 
-Look out for these features in the proof of the next proposition, which is also by induction on $n \ge 0$.
+下一个命题也是通过 $n \ge 0$ 归纳得出的，在其证明过程中注意这些特征。
 
 \begin{proposition}
-The natural number $n^3-n$ is divisible by $3$ for all $n \in \mathbb{N}$.
+对于所有 $n \in \mathbb{N}$，自然数 $n^3-n$ 可被 $3$ 整除。
 \end{proposition}
 
 \begin{cproof}
-We proceed by induction on $n \ge 0$.
+我们在 $n \ge 0$ 上用归纳法进行证明。
 \begin{itemize}
-\item (\textbf{Base case}) We need to prove that $0^3-0$ is divisible by $3$. Well
+\item (\textbf{基本情况}) 我们需要证明 $0^3-0$ 能被 $3$ 整除。
 \[ 0^3-0 = 0 = 3 \times 0 \]
-so $0^3-0$ is divisible by $3$.
+所以 $0^3-0$ 能被 $3$ 整除。
 
-\item (\textbf{Induction step}) Let $n \in \mathbb{N}$ and suppose that $n^3-n$ is divisible by $3$. Then $n^3-n = 3k$ for some $k \in \mathbb{Z}$.
+\item (\textbf{归纳步骤}) 设 $n \in \mathbb{N}$ 并假设 $n^3-n$ 能被 $3$ 整除。则可以写成 $n^3-n = 3k$, $k \in \mathbb{Z}$ 的形式。
 
-We need to prove that $(n+1)^3 - (n+1)$ is divisible by $3$; in other words, we need to find some natural number $\ell$ such that
+我们需要证明 $(n+1)^3 - (n+1)$ 可以被 $3$ 整除；换句话说，我们需要找到某自然数 $\ell$ 使得
 \[ (n+1)^3 - (n+1) = 3\ell \]
-We proceed by computation.
+通过计算得
 \begin{align*}
 & (n+1)^3 - (n+1) && \\
-&= (n^3 + 3n^2 + 3n + 1) - n - 1 && \text{expand brackets}\\
-&= n^3 - n + 3n^2 + 3n + 1 - 1 && \text{rearrange terms} \\
-&= n^3 - n + 3n^2 + 3n && \text{since $1 - 1 = 0$} \\
-&= 3k + 3n^2 + 3n && \text{by induction hypothesis} \\
-&= 3(k+n^2+n) && \text{factorise}
+&= (n^3 + 3n^2 + 3n + 1) - n - 1 && \text{展开}\\
+&= n^3 - n + 3n^2 + 3n + 1 - 1 && \text{整理} \\
+&= n^3 - n + 3n^2 + 3n && \text{因为 $1 - 1 = 0$} \\
+&= 3k + 3n^2 + 3n && \text{根据递归假设} \\
+&= 3(k+n^2+n) && \text{提取公因数}
 \end{align*}
-Thus we have expressed $(n+1)^3-(n+1)$ in the form $3\ell$ for some $\ell \in \mathbb{Z}$; specifically, $\ell=k+n^2+n$.
+因此，对于某些 $\ell \in \mathbb{Z}$，我们将 $(n+1)^3-(n+1)$ 表示为 $3\ell$ 形式；具体来说，$\ell=k+n^2+n$。
 \end{itemize}
 
-The result follows by induction.
+由归纳得出结果。
 \end{cproof}
 
 \begin{exercise}
 \label{exSumOfPowersOf2}
-Prove by induction that $\displaystyle \sum_{k=0}^n 2^k = 2^{n+1} - 1$ for all $n \in \mathbb{N}$.
+用归纳法证明对于所有 $n \in \mathbb{N}$, $\displaystyle \sum_{k=0}^n 2^k = 2^{n+1} - 1$。
 \end{exercise}
 
-The following proposition has a proof by induction in which the base case is not zero.
+下面的命题可以用归纳法证明，但基本情况不为零。
 
 \begin{proposition}
 \label{propWeakInductionNonzeroBaseCaseExample}
-For all $n \ge 4$, we have $3n < 2^n$.
+对于所有 $n \ge 4$，我们有 $3n < 2^n$。
 \end{proposition}
 
 \begin{cproof}
-We proceed by induction on $n \ge 4$.
+我们在 $n \ge 4$ 上用归纳法进行证明。
 \begin{itemize}
-\item (\textbf{Base case}) $p(4)$ is the statement $3 \cdot 4 < 2^4$. This is true, since $12 < 16$.
+\item (\textbf{基本情况}) $p(4)$ 代表陈述 $3 \cdot 4 < 2^4$。这显然成立，因为 $12 < 16$。
 
-\item (\textbf{Induction step}) Suppose $n \ge 4$ and that $3n < 2^n$. We want to prove $3(n+1) < 2^{n+1}$. Well,
+\item (\textbf{归纳步骤}) 假设 $n \ge 4$ 且 $3n < 2^n$。我们要证明 $3(n+1) < 2^{n+1}$。
 \begin{align*}
-3(n+1) &= 3n+3 && \text{expanding} \\
-&< 2^n + 3   && \text{by induction hypothesis} \\
-&< 2^n + 2^4 && \text{since $3 < 16 = 2^4$} \\
-&\le 2^n + 2^n && \text{since $n \ge 4$} \\
-&= 2 \cdot 2^n && \text{simplifying} \\
-&= 2^{n+1} && \text{simplifying}
+3(n+1) &= 3n+3 && \text{展开} \\
+&< 2^n + 3   && \text{根据归纳假设} \\
+&< 2^n + 2^4 && \text{因为 $3 < 16 = 2^4$} \\
+&\le 2^n + 2^n && \text{因为 $n \ge 4$} \\
+&= 2 \cdot 2^n && \text{化简} \\
+&= 2^{n+1} && \text{化简}
 \end{align*}
-So we have proved $3(n+1) < 2^{n+1}$, as required.
+因此我们证明出 $3(n+1) < 2^{n+1}$。
 \end{itemize}
-The result follows by induction.
+由归纳得出结果。
 \end{cproof}
 
-Note that the proof in \Cref{propWeakInductionNonzeroBaseCaseExample} says nothing about the truth or falsity of $p(n)$ for $n=0,1,2,3$. In order to assert that these cases are false, you need to show them individually; indeed:
+请注意，\Cref{propWeakInductionNonzeroBaseCaseExample} 中的证明没有说明 $p(n)$ 对于 $n=0,1,2,3$ 的真假。为了断言这些案例是错误的，您需要单独呈现它们：
 \begin{itemize}
-\item $3 \times 0 = 0$ and $2^0 = 1$, hence $p(0)$ is true;
-\item $3 \times 1 = 3$ and $2^1 = 2$, hence $p(1)$ is false;
-\item $3 \times 2 = 6$ and $2^2 = 4$, hence $p(2)$ is false;
-\item $3 \times 3 = 9$ and $2^3 = 8$, hence $p(3)$ is false.
+\item $3 \times 0 = 0$ 且 $2^0 = 1$，因此 $p(0)$ 为真；
+\item $3 \times 1 = 3$ 且 $2^1 = 2$，因此 $p(1)$ 为假；
+\item $3 \times 2 = 6$ 且 $2^2 = 4$，因此 $p(2)$ 为假；
+\item $3 \times 3 = 9$ 且 $2^3 = 8$，因此 $p(3)$ 为假。
 \end{itemize}
-So we deduce that $p(n)$ is true when $n=0$ or $n \ge 4$, and false when $n \in \{ 1, 2, 3 \}$.
+因此我们推断，当 $n=0$ 或 $n \ge 4$ 时，$p(n)$ 为真，当 $n \in \{ 1, 2, 3 \}$ 时，$p(n)$ 为假。
 
-Sometimes a `proof' by induction might appear to be complete nonsense. The following is a classic example of a `fail by induction':
+有时，用归纳法`证明'可能看起来完全是无稽之谈。以下是`归纳失败'的经典示例：
 
 \begin{example}
 \label{exHorseInductionFail}
-The following argument supposedly proves that every horse is the same colour.
+下面的论证可以证明每匹马都是相同颜色。
 \begin{itemize}
-\item (\textbf{Base case}) Suppose there is just one horse. This horse is the same colour as itself, so the base case is immediate.
-\item (\textbf{Induction step}) Suppose that every collection of $n$ horses is the same colour. Let $X$ be a set of $n+1$ horses. Removing the first horse from $X$, we see that the last $n$ horses are the same colour by the induction hypothesis. Removing the last horse from $X$, we see that the first $n$ horses are the same colour. Hence all the horses in $X$ are the same colour.
+\item (\textbf{基本情况}) 假设只有一匹马。这匹马跟它自己具有相同的颜色，因此基本情况显然成立。
+\item (\textbf{归纳步骤}) 假设 $n$ 匹马的每个集合都是相同颜色。设 $X$ 为 $n+1$ 匹马的集合。去掉 $X$ 中的第一匹马，根据归纳假设，我们得到后 $n$ 匹马的颜色相同。从 $X$ 中删除最后一匹马，我们得到前 $n$ 匹马的颜色相同。因此 $X$ 中所有马都是相同颜色。
 \end{itemize}
-By induction, we're done.
+根据归纳法，证明完毕。
 \end{example}
 
 \begin{exercise}
-Write down the statement $p(n)$ that \Cref{exHorseInductionFail} attempted to prove for all $n \ge 1$. Convince yourself that the proof of the base case is correct, then write down---with quantifiers---exactly the proposition that the induction step is meant to prove. Explain why the argument in the induction step failed to prove this proposition.
+写出 \Cref{exHorseInductionFail} 尝试对所有 $n \ge 1$ 证明的语句 $p(n)$。证明基本情况的证明是正确的，然后用量词准确写出归纳步骤要证明的命题。解释为什么归纳步骤中的论证未能证明这个命题。
 \end{exercise}
 
-There are several ways to avoid situations like that of \Cref{exHorseInductionFail} by simply putting more thought into writing the proof. Some tips are:
+有几种方法可以避免类似 \Cref{exHorseInductionFail} 的情况，只需在编写证明时多加考虑即可。下面是一些提示：
 
 \begin{itemize}
-\item State $p(n)$ explicitly. In the statement `all horses are the same colour' it is not clear exactly what the induction variable is. However, we could have said:
+\item 明确陈述 $p(n)$。在`所有马都是相同颜色'的陈述中，并不清楚归纳变量到底是什么。然而，我们可以说：
 \begin{center}
-Let $p(n)$ be the statement `every set of $n$ horses has the same colour'.
+设 $p(n)$ 为陈述`$n$ 匹马的每个集合都具有相同颜色'。
 \end{center}
 
-\item Refer explicitly to the base case $n_0$ in the induction step. In \Cref{exHorseInductionFail}, our induction hypothesis simply stated `assume every set of $n$ horses has the same colour'. Had we instead said:
+\item 在归纳步骤中明确参考基本情况 $n_0$。在 \Cref{exHorseInductionFail} 中，我们的归纳假设只是简单地表述为`假设 $n$ 匹马的每个集合具有相同的颜色'。我们可以换种说法：
 \begin{center}
-Let $n \ge 1$ and assume every set of $n$ horses has the same colour.
+设 $n \ge 1$ 并假设 $n$ 匹马的每个集合具有相同颜色。
 \end{center}
-We may have spotted the error in what was to come.
+我们可能已经发现了接下来发生的错误。
 \end{itemize}
 
-What follows are a couple more examples of proofs by weak induction.
+下面是一些弱归纳法证明的例子。
 
 \begin{proposition}
-For all $n \in \mathbb{N}$, we have $\displaystyle \sum_{k=0}^n k^3 = \left( \sum_{k=0}^n k \right)^2$.
+对于所有 $n \in \mathbb{N}$，我们有 $\displaystyle \sum_{k=0}^n k^3 = \left( \sum_{k=0}^n k \right)^2$。
 \end{proposition}
 
 \begin{cproof}
-We proved in \Cref{propWeakInductionNonzeroBaseCaseExample} that $\displaystyle\sum_{k=0}^n k = \frac{n(n+1)}{2}$ for all $n \in \mathbb{N}$, thus it suffices to prove that
+在 \Cref{propWeakInductionNonzeroBaseCaseExample} 中我们证明了对于所有 $n \in \mathbb{N}$, $\displaystyle\sum_{k=0}^n k = \frac{n(n+1)}{2}$，因此只需证明对于所有 $n \in \mathbb{N}$, 
 \[ \sum_{k=0}^n k^3 = \frac{n^2(n+1)^2}{4} \]
-for all $n \in \mathbb{N}$.
 
-We proceed by induction on $n \ge 0$.
+我们在 $n \ge 0$ 上用归纳法进行证明。
 \begin{itemize}
-\item (\textbf{Base case}) We need to prove that $\displaystyle 0^3 = \frac{0^2(0+1)^2}{4}$. This is true since both sides of the equation are equal to $0$.
-\item (\textbf{Induction step}) Fix $n \in \mathbb{N}$ and suppose that $\displaystyle \sum_{k=0}^n k^3 = \frac{n^2(n+1)^2}{4}$. We need to prove that $\displaystyle \sum_{k=0}^{n+1} k^3 = \frac{(n+1)^2(n+2)^2}{4}$. This is true since:
+\item (\textbf{基本情况}) 我们需要证明 $\displaystyle 0^3 = \frac{0^2(0+1)^2}{4}$。这明显成立，因为公式两边都为 $0$。
+\item (\textbf{归纳步骤}) 给定 $n \in \mathbb{N}$ 并假设 $\displaystyle \sum_{k=0}^n k^3 = \frac{n^2(n+1)^2}{4}$。我们需要证明 $\displaystyle \sum_{k=0}^{n+1} k^3 = \frac{(n+1)^2(n+2)^2}{4}$。这也成立，因为:
 \begin{align*}
-\sum_{i=0}^{n+1} k^3 & = \sum_{i=0}^n k^3 + (n+1)^3 && \text{by definition of sum} \\
-&= \frac{n^2(n+1)^2}{4} + (n+1)^3 && \text{by induction hypothesis} \\
-&= \frac{n^2(n+1)^2 + 4(n+1)^3}{4} && \text{(\textit{algebra})} \\
-&= \frac{(n+1)^2(n^2 + 4(n+1))}{4} && \text{(\textit{algebra})} \\
-&= \frac{(n+1)^2(n+2)^2}{4} && \text{(\textit{algebra})}
+\sum_{i=0}^{n+1} k^3 & = \sum_{i=0}^n k^3 + (n+1)^3 && \text{根据加法定义} \\
+&= \frac{n^2(n+1)^2}{4} + (n+1)^3 && \text{根据归纳假设} \\
+&= \frac{n^2(n+1)^2 + 4(n+1)^3}{4} && \text{(\textit{通分})} \\
+&= \frac{(n+1)^2(n^2 + 4(n+1))}{4} && \text{(\textit{提取公因式})} \\
+&= \frac{(n+1)^2(n+2)^2}{4} && \text{(\textit{完全平方公式})}
 \end{align*}
 \end{itemize}
-By induction, the result follows.
+通过归纳法得出结果。
 \end{cproof}
 
-In the next proposition, we prove the correctness of a well-known formula for the sum of an \textit{arithmetic progression} of real numbers.
+下一命题中，我们证明了众所周知的实数\textit{算术级数}求和公式的正确性。
 
 \begin{proposition}
-Let $a,d \in \mathbb{R}$. Then
+设 $a,d \in \mathbb{R}$。则对于所有 $n \in \mathbb{N}$, 
 \[ \sum_{k=0}^n (a+kd) = \frac{(n+1)(2a+nd)}{2} \]
-for all $n \in \mathbb{N}$.
 \end{proposition}
 
 \begin{cproof}
-We proceed by induction on $n \ge 0$.
+我们在 $n \ge 0$ 上用归纳法进行证明。
 \begin{itemize}
-\item (\textbf{Base case}) We need to prove that $\displaystyle\sum_{k=0}^0 (a+kd) = \frac{(0+1)(2a+0d)}{2}$. This is true, since
+\item (\textbf{基本情况}) 我们需要证明 $\displaystyle\sum_{k=0}^0 (a+kd) = \frac{(0+1)(2a+0d)}{2}$。这明显成立，因为
 \[ \sum_{k=0}^0 (a+kd) = a + 0d = a = \frac{2a}{2} = \frac{1 \cdot (2a)}{2} = \frac{(0+1)(2a+0d)}{2} \]
 
-\item (\textbf{Induction step}) Fix $n \in \mathbb{N}$ and suppose that $\displaystyle\sum_{k=0}^n (a+kd) = \frac{(n+1)(2a+nd)}{2}$. We need to prove:
+\item (\textbf{归纳步骤}) 给定 $n \in \mathbb{N}$ 并假设 $\displaystyle\sum_{k=0}^n (a+kd) = \frac{(n+1)(2a+nd)}{2}$。我们需要证明：
 \[ \sum_{k=0}^{n+1} (a+kd) = \frac{(n+2)(2a+(n+1)d)}{2} \]
-This is true, since
+这也成立，因为：
 \begin{align*}
 &\sum_{k=0}^{n+1} (a+kd) && \\
-&= \sum_{k=0}^n (a+kd) + (a+(n+1)d) && \text{by definition of sum} \\
-&= \frac{(n+1)(2a+nd)}{2} + (a + (n+1)d) && \text{by induction hypothesis} \\
-&= \frac{(n+1)(2a+nd) + 2a + 2(n+1)d}{2} && \text{(\textit{algebra})} \\
-&= \frac{(n+1) \cdot 2a + (n+1) \cdot nd + 2a + 2(n+1)d}{2} && \text{(\textit{algebra})} \\
-&= \frac{2a(n+1+1) + (n+1)(nd + 2d)}{2} && \text{(\textit{algebra})} \\
-&= \frac{2a(n+2) + (n+1)(n+2)d}{2} && \text{(\textit{algebra})} \\
-&= \frac{(n+2)(2a + (n+1)d)}{2} && \text{(\textit{algebra})}
+&= \sum_{k=0}^n (a+kd) + (a+(n+1)d) && \text{根据加法定义} \\
+&= \frac{(n+1)(2a+nd)}{2} + (a + (n+1)d) && \text{根据归纳假设} \\
+&= \frac{(n+1)(2a+nd) + 2a + 2(n+1)d}{2} && \text{(\textit{通分})} \\
+&= \frac{(n+1) \cdot 2a + (n+1) \cdot nd + 2a + 2(n+1)d}{2} && \text{(\textit{乘法展开})} \\
+&= \frac{2a(n+1+1) + (n+1)(nd + 2d)}{2} && \text{(\textit{提取公因式})} \\
+&= \frac{2a(n+2) + (n+1)(n+2)d}{2} && \text{(\textit{整理})} \\
+&= \frac{(n+2)(2a + (n+1)d)}{2} && \text{(\textit{提取公因式})}
 \end{align*}
 \end{itemize}
-By induction, the result follows.
+通过归纳法得出结果。
 \end{cproof}
 
-The following exercises generalises \Cref{exSumOfPowersOf2} to prove the correctness of a formula for the sum of a \textit{geometric progression} of real numbers.
+以下练习泛化了 \Cref{exSumOfPowersOf2} 以证明实数\textit{几何级数}求和公式的正确性。
 
 \begin{exercise}
 \label{exFormulaForGeometricProgression}
-Let $a,r \in \mathbb{R}$ with $r \ne 1$. Then
+设 $a,r \in \mathbb{R}$ 其中 $r \ne 1$。则对于所有 $n \in \mathbb{N}$, 
 \[ \sum_{k=0}^n ar^k = \frac{a(1-r^{n+1})}{1-r} \]
-for all $n \in \mathbb{N}$.
 \end{exercise}
 
-So far in this section most of the results that we have proved by induction have concerned numbers, and particularly identities involving natural numbers. But the scope of proof by induction is not limited to such results---the next exercise, for example, concerns sets and bijections.
+到目前为止，在本节中，我们通过归纳法证明的大部分结论都只涉及数字，特别是涉及自然数的恒等式。但归纳法证明的范围并不限于这些结论 --- 例如，下一个练习涉及集合和双射。
 
 \begin{exercise}
-Let $n \in \mathbb{N}$ and let $\{ X_k \mid 1 \le k \le n \}$ be a family of sets. Prove by induction on $n$ that there is a bijection $\displaystyle \prod_{k=1}^{n+1} X_k \to \left( \prod_{k=1}^n X_k \right) \times X_n$.
+设 $n \in \mathbb{N}$ 并设 $\{ X_k \mid 1 \le k \le n \}$ 为集合族。在 $n$ 上用归纳法证明 $\displaystyle \prod_{k=1}^{n+1} X_k \to \left( \prod_{k=1}^n X_k \right) \times X_n$ 为双射。
 \hintlabel{exProductOfSuccNSets}{%
-To define the bijection, think about what the elements of the two sets look like: The elements of $\prod_{k=1}^{n+1} X_k$ look like $(a_1, a_2, \dots, a_n, a_{n+1})$, where $a_k \in X_k$ for each $1 \le k \le n+1$. On the other hand, the elements of $\left( \prod_{k=1}^n X_k \right) \times X_{n+1}$ look like $((a_1, a_2, \dots, a_n), a_{n+1})$.
+要定义双射，请考虑两个集合的元素是什么样的：$\prod_{k=1}^{n+1} X_k$ 中的元素类似 $(a_1, a_2, \dots, a_n, a_{n+1})$，其中对于每个 $1 \le k \le n+1$, $a_k \in X_k$。另一方面，$\left( \prod_{k=1}^n X_k \right) \times X_{n+1}$ 中的元素类似 $((a_1, a_2, \dots, a_n), a_{n+1})$。
 }
 \end{exercise}
 
-\subsection*{Binomials and factorials}
+\subsection*{二项式和阶乘}
 
-Proof by induction turns out to be a very useful way of proving facts about binomial coefficients $\binom{n}{k}$ and factorials $n!$.
+归纳法对证明二项式系数 $\binom{n}{k}$ 和阶乘 $n!$ 非常有用。
 
 \begin{example}
 \label{exSumOfBinomialCoefficients}
-We prove that $\sum_{i=0}^n \binom{n}{i} = 2^n$ by induction on $n$.
+在 $n$ 上，用归纳法证明 $\sum_{i=0}^n \binom{n}{i} = 2^n$。
 \begin{itemize}
-\item (\textbf{Base case}) We need to prove $\binom{0}{0} = 1$ and $2^0=1$. These are both true by the definitions of binomial coefficients and exponents.
-\item (\textbf{Induction step}) Fix $n \ge 0$ and suppose that
+\item (\textbf{基本情况}) 我们要证明 $\binom{0}{0} = 1$ 且 $2^0=1$。根据二项式系数和指数的定义，这两部分都成立。
+\item (\textbf{归纳步骤}) 给定 $n \ge 0$ 并假设
 \[ \sum_{i=0}^n \binom{n}{i} = 2^n \]
-We need to prove
+我们需要证明
 \[ \sum_{i=0}^{n+1} \binom{n+1}{i} = 2^{n+1} \]
-This is true, since
+这是成立的，因为
 
 \begin{align*}
 &\sum_{i=0}^{n+1} \binom{n+1}{i} && \\
-&= \binom{n+1}{0} + \sum_{i=1}^{n+1} \binom{n+1}{i} && \text{splitting the sum} \\
-&= 1 + \sum_{j=0}^n \binom{n+1}{j+1} && \text{letting $j=i-1$} \\
-&= 1 + \sum_{j=0}^n \left(\binom{n}{j} + \binom{n}{j+1}\right) && \text{by \Cref{defBinomialCoefficientRecursive}} \\
-&= 1 + \sum_{j=0}^n \binom{n}{j} + \sum_{j=0}^n \binom{n}{j+1} && \text{separating the sums}
+&= \binom{n+1}{0} + \sum_{i=1}^{n+1} \binom{n+1}{i} && \text{拆分求和公式} \\
+&= 1 + \sum_{j=0}^n \binom{n+1}{j+1} && \text{设 $j=i-1$} \\
+&= 1 + \sum_{j=0}^n \left(\binom{n}{j} + \binom{n}{j+1}\right) && \text{根据 \Cref{defBinomialCoefficientRecursive}} \\
+&= 1 + \sum_{j=0}^n \binom{n}{j} + \sum_{j=0}^n \binom{n}{j+1} && \text{分别求和}
 \end{align*}
 
-Now $\sum_{j=0}^n \binom{n}{j} = 2^n$ by the induction hypothesis. Moreover, reindexing the sum using $k=j+1$ yields
+根据递归假设 $\sum_{j=0}^n \binom{n}{j} = 2^n$。此外，使用 $k=j+1$ 重新索引求和会产生
 \[ \sum_{j=0}^n \binom{n}{j+1} = \sum_{k=1}^{n+1} \binom{n}{k} = \sum_{k=1}^n \binom{n}{k} + \binom{n}{n+1} \]
-By the induction hypothesis, we have
+根据递归假设，我们有
 \[ \sum_{k=1}^n \binom{n}{k} = \sum_{k=0}^n \binom{n}{k} - \binom{n}{0} = 2^n-1 \]
-and $\binom{n}{n+1} = 0$, so that $\sum_{j=0}^n \binom{n}{j+1} = 2^n-1$.
+且 $\binom{n}{n+1} = 0$，所以 $\sum_{j=0}^n \binom{n}{j+1} = 2^n-1$.
 
-Putting this together, we have
+综上可得
 \begin{align*}
 1 + \sum_{j=0}^n \binom{n}{j} + \sum_{j=0}^n \binom{n}{j+1}
 &= 1 + 2^n + (2^n-1) \\
 &= 2 \cdot 2^n \\
 &= 2^{n+1}
 \end{align*}
-so the induction step is finished.
+至此归纳步骤结束。
 \end{itemize}
-By induction, we're done.
+通过归纳法得出结果。
 \end{example}
 
 \begin{theorem}
 \label{thmBinomAsFactorialByInduction}
-Let $n,k \in \mathbb{N}$. Then
+设 $n,k \in \mathbb{N}$。则
 \[ \binom{n}{k} =
 \begin{cases}
-\dfrac{n!}{k!(n-k)!} & \text{if } k \le n \\
-0 & \text{if } k > n
+\dfrac{n!}{k!(n-k)!} & \text{如果 } k \le n \\
+0 & \text{如果 } k > n
 \end{cases} \]
 \end{theorem}
 \begin{cproof}
-We proceed by induction on $n$.
+我们对 $n$ 进行归纳。
 \begin{itemize}
-\item (\textbf{Base case}) When $n=0$, we need to prove that $\binom{0}{k} = \frac{0!}{k!(-k)!}$ for all $k \le 0$, and that $\binom{0}{k} = 0$ for all $k>0$.
+\item (\textbf{基本情况}) 当 $n=0$ 时，我们需要证明对于所有 $k \le 0$, $\binom{0}{k} = \frac{0!}{k!(-k)!}$，且对于所有 $k>0$, $\binom{0}{k} = 0$。
 
-If $k \le 0$ then $k=0$, since $k \in \mathbb{N}$. Hence we need to prove
+如果 $k \le 0$ 则 $k=0$，因为 $k \in \mathbb{N}$。因此我们需要证明
 \[ \binom{0}{0} = \frac{0!}{0!0!} \]
-But this is true since $\binom{0}{0}=1$ and $\frac{0!}{0!0!} = \frac{1}{1 \times 1} = 1$.
+这显然成立，因为 $\binom{0}{0}=1$ 且 $\frac{0!}{0!0!} = \frac{1}{1 \times 1} = 1$。
 
-If $k>0$ then $\binom{0}{k} = 0$ by \Cref{defBinomialCoefficientRecursive}.
-\item (\textbf{Induction step}) Fix $n \in \mathbb{N}$ and suppose that $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ for all $k \le n$ and $\binom{n}{k} = 0$ for all $k > n$.
+如果 $k>0$ 则根据\Cref{defBinomialCoefficientRecursive} $\binom{0}{k} = 0$。
+\item (\textbf{归纳步骤}) 给定 $n \in \mathbb{N}$ 并假设对于所有 $k \le n$, $\binom{n}{k} = \frac{n!}{k!(n-k)!}$ 且对于所有 $k > n$, $\binom{n}{k} = 0$。
 
-We need to prove that, for all $k \le n+1$, we have
+我们需要证明对于所有 $k \le n+1$，我们有
 \[ \binom{n+1}{k} = \frac{(n+1)!}{k!(n+1-k)!} \]
-and that $\binom{n+1}{k} = 0$ for all $k > n+1$.
+且对于所有 $k > n+1$, $\binom{n+1}{k} = 0$。
 
-So fix $k \in \mathbb{N}$. There are four possible cases: either (i) $k=0$, or (ii) $0 < k \le n$, or (iii) $k=n+1$, or (iv) $k>n+1$. In cases (i), (ii) and (iii), we need to prove the factorial formula for $\binom{n+1}{k}$; in case (iv), we need to prove that $\binom{n+1}{k} = 0$.
+所以给定 $k \in \mathbb{N}$。存在 4 种可能的情况：要么 (i) $k=0$，要么 (ii) $0 < k \le n$，要么 (iii) $k=n+1$，要么 (iv) $k>n+1$。情况 (i), (ii), (iii) 中，我们需要证明 $\binom{n+1}{k}$ 的阶乘公式；情况 (iv) 中，我们需要证明 $\binom{n+1}{k} = 0$。
 
 \begin{enumerate}[(i)]
-\item Suppose $k=0$. Then $\binom{n+1}{0} = 1$ by \Cref{defBinomialCoefficientRecursive}, and
+\item 假设 $k=0$。则根据\Cref{defBinomialCoefficientRecursive}可得 $\binom{n+1}{0} = 1$，且
 \[ \frac{(n+1)!}{k!(n+1-k)!} = \frac{(n+1)!}{0!(n+1)!} = 1 \]
-since $0!=1$. So $\binom{n+1}{0} = \frac{(n+1)!}{0!(n+1)!}$.
-\item If $0 < k \le n$ then $k=\ell+1$ for some natural number $\ell < n$. Then $\ell+1 \le n$, so we can use the induction hypothesis to apply factorial formula to both $\binom{n}{\ell}$ and $\binom{n}{\ell+1}$. Hence
+应为 $0!=1$。所以 $\binom{n+1}{0} = \frac{(n+1)!}{0!(n+1)!}$。
+\item 如果 $0 < k \le n$ 则对于某自然数 $\ell < n$, $k=\ell+1$。那么 $\ell+1 \le n$，因此我们可以使用归纳假设将阶乘公式应用于 $\binom{n}{\ell}$ 和 $\binom{n}{\ell+1}$。所以
 \begin{align*}
 &\binom{n+1}{k} && \\
-&= \binom{n+1}{\ell+1} && \text{since $k=\ell+1$} \\
-&= \binom{n}{\ell} + \binom{n}{\ell+1} && \text{by \Cref{defBinomialCoefficientRecursive}} \\
-&= \frac{n!}{\ell!(n-\ell)!} + \frac{n!}{(\ell+1)!(n-\ell-1)!} && \text{by induction hypothesis}
+&= \binom{n+1}{\ell+1} && \text{因为 $k=\ell+1$} \\
+&= \binom{n}{\ell} + \binom{n}{\ell+1} && \text{根据 \Cref{defBinomialCoefficientRecursive}} \\
+&= \frac{n!}{\ell!(n-\ell)!} + \frac{n!}{(\ell+1)!(n-\ell-1)!} && \text{根据递归假设}
 \end{align*}
-Now note that
+请注意
 \[ \frac{n!}{\ell!(n-\ell)!} = \frac{n!}{\ell!(n-\ell)!} \cdot \frac{\ell+1}{\ell+1} = \frac{n!}{(\ell+1)!(n-\ell)!} \cdot (\ell+1) \]
-and
+且
 \begin{center}
 $\dfrac{n!}{(\ell+1)!(n-\ell-1)!} = \dfrac{n!}{(\ell+1)!(n-\ell-1)!} \cdot \dfrac{n-\ell}{n-\ell} = \dfrac{n!}{(\ell+1)!(n-\ell)!} \cdot (n-\ell)$
 \end{center}
 
-Piecing this together, we have
+综上可得
 \begin{align*}
 &\frac{n!}{\ell!(n-\ell)!} + \frac{n!}{(\ell+1)!(n-\ell-1)!} && \\
 &= \frac{n!}{(\ell+1)!(n-\ell)!} \cdot [(\ell+1) + (n-\ell)] \\
 &= \frac{n!(n+1)}{(\ell+1)!(n-\ell)!} && \\
 &= \frac{(n+1)!}{(\ell+1)!(n-\ell)!}
 \end{align*}
-so that $\binom{n+1}{\ell+1} = \frac{(n+1)!}{(\ell+1)!(n-\ell)!}$. Now we're done; indeed,
+因此 $\binom{n+1}{\ell+1} = \frac{(n+1)!}{(\ell+1)!(n-\ell)!}$。搞定；的确
 \[ \frac{(n+1)!}{(\ell+1)!(n-\ell)!} = \frac{(n+1)!}{k!(n+1-k)!} \]
-since $k=\ell+1$.
-\item If $k=n+1$, then
+因为 $k=\ell+1$。
+\item 如果 $k=n+1$，则
 \begin{align*}
-\binom{n+1}{k} &= \binom{n+1}{n+1} && \text{since $k=n+1$} \\
-&= \binom{n}{n} + \binom{n}{n+1} && \text{by \Cref{defBinomialCoefficientRecursive}} \\
-&= \frac{n!}{n!0!} + 0 && \text{by induction hypothesis} \\
+\binom{n+1}{k} &= \binom{n+1}{n+1} && \text{因为 $k=n+1$} \\
+&= \binom{n}{n} + \binom{n}{n+1} && \text{根据 \Cref{defBinomialCoefficientRecursive}} \\
+&= \frac{n!}{n!0!} + 0 && \text{根据递归假设} \\
 &= 1
 \end{align*}
-and $\frac{(n+1)!}{(n+1)!0!}=1$, so again the two quantities are equal.
-\item If $k>n+1$, then $k=\ell+1$ for some $\ell > n$, and so by \Cref{defBinomialCoefficientRecursive} and the induction hypothesis we have
+且 $\frac{(n+1)!}{(n+1)!0!}=1$，这两个量再次相等。
+\item 如果 $k>n+1$，则对于某个 $\ell > n$, $k=\ell+1$，因此根据 \Cref{defBinomialCoefficientRecursive} 和递归假设可得
 \[ \binom{n+1}{k} = \binom{n+1}{\ell+1} \overset{\text{IH}}{=} \binom{n}{\ell}+\binom{n}{\ell+1} = 0+0 = 0 \]
 
 \end{enumerate}
 \end{itemize}
 \end{cproof}
 
-On first reading, this proof is long and confusing, especially in the induction step where we are required to split into four cases. We will give a much simpler proof in \Cref{secCountingPrinciples} (see \Cref{thmBinomAsFactorial}), where we prove the statement \textit{combinatorially} by putting the elements of two sets in one-to-one correspondence.
+初读时，这个证明又臭又长，特别是在归纳步骤中，我们需要分为四种情况。我们将在 \Cref{secCountingPrinciples} 中给出一个更简单的证明（参见 \Cref{thmBinomAsFactorial}），其中我们通过将两个集合的元素一一对应来\textit{组合地}证明该陈述。
 
-We can use \Cref{thmBinomAsFactorialByInduction} to prove useful identities involving binomial coefficients.
+我们可以使用 \Cref{thmBinomAsFactorialByInduction} 来证明很多涉及二项式系数的非常有用的恒等式。
 
 \begin{example}
-Let $n,k,\ell \in \mathbb{N}$ with $\ell \le k \le n$ then \[ \binom{n}{k}\binom{k}{\ell} = \binom{n}{\ell}\binom{n-\ell}{k-\ell} \]
-Indeed:
+设 $n,k,\ell \in \mathbb{N}$ 其中 $\ell \le k \le n$ 则 \[ \binom{n}{k}\binom{k}{\ell} = \binom{n}{\ell}\binom{n-\ell}{k-\ell} \]
+证明：
 \begin{align*}
 & \binom{n}{k} \binom{k}{\ell} && \\
-&= \frac{n!}{k!(n-k)!} \cdot \frac{k!}{\ell!(k-\ell!)} && \text{by \Cref{thmBinomAsFactorialByInduction}} \\
-&= \frac{n!k!}{k!\ell!(n-k)!(k-\ell)!} && \text{combine fractions} \\
-&= \frac{n!}{\ell!(n-k)!(k-\ell)!} && \text{cancel } k!\\
-&= \frac{n!(n-\ell)!}{\ell!(n-k)!(k-\ell)!(n-\ell)!} && \text{multiply by } \frac{(n-\ell)!}{(n-\ell)!} \\
-&= \frac{n!}{\ell!(n-\ell!)} \cdot \frac{(n-\ell)!}{(k-\ell)!(n-k)!} && \text{separate fractions} \\
-&= \frac{n!}{\ell!(n-\ell!)} \cdot \frac{(n-\ell)!}{(k-\ell)!((n-\ell)-(k-\ell))!} && \text{rearranging} \\
-&= \binom{n}{\ell} \binom{n-\ell}{k-\ell} && \text{by \Cref{thmBinomAsFactorialByInduction}}
+&= \frac{n!}{k!(n-k)!} \cdot \frac{k!}{\ell!(k-\ell!)} && \text{根据 \Cref{thmBinomAsFactorialByInduction}} \\
+&= \frac{n!k!}{k!\ell!(n-k)!(k-\ell)!} && \text{合并} \\
+&= \frac{n!}{\ell!(n-k)!(k-\ell)!} && \text{消掉 } k!\\
+&= \frac{n!(n-\ell)!}{\ell!(n-k)!(k-\ell)!(n-\ell)!} && \text{乘以 } \frac{(n-\ell)!}{(n-\ell)!} \\
+&= \frac{n!}{\ell!(n-\ell!)} \cdot \frac{(n-\ell)!}{(k-\ell)!(n-k)!} && \text{分离} \\
+&= \frac{n!}{\ell!(n-\ell!)} \cdot \frac{(n-\ell)!}{(k-\ell)!((n-\ell)-(k-\ell))!} && \text{整理} \\
+&= \binom{n}{\ell} \binom{n-\ell}{k-\ell} && \text{根据 \Cref{thmBinomAsFactorialByInduction}}
 \end{align*}
 \end{example}
 
 \begin{exercise}
-Prove that $\dbinom{n}{k} = \dbinom{n}{n-k}$ for all $n,k \in \mathbb{N}$ with $k \le n$.
+证明对于所有 $n,k \in \mathbb{N}$, $\dbinom{n}{k} = \dbinom{n}{n-k}$，其中 $k \le n$。
 \end{exercise}
 
-A very useful application of binomial coefficients in elementary algebra is to the binomial theorem.
+二项式系数在初等代数中的一个非常有用的应用是二项式定理。
 
-\begin{theorem}[Binomial theorem]
+\begin{theorem}[二项式定理]
 \label{thmBinomialTheorem}
-Let $n \in \mathbb{N}$ and $x,y \in \mathbb{R}$. Then
+设 $n \in \mathbb{N}$ 且 $x,y \in \mathbb{R}$。则
 \[ (x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k} \]
 \end{theorem}
 \begin{cproof}
-In the case when $y=0$ we have $y^{n-k}=0$ for all $k<n$, and so the equation reduces to
+当 $y=0$ 时，我们有对于所有 $k<n$, $y^{n-k}=0$，所以方程简化为
 \[ x^n = x^ny^{n-n} \]
-which is true, since $y^0=1$. So for the rest of the proof, we will assume that $y \ne 0$.
+这显然成立，因为 $y^0=1$。因此，对于其余的证明，我们假设 $y \ne 0$。
 
-We will now reduce to the case when $y=1$; and extend to arbitrary $y \ne 0$ afterwards.
+现在我们先简化为 $y=1$ 时的情况；然后扩展到任意 $y \ne 0$。
 
-We prove $(1+x)^n = \sum_{k=0}^n \binom{n}{k} x^k$ by induction on $n$.
+对 $n$ 用归纳法证明 $(1+x)^n = \sum_{k=0}^n \binom{n}{k} x^k$。
 \begin{itemize}
-\item (\textbf{Base case}) $(1+x)^0=1$ and $\binom{0}{0} x^0 = 1 \cdot 1 = 1$, so the statement is true when $n=0$.
-\item (\textbf{Induction step}) Fix $n \in \mathbb{N}$ and suppose that
+\item (\textbf{基本情况}) $(1+x)^0=1$ 且 $\binom{0}{0} x^0 = 1 \cdot 1 = 1$，所以当 $n=0$ 时成立。
+\item (\textbf{归纳步骤}) 给定 $n \in \mathbb{N}$ 并假设
 \[ (1+x)^n = \sum_{k=0}^n \binom{n}{k} x^k \]
 
-We need to show that $(1+x)^{n+1} = \sum_{k=0}^{n+1} \binom{n+1}{k} x^k$. Well,
+我们需要证明 $(1+x)^{n+1} = \sum_{k=0}^{n+1} \binom{n+1}{k} x^k$。
 
 \begin{align*} \hspace{-30pt}
 & (1+x)^{n+1} && \\
-&= (1+x)(1+x)^n && \text{by laws of indices} \\
-&= (1+x) \cdot \sum_{k=0}^n \binom{n}{k} x^k && \text{by induction hypothesis} \\
-&= \sum_{k=0}^n \binom{n}{k} x^k + x \cdot \sum_{k=0}^n \binom{n}{k} x^{k}&& \text{by expanding $(x+1)$} \\
-&= \sum_{k=0}^n \binom{n}{k} x^k + \sum_{k=0}^n \binom{n}{k} x^{k+1} && \text{distributing $x$} \\
-&= \sum_{k=0}^n \binom{n}{k} x^k + \sum_{k=1}^{n+1} \binom{n}{k-1} x^k && \text{$k \to k-1$ in second sum} \\
-&= \binom{n}{0}x^0 + \sum_{k=1}^n \left( \binom{n}{k} + \binom{n}{k-1} \right) x^k + \binom{n}{n}x^{n+1} && \text{splitting the sums} \\
-&= \binom{n}{0}x^0 + \sum_{k=1}^n \binom{n+1}{k} x^k + \binom{n}{n}x^{n+1} && \text{by \Cref{defBinomialCoefficientRecursive}} \\
-&= \binom{n+1}{0}x^0 + \sum_{k=1}^n \binom{n+1}{k} x^k + \binom{n+1}{n+1}x^{n+1} && \text{see $(*)$ below} \\
+&= (1+x)(1+x)^n && \text{根据指数定律} \\
+&= (1+x) \cdot \sum_{k=0}^n \binom{n}{k} x^k && \text{根据递归假设} \\
+&= \sum_{k=0}^n \binom{n}{k} x^k + x \cdot \sum_{k=0}^n \binom{n}{k} x^{k}&& \text{展开 $(x+1)$} \\
+&= \sum_{k=0}^n \binom{n}{k} x^k + \sum_{k=0}^n \binom{n}{k} x^{k+1} && \text{分配 $x$} \\
+&= \sum_{k=0}^n \binom{n}{k} x^k + \sum_{k=1}^{n+1} \binom{n}{k-1} x^k && \text{后一个求和 $k \to k-1$} \\
+&= \binom{n}{0}x^0 + \sum_{k=1}^n \left( \binom{n}{k} + \binom{n}{k-1} \right) x^k + \binom{n}{n}x^{n+1} && \text{将求和拆开} \\
+&= \binom{n}{0}x^0 + \sum_{k=1}^n \binom{n+1}{k} x^k + \binom{n}{n}x^{n+1} && \text{根据 \Cref{defBinomialCoefficientRecursive}} \\
+&= \binom{n+1}{0}x^0 + \sum_{k=1}^n \binom{n+1}{k} x^k + \binom{n+1}{n+1}x^{n+1} && \text{参见下方 $(*) 部分$ below} \\
 &= \sum_{k=0}^{n+1} \binom{n+1}{k} x^k &&
 \end{align*}
-The step labelled $(*)$ holds because
+$(*)$ 标步骤成立是因为
 \[ \binom{n}{0} = 1 = \binom{n+1}{0} \qquad \text{and} \qquad \binom{n}{n} = 1 = \binom{n+1}{n+1} \]
 \end{itemize}
-By induction, we've shown that $(1+x)^n = \sum_{i=0}^n \binom{n}{k} x^k$ for all $n \in \mathbb{N}$.
+通过归纳法，我们证明了对于所有 $n \in \mathbb{N}$, $(1+x)^n = \sum_{i=0}^n \binom{n}{k} x^k$。
 
-When $y \ne 0$ is not necessarily equal to $1$, we have that
+当 $y \ne 0$ 且不一定等于 $1$ 时，我们有
 \[ (x+y)^n = y^n \cdot \left( 1 + \frac{x}{y} \right)^n = y^n \cdot \sum_{k=0}^n \binom{n}{k} \left( \frac{x}{y} \right)^k = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k} \]
-The middle equation follows by what we just proved; the leftmost and rightmost equations are simple algebraic rearrangements.
+中间的方程遵循我们刚刚证明的；最左边和最右边的方程是简单的代数整理。
 \end{cproof}
 
 \begin{example}
-In \Cref{exSumOfBinomialCoefficients} we saw that
+在 \Cref{exSumOfBinomialCoefficients} 中我们看到
 \[ \sum_{k=0}^n \binom{n}{k} = 2^n \]
-This follows quickly from the binomial theorem, since
+这可以从二项式定理中快速推出，因为
 \[ 2^n = (1+1)^n = \sum_{k=0}^n \binom{n}{k} \cdot 1^k \cdot 1^{n-k} = \sum_{k=0}^n \binom{n}{k} \]
-Likewise, in \Cref{exAlternatingSumOfBinomialCoefficientsIsZero} you proved that the alternating sum of binomial coefficients is zero; that is, for $n \in \mathbb{N}$, we have
+同理，在 \Cref{exAlternatingSumOfBinomialCoefficientsIsZero} 中，我们证明了二项式系数的交替和为零；也就是说，对于 $n \in \mathbb{N}$，我们有
 \[ \sum_{k=0}^n (-1)^k \binom{n}{k} = 0 \]
-The proof is greatly simplified by applying the binomial theorem. Indeed, by the binomial theorem, we have
+通过使用二项式定理大大简化了证明。事实上，根据二项式定理，我们有
 \[ 0 = 0^n = (-1+1)^n = \sum_{k=0}^n \binom{n}{k}(-1)^k1^{n-k} = \sum_{k=0}^n (-1)^k \binom{n}{k} \]
-Both of these identities can be proved much more elegantly, quickly and easily using \textit{enumerative combinatorics}. This will be the topic covered in \Cref{secCountingPrinciples}.
+使用\textit{枚举组合}可以更优雅、更快速、更轻松地证明这两个恒等式。这将是 \Cref{secCountingPrinciples} 中涵盖的主题。
 \end{example}
 
 \begin{exercise}
-Use the binomial theorem to prove that
+利用二项式定理证明
 \[ \sum_{i=0}^n (-1)^i \binom{n}{i} = 0 \]
 \hintlabel{exAlternatingSumOfBinomialCoefficientsIsZero}{%
-Note that $(-1)^i \dbinom{n}{i} = \dbinom{n}{i} \cdot (-1)^i \cdot 1^{n-i}$.
+注意 $(-1)^i \dbinom{n}{i} = \dbinom{n}{i} \cdot (-1)^i \cdot 1^{n-i}$。
 }
 \end{exercise}
 
