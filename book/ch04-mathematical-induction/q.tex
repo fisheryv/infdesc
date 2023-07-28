@@ -1,7 +1,7 @@
 % !TeX root = ../../book.tex
-\subsection*{Recursive definitions}
+\subsection*{递归定义}
 
-In \Crefrange{cqRecursiveDefinitionsOfArithmeticOperationsBegin}{cqRecursiveDefinitionsOfArithmeticOperationsEnd}, use the recursive definitions of addition, multiplication and exponentiation directly to prove the desired equation.
+在 \Crefrange{cqRecursiveDefinitionsOfArithmeticOperationsBegin}{cqRecursiveDefinitionsOfArithmeticOperationsEnd} 中，直接使用加法、乘法和指数的递归定义来证明给出的方程。
 
 \begin{chapex}
 \label{cqRecursiveDefinitionsOfArithmeticOperationsBegin}
@@ -26,180 +26,184 @@ $2^3=8$
 \end{chapex}
 
 \begin{chapex}
-Give a recursive definition of new quantifiers $\exists^{=n}$ for $n \in \mathbb{N}$, where given a set $X$ and a predicate $p(x)$, the logical formula $\exists^{=n} x \in X,~ p(x)$ means `there are exactly $n$ elements $x \in X$ such that $p(x)$ is true'. That is, define $\exists^{=0}$, and then define $\exists^{=n+1}$ in terms of $\exists^{=n}$.
+给出 $n \in \mathbb{N}$ 上新量词 $\exists^{=n}$ 的递归定义，其中给定集合 $X$ 和谓词 $p(x)$，逻辑公式 $\exists^{=n} x \in X,~ p(x)$ 表示`恰好存在 $n$ 个元素 $x \in X$ 使得 $p(x)$ 为真'。即定义 $\exists^{=0}$，然后根据 $\exists^{=n}$ 定义 $\exists^{=n+1}$。
 \hintlabel{cqRecursiveDefinitionOfExistsExactlyNQuantifier}{%
-For example, if there are exactly $3$ elements of $X$ making $p(x)$ true, then that means that there is some $a \in X$ such that $p(a)$ is true, and there are exactly two elements $x \in X$ \textit{other than} $a$ making $p(x)$ true.
+例如，如果 $X$ 中恰好有 $3$ 个元素使得 $p(x)$ 为真，则意味着存在某个 $a \in X$ 使得 $p(a)$ 为真，且除 $a$ 以外还有恰好两个元素 $x \in X$ 使得 $p(x)$ 为真。
 }
 \end{chapex}
 
 \begin{chapex}
-Use the recursive definition of binomial coefficients (\Cref{defBinomialCoefficientRecursive}) to prove directly that $\dbinom{4}{2} = 6$.
+使用二项式系数的递归定义 (\Cref{defBinomialCoefficientRecursive}) 直接证明 $\dbinom{4}{2} = 6$。
 \end{chapex}
 
 \begin{chapex}
 \begin{enumerate}[(a)]
-\item Find the number of trailing $0$s in the decimal expansion of $41!$.
-\item Find the number of trailing $0$s in the binary expansion of $41!$.
+\item 求 $41!$ 的十进制展开中尾数 $0$ 的数量。
+\item 求 $41!$ 的二进制展开中尾数 $0$ 的数量。
 \end{enumerate}
 \hintlabel{cqTrailingZerosInFactorial}{%
-The number of trailing zeros in the base-$b$ expansion of a natural number $n$ is the greatest natural number $r$ such that $b^r$ divides $n$. How many times does $10$ go into $41!$? How many times does $2$ go into $41!$?
+自然数 $n$ 的 base-$b$ 展开中尾数零的数量是使 $b^r$ 整除 $n$ 的最大自然数 $r$。$10$ 出现在 $41!$ 有多少次？ $2$ 出现在 $41!$ 有多少次？
 }
 \end{chapex}
 
 \begin{chapex}
-Let $N$ be a set, let $z \in N$ and let $s : N \to N$. Prove that $(N, z, s)$ is a notion of natural numbers (in the sense of \Cref{defNotionOfNaturalNumbers}) if and only if, for every set $X$, every element $a \in X$ and every function $f : X \to X$, there is a unique function $h : N \to X$ such that $h(z)=a$ and $h \circ f = s \circ h$.
+设 $N$ 为集合，设 $z \in N$ 并设 $s : N \to N$。证明 $(N, z, s)$ 为自然数（在 \Cref{defNotionOfNaturalNumbers} 的意义上）当且仅当，对于每一个集合 $X$，每一个元素 $a \in X$ 和每一个函数 $f : X \to X$，都有一个特定函数 $h : N \to X$ 满足 $h(z)=a$ 且 $h \circ f = s \circ h$。
 \end{chapex}
 
-\subsection*{Proofs by induction}
+\subsection*{用归纳法证明}
 
 \begin{chapex}
 \label{cqNPowerFiveLessThanFivePowerN}
-Find all natural numbers $n$ such that $n^5 < 5^n$.
+找到满足 $n^5 < 5^n$ 的所有自然数 $n$。
 \end{chapex}
 
 \begin{chapex}
-Prove that $(1+x)^{123\;456\;789} \ge 1 + 123\;456\;789\;x$ for all real $x \ge -1$.
+证明对于所有实数 $x \ge -1$, $(1+x)^{123\;456\;789} \ge 1 + 123\;456\;789\;x$。
 \hintlabel{cqBernoullisInequality}{%
-Proving this by induction on $x$ only demonstrates that it is true for \textit{integers} $x \ge -1$, not \textit{real numbers} $x \ge -1$. Try proving a more general fact by induction on a different variable, and deducing this as a special case. (Do you \textit{really} think there is anything special about the natural number $123\;456\;789$?)}
+通过在 $x$ 上应用归纳法来证明这一点仅能证明对于\textit{整数} $x \ge -1$ 成立，而非\textit{实数} $x \ge -1$。尝试通过对不同变量进行归纳来证明更普遍的事实，然后将其作为特殊情况进行推导。（你\textit{真的}认为自然数 $123\;456\;789$ 有什么特别之处吗？）
+}
 \end{chapex}
 
 \begin{chapex}
-Let $a \in \mathbb{N}$ and assume that the last digit in the decimal expansion of $a$ is $6$. Prove that the last digit in the decimal expansion of $a^n$ is $6$ for all $n \ge 1$.
+设 $a \in \mathbb{N}$ 并假设 $a$ 的十进制展开的最后一位数字是 $6$。证明对于所有 $n \ge 1$, $a^n$ 的十进制展开的最优一位数字为 $6$。
 \end{chapex}
 
 \begin{chapex}
-Let $a,b \in \mathbb{R}$, and let $a_0, a_1, a_2, \dots$ be a sequence such that $a_0 = a$, $a_1=b$ and $a_n = \dfrac{a_{n-1} + a_{n+1}}{2}$ for all $n \ge 1$. Prove that $a_n = a + (b-a) n$ for all $n \in \mathbb{N}$.
+设 $a,b \in \mathbb{R}$，并设 $a_0, a_1, a_2, \dots$ 为对于所有 $n \ge 1$ 满足 $a_0 = a$, $a_1=b$ 且 $a_n = \dfrac{a_{n-1} + a_{n+1}}{2}$ 的序列。证明对于所有 $n \in \mathbb{N}$, $a_n = a + (b-a) n$。
 \end{chapex}
 
 \begin{chapex}
-Let $f : \mathbb{R} \to \mathbb{R}$ be a function such that $f(x+y) = f(x) + f(y)$ for all $x,y \in \mathbb{R}$.
+设 $f : \mathbb{R} \to \mathbb{R}$ 为函数，对于所有 $x,y \in \mathbb{R}$ 满足 $f(x+y) = f(x) + f(y)$。
 \begin{enumerate}[(a)]
-\item Prove by induction that there is a real number $a$ such that $f(n) = an$ for all $n \in \mathbb{N}$.
-\item Deduce that $f(n) = an$ for all $n \in \mathbb{Z}$.
-\item Deduce further that $f(x) = ax$ for all $x \in \mathbb{Q}$.
+\item 用归纳法证明对于所有 $n \in \mathbb{N}$ 存在实数 $a$ 使得 $f(n) = an$。
+\item 对于所有 $n \in \mathbb{Z}$ 推导出 $f(n) = an$。
+\item 对于所有 $x \in \mathbb{Q}$ 推导出 $f(x) = ax$。
 \end{enumerate}
 \hintlabel{cqHomomorphismFromRPlusToRPlus}{%
-To find the value of $a$ in part (a), try substituting some small values of $x$ and $y$ into the equation $f(x+y)=f(x)+f(y)$. For part (b), use the fact that $n + (-n) = 0$ for all $n \in \mathbb{N}$. For part (c), consider the number $b f(\frac{a}{b})$ when $a,b \in \mathbb{Z}$ and $b \ne 0$.
+要找到 (a) 中 $a$ 的值，尝试将 $x$ 和 $y$ 的某些小数值代入方程 $f(x+y)=f(x)+f(y)$。
+对于 (b)，使用对于所有 $n \in \mathbb{N}$, $n + (-n) = 0$。
+对于 (c)，考虑 $b f(\frac{a}{b})$ 其中 $a,b \in \mathbb{Z}$ 且 $b \ne 0$。
 }
 \end{chapex}
 
 \begin{chapex}
-Let $f : \mathbb{R} \to \mathbb{R}$ be a function such that $f(0) > 0$ and $f(x+y)=f(x)f(y)$ for all $x,y \in \mathbb{R}$. Prove that there is some positive real number $a$ such that $f(x)=a^x$ for all \textit{rational} numbers $x$..
+设 $f : \mathbb{R} \to \mathbb{R}$ 为函数，对于所有 $x,y \in \mathbb{R}$ 满足 $f(0) > 0$ 且 $f(x+y)=f(x)f(y)$。证明存在某个正实数 $a$ 对于所有\textit{有理}数 $x$ 满足 $f(x)=a^x$。
 \hintlabel{cqHomomorphismFromRPlusToRTimes}{%
-Like in \Cref{cqHomomorphismFromRPlusToRPlus}, prove this first for $x \in \mathbb{N}$ (by induction), then for $x \in \mathbb{Z}$, and finally for $x \in \mathbb{Q}$.
+跟 \Cref{cqHomomorphismFromRPlusToRPlus} 类似，首先证明 $x \in \mathbb{N}$（通过归纳法），然后证明 $x \in \mathbb{Z}$，最后证明 $x \in \mathbb{Q}$。
 }
 \end{chapex}
 
 \begin{chapex}
-Let $a,b \in \mathbb{Z}$. Prove that $b-a$ divides $b^n-a^n$ for all $n \in \mathbb{N}$.
+设 $a,b \in \mathbb{Z}$。证明对于所有 $n \in \mathbb{N}$, $b-a$ 整除 $b^n-a^n$。
 \end{chapex}
 
 \begin{chapex}
-Prove by induction that $7^n - 2 \cdot 4^n + 1$ is divisible by $18$ for all $n \in \mathbb{N}$.
+用归纳法证明对于所有 $n \in \mathbb{N}$, $7^n - 2 \cdot 4^n + 1$ 能被 $18$ 整除。
 \hintlabel{cqInductionEmbeddedInIductionStep}{%
-Observe that $7^{n+1} - 2 \cdot 4^{n+1} + 1 = 4(7^n - 2 \cdot 4^n + 1) + 3(7^n - 1)$ for all $n \in \mathbb{N}$. You may need to do a separate proof by induction in your induction step.
+对于所有 $n \in \mathbb{N}$, $7^{n+1} - 2 \cdot 4^{n+1} + 1 = 4(7^n - 2 \cdot 4^n + 1) + 3(7^n - 1)$。你可能需要在归纳步骤中分别用归纳法证明。
 }
 \end{chapex}
 
-\subsection*{Some examples from calculus}
+\subsection*{微积分中的一些例子}
 
-\Crefrange{cqCalculusBegin}{cqCalculusEnd} assume familiarity with the basic techniques of differential and integral calculus.
+\Crefrange{cqCalculusBegin}{cqCalculusEnd} 假设你熟悉微分和积分的基本技巧。
 
 \begin{chapex}
 \label{cqCalculusBegin}
-Prove that $\dfrac{d^n}{dx^n}(xe^x) = (n+x)e^x$ for all $n \in \mathbb{N}$.
+证明对于所有 $n \in \mathbb{N}$, $\dfrac{d^n}{dx^n}(xe^x) = (n+x)e^x$。
 \end{chapex}
 
 \begin{chapex}
-Find and prove an expression for $\dfrac{d^n}{dx^n}(x^2e^x)$ for all $n \in \mathbb{N}$.
+找到并证明对于所有 $n \in \mathbb{N}$, $\dfrac{d^n}{dx^n}(x^2e^x)$ 的表达式。
 \end{chapex}
 
 \begin{chapex}
-Let $f$ and $g$ be differentiable functions. Prove that
+设 $f$ 和 $g$ 为可微函数。证明对于所有 $n \in \mathbb{N}$,
 \[ \dfrac{d^n}{dx^n}(f(x)g(x)) = \sum_{k=0}^n \dbinom{n}{k} f^{(k)}(x) g^{(n-k)}(x) \]
-for all $n \in \mathbb{N}$, where the notation $h^{(r)}$ denotes the $r^{\text{th}}$ derivative of $h$.
+其中符号 $h^{(r)}$ 表示 $h$ 的 $r^{\text{th}}$ 导数。
 \end{chapex}
 
 \begin{chapex}
-Find and prove an expression for the $n^{\text{th}}$ derivative of $\log(x)$ for all $n \in \mathbb{N}$.
+找到并证明对于所有 $n \in \mathbb{N}$, $\log(x)$ 的 $n^{\text{th}}$ 导数的表达式。
 \end{chapex}
 
 \begin{chapex}
-Prove that $(\cos \theta + i \sin \theta)^n = \cos (n\theta) + i \sin (n\theta)$ for all $\theta \in \mathbb{R}$ and all $n \in \mathbb{N}$.
+证明对于所有 $\theta \in \mathbb{R}$ 和 $n \in \mathbb{N}$, $(\cos \theta + i \sin \theta)^n = \cos (n\theta) + i \sin (n\theta)$。
 \hintlabel{cqDeMoivre}{%
-You will need to use the angle addition formulae
-\[ \sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta ~~\text{and}~~ \cos(\alpha \pm \beta) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta \]
+你需要使用角度加法公式
+\[ \sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta ~~\text{和}~~ \cos(\alpha \pm \beta) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta \]
 }
 \end{chapex}
 
 \begin{chapex}
 \label{cqCalculusEnd}
 \begin{enumerate}[(a)]
-\item Prove that $\displaystyle \int_0^{\frac{\pi}{2}} \sin^{n+2}(x)~dx = \dfrac{n+1}{n+2} \int_0^{\frac{\pi}{2}} \sin^n(x)~dx$ for all $n \in \mathbb{N}$.
-\item Use induction to prove that $\displaystyle \int_0^{\frac{\pi}{2}} \sin^{2n}(x)~dx = \dfrac{\pi}{2^{2n+1}} \dbinom{2n}{n}$ for all $n \in \mathbb{N}$.
-\item Find and prove an expression for $\displaystyle \int_0^{\frac{\pi}{2}} \sin^{2n+1}(x)~dx$ for all $n \in \mathbb{N}$.
+\item 证明对于所有 $n \in \mathbb{N}$, $\displaystyle \int_0^{\frac{\pi}{2}} \sin^{n+2}(x)~dx = \dfrac{n+1}{n+2} \int_0^{\frac{\pi}{2}} \sin^n(x)~dx$。
+\item 用归纳法证明对于所有 $n \in \mathbb{N}$, $\displaystyle \int_0^{\frac{\pi}{2}} \sin^{2n}(x)~dx = \dfrac{\pi}{2^{2n+1}} \dbinom{2n}{n}$。
+\item 找到并证明对于所有 $n \in \mathbb{N}$, $\displaystyle \int_0^{\frac{\pi}{2}} \sin^{2n+1}(x)~dx$ 的表达式。
 \end{enumerate}
 \hintlabel{cqIntegralOfSinToTheN}{%
-For (a) use integration by parts; you do not need induction. For parts (b) and (c), use part (a).
+对于 (a) 分块使用积分；不需要归纳法。
+对于 (b) 和 (c)，使用 (a) 的结论。
 }
 \end{chapex}
 
-\subsection*{True--False questions}
+\subsection*{判断题}
 
 \tfquestiontext{cqInductionTFBegin}{cqInductionTFEnd}
 
 \begin{chapex} % True
 \label{cqInductionTFBegin}
-Every factorial is positive.
+每个阶乘都是正数。
 \end{chapex}
 
 \begin{chapex} % False
-Every binomial coefficient is positive.
+每个二项式系数都是正数。
 \end{chapex}
 
 \begin{chapex} % False
-Every proof by strong induction can be turned into a proof by weak induction by changing only the induction hypothesis.
+每个强归纳法证明都可以通过仅改变归纳假设变成弱归纳法证明。
 \end{chapex}
 
 \begin{chapex} % True
-Every proof by weak induction can be turned into a proof by strong induction by changing only the induction hypothesis.
+每个弱归纳法证明都可以通过仅改变归纳假设变成强归纳法证明。
 \end{chapex}
 
 \begin{chapex} % True
-Given a set $X$, a surjection $f : \mathbb{N} \to X$ and a logical formula $p(x)$ with free variable $x \in X$, if $p(f(0))$ is true and $\forall n \in \mathbb{N},\, (p(f(n)) \Rightarrow p(f(n+1)))$ is true, then $\forall x \in X,\, p(x)$ is true.
+给定集合 $X$，满射 $f : \mathbb{N} \to X$ 和逻辑公式 $p(x)$，其中自由变量 $x \in X$，如果 $p(f(0))$ 为真且 $\forall n \in \mathbb{N},\, (p(f(n)) \Rightarrow p(f(n+1)))$ 为真，则 $\forall x \in X,\, p(x)$ 为真。
 \end{chapex}
 
 \begin{chapex} % False
-Given some logical formula $p(x)$ with free variable $x \in \mathbb{N}$, if for all $x \in \mathbb{N}$ there exists some $y \le x$ such that $p(x)$ is false, then $p(x)$ is false for all $x \in \mathbb{N}$.
+给定某个逻辑表达式 $p(x)$，其中自由变量 $x \in \mathbb{N}$，如果对于所有 $x \in \mathbb{N}$ 存在某个 $y \le x$ 使得 $p(x)$ 为假，则对于所有 $x \in \mathbb{N}$, $p(x)$ 为假。
 \end{chapex}
 
 \begin{chapex} % False
-Every inhabited subset of the set $\mathbb{Q}^{\ge 0}$ of nonnegative rational numbers has a least element. 
+非负有理数集合 $\mathbb{Q}^{\ge 0}$ 的每个非空子集都存在最小元素。 
 \end{chapex}
 
 \begin{chapex} % False
-Every inhabited subset of the set $\mathbb{Z}$ of integers has a least element.
+整数集 $\mathbb{Z}$ 的每个非空子集都存在最小元素。
 \end{chapex}
 
 \begin{chapex} % True
 \label{cqInductionTFEnd}
-Every inhabited subset of the set $\mathbb{Z}^{-}$ of negative integers has a greatest element.
+负整数集合 $\mathbb{Z}^{-}$ 的每个非空子集都存在最大元素。
 \end{chapex}
 
-\subsection*{Always--Sometimes--Never questions}
+\subsection*{可能性问题}
 
 \asnquestiontext{cqInductionASNBegin}{cqInductionASNEnd}
 
 \begin{chapex} % Sometimes
 \label{cqInductionASNBegin}
-Let $n,k,\ell \in \mathbb{Z}$. Then $\dbinom{n}{k+\ell} = \dbinom{n}{k} + \dbinom{n}{\ell}$.
+设 $n,k,\ell \in \mathbb{Z}$。则 $\dbinom{n}{k+\ell} = \dbinom{n}{k} + \dbinom{n}{\ell}$。
 \end{chapex}
 
 \begin{chapex} % Never
-Let $m,n \ge 2$. Then $(m+n)! = m!+n!$.
+设 $m,n \ge 2$。则 $(m+n)! = m!+n!$。
 \end{chapex}
 
 \begin{chapex} % Always
 \label{cqInductionASNEnd}
-Let $p(x)$ be a logical formula with free variable $x \in \mathbb{Z}$, and suppose that $p(0)$ is true and, for all $n \in \mathbb{Z}$, if $p(n)$ is true, then $p(n+1)$ and $p(n-2)$ are true. Then $\forall n \in \mathbb{Z},\, p(n)$ is true.
+设 $p(x)$ 为逻辑表达式，其中自由变量 $x \in \mathbb{Z}$，假设 $p(0)$ 为真，且对于所有 $n \in \mathbb{Z}$，如果 $p(n)$ 为真，则 $p(n+1)$ 和 $p(n-2)$ 为真。则 $\forall n \in \mathbb{Z},\, p(n)$ 为真。
 \end{chapex}
