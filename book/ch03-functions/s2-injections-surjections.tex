@@ -94,9 +94,9 @@
 \begin{exercise}
 判断下列函数是否是单射的。
 \begin{itemize} 
-\item $f : \mathbb{N} \to \mathbb{Z}$, defined by $f(n)=n^2$ for all $n \in \mathbb{N}$.
-\item $g : \mathbb{Z} \to \mathbb{N}$, defined by $g(n)=n^2$ for all $n \in \mathbb{Z}$.
-\item $h : \mathbb{N} \times \mathbb{N} \times \mathbb{N} \to \mathbb{N}$, defined by $h(x,y,z) = 2^x \cdot 3^y \cdot 5^z$ for all $x,y,z \in \mathbb{N}$.
+\item $f : \mathbb{N} \to \mathbb{Z}$，定义为对于所有 $n \in \mathbb{N}$, $f(n)=n^2$。
+\item $g : \mathbb{Z} \to \mathbb{N}$，定义为对于所有 $n \in \mathbb{Z}$, $g(n)=n^2$。
+\item $h : \mathbb{N} \times \mathbb{N} \times \mathbb{N} \to \mathbb{N}$，定义为对于所有 $x,y,z \in \mathbb{N}$, $h(x,y,z) = 2^x \cdot 3^y \cdot 5^z$。
 \end{itemize}
 \end{exercise}
 
@@ -152,10 +152,10 @@
 \begin{exercise}
 对于以下每一个集合对 $(X,Y)$，判断由 $f(x)=2x+1$ 定义的函数 $f : X \to Y$ 是否是满射。
 \begin{enumerate}[(a)]
-\item $X = \mathbb{Z}$ and $Y = \{ x \in \mathbb{Z} \mid x \text{ is odd} \}$;
-\item $X = \mathbb{Z}$ and $Y = \mathbb{Z}$;
-\item $X = \mathbb{Q}$ and $Y = \mathbb{Q}$;
-\item $X = \mathbb{R}$ and $Y = \mathbb{R}$.
+\item $X = \mathbb{Z}$ 且 $Y = \{ x \in \mathbb{Z} \mid x \text{ 为奇数} \}$;
+\item $X = \mathbb{Z}$ 且 $Y = \mathbb{Z}$;
+\item $X = \mathbb{Q}$ 且 $Y = \mathbb{Q}$;
+\item $X = \mathbb{R}$ 且 $Y = \mathbb{R}$.
 \end{enumerate}
 \end{exercise}
 
@@ -207,8 +207,8 @@
 \[ D = \left\{ x \in \mathbb{Q} \ \bigg|\  x = \frac{a}{2^n} \text{ for some } a \in \mathbb{Z} \text{ and } n \in \mathbb{N} \right\} \]
 设 $k \in \mathbb{N}$，并由定义函数 $f : D \to D$ 为 $f(x)=\frac{x}{2^k}$。证明 $f$ 是双射。
 \begin{itemize}
-\item (\textbf{Injectivity}) 给定 $x,y \in D$ 且假设 $f(x)=f(y)$。则 $\frac{x}{2^k}=\frac{y}{2^k}$，因此 $x=y$。
-\item (\textbf{Surjectivity}) 给定 $y \in D$。我们需要找到 $x \in D$ 使得 $f(x)=y$。很明显如果 $2^ky \in D$ 则我们有 \[ f(2^ky)=\frac{2^ky}{2^k}=y \]
+\item (\textbf{单射性}) 给定 $x,y \in D$ 且假设 $f(x)=f(y)$。则 $\frac{x}{2^k}=\frac{y}{2^k}$，因此 $x=y$。
+\item (\textbf{满射性}) 给定 $y \in D$。我们需要找到 $x \in D$ 使得 $f(x)=y$。很明显如果 $2^ky \in D$ 则我们有 \[ f(2^ky)=\frac{2^ky}{2^k}=y \]
 因此只需证明 $2^ky \in D$ 即可。
 %% BEGIN EXTRACT (xtrCasesExample)
 因为 $y \in D$，必有对于某个 $n \in \mathbb{N}$, $y=\frac{a}{2^n}$。
@@ -294,7 +294,7 @@
 \begin{cproof}
 假设 $f$ 是单射的且 $X$ 非空。给定 Fix $x_0 \in X$ --- 请注意，该元素存在是因为 $X$ 非空 --- 并定义 $g : Y \to X$ 为
 \[ g(y) = \begin{cases} x & \text{如果 } y=f(x) \text{ 对于某个 } x \in X \\ x_0 & \text{否则} \end{cases} \]
-$g$ 定义中唯一可能导致其无法明确定义的部分是当 $y=f(x)$ 对于某个 $x \in X$ 时的情况。$g$ 明确良好的原因正是 $f$ 的单射性：如果 $y=f(x)$ 对于某个 $x \in X$，则 $x \in X$ 的值对于 $y = f(x)$ 是唯一的。（事实上​​，如果 $a \in X$ 满足 $y=f(a)$，那么我们通过 $f$ 的单射性可得 $a=x$。）
+$g$ 定义中唯一可能导致其无法明确定义的部分是当 $y=f(x)$ 对于某个 $x \in X$ 时的情况。$g$ 明确良好的原因正是 $f$ 的单射性：如果 $y=f(x)$ 对于某个 $x \in X$，则 $x \in X$ 的值对于 $y = f(x)$ 是唯一的。（事实上，如果 $a \in X$ 满足 $y=f(a)$，那么我们通过 $f$ 的单射性可得 $a=x$。）
 
 所以 $g$ 确实是明确定义的。要证明 $g$ 是 $f$ 的左逆，设 $x \in X$。设 $y = f(x)$，我们看到 $y$ 属于 $g$ 定义中的第一种情况，因此对于值 $a \in X$ 有 $g(f(x)) = g(y) = a$，其中 $y = f(a)$ --- 如上所述，通过 $f$ 的单射性我们有 $a=x$。
 \end{cproof}
