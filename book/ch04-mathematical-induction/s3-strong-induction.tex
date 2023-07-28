@@ -1,72 +1,72 @@
 % !TeX root = ../../book.tex
-\section{Strong induction}
+\section{强归纳法}
 \secbegin{secStrongInduction}
 \index{induction!strong|(}
 
-Consider the following example, which we will attempt to prove by induction.
+考虑下面的例子，我们将尝试用归纳法来证明它。
 
 \begin{example}
 \label{exProofByWeakInductionFail}
-Define a sequence recursively by
-\[ b_0 = 1 \quad \text{and} \quad b_{n+1} = 1 + \sum_{k=0}^n b_k \text{ for all } n \in \mathbb{N} \]
-We will attempt to prove by induction that $b_n = 2^n$ for all $n \in \mathbb{N}$.
+递归地定义一个序列
+\[ b_0 = 1 \quad \text{and} \quad b_{n+1} = 1 + \sum_{k=0}^n b_k \text{ 对于所有 } n \in \mathbb{N} \]
+我们将尝试通过归纳法证明对于所有 $n \in \mathbb{N}$, $b_n = 2^n$。
 
 \begin{itemize}
-\item (\textbf{Base case}) By definition of the sequence we have $b_0=1=2^0$. So far so good.
+\item (\textbf{基本情况}) 根据序列的定义可得 $b_0=1=2^0$。目前为止，一切正常。
 
-\item (\textbf{Induction step}) Fix $n \in \mathbb{N}$, and suppose that $b_n = 2^n$. We need to show that $b_{n+1}=2^{n+1}$.
+\item (\textbf{递归步骤}) 给定 $n \in \mathbb{N}$，并假设 $b_n = 2^n$。我们需要证明 $b_{n+1}=2^{n+1}$。
 
-Well, $b_{n+1} = 1 + \sum_{k=0}^n b_k = {\dots}$ uh oh.
+而 $b_{n+1} = 1 + \sum_{k=0}^n b_k = {\dots}$ 悲剧了。
 \end{itemize}
 
-Here's what went wrong. If we could replace each $b_k$ by $2^k$ in the sum, then we'd be able to complete the proof. However we cannot justify this substitution: our induction hypothesis only gives us information about $b_n$, not about a general term $b_k$ for $k < n$.
+问题出在这里。如果我们可以将求和中的每个 $b_k$ 替换为 $2^k$，那么我们就能完成证明。然而我们不能证明这种替换是合理的：我们的归纳假设只给我们提供了关于 $b_n$ 的信息，而不是关于 $k < n$ 的通用表示 $b_k$。
 \end{example}
 
-The \textit{strong} induction principle looks much like the weak induction principle, except that its induction hypothesis is more powerful. Despite its name, strong induction is no stronger than weak induction; the two principles are equivalent. In fact, we'll prove the strong induction principle \textit{by weak induction}!
+\textit{强}归纳原理与弱归纳原理看起来很像，只是它的归纳假设更强大。尽管名字里带强，但强归纳法并不比弱归纳更强。这两个原理是等效的。事实上，我们将\textit{通过弱归纳法}来证明强归纳法原理！
 
-\begin{theorem}[Strong induction principle]
+\begin{theorem}[强归纳法原理]
 \label{thmStrongInduction}
 \index{induction!on $\mathbb{N}$ (strong)}
 \index{strong induction principle}
-Let $p(n)$ be a logical formula with free variable $n \in \mathbb{N}$ and let $n_0 \in \mathbb{N}$. If
+设 $p(n)$ 为逻辑公式其中 $n \in \mathbb{N}$ 为自由变量，并设  $n_0 \in \mathbb{N}$。如果
 \begin{enumerate}[(i)]
-\item $p(n_0)$ is true; and
-\item For all $n \ge n_0$, if $p(k)$ is true for all $n_0 \le k \le n$, then $p(n+1)$ is true;
+\item $p(n_0)$ 为真；且
+\item 对于所有 $n \ge n_0$，如果 $p(k)$ 对于所有 $n_0 \le k \le n$ 为真，则 $p(n+1)$ 为真；
 \end{enumerate}
-then $p(n)$ is true for all $n \ge n_0$.
+那么对于所有 $n \ge n_0$, $p(n)$ 为真。
 \end{theorem}
 
 \begin{cproof}
-For each $n \ge n_0$, let $q(n)$ be the assertion that $p(k)$ is true for all $n_0 \le k \le n$.
+对于每个 $n \ge n_0$，设 $q(n)$ 为 $p(k)$ 对于所有 $n_0 \le k \le n$ 为真的断言。
 
 %% BEGIN EXTRACT (xtrAssumingImplicationsExample) %%
-Notice that $q(n)$ implies $p(n)$ for all $n \ge n_0$, since given $n \ge n_0$, if $p(k)$ is true for all $n_0 \le k \le n$, then in particular $p(k)$ is true when $k=n$.
+注意 $q(n)$ 意味着对于所有 $n \ge n_0$, $p(n)$，因为给定 $n \ge n_0$，如果 $p(k)$ 对于所有 $n_0 \le k \le n$ 为真，则当 $k=n$ 时 $p(k)$ 为真。
 
-So it suffices to prove $q(n)$ is true for all $n \ge n_0$.
+因此只要证明 $q(n)$ 对于所有 $n \ge n_0$ 都为真即可。
 %% END EXTRACT %%
-We do so by weak induction.
+我们通过弱归纳法来证明这一点。
 
 \begin{itemize}
-\item (\textbf{Base case}) $q(n_0)$ is equivalent to $p(n_0)$, since the only natural number $k$ with $n_0 \le k \le n_0$ is $n_0$ itself; hence $q(n_0)$ is true by condition (i).
+\item (\textbf{基本情况}) $q(n_0)$ 等价于 $p(n_0)$，因为唯一具有 $n_0 \le k \le n_0$ 的自然数 $k$ 就是 $n_0$ 本身；因此 $q(n_0)$ 根据条件 (i) 为真。
 
-\item (\textbf{Induction step}) Let $n \ge n_0$ and suppose $q(n)$ is true. Then $p(k)$ is true for all $n_0 \le k \le n$.
+\item (\textbf{归纳步骤}) 设 $n \ge n_0$ 并假设 $q(n)$ 为真。则 $p(k)$ 对于所有 $n_0 \le k \le n$ 都为真。
 
-We need to prove that $q(n+1)$ is true---that is, that $p(k)$ is true for all $n_0 \le k \le n+1$. But we know $p(k)$ is true for all $n_0 \le k \le n$---this is the induction hypothesis---and then $p(n+1)$ is true by condition (ii). So we have that $p(k)$ is true for all $n_0 \le k \le n+1$ after all.
+我们需要证明 $q(n+1)$ 为真 --- 即 $p(k)$ 对于所有 $n_0 \le k \le n+1$ 为真。我们已知 $p(k)$ 对于所有 $n_0 \le k \le n$ 为真 --- 此为归纳假设 --- 则根据条件 (ii) $p(n+1)$ 为真。因此我们有 $p(k)$ 对于所有 $n_0 \le k \le n+1$ 都为真。
 \end{itemize}
-By induction, $q(n)$ is true for all $n \ge n_0$. Hence $p(n)$ is true for all $n \ge n_0$.
+根据归纳法，$q(n)$ 对于所有 $n \ge n_0$ 为真。因此，$p(n)$ 对于所有 $n \ge n_0$ 都为真。
 \end{cproof}
 
-\begin{strategy}[Proof by strong induction]
+\begin{strategy}[用强归纳法证明]
 \label{strStrongInduction}
 \index{proof!by strong induction}
-In order to prove a proposition of the form $\forall n \ge n_0,\, p(n)$, it suffices to prove that:
+为了证明 $\forall n \ge n_0,\, p(n)$ 形式的命题，只需证明：
 \begin{itemize}
-\item (\textbf{Base case}) $p(n_0)$ is true; and
-\item (\textbf{Induction step}) For all $n \ge n_0$, if $p(k)$ is true for all $n_0 \le k \le n$, then $p(n+1)$ is true.
+\item (\textbf{基本情况}) $p(n_0)$ 为真；
+\item (\textbf{归纳步骤}) 对于所有 $n \ge n_0$，如果 $p(k)$ 对于所有 $n_0 \le k \le n$ 为真，则 $p(n+1)$ 为真。
 \end{itemize}
 \end{strategy}
 
-Like with weak induction, we can illustrate how strong induction works diagrammatically. The induction hypothesis, represented by the large square, now encompasses $p(k)$ for all $n_0 \le k \le n$, where $p(n_0)$ is the base case.
+与弱归纳法一样，我们可以用图表说明强归纳法的工作原理。归纳假设用大方块表示，包含所有 $n_0 \le k \le n$ 下的 $p(k)$，其中 $p(n_0)$ 是基本情况。
 
 \begin{center}
 \begin{tikzpicture}
@@ -81,75 +81,75 @@ Like with weak induction, we can illustrate how strong induction works diagramma
 \end{tikzpicture}
 \end{center}
 
-Observe that the only difference from weak induction is the induction hypothesis.
+可见与弱归纳法的唯一区别在于归纳假设。
 \begin{itemize}
-\item \textbf{Weak induction step:} Fix $n \ge n_0$, \fbox{assume $p(n)$ is true}~, derive $p(n+1)$;
-\item \textbf{Strong induction step:} Fix $n \ge n_0$, \fbox{assume $p(k)$ is true for all $n_0 \le k \le n$}~, derive $p(n+1)$.
+\item \textbf{弱归纳步骤：} 给定 $n \ge n_0$，\fbox{假设 $p(n)$ 为真}~，推导 $p(n+1)$；
+\item \textbf{强归纳步骤：} 给定 $n \ge n_0$，\fbox{假设 $p(k)$ 对于所有 $n_0 \le k \le n$ 为真}~，推导 $p(n+1)$。
 \end{itemize}
 
-We now use strong induction to complete the proof of \Cref{exProofByWeakInductionFail}.
+现在我们用强归纳法来完成\Cref{exProofByWeakInductionFail}的证明。
 
 \begin{example}[\Cref{exProofByWeakInductionFail} revisited]
-Define a sequence recursively by
+递归地定义一个序列
 \[ b_0 = 1 \quad \text{and} \quad b_{n+1} = 1 + \sum_{k=0}^n b_k \text{ for all } n \in \mathbb{N} \]
-We will prove by strong induction that $b_n = 2^n$ for all $n \in \mathbb{N}$.
+我们将通过强归纳法证明，对于所有 $n \in \mathbb{N}$, $b_n = 2^n$。
 
 \begin{itemize}
-\item (\textbf{Base case}) By definition of the sequence we have $b_0=1=2^0$.
-\item (\textbf{Induction step}) Fix $n \in \mathbb{N}$, and suppose that $b_k=2^k$ for all $k \le n$. We need to show that $b_{n+1}=2^{n+1}$. This is true, since
+\item (\textbf{基本情况}) 根据序列的定义可得 $b_0=1=2^0$。
+\item (\textbf{归纳步骤}) 给定 $n \in \mathbb{N}$，并假设对于所有 $k \le n$, $b_k=2^k$。我们需要证明 $b_{n+1}=2^{n+1}$。这是成立的，因为
 \begin{align*}
-b_{n+1} &= 1 + \sum_{k=0}^n b_k && \text{by the recursive formula for $b_{n+1}$} \\
-&= 1 + \sum_{k=0}^n 2^k && \text{by the induction hypothesis} \\
-&= 1 + (2^{n+1}-1) && \text{by \Cref{exSumOfPowersOf2}} \\
+b_{n+1} &= 1 + \sum_{k=0}^n b_k && \text{根据 $b_{n+1}$ 的递归公式} \\
+&= 1 + \sum_{k=0}^n 2^k && \text{根据递归假设} \\
+&= 1 + (2^{n+1}-1) && \text{根据 \Cref{exSumOfPowersOf2}} \\
 &= 2^{n+1}
 \end{align*}
 \end{itemize}
-By induction, it follows that $b_n=2^n$ for all $n \in \mathbb{N}$.
+通过归纳法可得对于所有 $n \in \mathbb{N}$, $b_n=2^n$。
 \end{example}
 
-The following theorem adapts the strong induction principle to proofs where we need to refer to a \textit{fixed} number of previous steps in our induction step.
+以下定理将强归纳原理应用于证明，其中我们需要在归纳步骤中参考\textit{固定}数量的先前步骤。
 
-\begin{theorem}[Strong induction principle {(multiple base cases)}]
+\begin{theorem}[强归纳原理 {(多基本情况)}]
 \label{thmSIPMultipleBaseCases}
-Let $p(n)$ be a logical formula with free variable $n \in \mathbb{N}$ and let $n_0 < n_1 \in \mathbb{N}$. If
+设 $p(n)$ 为逻辑公式，其中 $n \in \mathbb{N}$ 为自由变量，并设 $n_0 < n_1 \in \mathbb{N}$。如果
 \begin{enumerate}[(i)] \vspace{5pt} 
-\item $p(n_0), p(n_0+1), \dots, p(n_1)$ are all true; and
-\item For all $n \ge n_1$, if $p(k)$ is true for all $n_0 \le k \le n$, then $p(n+1)$ is true;
+\item $p(n_0), p(n_0+1), \dots, p(n_1)$ 都为真；且
+\item 对于所有 $n \ge n_1$，如果 $p(k)$ 对于 $n_0 \le k \le n$ 为真，则 $p(n+1)$ 为真；
 \end{enumerate}
 \vspace{5pt}
-then $p(n)$ is true for all $n \ge n_0$.
+那么 $p(n)$ 对于所有 $n \ge n_0$ 为真。
 \end{theorem}
 
 \begin{cproof}
-The fact that $p(n)$ is true for all $n \ge n_0$ follows from strong induction. Indeed:
+$p(n)$ 对于所有 $n \ge n_0$ 都为真可以通过强归纳法得出的：
 \begin{itemize}
-\item (\textbf{Base case}) $p(n_0)$ is true by (i);
-\item (\textbf{Induction step}) Fix $n \ge n_0$ and assume $p(k)$ is true for all $n_0 \le k \le n$. Then:
+\item (\textbf{基本情况}) 由 (i) 可得 $p(n_0)$ 为真；
+\item (\textbf{归纳步骤}) 给定 $n \ge n_0$ 并假设 $p(k)$ 对于所有 $n_0 \le k \le n$为真。则：
 \begin{itemize}
-\item If $n < n_1$, then $n+1 \le n_1$, so that $p(n)$ is true by (i);
-\item If $n \ge n_1$, then $p(n+1)$ is true by (ii).
+\item 如果 $n < n_1$，则 $n+1 \le n_1$，所以根据 (i) $p(n)$ 为真；
+\item 如果 $n \ge n_1$，则根据 (ii) $p(n+1)$ 为真。
 \end{itemize}
-In both cases we see that $p(n+1)$ is true, as required.
+上述两种情况我们都得到 $p(n+1)$ 为真。
 \end{itemize}
-Thus by strong induction, we have that $p(n)$ is true for all $n \ge n_0$.
+因此，根据强归纳法，我们有 $p(n)$ 对于所有 $n \ge n_0$ 都为真。
 \end{cproof}
 
-\begin{strategy}[Proof by strong induction with multiple base cases]
+\begin{strategy}[通过具有多基本情况的强归纳法证明]
 \index{proof!by strong induction with multiple base cases}
-In order to prove a statement of the form $\forall n \ge n_0,\, p(n)$, it suffices to prove that:
+要证明 $\forall n \ge n_0,\, p(n)$ 形式的陈述，只需证明：
 \begin{itemize}
-\item (\textbf{Base cases}) $p(k)$ for all $k \in \{ n_0, n_0+1, \dots, n_1 \}$, where $n_1 > n_0$; and
-\item (\textbf{Induction step}) For all $n \ge n_1$, if $p(k)$ is true for all $n_0 \le k \le n$, then $p(n+1)$ is true.
+\item (\textbf{基本情况}) 对于所有 $k \in \{ n_0, n_0+1, \dots, n_1 \}$, $p(k)$，其中 $n_1 > n_0$；且
+\item (\textbf{归纳步骤}) 对于所有 $n \ge n_1$，如果 $p(k)$ 对于所有 $n_0 \le k \le n$ 为真，那么 $p(n+1)$ 为真。
 \end{itemize}
 \end{strategy}
 
-This kind of strong induction differs from the usual kind in two main ways:
+这种强归纳法与通常的强归纳法有两处不同：
 \begin{itemize}
-\item There are multiple base cases $p(n_0), p(n_0+1), \dots, p(n_1)$, not just one.
-\item The induction step refers to both the least base case $n_0$ and the greatest base case $n_1$: the variable $n$ in the induction step is taken to be greater than or equal to $n_1$, while the induction hypothesis assumes $p(k)$ for all $n_0 \le k \le n$.
+\item 存在多个基本情况 $p(n_0), p(n_0+1), \dots, p(n_1)$，不是只有一个。
+\item 归纳步骤即涉及最小情况 $n_0$ 又涉及最大情况 $n_1$：归纳步骤中的变量 $n$ 被设为大于等于 $n_1$，而归纳假设假设对于所有 $n_0 \le k \le n$, $p(k)$。
 \end{itemize}
 
-The following diagram illustrates how strong induction with multiple base cases works.
+下图展示了多基本情况的强归纳是如何工作的。
 
 \begin{center}
 \begin{tikzpicture}
@@ -165,20 +165,20 @@ The following diagram illustrates how strong induction with multiple base cases 
 \end{tikzpicture}
 \end{center}
 
-Note the difference in quantification of variables in the induction step between regular strong induction and strong induction with multiple base cases:
+请注意常规强归纳法和具有多基本情况的强归纳法之间在归纳步骤中变量量化的差异：
 \begin{itemize}
-\item \textbf{One base case.} Fix $n \ge \boxed{n_0}$ and assume $p(k)$ is true for all $\boxed{n_0} \le k \le n$.
-\item \textbf{Multiple base cases.} Fix $n \ge \boxed{n_1}$ and assume $p(k)$ is true for all $\boxed{n_0} \le k \le n$.
+\item \textbf{单基本情况 } 给定 $n \ge \boxed{n_0}$ 并假设 $p(k)$ 对于所有 $\boxed{n_0} \le k \le n$ 为真。
+\item \textbf{多基本情况 } 给定 $n \ge \boxed{n_1}$ 并假设 $p(k)$ 对于所有 $\boxed{n_0} \le k \le n$ 为真。
 \end{itemize}
 
-Getting the quantification of the variables $n$ and $k$ in the strong induction step is crucial, since the quantification affects what may be assumed about $n$ and $k$.
+在强归纳步骤中变量 $n$ 和 $k$ 的量化至关重要，因为量化会影响对 $n$ 和 $k$ 的假设。
 
-The need for multiple base cases often arises when proving results about recursively defined sequences, where the definition of a general term depends on the values of a fixed number of previous terms.
+当证明有关递归定义的序列的结果时，通常会出现对多基本情况的需求，其中通项的定义取决于固定数量的前项的值。
 
 \begin{example}
-Define the sequence
+定义序列
 \[ a_0 = 0, \quad a_1 = 1, \quad a_n = 3a_{n-1} - 2a_{n-2} \text{ for all } n \ge 2 \]
-We find and prove a general formula for $a_n$ in terms of $n$. Writing out the first few terms in the sequence establishes a pattern that we might attempt to prove:
+找到并证明用 $n$ 表示 $a_n$ 的通项公式。下面给出了序列的前几项，建立了一个我们可以尝试证明的模式：
 \begin{center}
 \begin{tabular}{c|ccccccccc}
 $n$   & $0$ & $1$ & $2$ & $3$ & $4$  & $5$  & $6$  & $7$   & $8$ \\ \hline
@@ -186,138 +186,137 @@ $a_n$ & $0$ & $1$ & $3$ & $7$ & $15$ & $31$ & $63$ & $127$ & $255$
 \end{tabular}
 \end{center}
 
-It appears that $a_n = 2^n - 1$ for all $n \ge 0$. We prove this by strong induction, taking the cases $n=0$ and $n=1$ as our base cases.
+对于所有 $n \ge 0$ 通项公式似乎是 $a_n = 2^n - 1$。我们将 $n=0$ 和 $n=1$ 的情况作为基本情况，通过强归纳法证明这一点。
 
 \begin{itemize}
-\item (\textbf{Base cases}) By definition of the sequence, we have:
+\item (\textbf{基本情况}) 根据序列的定义，可得：
 \begin{itemize}
-\item $a_0 = 0 = 2^0 - 1$; and
+\item $a_0 = 0 = 2^0 - 1$;
 \item $a_1 = 1 = 2^1 - 1$;
 \end{itemize}
-so the claim is true when $n=0$ and $n=1$.
+因此，当 $n=0$ 和 $n=1$ 时，该断言为真。
 
-\item (\textbf{Induction step}) Fix $n \ge 1$ and assume that $a_k = 2^k - 1$ for all $0 \le k \le n$. We need to prove that $a_{n+1} = 2^{n+1} - 1$.
+\item (\textbf{归纳步骤}) 给定 $n \ge 1$ 并假设对于所有 $0 \le k \le n$, $a_k = 2^k - 1$。我们需要证明 $a_{n+1} = 2^{n+1} - 1$。
 
-Well since $n \ge 1$, we have $n+1 \ge 2$, so we can apply the recursive formula to $a_{n+1}$. Thus
+因为 $n \ge 1$，可得 $n+1 \ge 2$，所以我们可以将递归公式应用于 $a_{n+1}$。即
 \begin{align*}
-a_{n+1} &= 3a_n - 2a_{n-1} && \text{by definition of $a_{n+1}$} \\
-&= 3(2^n-1) - 2(2^{n-1}-1) && \text{by induction hypothesis} \\
-&= 3 \cdot 2^n - 3 - 2 \cdot 2^{n-1} + 2 && \text{expanding} \\
-&= 3 \cdot 2^n - 3 - 2^n + 2 && \text{using laws of indices} \\
-&= 2 \cdot 2^n - 1 && \text{simplifying} \\
-&= 2^{n+1} - 1 && \text{using laws of indices}
+a_{n+1} &= 3a_n - 2a_{n-1} && \text{根据 $a_{n+1}$ 的定义} \\
+&= 3(2^n-1) - 2(2^{n-1}-1) && \text{根据递归假设} \\
+&= 3 \cdot 2^n - 3 - 2 \cdot 2^{n-1} + 2 && \text{展开} \\
+&= 3 \cdot 2^n - 3 - 2^n + 2 && \text{指数定律} \\
+&= 2 \cdot 2^n - 1 && \text{化简} \\
+&= 2^{n+1} - 1 && \text{指数定律}
 \end{align*}
 \end{itemize}
-So the result follows by induction.
+最后由归纳法得出结论。
 \end{example}
 
-The following exercises have proofs by strong induction with multiple base cases.
+以下练习通过多基本情况的强归纳法进行证明。
 
 \begin{exercise}
-Define a sequence recursively by $a_0 = 4$, $a_1 = 9$ and $a_n = 5a_{n-1} - 6a_{n-2}$ for all $n \ge 2$. Prove that $a_n = 3 \cdot 2^n + 3^n$ for all $n \in \mathbb{N}$.
+对于所有 $n \ge 2$，递归地定义序列 $a_0 = 4$, $a_1 = 9$ 和 $a_n = 5a_{n-1} - 6a_{n-2}$。证明对于所有 $n \in \mathbb{N}$, $a_n = 3 \cdot 2^n + 3^n$。
 \end{exercise}
 
 \begin{exercise}
-The \textit{Tribonacci sequence} is the sequence $t_0, t_1, t_2, \dots$ defined by
+\textit{Tribonacci 序列}为序列 $t_0, t_1, t_2, \dots$ 定义为
 \[ t_0 = 0, \quad t_1 = 0, \quad t_2 = 1, \quad t_n = t_{n-1} + t_{n-2} + t_{n-3} \text{ for all } n \ge 3 \]
-Prove that $t_n \le 2^{n-3}$ for all $n \ge 3$.
+证明对于所有 $n \ge 3$, $t_n \le 2^{n-3}$。
 \end{exercise}
 
 \begin{exercise}
-The \textit{Frobenius coin problem} asks when a given amount of money can be obtained from coins of given denominations. For example, a value of $7$ dubloons cannot be obtained using only $3$ dubloon and $5$ dubloon coins, but for all $n \ge 8$, a value of $n$ dubloons \textit{can} be obtained using only $3$ dubloon and $5$ dubloon coins. Prove this.
+\textit{Frobenius硬币问题}问的是何时可以从给定面值的硬币中凑出给定数量的货币。例如，仅使用 $3$ 面值和 $5$ 面值的硬币无法获得 $7$ 面值，但对于所有 $n \ge 8$，仅使用 $3$ 面值和 $5$ 面值的硬币是\textit{可以}获得 $n$ 面值的。请证明这一点。
 \hintlabel{exFrobeniusCoinProblem}{%
-Observe that if $n$ dubloons can be obtained using only $3$ and $5$ dubloon coins, then so can $n+3$. See how you might use this fact to exploit strong induction with multiple base cases.
+请注意，如果仅使用 $3$ 面值和 $5$ 面值的硬币即可获得 $n$ 面值，那么 $n+3$ 也可以获得。想一下如何利用这一点引到多基本情况的强归纳法。
 }
 \end{exercise}
 
-\subsection*{Well-ordering principle}
+\subsection*{良序原则}
 
-The underlying reason why we can perform induction and recursion on the natural numbers is because of the way they are ordered. Specifically, the natural numbers satisfy the \textit{well-ordering principle}: if a set of natural numbers has at least one element, then it has a least element. This sets the natural numbers apart from the other number sets; for example, $\mathbb{Z}$ has no least element, since if $a \in \mathbb{Z}$ then $a-1 \in \mathbb{Z}$ and $a-1 < a$.
+我们可以对自然数进行归纳和递归的根本原因是它们的排序方式。具体来说，自然数满足\textit{良序原则}：如果一个自然数集合至少有一个元素，则它有一个最小元素。这将自然数与其他数集区分开来；例如，$\mathbb{Z}$ 就没有最小元素，因为如果 $a \in \mathbb{Z}$ 则 $a-1 \in \mathbb{Z}$ 且 $a-1 < a$。
 
-\begin{theorem}[Well-ordering principle]
+\begin{theorem}[良序原则]
 \label{thmWellOrderingPrinciple}
 \index{well-ordering principle}
-Let $X$ be a set of natural numbers. If $X$ is inhabited, then $X$ has a least element.
+设 $X$ 为自然数集合。如果 $X$ 非空，则 $X$ 有一个最小元素。
 \end{theorem}
 
 \begin{cidea}
-Under the assumption that $X$ is a set of natural numbers, the proposition we want to prove has the form $p \Rightarrow q$. Namely
-\[ X \text{ is inhabited} \quad \Rightarrow \quad X \text{ has a least element} \]
-Assuming $X$ is inhabited doesn't really give us much to work with, so let's try the contrapositive:
-\[ X \text{ has no least element} \quad \Rightarrow \quad X \text{ is empty} \]
-The assumption that $X$ has no least element \textit{does} give us something to work with. Under this assumption we need to deduce that $X$ is empty.
+假设 $X$ 是一个自然数集合，我们要证明的命题具有 $p \Rightarrow q$ 的形式。即
+\[ X \text{ 非空} \quad \Rightarrow \quad X \text{ 有一个最小元素} \]
+假设 $X$ 非空并没有给我们太多帮助，所以让我们尝试一下反证：
+\[ X \text{ 没有最小元素} \quad \Rightarrow \quad X \text{ 为空} \]
+$X$ 没有最小元素的假设确实给了我们一些可用的东西。在这个假设下，我们需要推导出 $X$ 是空的。
 
-We will do this by `forcing $X$ up' by strong induction. Certainly $0 \not \in X$, otherwise it would be the least element. If none of the numbers $0, 1, \dots, n$ are elements of $X$ then neither can $n+1$ be, since if it were then \textit{it} would be the least element of $X$. Let's make this argument formal.
+我们将利用强归纳法`逼迫 $X$ 增大'来做到这一点。当然 $0 \not \in X$，否则它就是最小元素。如果数字 $0, 1, \dots, n$ 都不是 $X$ 的元素，那么 $n+1$ 也不能是，因为如果是，那么\textit{它}将是 $X$ 的最小元素。让我们把这个论点正式化。
 \end{cidea}
 
 \begin{cproof}
-Let $X$ be a set of natural numbers containing no least element. We prove by strong induction that $n \not \in X$ for all $n \in \mathbb{N}$.
-
+设 $X$ 为一个没有最小元素的自然数集合。我们用强归纳法证明对于所有 $n \in \mathbb{N}$, $n \not \in X$。
 \begin{itemize}
-\item (\textbf{Base case}) $0 \not \in X$ since if $0 \in X$ then $0$ must be the least element of $X$, as it is the least natural number.
-\item (\textbf{Induction step}) Suppose $k \not \in X$ for all $0 \le k \le n$. If $n+1 \in X$ then $n+1$ is the least element of $X$; indeed, if $\ell < n+1$ then $0 \le \ell \le n$, so $\ell \not \in X$ by the induction hypothesis. This contradicts the assumption that $X$ has no least element, so $n+1 \not \in X$.
+\item (\textbf{基本情况}) $0 \not \in X$ 因为如果 $0 \in X$ 则 $0$ 必然是 $X$ 的最小元素，因为 0 是最小的自然数。
+\item (\textbf{归纳步骤}) 假设对于所有 $0 \le k \le n$, $k \not \in X$。如果 $n+1 \in X$ 则 $n+1$ 为 $X$ 的最小元素；实际上，如果 $\ell < n+1$ 则 $0 \le \ell \le n$，所以根据递归假设 $\ell \not \in X$。这与 $X$ 没有最小元素的假设相矛盾，因此 $n+1 \not \in X$。
 \end{itemize}
-By strong induction, $n \not \in X$ for each $n \in \mathbb{N}$. Since $X$ is a set of natural numbers, and it contains no natural numbers, it follows that $X$ is empty.
+根据强归纳法，对于每个 $n \in \mathbb{N}$, $n \not \in X$。因为 $X$ 是一个自然数集合，并且它不包含自然数，因此 $X$ 为空集。
 \end{cproof}
 
-The following proof that $\sqrt{2}$ is irrational is a classic application of the well-ordering principle.
+下面证明 $\sqrt{2}$ 是无理数的证明是良序原理的经典应用。
 
 \begin{proposition}
 \label{propSqrt2Irrational}
-The number $\sqrt{2}$ is irrational.
+$\sqrt{2}$ 为无理数。
 \end{proposition}
 
-To prove \Cref{propSqrt2Irrational} we will use the following lemma, which uses the well-ordering principle to prove that fractions can be `cancelled to lowest terms'.
+要证明 \Cref{propSqrt2Irrational} 我们需要使用如下引理，其利用良序原理证明分数可以`消去最低项'。
 
 \begin{lemma}
 \label{lemFractionInLowestTerms}
-Let $q$ be a positive rational number. There is a pair of nonzero natural numbers $a,b$ such that $q=\frac{a}{b}$ and such that the only natural number which divides both $a$ and $b$ is $1$.
+设 $q$ 为正有理数。存在一对非零自然数 $a,b$ 满足 $q=\frac{a}{b}$ 并且能够整除 $a$ 和 $b$ 的唯一自然数是 $1$。
 \end{lemma}
 
 \begin{cproof}
-First note that we can express $q$ as the ratio of two nonzero natural numbers, since $q$ is a positive rational number. By the well-ordering principle, there is a \textit{least} natural number $a$ such that $q=\frac{a}{b}$ for some positive $b \in \mathbb{N}$.
+首先请注意，我们可以将 $q$ 表示为两个非零自然数的比，因为 $q$ 是一个正有理数。根据良序原则，存在一个\textit{最小}自然数 $a$，使得对于某正 $b \in \mathbb{N}$, $q=\frac{a}{b}$。
 
-Suppose that some natural number $d$ other than $1$ divides both $a$ and $b$. Note that $d \ne 0$, since if $d=0$ then that would imply $a=0$. Since $d \ne 1$, it follows that $d \ge 2$.
+假设 $d$ 为除 $1$ 之外的某自然数，可以整除 $a$ 和 $b$。请注意 $d \ne 0$，因为如果 $d=0$ 则意味着 $a=0$。由于$d \ne 1$，因此 $d \ge 2$。
 
-Since $d$ divides $a$ and $b$, there exist natural numbers $a',b'$ such that $a=a'd$ and $b=b'd$. Moreover, $a',b'>0$ since $a,b,d > 0$. It follows that
+因为 $d$ 整除 $a$ 和 $b$，则存在自然数 $a',b'$ 满足 $a=a'd$ 且 $b=b'd$。此外，$a',b'>0$ 因为 $a,b,d > 0$。可得
 \[ q = \frac{a}{b} = \frac{a'd}{b'd} = \frac{a'}{b'} \]
-But $d \ge 2$, and hence
+而 $d \ge 2$，因此
 \[ a' = \frac{a}{d} \le \frac{a}{2} < a \]
-contradicting minimality of $a$. Hence our assumption that some natural number $d$ other than $1$ divides both $a$ and $b$ was false---it follows that the only natural number dividing both $a$ and $b$ is $1$.
+这与 $a$ 的最小性相矛盾。因此，我们假设除 $1$ 之外还存在某个自然数 $d$ 可以整除 $a$ 和 $b$ 是错误的 --- 因此，唯一可以整除 $a$ 和 $b$ 的自然数是 $1$。
 \end{cproof}
 
-We are now ready to prove that $\sqrt{2}$ is irrational.
+现在我们可以开始证明 $\sqrt{2}$ 为无理数了。
 
 \begin{cproof}[of \Cref{propSqrt2Irrational}]
-Suppose $\sqrt{2}$ is rational. Since $\sqrt{2}>0$, this means that we can write
+假设 $\sqrt{2}$ 为有理数。因为 $\sqrt{2}>0$，这意味着可以写成
 \[ \sqrt{2} = \frac{a}{b} \]
-where $a$ and $b$ are both positive natural numbers. By \Cref{lemFractionInLowestTerms}, we may assume that the only natural number dividing $a$ and $b$ is $1$.
+其中 $a$ 和 $b$ 都是正自然数。根据\Cref{lemFractionInLowestTerms}，我们可以假设唯一能整除 $a$ 和 $b$ 的自然数为 $1$。
 
-Multiplying the equation $\sqrt{2} = \frac{a}{b}$ and squaring yields
+将方程两边平方并变成乘法得
 \[ a^2=2b^2 \]
-Hence $a^2$ is even. By \Cref{propIfProductEvenThenSomeFactorEven}, $a$ is even, so we can write $a=2c$ for some $c > 0$. Then $a^2=(2c)^2=4c^2$, and hence
+因为 $a^2$ 为偶数。根据\Cref{propIfProductEvenThenSomeFactorEven}，$a$ 为偶数，所以可以写成 $a=2c$ 其中 $c > 0$。 那么 $a^2=(2c)^2=4c^2$，因此
 \[ 4c^2=2b^2 \]
-Dividing by $2$ yields
+两边除以 $2$ 得
 \[ 2c^2 = b^2 \]
-and hence $b^2$ is even. By \Cref{propIfProductEvenThenSomeFactorEven} again, $b$ is even.
+因此 $b^2$ 为偶数。根据\Cref{propIfProductEvenThenSomeFactorEven}, $b$ 为偶数。
 
-But if $a$ and $b$ are both even, the natural number $2$ divides both $a$ and $b$. This contradicts the fact that the only natural number dividing both $a$ and $b$ is $1$. Hence our assumption that $\sqrt{2}$ is rational is incorrect, and $\sqrt{2}$ is irrational.
+然而如果 $a$ 和 $b$ 都为偶数，自然数 $2$ 可以整除 $a$ 和 $b$。这与只有唯一自然数 $1$ 可以整除 $a$ 和 $b$ 矛盾。因此假设中 $\sqrt{2}$ 为有理数错误，$\sqrt{2}$ 为无理数。
 \end{cproof}
 
 \begin{writingtip}
-In the proof of \Cref{propSqrt2Irrational} we could have separately proved that $a^2$ being even implies $a$ is even, and that $b^2$ being even implies $b$ is even. This would have required us to repeat the same proof twice, which is somewhat tedious! Proving auxiliary results separately (as in \Cref{lemFractionInLowestTerms}) and then quoting them in later theorems can improve the readability of the main proof, particularly when the auxiliary results are particularly technical. Doing so also helps emphasise the important steps.
+在 \Cref{propSqrt2Irrational} 的证明中，我们可以分别证明 $a^2$ 为偶数意味着 $a$ 是偶数，并且 $b^2$ 为偶数意味着 $b$ 是偶数。这需要我们重复两次相同的证明，有点繁琐且乏味！单独证明辅助结论（如\Cref{lemFractionInLowestTerms}），然后在后面的定理中引用它们可以提高核心证明的可读性，还有助于强调重要步骤，特别是当辅助结论特别技术性时。
 \end{writingtip}
 
 \begin{exercise}
-What goes wrong in the proof of \Cref{propSqrt2Irrational} if we try instead to prove that $\sqrt{4}$ is irrational?
+如果我们尝试证明 $\sqrt{4}$ 是无理数，那么 \Cref{propSqrt2Irrational} 的证明会出现什么问题？
 \end{exercise}
 
 \begin{exercise}
 \label{exSquareRootThreeIsIrrational}
-Prove that $\sqrt{3}$ is irrational.
+证明 $\sqrt{3}$ 为无理数。
 \begin{backhint}
 \hintref{exSquareRootThreeIsIrrational}
-Prove first that if $a \in \mathbb{Z}$ and $a^2$ is divisible by $3$, then $a$ is divisible by $3$.
+首先证明如果 $a \in \mathbb{Z}$ 且 $a^2$ 能被$3$ 整除，那么 $a$ 能被 $3$ 整除。
 \end{backhint}
 \end{exercise}
 
