@@ -1,367 +1,363 @@
 % !TeX root = ../../book.tex
-\section{Finite sets}
+\section{有限集}
 \secbegin{secFiniteSets}
 
-As its title suggests, this section is all about exploring the properties of finite sets, and to do this we must first define what we mean by `finite'. We certainly know a finite set when we see one---for example:
+正如标题所示，本节主要探索有关有限集的属性，为此我们必须首先定义`有限'的含义。当我们看到一个有限集时，我们当然知道它是有限的 --- 例如：
 \begin{itemize}
-\item The set $\{ \text{red}, \text{orange}, \text{yellow}, \text{green}, \text{blue}, \text{purple} \}$ is finite.
-\item The set $[0,1]$ is infinite, but it has finite length.
-\item The set $[0,\infty)$ is infinite and has infinite length.
-\item The set $\mathcal{P}(\mathbb{N})$ is infinite, but has no notion of `length' to speak of.
-\item The empty set $\varnothing$ is finite.
+\item 集合 $\{ \text{红色}, \text{橙色}, \text{黄色}, \text{绿色}, \text{蓝色}, \text{紫色} \}$ 是有限的。
+\item 集合 $[0,1]$ 无限的，但它有有限的长度。
+\item 集合 $[0,\infty)$ 是无限的并具有无限的长度。
+\item 集合 $\mathcal{P}(\mathbb{N})$ 是无限的，但没有所谓`长度'的概念。
+\item 空集 $\varnothing$ 是有限的。
 \end{itemize}
 
-If we are to make a definition of `finite set', we must first figure out what the finite sets above have in common but the infinite sets do not.
+如果我们要给`有限集'下个定义，我们必须首先弄清楚上面的有限集有什么共同点而无限集却没有。
 
-It is difficult to define `finite' without being imprecise. A first attempt at a definition might be something like the following:
+很难不精确地定义`有限'。首次尝试定义可能类似于以下内容：
 \begin{center}
-\textit{A set $X$ is finite if the elements of $X$ don't go on forever.}
+\textit{如果集合 $X$ 中的元素不能永远持续下去，则说集合 $X$ 是有限的。}
 \end{center}
-This is good intuition, but isn't good enough as a mathematical definition, because `go on' and `forever' are not precise terms (unless they themselves are defined). So let's try to make this more precise:
+这是很好的直觉，但作为数学定义还不够好，因为`持续'和`永远'不是精确的术语（除非它们本身被定义）。因此，让我们尝试使其更加精确：
 \begin{center}
-\textit{A set $X$ is finite if the elements of $X$ can be listed one by one\\
-in such a way that the list has both a start and an end.}
+\textit{如果集合 $X$ 中的元素能够逐一列出，由头有尾，则说集合 $X$ 是有限的。}
 \end{center}
-This is better but is still not entirely precise---it is not entirely clear what is meant by `listed one by one'. But we can make this precise: to list the elements of $X$ one-by-one means that we are specifying a `first element', a `second element', a `third element', and so on. To say that this list has an end means that we eventually reach the `$n^{\text{th}}$ element', for some $n \in \mathbb{N}$, and there is no `$(n+1)^{\text{st}}$ element'. In other words, for some natural number $n$, we are pairing up the elements of $X$ with the natural numbers from $1$ to $n$.
+这个定义要好一些，但仍然不完全精确 --- `逐一列出'的定义并不完全清除。但我们可以精确地说：逐一列出 $X$ 的元素意味着我们指定`第一个元素'、`第二个元素'、`第三个元素'，依此类推。说这个列表有一个终点意味着我们最终到达`第 $n$ 个元素'，并且对于某个 $n \in \mathbb{N}$，不存在 `第 $(n +1) $ 个元素'。换句话说，对于某个自然数 $n$，我们将 $X$ 的元素与从 $1$ 到 $n$ 的自然数配对。
 
-Recall that, for each $n \in \mathbb{N}$, the set of natural numbers from $1$ up to $n$ has its own notation:
+回想一下，对于每个 $n \in \mathbb{N}$，从 $1$ 到 $n$ 的自然数集都有自己的符号：
 
 \RSdefBracketN*
 
-Since `pairing up' really means `finding a bijection', we are now ready to define what it means for a set to be finite.
+由于`配对'实际上意味着`找到双射'，我们现在可以定义有限集的含义了。
 
 \begin{definition}
 \label{defFiniteSet}
 \index{finite set}
 \index{infinite set}
 \index{enumeration!of a finite set}
-A set $X$ is \textbf{finite} if there exists a bijection $f : [n] \to X$ for some $n \in \mathbb{N}$. The function $f$ is called an \textbf{enumeration} of $X$. If $X$ is not finite we say it is \textbf{infinite}.
+如果对于某个 $n \in \mathbb{N}$ 存在双射 $f : [n] \to X$，则说集合 $X$ 是\textbf{有限的}。函数 $f$ 被称为 $X$ 的\textbf{枚举}。如果 $X$ 不是有限的，则说它是\textbf{无限的}。
 \end{definition}
 
-This definition suggests the following strategy for proving that a set is finite.
+这个定义给出了以下证明集合有限的策略。
 
-\begin{strategy}[Proving that a set is finite]
-In order to prove that a set $X$ is finite, it suffices to find a bijection $[n] \to X$ for some $n \in \mathbb{N}$.
+\begin{strategy}[证明一个集合是有限集]
+为了证明集合 $X$ 是有限的，只需对于某个 $n \in \mathbb{N}$ 找到双射 $[n] \to X$ 即可。
 \end{strategy}
 
 \begin{example}
 \label{exSomeFiniteSets}
-Let $X = \{ \text{red}, \text{orange}, \text{yellow}, \text{green}, \text{blue}, \text{purple} \}$. We said above that $X$ is finite; now we can prove it. Define $f : [6] \to X$ by
+设 $X = \{ \text{红色}, \text{橙色}, \text{黄色}, \text{绿色}, \text{蓝色}, \text{紫色} \}$。上文中我们指出 $X$ 是有限的；现在我们来证明它。定义 $f : [6] \to X$ 使得
 \[ \begin{matrix}
-f(1) = \text{red} & f(2) = \text{orange} & f(3) = \text{yellow} \\
-f(4) = \text{green} & f(5) = \text{blue} & f(6) = \text{purple}
+f(1) = \text{红色} & f(2) = \text{橙色} & f(3) = \text{黄色} \\
+f(4) = \text{绿色} & f(5) = \text{蓝色} & f(6) = \text{紫色}
 \end{matrix} \]
-The function $f$ is evidently a bijection, since each element of $X$ can be expressed uniquely as $f(k)$ for some $k \in [6]$. So $X$ is finite.
+函数 $f$ 显然是一个双射，因为对于某个 $k \in [6]$, $X$ 的每个元素都可以唯一地表示为 $f(k)$。所以$X$是有限的。
 \end{example}
 
 \begin{exercise}
 \label{exBracketNIsFinite}
-Prove that $[n]$ is finite for each $n \in \mathbb{N}$.
+证明对于每个 $n \in \mathbb{N}$, $[n]$ 是有限的。
 \end{exercise}
 
-Note that \Cref{exBracketNIsFinite} implies, in particular, that $\varnothing$ is finite, since $\varnothing = [0]$.
+请注意，\Cref{exBracketNIsFinite} 特别指出 $\varnothing$ 是有限的，因为 $\varnothing = [0]$。
 
-\subsection*{The size of a finite set}
+\subsection*{有限集的大小}
 
-Whilst it might sometimes be useful just to know \textit{that} set is finite, it will be even more useful to know how many elements it has. This quantity is called the \textit{size} of the set. Intuitively, the size of the set should be the length of the list of its elements, but for this to be well-defined, we first need to know that the number of elements in the list is independent of the way we choose to list them.
+有时仅仅知道集合是有限的会很有用，但知道它有多少个元素会更有用。这个数量称为集合的\textit{大小}。直观上，集合的大小应该是其元素列表的长度，但为了明确这一点，我们首先需要知道列表中元素的数量与我们选择列出它们的方式无关。
 
-The `list of elements' of a finite set $X$ is the bijection $[n] \to X$ given by \Cref{defFiniteSet}, and $n$ is the length of the list, this means that we need to prove that if $[m] \to X$ and $[n] \to X$ are bijections, then $m=n$. This will be \Cref{thmUniquenessOfSize}.
+有限集 $X$ 的`元素列表'是 \Cref{defFiniteSet} 给出的双射 $[n] \to X$，并且 $n$ 是列表的长度，这意味着我们需要证明如果 $[m] \to X$ 和 $[n] \to X$ 是双射，则 $m=n$。这就是 \Cref{thmUniquenessOfSize}。
 
-To be able to prove this, we must first prove some technical results involving functions that we will use in the proof.
+为了证明这一点，我们必须首先证明一些在证明中会用到的涉及函数的结论。
 
 \begin{lemma}
 \label{lemRemoveElementFromDomainAndCodomain}
-Let $X$ and $Y$ be sets, let $f : X \to Y$ be an injection and let $a \in X$. Then there is an injection $f^{\vee} : X \setminus \{ a \} \to Y \setminus \{ f(a) \}$ defined by $f^{\vee}(x) = f(x)$ for all $x \in X \setminus \{ a \}$. Moreover if $f$ is a bijection $X \to Y$, then $f^{\vee}$ is a bijection $X \setminus \{ a \} \to Y \setminus \{ f(a) \}$.
+设 $X$ 和 $Y$ 为集合，设 $f : X \to Y$ 为单射并设 $a \in X$。则对于所有 $x \in X \setminus \{ a \}$ 存在由 $f^{\vee}(x) = f(x)$ 定义的单射 $f^{\vee} : X \setminus \{ a \} \to Y \setminus \{ f(a) \}$。此外，如果 $f$ 为双射 $X \to Y$，则 $f^{\vee}$ 为双射 $X \setminus \{ a \} \to Y \setminus \{ f(a) \}$。
 \end{lemma}
 
 \begin{cproof}
-Note that $f^{\vee}$ is well-defined by injectivity of $f$: indeed, if we had $f(x) = f(a)$ for some $x \in X \setminus \{ a \}$, then that would imply $x=a \in X \setminus \{ a \}$, which is a contradiction.
+注意由于 $f$ 的单射性，$f^{\vee}$ 是明确定义的：事实上，如果对某个 $x \in X \setminus \{ a \}$ 我们有 $f(x) = f(a)$，那么这意味着 $x=a \in X \setminus \{ a \} $，这是一个矛盾。
 
-To see that $f^{\vee}$ is injective, let $x,y \in X \setminus \{ a \}$ and $f^{\vee}(x) = f^{\vee}(y)$. Then $f(x) = f(y)$, so that $x=y$ by injectivity of $f$.
+要证明 $f^{\vee}$ 为单射，设 $x,y \in X \setminus \{ a \}$ 且 $f^{\vee}(x) = f^{\vee}(y)$。则 $f(x) = f(y)$, 所以根据 $f$ 的单射性可得 $x=y$。
 
-Now suppose that $f$ is a bijection. Then $f$ has an inverse $g : Y \to X$, which is itself a bijection (and hence an injection). Repeating the above argument with $g$ yields an injection $g^{\vee} : Y \setminus \{ f(a) \} \to X \setminus \{ a \}$ defined by $g^{\vee}(y) = g(y)$ for all $y \in Y$. But then for all $x \in X \setminus \{ a \}$ and all $y \in Y \setminus \{ f(a) \}$ we have
+现在假设 $f$ 为双射。则 $f$ 具有逆 $g : Y \to X$，其本身也是一个双射（因此也是一个单射）。对于所有 $y \in Y$，对 $g$ 重复上面的论证得到一个由 $g^{\vee}(y) = g(y)$ 定义的单射 $g^{\vee} : Y \setminus \{ f(a) \} \to X \setminus \{ a \}$。那么对于所有 $x \in X \setminus \{ a \}$ 和所有 $y \in Y \setminus \{ f(a) \}$ 我们有
 \[ g^{\vee}(f^{\vee}(x)) = g(f(x)) = x \quad \text{and} \quad f^{\vee}(g^{\vee}(y)) = f(g(y)) \]
-so that $g^{\vee}$ is an inverse for $f^{\vee}$. Hence if $f$ is a bijection, then $f^{\vee}$ is a bijection.
+所以 $g^{\vee}$ 是 $f^{\vee}$ 的逆。因此如果 $f$ 为双射，则 $f^{\vee}$ 也为双射。
 \end{cproof}
 
-A consequence of \Cref{lemRemoveElementFromDomainAndCodomain} is the next useful result, which we will use in our proof that every set has a unique `size'.
+\Cref{lemRemoveElementFromDomainAndCodomain} 带来了下一个有用的结论，我们将在证明每个集合都有唯一的`大小'时使用它。
 
 \begin{lemma}
 \label{lemRemoveElementFromSet}
-Let $X$ be an inhabited set. There is a bijection $X \setminus \{ a \} \to X \setminus \{ b \}$ for all $a, b \in X$.
+设 $X$ 为非空集合。对于所有 $a, b \in X$ 存在双射 $X \setminus \{ a \} \to X \setminus \{ b \}$。
 \end{lemma}
 
 \begin{cproof}
-Define $f : X \to X$ be the function that swaps $a$ and $b$ and leaves all other elements of $X$ fixed---that is, we define
-\[ f(x) = \begin{cases} b & \text{if } x = a \\ a & \text{if } x = b \\ x & \text{if } x \not\in \{ a, b \} \end{cases} \]
-Note that $f(f(x)) = x$ for all $x \in X$, so $f$ is a bijection---it is its own inverse! Since $f(a) = b$, it follows from \Cref{lemRemoveElementFromDomainAndCodomain} that the function $f^{\vee} : X \setminus \{ a \} \to X \setminus \{ b \}$ defined by $f^{\vee}(x) = f(x)$ for all $x \in X \setminus \{ a \}$ is a bijection, as required.
+定义 $f : X \to X$ 为函数，交换 $a$ 和 $b$ 并保持 $X$ 的所有其他元素不变 --- 也就是说，我们定义
+\[ f(x) = \begin{cases} b & \text{如果 } x = a \\ a & \text{如果 } x = b \\ x & \text{如果 } x \not\in \{ a, b \} \end{cases} \]
+注意，对于所有 $x \in X$, $f(f(x)) = x$，所以 $f$ 是一个双射 --- 它有自己的逆！因为 $f(a) = b$，根据 \Cref{lemRemoveElementFromDomainAndCodomain} 可得对于所有 $x \in X \setminus \{ a \}$ 由 $f^{\vee}(x) = f(x)$ 定义的函数 $f^{\vee} : X \setminus \{ a \} \to X \setminus \{ b \}$ 是一个双射。
 \end{cproof}
 
 \begin{theorem}
 \label{thmJectionsAndSizeOfNaturalNumbers}
-Let $m,n \in \mathbb{N}$.
+设 $m,n \in \mathbb{N}$。
 \begin{enumerate}[(a)]
-\item If there exists an injection $f : [m] \to [n]$, then $m \le n$.
-\item If there exists a surjection $g : [m] \to [n]$, then $m \ge n$.
-\item If there exists a bijection $h : [m] \to [n]$, then $m=n$.
+\item 如果存在单射 $f : [m] \to [n]$，则 $m \le n$。
+\item 如果存在满射 $g : [m] \to [n]$，则 $m \ge n$。
+\item 如果存在双射 $h : [m] \to [n]$，则 $m=n$。
 \end{enumerate}
 \end{theorem}
 
 \begin{cproof}[of (a)]
-For fixed $m \in \mathbb{N}$, let $p(m)$ be the assertion that, for all $n \in \mathbb{N}$, if there exists an injection $[m] \to [n]$, then $m \le n$. We prove that $p(m)$ is true for all $m \in \mathbb{N}$ by induction.
+对于给定 $m \in \mathbb{N}$，设 $p(m)$ 为断言，对于所有 $n \in \mathbb{N}$，如果存在单射 $[m] \to [n]$，则 $m \le n$。我们用归纳法证明对于所有 $m \in \mathbb{N}$,  $p(m)$ 都为真。
 
 \begin{itemize}
-\item (\textbf{Base case}) We need to prove that, for all $n \in \mathbb{N}$ if there exists an injection $[0] \to [n]$, then $0 \le n$. This is automatically true, since $0 \le n$ for all $n \in \mathbb{N}$.
-\item (\textbf{Induction step}) Fix $m \in \mathbb{N}$ and suppose that, for all $n \in \mathbb{N}$, if there exists an injection $[m] \to [n]$, then $m \le n$.
+\item (\textbf{基本情况}) 我们需要证明，对于所有 $n \in \mathbb{N}$ 如果存在单射 $[0] \to [n]$，则 $0 \le n$。 这显然成立，因为对于所有 $n \in \mathbb{N}$, $0 \le n$。
+\item (\textbf{归纳步骤}) 给定 $m \in \mathbb{N}$ 并假设对于所有 $n \in \mathbb{N}$，如果存在单射 $[m] \to [n]$，则 $m \le n$。
 
-Now let $n \in \mathbb{N}$ and suppose that there is an injection $f : [m+1] \to [n]$. We need to prove that $m+1 \le n$.
+设 $n \in \mathbb{N}$ 并假设存在单射 $f : [m+1] \to [n]$。我们需要证明 $m+1 \le n$。
 
-First note that $n \ge 1$. Indeed, since $m+1 \ge 1$, we have $1 \in [m+1]$, and so $f(1) \in [n]$. This means that $[n]$ is inhabited, and so $n \ge 1$. In particular, $n-1 \in \mathbb{N}$ and so the set $[n-1]$ is well-defined. It suffices to prove that $m \le n-1$.
+首先注意 $n \ge 1$。事实上，因为 $m+1 \ge 1$，我们有 $1 \in [m+1]$，所以 $f(1) \in [n]$。这意味着 $[n]$ 非空，所以 $n \ge 1$。特别地，$n-1 \in \mathbb{N}$ 所以集合 $[n-1]$ 是明确定义的。只需证明 $m \le n-1$ 即可。
 
-Let $a = f(m+1) \in [n]$. Then:
+设 $a = f(m+1) \in [n]$。则：
 \begin{itemize}
-\item By \Cref{lemRemoveElementFromDomainAndCodomain} there is an injection $f^{\vee} : [m] = [m+1] \setminus \{ m+1 \} \to [n] \setminus \{ a \}$.
-\item By \Cref{lemRemoveElementFromSet} there is a bijection $g : [n] \setminus \{ a \} \to [n] \setminus \{ n \} = [n-1]$.
+\item 根据 \Cref{lemRemoveElementFromDomainAndCodomain}，存在单射 $f^{\vee} : [m] = [m+1] \setminus \{ m+1 \} \to [n] \setminus \{ a \}$。
+\item 根据 \Cref{lemRemoveElementFromSet} 存在双射 $g : [n] \setminus \{ a \} \to [n] \setminus \{ n \} = [n-1]$。
 \end{itemize}
 
-Composing these two functions gives an injection $g \circ f^{\vee} : [m] \to [n-1]$. But then $m \le n-1$ by the induction hypothesis, and so $m+1 \le n$ as required.
+组合这两个函数可得单射 $g \circ f^{\vee} : [m] \to [n-1]$。根据归纳假设有 $m \le n-1$，所以 $m+1 \le n$。
 \end{itemize}
-The result now follows by induction.
+由归纳法可得出结论。
 \end{cproof}
 
 \begin{exercise}
-Prove parts (b) and (c) of \Cref{thmJectionsAndSizeOfNaturalNumbers}.
+证明 \Cref{thmJectionsAndSizeOfNaturalNumbers} 的 (b) 和 (c) 结论。
 \hintlabel{exFinishProofOfJectionsAndSizeOfNaturalNumbers}{%
-Part (b) has a proof by induction that looks much like the one in part (a). In the induction step, given a surjection $g : [m+1] \to [n]$, observe that we must have $n \ge 1$, and construct a surjection $g^- : [m+1] \setminus \{ a \} \to [n-1]$ for some suitable $a \in [m+1]$. Then invoke \Cref{lemRemoveElementFromSet}, now using the fact that $[m] = [m+1] \setminus \{m+1\}$.
+(b) 可以通过与 (a) 非常类似的的归纳法证明。在归纳步骤中，给定一个满射 $g : [m+1] \to [n]$，必有 $n \ge 1$，对于某个合适的 $a \in [m+1]$，构造一个满射 $g^- : [m+1] \setminus \{ a \} \to [n-1]$。然后调用 \Cref{lemRemoveElementFromSet}，使用 $[m] = [m+1] \setminus \{m+1\}$。
 }
 \end{exercise}
+唷！蛮好玩的。证明了这些技术结论后，我们现在可以证明明确定义的有限集的大小所需的定理。
 
-Phew! That was fun. With these technical results proved, we can now prove the theorem we needed for the size of a finite set to be well-defined.
-
-\begin{theorem}[Uniqueness of size]
+\begin{theorem}[大小唯一性]
 \label{thmUniquenessOfSize}
-Let $X$ be a finite set and let $f : [m] \to X$ and $g : [n] \to X$ be enumerations of $X$, where $m,n \in \mathbb{N}$. Then $m=n$.
+设 $X$ 为有限集并设 $f : [m] \to X$ 和 $g : [n] \to X$ 为 $X$ 的枚举，其中 $m,n \in \mathbb{N}$。则 $m=n$。
 \end{theorem}
 
 \begin{cproof}
-Since $f : [m] \to X$ and $g : [n] \to X$ are bijections, the function $g^{-1} \circ f : [m] \to [n]$ is a bijection by \Cref{exCompositeOfBijectionsIsBijection,exInverseBijection}. Hence $m=n$ by \Cref{thmJectionsAndSizeOfNaturalNumbers}(c).
+因为 $f : [m] \to X$ 和 $g : [n] \to X$ 为双射，根据 \Cref{exCompositeOfBijectionsIsBijection,exInverseBijection}，函数 $g^{-1} \circ f : [m] \to [n]$ 也为双射。因此根据 \Cref{thmJectionsAndSizeOfNaturalNumbers}(c)，$m=n$。
 \end{cproof}
 
-As we mentioned above, \Cref{thmUniquenessOfSize} tells us that any two ways of listing (enumerating) the elements of a finite set yield the same number of elements. We may now make the following definition.
+正如我们上面提到的，\Cref{thmUniquenessOfSize} 告诉我们，列出（枚举）有限集元素的任意两种方法都会产生相同数量的元素。我们现在可以做出以下定义。
 
 \begin{definition}
 \label{defSize}
 \index{size}
 \index{cardinality!of a finite set}
-Let $X$ be a finite set. The \textbf{size} (or \textbf{cardinality}) of $X$, written $|X|$, is the unique natural number $n$ for which there exists a bijection $[n] \to X$.
+设 $X$ 为有限集。$X$ 的\textbf{大小}（或 \textbf{基数}），写做 $|X|$，是一个唯一的自然数 $n$，满足存在双射 $[n] \to X$。
 \end{definition}
 
 \begin{example}
-\Cref{exSomeFiniteSets} showed that $|\{ \text{red}, \text{orange}, \text{yellow}, \text{green}, \text{blue}, \text{purple} \}| = 6$, and provided the proof was correct, \Cref{exBracketNIsFinite} showed that $|[n]| = n$ for all $n \in \mathbb{N}$; in particular, $|\varnothing| = 0$.
+\Cref{exSomeFiniteSets} 给出 $|\{ \text{红色}, \text{橙色}, \text{黄色}, \text{绿色}, \text{蓝色}, \text{紫色} \}| = 6$，并给出证明证明是正确的，\Cref{exBracketNIsFinite} 给出对于所有 $n \in \mathbb{N}$, $|[n]| = n$；特别的，$|\varnothing| = 0$。
 \end{example}
 
 \begin{example}
 \label{exBijectionFromIntegersFromMinusNToNToBracketTwoNPlusOne}
-Fix $n \in \mathbb{N}$ and let $X = \{ a \in \mathbb{Z} \mid -n \le a \le n \}$. There is a bijection $f : [2n+1] \to X$ defined by $f(k) = k-n-1$. Indeed:
+给定 $n \in \mathbb{N}$ 并设 $X = \{ a \in \mathbb{Z} \mid -n \le a \le n \}$。存在定义为 $f(k) = k-n-1$ 的双射 $f : [2n+1] \to X$。事实上：
 \begin{itemize}
-\item \textbf{$f$ is well-defined.}
+\item \textbf{$f$ 是明确定义的。}
 %% BEGIN EXTRACT (xtrIntroducingVariableExampleTwo) %%
-We need to prove $f(k) \in X$ for all $k \in [2n+1]$. Well given $k \in [2n+1]$, we have $1 \le k \le 2n+1$, and so
+我们需要证明对于所有 $k \in [2n+1]$, $f(k) \in X$。给定 $k \in [2n+1]$，我们有 $1 \le k \le 2n+1$，所以
 \[ -n = 1-(n+1) \le ~ \underbrace{k-(n+1)}_{=f(k)} ~  \le (2n+1) - (n+1) = n \]
-so that $f(k) \in X$ as claimed.
+因此 $f(k) \in X$。
 %% END EXTRACT %%
-\item \textbf{$f$ is injective.} Let $k, \ell \in [2n+1]$ and assume $f(k) = f(\ell)$. Then $k - n - 1 = \ell - n - 1$, and so $k = \ell$.
-\item \textbf{$f$ is surjective.} Let $a \in X$ and define $k = a+n+1$. Then
+\item \textbf{$f$ 是单射} 设 $k, \ell \in [2n+1]$ 并假设 $f(k) = f(\ell)$。那么 $k - n - 1 = \ell - n - 1$，所以 $k = \ell$。
+\item \textbf{$f$ 是满射} 设 $a \in X$ 并定义 $k = a+n+1$。那么
 \[ 1 = (-n) + n + 1 \le ~ \underbrace{a + n + 1}_{= k} ~ \le n + n + 1 = 2n+1 \]
-and so $k \in [2n+1]$, and moreover $f(k) = (a+n+1)-n-1 = a$.
+所以 $k \in [2n+1]$，此外 $f(k) = (a+n+1)-n-1 = a$。
 \end{itemize}
-Since $f$ is a bijection, we have $|X| = 2n+1$ by \Cref{defSize}.
+所以 $f$ 为双射，根据 \Cref{defSize} 我们有 $|X| = 2n+1$。
 \end{example}
 
 \begin{exercise}
 \label{exAddRemoveElementsOfFiniteSets}
-Let $X$ be a finite set with $|X| = n > 1$. Let $a \in X$ and let $b \not \in X$. Prove that
+设 $X$ 为有限集，其中 $|X| = n > 1$。设 $a \in X$ 并设 $b \not \in X$。证明
 \begin{enumerate}[(a)]
-\item $X \setminus \{ a \}$ is finite and $|X \setminus \{ a \}| = n-1$; and
-\item $X \cup \{ b \}$ is finite and $|X \cup \{ b \}| = n+1$.
+\item $X \setminus \{ a \}$ 为有限集，且 $|X \setminus \{ a \}| = n-1$；
+\item $X \cup \{ b \}$ 为有限集，且 $|X \cup \{ b \}| = n+1$。
 \end{enumerate}
-Identify where in your proofs you make use the hypotheses that $a \in X$ and $b \not \in X$.
+确定在证明中何处使用 $a \in X$ 和 $b \not \in X$ 假设。
 \end{exercise}
 
-\subsection*{Comparing the sizes of finite sets}
+\subsection*{比较有限集的大小}
 
-When we used dots and stars to motivate the definitions of injective and surjective functions at the beginning of \Cref{secInjectionsSurjections}, we suggested the following intuition:
+我们在 \Cref{secInjectionsSurjections} 开头部分使用点和星来引出单射和满射函数的定义时，提出了以下直觉：
 \begin{itemize} 
-\item If there is an injection $f : X \to Y$, then $X$ has `at most as many elements as $Y$'; and
-\item If there is a surjection $g : X \to Y$, then $X$ has `at least as many elements as $Y$'.
+\item 如果存在单射 $f : X \to Y$，则 $X$ `最多与 $Y$ 的元素一样多'；
+\item 如果存在满射 $g : X \to Y$，则 $X$ `至少与 $Y$ 的元素一样多'。
 \end{itemize}
 
-We are now in a position to prove this, at least when $X$ and $Y$ are finite. The following theorem is a generalisation of \Cref{thmJectionsAndSizeOfNaturalNumbers}.
+现在是时候来证明至少当 $X$ 和 $Y$ 为有限集时上面的结论成立。下面的定理是对 \Cref{thmJectionsAndSizeOfNaturalNumbers} 的泛化。
 
 \begin{theorem}
 \label{thmFiniteSetsAndJections}
-Let $X$ and $Y$ be sets.
+设 $X$ 和 $Y$ 为集合。
 \begin{enumerate}[(a)]
-\item If $Y$ is finite and there is an injection $f : X \to Y$, then $X$ is finite and $|X| \le |Y|$.
-\item If $X$ is finite and there is a surjection $f : X \to Y$, then $Y$ is finite and $|X| \ge |Y|$.
-\item If one of $X$ or $Y$ is finite and there is a bijection $f : X \to Y$, then $X$ and $Y$ are both finite and $|X| = |Y|$.
+\item 如果 $Y$ 为有限集且存在单射 $f : X \to Y$，则 $X$ 为有限集且 $|X| \le |Y|$。
+\item 如果 $X$ 为有限集且存在满射 $f : X \to Y$，则 $Y$ 为有限集且 $|X| \ge |Y|$。
+\item 如果 $X$ 或 $Y$ 其中之一为有限集且存在双射 $f : X \to Y$，则 $X$ 和 $Y$ 都是有限集且 $|X| = |Y|$。
 \end{enumerate}
 \end{theorem}
 
 \begin{cproof}[of (a)]
-\item We prove by induction that, for all $n \in \mathbb{N}$, if $Y$ is a finite set of size $n$ and there is an injection $f : X \to Y$, then $X$ is finite and $|X| \le n$.
+\item 我们通过归纳法来证明，对于所有 $n \in \mathbb{N}$，如果 $Y$ 是大小为 $n$ 的有限集且存在单射 $f : X \to Y$，则 $X$ 为有限集且 $|X| \le n$。
 
 \begin{itemize}
-\item (\textbf{Base case}) Let $Y$ be a finite set of size $0$---that is, $Y$ is empty. Suppose there is an injection $f : X \to Y$. If $X$ is inhabited, then there exists an element $a \in X$, so that $f(a) \in Y$. This contradicts emptiness of $Y$, so that $X$ must be empty. Hence $|X| = 0 \le 0$, as required.
+\item (\textbf{基本情况}) 设 $Y$ 是大小为 $0$ 的有限集 --- 也就是说，$Y$ 为空集。假设存在单射 $f : X \to Y$。如果 $X$ 非空，则存在元素 $a \in X$，使得 $f(a) \in Y$。这与 $Y$ 为空集相矛盾，所以 $X$ 一定为空。因此 $|X| = 0 \le 0$。
 
-\item (\textbf{Induction step}) Fix $n \in \mathbb{N}$ and assume that, if $Z$ is a finite set of size $n$ and there is an injection $f : X \to Z$, then $X$ is finite and $|X| \le n$.
+\item (\textbf{归纳步骤}) 给定 $n \in \mathbb{N}$ 并假设如果 $Z$ 是大小为 $n$ 的有限集，且存在单射 $f : X \to Z$，则 $X$ 为有限集且 $|X| \le n$。
 
-Fix a finite set $Y$ of size $n+1$ and an injection $f : X \to Y$. We need to prove that $X$ is finite and $|X| \le n+1$.
+给定大小为 $n+1$ 的有限集 $Y$ 和单射 $f : X \to Y$。我们需要证明 $X$ 为有限集且 $|X| \le n+1$。
 
-If $X$ is empty, then $|X| = 0 \le n+1$ as required. So assume that $X$ is inhabited, and fix an element $a \in X$.
+如果 $X$ 为空集，则 $|X| = 0 \le n+1$。假设 $X$ 非空，给定元素 $a \in X$。
 
-By \Cref{lemRemoveElementFromDomainAndCodomain}, there is an injection $f^{\vee} : X \setminus \{ a \} \to Y \setminus \{ f(a) \}$. Moreover, by \Cref{exAddRemoveElementsOfFiniteSets}, $Y \setminus \{ f(a) \}$ is finite and $|Y \setminus \{ f(a) \}| = (n+1) - 1 = n$.
+根据 \Cref{lemRemoveElementFromDomainAndCodomain}，存在单射 $f^{\vee} : X \setminus \{ a \} \to Y \setminus \{ f(a) \}$。此外，根据 \Cref{exAddRemoveElementsOfFiniteSets}，$Y \setminus \{ f(a) \}$ 为有限集且 $|Y \setminus \{ f(a) \}| = (n+1) - 1 = n$。
 
-Applying the induction hypothesis with $Z = Y \setminus \{ f(a) \}$ tells us that, $X \setminus \{ a \}$ is finite and $|X \setminus \{ a \}| \le n$. But $|X \setminus \{ a \}| = |X| - 1$ by \Cref{exAddRemoveElementsOfFiniteSets}, and so $|X| \le n+1$, as required.
+应用归纳假设 $Z = Y \setminus \{ f(a) \}$ 可知 $X \setminus \{ a \}$ 为有限集且 $|X \setminus \{ a \}| \le n$。而根据 \Cref{exAddRemoveElementsOfFiniteSets}，$|X \setminus \{ a \}| = |X| - 1$，所以 $|X| \le n+1$。
 \end{itemize}
 
-The result now follows by induction.
+根据归纳法得出结论。
 \end{cproof}
 
 \begin{exercise}
-Prove parts (b) and (c) of \Cref{thmFiniteSetsAndJections}.
+证明 \Cref{thmFiniteSetsAndJections} 中的 (b) 和 (c)。
 \end{exercise}
 
-\Cref{thmFiniteSetsAndJections} suggests the following strategies for comparing the sizes of finite sets:
-
-\begin{strategy}[Comparing the sizes of finite sets]
+\Cref{thmFiniteSetsAndJections} 给出了如下比较两个有限集大小的策略：
+\begin{strategy}[比较有限集大小]
 \label{strComparingSizesOfFiniteSets}
-Let $X$ and $Y$ be finite sets.
+设 $X$ 和 $Y$ 为有限集。
 \begin{enumerate}[(a)]
-\item In order to prove that $|X| \le |Y|$, it suffices to find an injection $X \to Y$.
-\item In order to prove that $|X| \ge |Y|$, it suffices to find a surjection $X \to Y$.
-\item \label{strBijectiveProof} In order to prove that $|X| = |Y|$, it suffices to find a bijection $X \to Y$.
+\item 要想证明 $|X| \le |Y|$，只需找到 $X \to Y$ 的单射即可。
+\item 要想证明 $|X| \ge |Y|$，只需找到 $X \to Y$ 的满射即可。
+\item \label{strBijectiveProof} 要想证明 $|X| = |Y|$，只需找到 $X \to Y$ 的双射即可。
 \end{enumerate}
-Strategy \ref{strBijectiveProof} is commonly known as \textbf{bijective proof}.
+策略 \ref{strBijectiveProof} 通常被称为\textbf{双射证明}。
 \end{strategy}
 
-\subsection*{Closure properties of finite sets}
+\subsection*{有限集的封闭性}
 
-We now use \Cref{strComparingSizesOfFiniteSets} to prove some \textit{closure properties} of finite sets---that is, operations we can perform on finite sets to ensure that the result remains finite.
+我们现在使用 \Cref{strComparingSizesOfFiniteSets} 来证明有限集的\textit{封闭性} --- 也就是说，我们可以对有限集执行操作以确保结果依然有限。
 
 \begin{exercise}
-Let $X$ be a finite set. Prove that every subset $U \subseteq X$ is finite and $|U| \le |X|$.
+设 $X$ 为有限集。证明每个子集 $U \subseteq X$ 为有限集且 $|U| \le |X|$。
 \hintlabel{exSubsetOfFiniteSetIsFinite}{%
-Given $U \subseteq X$, find an injection $U \to X$ and apply \Cref{thmFiniteSetsAndJections}(a).
+给定 $U \subseteq X$，找到 $U \to X$ 的单射并应用 \Cref{thmFiniteSetsAndJections}(a)。
 }
 \end{exercise}
 
 \begin{exercise}
-Let $X$ and $Y$ be finite sets. Prove that $X \cap Y$ is finite.
+设 $X$ 和 $Y$ 为有限集。证明 $X \cap Y$ 为有限集。
 \hintlabel{exIntersectionOfFiniteSetsIsFinite}{%
-Recall that $X \cap Y \subseteq X$ for all sets $X$ and $Y$.
+回忆一下对于所有集合 $X$ 和 $Y$, $X \cap Y \subseteq X$。
 }
 \end{exercise}
 
 \begin{proposition}
 \label{propUnionOfFiniteSetsIsFinite}
-Let $X$ and $Y$ be finite sets. Then $X \cup Y$ is finite, and moreover
+设 $X$ 和 $Y$ 为有限集，则 $X \cup Y$ 为有限集，并且
 \[ |X \cup Y| = |X| + |Y| - |X \cap Y| \]
 \end{proposition}
 
 \begin{cproof}
-We will prove this in the case when $X$ and $Y$ are disjoint. The general case, when $X$ and $Y$ are not assumed to be disjoint, will be \Cref{exSizeOfUnion}.
+我们先在 $X$ 和 $Y$ 不相交的情况下证明这一点。更一般的情况，即不假设 $X$ 和 $Y$ 不相交将在 \Cref{exSizeOfUnion} 中证明。
 
-Let $m = |X|$ and $n=|Y|$, and let $f : [m] \to X$ and $g : [n] \to Y$ be bijections.
-
-Since $X$ and $Y$ are disjoint, we have $X \cap Y = \varnothing$. Define $h : [m+n] \to X \cup Y$ as follows; given $k \in [m+n]$, let
+设 $m = |X|$ 且 $n=|Y|$，并设 $f : [m] \to X$ 且 $g : [n] \to Y$ 为双射。
+ 
+因为 $X$ 和 $Y$ 不相交，可得 $X \cap Y = \varnothing$。定义 $h : [m+n] \to X \cup Y$ 如下；给定 $k \in [m+n]$，设
 \[ h(k) = \begin{cases} f(k) & \text{if } k \le m \\ g(k-m) & \text{if } k > m \end{cases} \]
-Note that $h$ is well-defined: the cases $k \le m$ and $k > m$ are mutually exclusive, they cover all possible cases, and $k-m \in [n]$ for all $m+1 \le k \le n$ so that $g(k-m)$ is defined. It is then straightforward to check that $h$ has an inverse $h^{-1} : X \cup Y \to [m+n]$ defined by
+注意，$h$ 是明确定义的：情况 $k \le m$ 和 $k > m$ 是互斥的，他们覆盖了所有可能情况，且对于所有 $m+1 \le k \le n$, $k-m \in [n]$，所以 $g(k-m)$ 有定义。然后可以直接检查 $h$ 具有逆 $h^{-1} : X \cup Y \to [m+n]$ 定义为
 \[ h^{-1}(z) = \begin{cases} f^{-1}(z) & \text{if } z \in X \\ g^{-1}(z)+m & \text{if } z \in Y \end{cases} \]
-Well-definedness of $h^{-1}$ relies fundamentally on the assumption that $X \cap Y = \varnothing$, as this is what ensures that the cases $x \in X$ and $x \in Y$ are mutually exclusive.
+$h^{-1}$ 的明确定义从根本上依赖于假设 $X \cap Y = \varnothing$，因为这可以确保 $x \in X$ 和 $x \in Y$ 是互斥的。
 
 %% BEGIN EXTRACT (xtrConclusionExampleTwo) %%
-Hence $|X \cup Y| = m+n = |X| + |Y|$, which is as required since $|X \cap Y| = 0$.
+因此 $|X \cup Y| = m+n = |X| + |Y|$，因为 $|X \cap Y| = 0$。
 %% END EXTRACT %%
 \end{cproof}
 
 \begin{exercise}
 \label{exSizeOfUnion}
-The following steps complete the proof of \Cref{propUnionOfFiniteSetsIsFinite}:
+按照如下步骤完成 \Cref{propUnionOfFiniteSetsIsFinite} 的证明：
 \begin{enumerate}[(a)]
-\item Given sets $A$ and $B$, prove that the sets $A \times \{ 0 \}$ and $B \times \{ 1 \}$ are disjoint, and find bijections $A \to A \times \{ 0 \}$ and $B \to B \times \{ 1 \}$. Write $A \sqcup B$\nindex{unionDisjoint}{$\sqcup$}{disjoint union} \inlatex{sqcup}\lindexmmc{sqcup}{$\sqcup$} to denote the set $(A \times \{ 0 \}) \cup (B \times \{ 1 \})$. The set $A \sqcup B$ is called the \textbf{disjoint union}\index{disjoint union} of $A$ and $B$.
-\item Prove that, if $A$ and $B$ are finite then $A \sqcup B$ is finite and
+\item 给定集合 $A$ 和 $B$，证明集合 $A \times \{ 0 \}$ 和 $B \times \{ 1 \}$ 不相交，并找到 $A \to A \times \{ 0 \}$ 和 $B \to B \times \{ 1 \}$ 的双射。写做 $A \sqcup B$\nindex{unionDisjoint}{$\sqcup$}{disjoint union} \inlatex{sqcup}\lindexmmc{sqcup}{$\sqcup$} 表示集合 $(A \times \{ 0 \}) \cup (B \times \{ 1 \})$。集合 $A \sqcup B$ 称为 $A$ 和 $B$ 的\textbf{不相交并集}\index{disjoint union}。
+\item 证明，如果 $A$ 和 $B$ 为有限集，则 $A \sqcup B$ 为有限集，且
 \[ |A \sqcup B| = |A| + |B| \]
-\item Let $X$ and $Y$ be sets. Find a bijection
+\item 设 $X$ 和 $Y$ 为集合。找到双射
 \[ (X \cup Y) \sqcup (X \cap Y) \to X \sqcup Y \]
-\item Complete the proof of \Cref{propUnionOfFiniteSetsIsFinite}---that is, prove that if $X$ and $Y$ are finite sets, not necessarily disjoint, then $X \cup Y$ is finite and
+\item 完成 \Cref{propUnionOfFiniteSetsIsFinite} 的证明 --- 即，证明如果 $X$ 和 $Y$ 为有限集，不需要相交与否，$X \cup Y$ 为有限集，且
 \[ |X \cup Y| = |X| + |Y| - |X \cap Y| \]
 \end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-Let $X$ be a finite set and let $U \subseteq X$. Prove that $X \setminus U$ is finite, and moreover $|X \setminus U| = |X| - |U|$.
+设 $X$ 为有限集，并设 $U \subseteq X$。证明 $X \setminus U$ 为有限集，且 $|X \setminus U| = |X| - |U|$。
 \hintlabel{exSizeOfRelativeComplement}{%
-Apply \Cref{propUnionOfFiniteSetsIsFinite} with $Y=U$.
+将 \Cref{propUnionOfFiniteSetsIsFinite} 与 $Y=U$ 一起应用。
 }
 \end{exercise}
 
 \begin{exercise}
 \label{exSizeOfCartesianProduct}
-Let $m,n \in \mathbb{N}$. Prove that $|[m] \times [n]| = mn$.
+设 $m,n \in \mathbb{N}$。证明 $|[m] \times [n]| = mn$。
 \hintlabel{exBijectionBetweenProductOfBracketSets}{%
-Prove by induction on $n \in \mathbb{N}$ that, for all $m,n \in \mathbb{N}$, there is a bijection $[mn] \to [m] \times [n]$.
+在 $n \in \mathbb{N}$ 上用归纳法证明，对于所有 $m,n \in \mathbb{N}$，存在 $[mn] \to [m] \times [n]$ 的双射。
 }
 \end{exercise}
 
 \begin{proposition}
 \label{propProductOfFiniteSetsIsFinite}
-Let $X$ and $Y$ be finite sets. Then $X \times Y$ is finite, and moreover
+设 $X$ 和 $Y$ 为有限集。那么 $X \times Y$ 为有限集，且
 \[ |X \times Y| = |X| \cdot |Y| \]
 \end{proposition}
 \begin{cproof}
-Let $X$ and $Y$ be finite sets, let $m=|X|$ and $n=|Y|$, and let $f : [m] \to X$ and $g : [n] \to Y$ be bijections. Define a function $h : [m] \times [n] \to X \times Y$ by
+设 $X$ 和 $Y$ 为有限集，设 $m=|X|$ 和 $n=|Y|$，并设 $f : [m] \to X$ 和 $g : [n] \to Y$ 为双射。定义函数 $h : [m] \times [n] \to X \times Y$ 为
 \[ h(k,\ell) = (f(k),g(\ell)) \]
-for each $k \in [m]$ and $\ell \in [n]$. It is easy to see that this is a bijection, with inverse defined by
+对于每个 $k \in [m]$ 和 $\ell \in [n]$。很容易发现这是一个双射，其逆为
 \[ h^{-1}(x,y) = (f^{-1}(x), g^{-1}(y)) \]
-for all $x \in X$ and $y \in Y$. By \Cref{exBijectionBetweenProductOfBracketSets} there is a bijection $p : [mn] \to [m] \times [n]$, and by \Cref{exCompositeOfBijectionsIsBijection} the composite $h \circ p : [mn] \to X \times Y$ is a bijection. Hence $|X \times Y| = mn$.
+对于所有 $x \in X$ 和 $y \in Y$。根据 \Cref{exBijectionBetweenProductOfBracketSets} 存在双射 $p : [mn] \to [m] \times [n]$，并根据 \Cref{exCompositeOfBijectionsIsBijection}，组合 $h \circ p : [mn] \to X \times Y$ 也为双射。因此 $|X \times Y| = mn$。
 \end{cproof}
 
-In summary, we have proved that the property of finiteness is preserved by taking subsets, pairwise unions, pairwise intersections, pairwise cartesian products, and relative complements. 
+总之，我们证明了通过取子集、成对并集、成对交集、成对笛卡尔积和相对补集可以保持有限性。
+\subsection*{无限集}
 
-\subsection*{Infinite sets}
-
-We conclude this section by proving that not all sets are finite---specifically, we'll prove that $\mathbb{N}$ is infinite. \textit{Intuitively} this seems extremely easy: of \textit{course} $\mathbb{N}$ is infinite! But in mathematical practice, this isn't good enough: we need to use our definition of `infinite' to prove that $\mathbb{N}$ is infinite. Namely, we need to prove that there is no bijection $[n] \to \mathbb{N}$ for any $n \in \mathbb{N}$. We will use \Cref{lemFinSetGreatestElement} below in our proof.
+最后，我们通过证明并非所有集合都是有限的来结束本节 --- 具体来说，我们将证明 $\mathbb{N}$ 是无限的。\textit{直觉上}这似乎显而易见：$\mathbb{N}$ 理所\textit{当然}是无限的！但在数学实践中，这是不够的：我们需要使用`无限'的定义来证明 $\mathbb{N}$ 是无限的。也就是说，我们需要证明对于任意 $n \in \mathbb{N}$ 不存在双射 $[n] \to \mathbb{N}$。我们将在下面的证明中使用 \Cref{lemFinSetGreatestElement}。
 
 \begin{lemma}
 \label{lemFinSetGreatestElement}
-Every inhabited finite set of natural numbers has a greatest element.
+自然数的每个非空有限集都有一个最大元素。
 \end{lemma}
 \begin{cproof}
-We'll prove by induction on $n \ge 1$ that every subset $U \subseteq \mathbb{N}$ of size $n$ has a greatest element.
+我们用归纳法证明在 $n \ge 1$ 时，每个大小为 $n$ 的子集 $U \subseteq \mathbb{N}$ 都有最大元素。
 \begin{itemize}
-\item (\textbf{Base case}) Take $U \subseteq \mathbb{N}$ with $|U|=1$. then $U = \{ m \}$ for some $m \in \mathbb{N}$. Since $m$ is the only element of $U$, it is certainly the greatest element of $U$!
+\item (\textbf{基本情况}) 让 $U \subseteq \mathbb{N}$ 且 $|U|=1$。则对于某个  $m \in \mathbb{N}$, $U = \{ m \}$。因为 $m$ 是 $U$ 的唯一元素，它当然是 $U$ 的最大元素！
 
-\item (\textbf{Induction step}) Fix $n \ge 1$ and suppose that every set of natural numbers of size $n$ has a greatest element (\textbf{IH}).
+\item (\textbf{归纳步骤}) 给定 $n \ge 1$ 并假设每个大小为 $n$ 的自然数集都有最大元素（\textbf{IH}）。
 
-Let $U \subseteq \mathbb{N}$ with $|U| = n+1$. We wish to show that $U$ has a greatest element.
+设 $U \subseteq \mathbb{N}$ 且 $|U| = n+1$。我们希望证明 $U$ 存在最大元素。
 
-Since $|U| = n+1$, we may write $U = \{ m_1, m_2, \dots, m_n, m_{n+1} \}$ for distinct natural numbers $m_k$. But then $|U \setminus \{ m_{n+1} \}| = n$ by \Cref{exAddRemoveElementsOfFiniteSets}, and so by the induction hypothesis, $U \setminus \{ m_{n+1} \}$ has a greatest element, say $m_k$. Now:
+因为 $|U| = n+1$，对于不同自然数 $m_k$ 我们可以写做 $U = \{ m_1, m_2, \dots, m_n, m_{n+1} \}$。那么根据 \Cref{exAddRemoveElementsOfFiniteSets}，$|U \setminus \{ m_{n+1} \}| = n$，根据归纳假设，$U \setminus \{ m_{n+1} \}$ 存在最大元素，假设为 $m_k$。则：
 \begin{itemize}
-\item If $m_k < m_{n+1}$, then $m_{n+1}$ is the greatest element of $U$.
-\item If $m_k > m_{n+1}$, then $m_k$ is the greatest element of $U$.
+\item 如果 $m_k < m_{n+1}$，则 $m_{n+1}$ 为 $U$ 的最大元素。
+\item 如果 $m_k > m_{n+1}$，则 $m_k$ 为 $U$ 的最大元素。
 \end{itemize}
-In any case, $U$ has a greatest element. This completes the induction step.
+无论哪种情况，$U$ 都有最大元素。归纳步骤完毕。
 \end{itemize}
 \end{cproof}
 
 \begin{theorem}
 \label{thmNIsInfinite}
-The set $\mathbb{N}$ is infinite.
+集合 $\mathbb{N}$ 是无限的。
 \end{theorem}
 
 \begin{cproof}
 %% BEGIN EXTRACT (xtrContradictionExample) %%
-We proceed by contradiction. Suppose $\mathbb{N}$ is finite. Then $|\mathbb{N}| = n$ for some $n \in \mathbb{N}$, and hence $\mathbb{N}$ is either empty (nonsense, since $0 \in \mathbb{N}$) or, by \Cref{lemFinSetGreatestElement}, it has a greatest element $g$. But $g+1 \in \mathbb{N}$ since every natural number has a successor, and $g+1 > g$, so this contradicts maximality of $g$. Hence $\mathbb{N}$ is infinite.
+我们通过反证法来证明。假设 $\mathbb{N}$ 是有限的。那么对于某个 $n \in \mathbb{N}$, $|\mathbb{N}| = n$，因为 $\mathbb{N}$ 要么是空集（显然不可能，因为 $0 \in \mathbb{N}$），要么根据 \Cref{lemFinSetGreatestElement} 存在最大元素 $g$。然而由于每个自然数都有后继，所以 $g+1 \in \mathbb{N}$，而 $g+1 > g$，这与 $g$ 为最大值矛盾。因此 $\mathbb{N}$ 是无限的。
 %% END EXTRACT %%
 \end{cproof}
