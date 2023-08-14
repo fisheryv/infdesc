@@ -66,11 +66,11 @@
 不幸的是，我们使用的大多数集合都是无限的，或者具有未指定的有限大小；这种情况下，仅仅列出值列表是不够的。好在还有其他定义函数的方法。
 
 \textbf{公式. } 在许多情况下，特别是当定义域 $X$ 和值域 $Y$ 是数集时，我们可以通过给出每个 $x \in X$ 的 $f(x)$ 值的公式来定义函数。例如，我们可以令 
-\[ f(x) = x^2 + 3 \text{ for all } x \in \mathbb{R} \] 
+\[ f(x) = x^2 + 3 \text{ 对于所有 } x \in \mathbb{R} \] 
 来定义函数 $f : \mathbb{R} \to \mathbb{R}$。
 
 \textbf{分段. } 有时，将定义域中不同元素分别使用不同规则来定义函数会更方便。一个非常简单的例子是\textit{绝对值函数} $|{-}| : \mathbb{R} \to \mathbb{R}$，定义域为 $x \in \mathbb{R}$
-\[ |x| = \begin{cases} x & \text{如果} x \ge 0 \\ -x & \text{如果} x \le 0 \end{cases} \]
+\[ |x| = \begin{cases} x & \text{如果 } x \ge 0 \\ -x & \text{如果 } x \le 0 \end{cases} \]
 这里我们根据条件 $x \ge 0$ 和 $x \le 0$ 分为两种情况。
 
 当分段定义函数 $f : X \to Y$ 时，条件要满足如下 2 点：
@@ -89,7 +89,7 @@
 乘以 $2$ $\to$ 加 $5$ $\to$ 平方 $\to$ 除以 $6$
 \end{center}
 这个`机器'定义了一个函数 $M : \mathbb{Q} \to \mathbb{Q}$ ，其以方程形式表示为
-\[ M(x) = \frac{(2x+5)^2}{6} \text{ for all } x \in \mathbb{Q} \]
+\[ M(x) = \frac{(2x+5)^2}{6} \text{ 对于所有 } x \in \mathbb{Q} \]
 因此，在更正式的定义中，我们可以通过以下方式定义函数 $M : I \to O$：
 \begin{itemize}
 \item 所有\textbf{输入}的集合 $I$；
@@ -112,7 +112,7 @@
 
 \begin{axiom}[函数外延性]
 \label{axFunctionExtensionality}
-设 $f : X \to Y$ 且 $g : A \to B$ 为函数。则 $f = g$ 当且仅当如下条件成立：
+设 $f : X \to Y$ 和 $g : A \to B$ 为函数。则 $f = g$ 当且仅当如下条件成立：
 \begin{enumerate}[(i)]
 \item $X=A$ 且 $Y=B$；
 \item 对于所有 $x \in X$, $f(x) = g(x)$。
@@ -193,7 +193,7 @@
 \begin{enumerate}[(a)]
 \item $X = \mathbb{R}$, $Y = \mathbb{R}$, $G = \{ (a, a^2) \mid a \in \mathbb{R} \}$;
 \item $X = \mathbb{R}$, $Y = \mathbb{R}$, $G = \{ (a^2, a) \mid a \in \mathbb{R} \}$;
-\item $X = \mathbb{R}^{\ge 0}$, $Y = \mathbb{R}^{\ge 0}$, $G = \{ (a^2, a) \mid a \in \mathbb{R}^{\ge 0} \}$, where $\mathbb{R}^{\ge 0} = \{ x \in \mathbb{R} \mid x \ge 0 \}$;
+\item $X = \mathbb{R}^{\ge 0}$, $Y = \mathbb{R}^{\ge 0}$, $G = \{ (a^2, a) \mid a \in \mathbb{R}^{\ge 0} \}$，其中 $\mathbb{R}^{\ge 0} = \{ x \in \mathbb{R} \mid x \ge 0 \}$;
 \item $X = \mathbb{Q}$, $Y = \mathbb{Q}$, $G = \{ (x, y) \in \mathbb{Q} \times \mathbb{Q} \mid xy = 1 \}$.
 \item $X = \mathbb{Q}$, $Y = \mathbb{Q}$, $G = \{ (a, a) \mid a \in \mathbb{Z} \}$;
 \end{enumerate}
@@ -394,9 +394,9 @@ a \in U & \Leftrightarrow \chi_U(a) = 1 && \text{根据 $\chi_U$ 的定义} \\
 
 \begin{cproof}[of {(a)}]
 设 $a \in X$。因为 $\chi_U(a)$ 和 $\chi_V(a)$ 的取值只能是 $0$ 和 $1$，我们有
-\[ \chi_U(a) \chi_V(a) = \begin{cases} 1 & \text{if $\chi_U(a) = 1$ and $\chi_V(a) = 1$} \\ 0 & \text{otherwise} \end{cases} \]
+\[ \chi_U(a) \chi_V(a) = \begin{cases} 1 & \text{如果 $\chi_U(a) = 1$ 且 $\chi_V(a) = 1$} \\ 0 & \text{否则} \end{cases} \]
 而 $\chi_U(a) = 1$ 当且仅当 $a \in U$ 且 $\chi_V(a) = 1$ 当且仅当 $a \in V$，所以
-\[ \chi_U(a) \chi_V(a) = \begin{cases} 1 & \text{if $a \in U \cap V$} \\ 0 & \text{if $a \not\in U \cap V$} \end{cases} \]
+\[ \chi_U(a) \chi_V(a) = \begin{cases} 1 & \text{如果 $a \in U \cap V$} \\ 0 & \text{如果 $a \not\in U \cap V$} \end{cases} \]
 这正是要证明的 $\chi_U(a) \chi_V(a) = \chi_{U \cap V}(a)$。
 \end{cproof}
 

@@ -413,7 +413,7 @@ $f$ 还有更多的右逆 --- 事实上，有无穷多个！
 设 $f : X \to Y$ 为满射，并定义 $g : Y \to X$ 如下。给定 $y \in Y$，将 $g(y)$ 定义为 $x \in X$ 的特定选择，使得 $f(x) = y$ --- 请注意，由于 $f$ 是满射，因此存在这样一个元素 $x \in X$，因此 $g$ 存在于 \Cref{strUsingAC} 中。而根据 $g$ 的定义，对于所有 $y \in Y$，我们有 $f(g(y)) = y$，因此 $g$ 是一个满射。
 \end{cproof}
 
-我们可以将双射分类为具有左逆和右逆的函数，这似乎很合逻辑。实际上我们可以说得更强硬一些 --- 左逆和右逆可以被认为是同一函数！（事实上​​，\Cref{propLeftAndRightInversesAreEqual} 确定它们必然是相同的函数。） 
+我们可以将双射分类为具有左逆和右逆的函数，这似乎很合逻辑。实际上我们可以说得更强硬一些 --- 左逆和右逆可以被认为是同一函数！（事实上，\Cref{propLeftAndRightInversesAreEqual} 确定它们必然是相同的函数。） 
 
 \begin{definition}
 \label{defInverse}
@@ -554,9 +554,9 @@ f(g(y)) &= f(g(f(x))) && \text{因为 $y=f(x)$} \\
 \subsubsection*{反函数}
 
 \begin{tldrlist}
-\tldritem{defLeftInverse} 函数 $f : X \to Y$ 的\textit{左逆} 为函数 $g : Y \to X$ 满足 $g \circ f = \mathrm{id}_X$。如果 $f$ 存在左逆，则它是单射的；反过来，如果 $f$ 为单射\textit{且} $X$ 非空，则 $f$ 存在左逆。
-\tldritem{defRightInverse} 函数 $f : X \to Y$ 的\textit{右逆} 为函数 $g : Y \to X$ 满足 $f \circ g = \mathrm{id}_Y$。如果 $f$ 存在右逆，则它是满射的；反过来，假设选择公理，如果 $f$ 是满射的，则 $f$ 存在右逆。
-\tldritem{defInverse} 函数 $f : X \to Y$ 的\textit{逆} 为函数 $g : Y \to X$，它既是 $f$ 的左逆，又是 $f$ 的右逆。函数 $f$ 为双射当且仅当它有一个逆。
+\tldritem{defLeftInverse} 函数 $f : X \to Y$ 的\textit{左逆}为函数 $g : Y \to X$ 满足 $g \circ f = \mathrm{id}_X$。如果 $f$ 存在左逆，则它是单射的；反过来，如果 $f$ 为单射\textit{且} $X$ 非空，则 $f$ 存在左逆。
+\tldritem{defRightInverse} 函数 $f : X \to Y$ 的\textit{右逆}为函数 $g : Y \to X$ 满足 $f \circ g = \mathrm{id}_Y$。如果 $f$ 存在右逆，则它是满射的；反过来，假设选择公理，如果 $f$ 是满射的，则 $f$ 存在右逆。
+\tldritem{defInverse} 函数 $f : X \to Y$ 的\textit{逆}为函数 $g : Y \to X$，它既是 $f$ 的左逆，又是 $f$ 的右逆。函数 $f$ 为双射当且仅当它有一个逆。
 \tldritem{propLeftAndRightInversesAreEqual} 如果函数 $f : X \to Y$ 既有左逆又有右逆，则两个逆相等；特别是，每个双射都有唯一一个逆，表示为 $f^{-1} : Y \to X$。
 \end{tldrlist}
 
