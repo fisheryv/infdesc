@@ -204,7 +204,7 @@
 \begin{example}
 \label{exDyadicRationalsBijection}
 设 $D \subseteq \mathbb{Q}$ 为\textit{二进有理数}集，即
-\[ D = \left\{ x \in \mathbb{Q} \ \bigg|\  x = \frac{a}{2^n} \text{ for some } a \in \mathbb{Z} \text{ and } n \in \mathbb{N} \right\} \]
+\[ D = \left\{ x \in \mathbb{Q} \ \bigg|\  x = \frac{a}{2^n} \text{ 其中 } a \in \mathbb{Z} \text{ 且 } n \in \mathbb{N} \right\} \]
 设 $k \in \mathbb{N}$，并由定义函数 $f : D \to D$ 为 $f(x)=\frac{x}{2^k}$。证明 $f$ 是双射。
 \begin{itemize}
 \item (\textbf{单射性}) 给定 $x,y \in D$ 且假设 $f(x)=f(y)$。则 $\frac{x}{2^k}=\frac{y}{2^k}$，因此 $x=y$。
@@ -265,8 +265,8 @@
 \begin{example}
 设 $e : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ 与 \Cref{exEncodingPairs} 中定义的函数一样。定义函数 $d : \mathbb{N} \to \mathbb{N} \times \mathbb{N}$ 为
 \[ d(k) = \begin{cases}
-(m,n) & \text{if } k=2^m \cdot 3^n \text{ for some } m,n \in \mathbb{N} \\
-(0,0) & \text{otherwise}
+(m,n) & \text{如果 } k=2^m \cdot 3^n \text{ 其中 } m,n \in \mathbb{N} \\
+(0,0) & \text{否则}
 \end{cases} \]
 请注意，$d$ 是由算术基本定理 (\Cref{thmFTA}) 明确定义的。此外，给定 $m,n \in \mathbb{N}$，我们有
 \[ d(e(m,n)) = d(2^m \cdot 3^n) = (m,n) \]
@@ -292,9 +292,9 @@
 \end{proposition}
 
 \begin{cproof}
-假设 $f$ 是单射的且 $X$ 非空。给定 Fix $x_0 \in X$ --- 请注意，该元素存在是因为 $X$ 非空 --- 并定义 $g : Y \to X$ 为
-\[ g(y) = \begin{cases} x & \text{如果 } y=f(x) \text{ 对于某个 } x \in X \\ x_0 & \text{否则} \end{cases} \]
-$g$ 定义中唯一可能导致其无法明确定义的部分是当 $y=f(x)$ 对于某个 $x \in X$ 时的情况。$g$ 明确良好的原因正是 $f$ 的单射性：如果 $y=f(x)$ 对于某个 $x \in X$，则 $x \in X$ 的值对于 $y = f(x)$ 是唯一的。（事实上，如果 $a \in X$ 满足 $y=f(a)$，那么我们通过 $f$ 的单射性可得 $a=x$。）
+假设 $f$ 是单射的且 $X$ 非空。给定 $x_0 \in X$ --- 请注意，该元素存在是因为 $X$ 非空 --- 并定义 $g : Y \to X$ 为
+\[ g(y) = \begin{cases} x & \text{如果 } y=f(x) \text{ 其中 } x \in X \\ x_0 & \text{否则} \end{cases} \]
+$g$ 定义中唯一可能导致其无法明确定义的部分是当 $y=f(x)$ 其中 $x \in X$ 时的情况。$g$ 明确良好的原因正是 $f$ 的单射性：如果 $y=f(x)$ 其中 $x \in X$，则 $x \in X$ 的值对于 $y = f(x)$ 是唯一的。（事实上，如果 $a \in X$ 满足 $y=f(a)$，那么我们通过 $f$ 的单射性可得 $a=x$。）
 
 所以 $g$ 确实是明确定义的。要证明 $g$ 是 $f$ 的左逆，设 $x \in X$。设 $y = f(x)$，我们看到 $y$ 属于 $g$ 定义中的第一种情况，因此对于值 $a \in X$ 有 $g(f(x)) = g(y) = a$，其中 $y = f(a)$ --- 如上所述，通过 $f$ 的单射性我们有 $a=x$。
 \end{cproof}
@@ -326,7 +326,7 @@ $g$ 定义中唯一可能导致其无法明确定义的部分是当 $y=f(x)$ 对
 \[ f(h(y)) = f(-\sqrt{y}) = (-\sqrt{y})^2 = y \]
 \item 函数 $k : \mathbb{R}^{\ge 0} \to \mathbb{R}$ 定义为
 \[ k(y) = \begin{cases}
-\sqrt{y} & \text{如果 } 2n \le y < 2n+1 \text{ 对于某个 } n \in \mathbb{N} \\
+\sqrt{y} & \text{如果 } 2n \le y < 2n+1 \text{ 其中 } n \in \mathbb{N} \\
 -\sqrt{y} & \text{否则}
 \end{cases} \]
 请注意，$k$ 是明确定义的，并且对于所有 $y \in \mathbb{R}^{\ge 0}$ 来说，$f(k(y)) = y$ 依然成立，因为无论 $k(y)$ 取什么值，都等于 $\sqrt{y}$ 或 $-\sqrt{y}$。
@@ -413,7 +413,7 @@ $f$ 还有更多的右逆 --- 事实上，有无穷多个！
 设 $f : X \to Y$ 为满射，并定义 $g : Y \to X$ 如下。给定 $y \in Y$，将 $g(y)$ 定义为 $x \in X$ 的特定选择，使得 $f(x) = y$ --- 请注意，由于 $f$ 是满射，因此存在这样一个元素 $x \in X$，因此 $g$ 存在于 \Cref{strUsingAC} 中。而根据 $g$ 的定义，对于所有 $y \in Y$，我们有 $f(g(y)) = y$，因此 $g$ 是一个满射。
 \end{cproof}
 
-我们可以将双射分类为具有左逆和右逆的函数，这似乎很合逻辑。实际上我们可以说得更强硬一些 --- 左逆和右逆可以被认为是同一函数！（事实上​​，\Cref{propLeftAndRightInversesAreEqual} 确定它们必然是相同的函数。） 
+我们可以将双射分类为具有左逆和右逆的函数，这似乎很合逻辑。实际上我们可以说得更强硬一些 --- 左逆和右逆可以被认为是同一函数！（事实上，\Cref{propLeftAndRightInversesAreEqual} 确定它们必然是相同的函数。） 
 
 \begin{definition}
 \label{defInverse}
@@ -554,9 +554,9 @@ f(g(y)) &= f(g(f(x))) && \text{因为 $y=f(x)$} \\
 \subsubsection*{反函数}
 
 \begin{tldrlist}
-\tldritem{defLeftInverse} 函数 $f : X \to Y$ 的\textit{左逆} 为函数 $g : Y \to X$ 满足 $g \circ f = \mathrm{id}_X$。如果 $f$ 存在左逆，则它是单射的；反过来，如果 $f$ 为单射\textit{且} $X$ 非空，则 $f$ 存在左逆。
-\tldritem{defRightInverse} 函数 $f : X \to Y$ 的\textit{右逆} 为函数 $g : Y \to X$ 满足 $f \circ g = \mathrm{id}_Y$。如果 $f$ 存在右逆，则它是满射的；反过来，假设选择公理，如果 $f$ 是满射的，则 $f$ 存在右逆。
-\tldritem{defInverse} 函数 $f : X \to Y$ 的\textit{逆} 为函数 $g : Y \to X$，它既是 $f$ 的左逆，又是 $f$ 的右逆。函数 $f$ 为双射当且仅当它有一个逆。
+\tldritem{defLeftInverse} 函数 $f : X \to Y$ 的\textit{左逆}为函数 $g : Y \to X$ 满足 $g \circ f = \mathrm{id}_X$。如果 $f$ 存在左逆，则它是单射的；反过来，如果 $f$ 为单射\textit{且} $X$ 非空，则 $f$ 存在左逆。
+\tldritem{defRightInverse} 函数 $f : X \to Y$ 的\textit{右逆}为函数 $g : Y \to X$ 满足 $f \circ g = \mathrm{id}_Y$。如果 $f$ 存在右逆，则它是满射的；反过来，假设选择公理，如果 $f$ 是满射的，则 $f$ 存在右逆。
+\tldritem{defInverse} 函数 $f : X \to Y$ 的\textit{逆}为函数 $g : Y \to X$，它既是 $f$ 的左逆，又是 $f$ 的右逆。函数 $f$ 为双射当且仅当它有一个逆。
 \tldritem{propLeftAndRightInversesAreEqual} 如果函数 $f : X \to Y$ 既有左逆又有右逆，则两个逆相等；特别是，每个双射都有唯一一个逆，表示为 $f^{-1} : Y \to X$。
 \end{tldrlist}
 
