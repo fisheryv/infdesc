@@ -1,379 +1,380 @@
 % !TeX root = ../../book.tex
-\section{Countable and uncountable sets}
+\section{可数集和不可数集}
 \secbegin{secCountableUncountableSets}
 
-In \Cref{secFiniteSets}, we defined what it means for a set to be `finite' in order to capture the idea that its elements can be listed in such a way that the list has a start and an end. We did so by observing that a list of the elements of a finite set is essentially the same thing as a bijection $f : [n] \to X$ for some $n \in \mathbb{N}$, with the element $f(k) \in X$ playing the role of the $k^{\text{th}}$ element of the list.
+在 \Cref{secFiniteSets} 中，我们定义了集合`有限'的含义，以便精确描述元素可以有头有尾一一列出的想法。我们通过观察有限集的元素列表本质上与双射 $f : [n] \to X$ 相同来做到这一点，其中元素 $f(k) \in X$ 扮演列表中第 $k$ 个元素的角色。
 
-We are now interested in \textit{infinite} sets. We certainly can't expect a list of all the elements of an infinite set to end, so the question now is: can its elements be listed if we allow the list to be infinite? We will call such sets \textit{countable sets}.
+我们现在将目光转到\textit{无限}集。我们当然不能期望一个包含无限集中所有元素的列表，所以现在的问题是：如果我们允许列表无限，它的元素是否可以列出？我们将这样的集合称为\textit{可数集}。
 
-It is perhaps surprising that not every set is countable: some sets are `too big' for their elements to be listed! We will prove that such \textit{uncountable} sets exist later in this section.
+令人惊讶的是，并非每个集合都是可数的：有些集合`太大'从而无法列出其元素！我们将在本节后面证明这种\textit{不可数}集合的存在。
 
-The precise definition of what it means for a set $X$ to be countable (\Cref{defCountable}) captures the idea that we can list the elements of $X$ one-by-one such that, even if the list goes on forever, each element of $X$ appears \textit{at some finite stage} in the list. The list might or might not be finite; it has a start, but it might not have an end.
+集合 $X$ 可数 (\Cref{defCountable}) 的精确定义体现了这样的想法：我们可以逐一列出 $X$ 的元素，这样，即使列表永远继续下去，$X$ 的每个元素都出现在列表中的\textit{在某个有限阶段}。这个列表可能是有限的，也可能不是有限的；它有一个开始，但可能没有结束。
 
-To illustrate, consider the following list of the elements of $\mathbb{N}$:
+为了说明这一点，请考虑以下 $\mathbb{N}$ 的元素列表：
 \[ 0,~ 1,~ 2,~ 3,~ 4,~ \dots,~ n,~ n+1,~ \dots \]
-The list does not end, since $\mathbb{N}$ is infinite (\Cref{thmNIsInfinite}), but nevertheless every natural number appears at some finite stage along the list.
+这个列表没有尽头，因为 $\mathbb{N}$ 是无限的（\Cref{thmNIsInfinite}），尽管如此，每个自然数都出现在列表中的某个有限阶段。
 
-As another example, consider the set $\mathbb{Z}$ of all integers. We might wish to list the elements of $\mathbb{Z}$ in the usual way:
+另一个例子是所有整数的集合 $\mathbb{Z}$。我们可能希望以通常方式列出 $\mathbb{Z}$ 的元素：
 \[ \dots,~ -(n+1),~ -n,~ \dots,~ -3,~ -2,~ -1,~ 0,~ 1,~ 2,~ 3,~ \dots,~ n,~ n+1,~ \dots \]
-This does not fulfil our criterion that the list must have a start: it is infinite in both directions. However, it is still possible to list them, by slotting the negative integers in-between the non-negative integers:
+但这不符合我们的标准，即列表必须有一个开始：它在两个方向上都是无限的。
+但是，仍然可以通过将负整数插入非负整数之间来列出它们：
 \[ 0,~ -1,~ 1,~ -2,~ 2,~ -3,~ 3,~ \dots,~ -n,~ n,~ -(n+1),~ n+1,~ \dots\]
-This is not how we would usually think about listing the integers, but we have nonetheless found a way of doing it so that every integer appears at some finite stage on the list.
+这不是我们通常列出整数的方式，但我们仍然找到了一种方法，使得每个整数都出现在列表中的某个有限阶段。
 
-But specifying a list of the elements of an infinite set $X$, such that every element of $X$ appears at some finite stage on the list, is equivalent to specifying a bijection $f : \mathbb{N} \to X$, where the element $f(k) \in X$ plays the role of the $k^{\text{th}}$ element of the list---that is, the elements of $X$ can be listed as
+但是指定无限集合 $X$ 的元素列表，使得 $X$ 的每个元素出现在列表上的某个有限阶段，相当于指定双射 $f : \mathbb{N} \to X$，其中元素 $f(k) \in X$ 扮演列表中第 $k$ 个元素 --- 也就是说，$X$ 的元素可以列出为
 \[  f(0),~ f(1),~ f(2),~ \dots,~ f(n),~ f(n+1),~ \]
 
-This motivates the following definition.
+这引出了如下定义。
 
 \begin{definition}
 \label{defCountable}
 \index{countable set}
 \index{enumeration!of a countably infinite set}
-A set $X$ is \textbf{countably infinite} if there exists a bijection $f : \mathbb{N} \to X$. The bijection $f$ is called an \textbf{enumeration} of $X$. We say $X$ is \textbf{countable} if it is finite or countably infinite.
+如果存在双射 $f : \mathbb{N} \to X$，则集合 $X$ 为\textbf{可数无限集}。双射 $f$ 称为 $X$ 的\textbf{枚举}。如果集合 $X$ 是有限集或可数无限集，则说 $X$ 是\textbf{可数的}。
 \end{definition}
 
-Some authors prefer to use `countable' to mean `countably infinite', in which case they would say `finite or countable' to mean `countable'.
+有些作者更喜欢用`可数'来表示`可数无限'，在这种情况下，他们会说`有限或可数'来表示`可数'。
 
 \begin{example}
 \label{exNIsCountable}
-The set $\mathbb{N}$ is countably infinite, since by \Cref{exIdentityBijection}, the identity function $\mathrm{id}_{\mathbb{N}} : \mathbb{N} \to \mathbb{N}$ is a bijection. This enumeration yields the usual list of natural numbers
+集合 $\mathbb{N}$ 为可数无限集，因为根据 \Cref{exIdentityBijection}，恒等函数 $\mathrm{id}_{\mathbb{N}} : \mathbb{N} \to \mathbb{N}$ 为双射。该枚举给出了通常的自然数列表
 \[ 0,~ 1,~ 2,~ 3,~ \dots,~ n,~ n+1,~ \dots \]
 \end{example}
 
 \begin{example}
 \label{exZIsCountable}
-The function $f : \mathbb{Z} \to \mathbb{N}$ defined for $x \in \mathbb{Z}$ by
-\[ f(x) = \begin{cases} 2x & \text{if } x \ge 0 \\ -(2x+1) & \text{if } x < 0 \end{cases} \]
-is a bijection. Indeed, it has an inverse is given by
-\[ f^{-1}(x) = \begin{cases} \frac{x}{2} & \text{if } x \text{ is even} \\ -\frac{x+1}{2} & \text{if } x \text{ is odd} \end{cases} \]
-Hence the set of integers $\mathbb{Z}$ is countably infinite. The corresponding list of integers is given by
+函数 $f : \mathbb{Z} \to \mathbb{N}$ 定义为
+\[ f(x) = \begin{cases} 2x & \text{如果 } x \ge 0 \\ -(2x+1) & \text{如果 } x < 0 \end{cases} \]
+其中 $x \in \mathbb{Z}$，为双射。事实上，它有如下逆
+\[ f^{-1}(x) = \begin{cases} \frac{x}{2} & \text{如果 } x \text{ 为偶数} \\ -\frac{x+1}{2} & \text{如果 } x \text{ 为奇数} \end{cases} \]
+因此整数集 $\mathbb{Z}$ 是可数无限集。相应的整数列表由下式给出
 \[ 0,\ {-1},\ 1,\ {-2},\ 2,\ {-3},\ 3,\ {-4},\ 4,\ \dots \]
-which is exactly the list we presented earlier! The fact that $f$ is a bijection ensures that each integer appears on this list exactly once.
+这正是我们之前给出的列表！$f$ 是双射的事实确保每个整数在此列表中恰好出现一次。
 \end{example}
 
 \begin{exercise}
 \label{exPositiveIntegersCountablyInfinite}
-Prove that the set of all positive integers is countably infinite.
+证明所有正整数的集合是可数无限集。
 \end{exercise}
 
 \begin{exercise}
 \label{exEvenOddNaturalNumbersCountablyInfinite}
-Prove that the set of all even natural numbers is countably infinite, and that the set of all odd natural numbers is countably infinite.
+证明所有偶自然数集合是可数无限集合，且所有奇自然数集合也是可数无限集。
 \end{exercise}
 
-Since the inverse of a bijection is a bijection, we may also prove that a set $X$ is countable by finding a bijection $X \to \mathbb{N}$.
+由于双射的逆是双射，我们还可以通过找到双射 $X \to \mathbb{N}$ 来证明集合 $X$ 是可数的。
 
 \begin{exercise}
-Prove that the function $p : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ defined by $p(x,y) = 2^x(2y+1)-1$ is a bijection. Deduce that $\mathbb{N} \times \mathbb{N}$ is countable.
+证明由 $p(x,y) = 2^x(2y+1)-1$ 定义的函数 $p : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ 为双射。推导出 $\mathbb{N} \times \mathbb{N}$ 为可数集。
 \hintlabel{exNCrossNIsCountable}{%
-The fundamental theorem of arithmetic (\Cref{thmFTA}) implies that, for all $n \in \mathbb{N}$, we can express $n+1$ uniquely as a power of $2$ multiplied by an odd number. 
+算术基本定理 (\Cref{thmFTA}) 告诉我们，对于所有 $n \in \mathbb{N}$，我们可以将 $n+1$ 唯一地表示为 $2$ 的幂乘以某个奇数。
 }
 \end{exercise}
 
-\subsection*{Closure properties of countable sets}
+\subsection*{可数集的封闭性}
 
-Proving that a set is infinite by finding an explicit bijection with the set of natural numbers can be overly burdensome, so we will now develop some \textit{closure properties} of countable sets. This will allow us to prove that a $X$ set is countable by relating it to sets that we already know are countable, without having to find a bijection $f : \mathbb{N} \to X$ every time.
+通过找到自然数集的显式双射来证明集合是无限集可能过于繁琐，所以我们接下来将发展一些可数集合的\textit{封闭属性}。这样就能够通过将集合 $X$ 与我们已知的可数集合相关联来证明它是可数的，而不必每次都寻找双射 $f : \mathbb{N} \to X$。
 
 \begin{proposition}
 \label{propCountablyInfiniteFromBijection}
-Let $f : X \to Y$ be a bijection. Then $X$ is countably infinite if and only if $Y$ is countably infinite.
+设 $f : X \to Y$ 为双射。则 $X$ 为可数无限集，当且仅当 $Y$ 为可数无限集。
 \end{proposition}
 
 \begin{cproof}
-Suppose $X$ is countably infinite. Then there is a bijection $g : \mathbb{N} \to X$. But then $f \circ g : \mathbb{N} \to X$ is a composite of bijections, so is bijective, meaning that $Y$ is countably infinite.
+假设 $X$ 为可数无限集。则存在双射 $g : \mathbb{N} \to X$。而 $f \circ g : \mathbb{N} \to Y$ 是双射的组合，所以也为双射，这意味着 $Y$ 是可数无限集。
 
-Conversely, suppose $Y$ is countably infinite. Then there is a bijection $h : \mathbb{N} \to Y$. But then $f^{-1} \circ h : \mathbb{N} \to X$ is a composite of bijections, so is bijective, meaning that $X$ is countably infinite.
+反过来，假设 $Y$ 为可数无限集。则存在双射 $h : \mathbb{N} \to Y$。而 $f^{-1} \circ h : \mathbb{N} \to X$ 是双射的组合，所以也为双射，这意味着 $X$ 是可数无限集。
 \end{cproof}
 
 \begin{exercise}
-Prove if $X$ and $Y$ are countably infinite sets, then $X \times Y$ is countably infinite.
+证明如果 $X$ 和 $Y$ 为可数无限集，则 $X \times Y$ 为可数无限集。
 \hintlabel{exProductOfTwoCountableSetsIsCountable}{%
-Use \Cref{exCartesianProductOfBijections}, together with the definition of countably infinite sets, to construct a bijection $\mathbb{N} \times \mathbb{N} \to X \times Y$. Then apply \Cref{exNCrossNIsCountable} and \Cref{propCountablyInfiniteFromBijection}.
+使用 \Cref{exCartesianProductOfBijections} 和可数无限集的定义，来构建双射 $\mathbb{N} \times \mathbb{N} \to X \times Y$。然后应用 \Cref{exNCrossNIsCountable} 和 \Cref{propCountablyInfiniteFromBijection}。
 }
 \end{exercise}
 
-\Cref{exProductOfTwoCountableSetsIsCountable} allows us to prove that the product of finitely many countably infinite sets are countably infinite---this is an analogue of (the independent version of) the multiplication principle (\Cref{lemMultiplicationPrincipleIndependent}) for countably infinite sets.
+\Cref{exProductOfTwoCountableSetsIsCountable} 允许我们证明有限多个可数无限集的乘积是可数无限集 --- 这类似可数无限集乘法原理（\Cref{lemMultiplicationPrincipleIndependent}）（的独立版本）。
 
-\begin{proposition}[The product of finitely many countable sets is countable]
+\begin{proposition}[有限多个可数集合的乘积是可数的]
 \label{propFiniteProductOfCountableSetsIsCountable}
-Let $n \ge 1$ and let $X_1, \dots, X_n$ be countably infinite sets. Then the product $\displaystyle \prod_{i=1}^n X_i$ is countably infinite.
+设 $n \ge 1$ 并设 $X_1, \dots, X_n$ 为可数无限集。则乘积 $\displaystyle \prod_{i=1}^n X_i$ 为可数无限集。
 \end{proposition}
 \begin{cproof}
-We proceed by induction on $n \ge 1$.
+我们在 $n \ge 1$ 上用归纳法来证明。
 \begin{itemize}
-\item (\textbf{Base case}) When $n=1$ the assertion is trivial: if $X_1$ is countably infinite then $X_1$ is countably infinite.
-\item (\textbf{Induction step}) Fix $n \ge 1$ and suppose that for any sets $X_1, \dots, X_n$, the product $\prod_{i=1}^n X_i$ is countably infinite. Fix sets $X_1, \dots, X_{n+1}$. Then $\prod_{i=1}^n X_i$ is countably infinite by the induction hypothesis, and $X_{n+1}$ is countably infinite by assumption, so by \Cref{exProductOfTwoCountableSetsIsCountable}, the set
+\item (\textbf{基本情况}) 当 $n=1$ 时，断言不言而喻：如果 $X_1$ 为可数无限集，那么 $X_1$ 为可数无限集。
+\item (\textbf{归纳步骤}) 给定 $n \ge 1$ 并假设对于任意集合 $X_1, \dots, X_n$，乘积 $\prod_{i=1}^n X_i$ 为可数无限集。给定集合 $X_1, \dots, X_{n+1}$。那么根据归纳假设 $\prod_{i=1}^n X_i$ 为可数无限集，且根据假设 $X_{n+1}$ 为可数无限集，所以根据 \Cref{exProductOfTwoCountableSetsIsCountable}，集合
 \[ \left( \prod_{i=1}^n X_i \right) \times X_{n+1} \]
-is countably infinite. But by \Cref{exProductOfSuccNSets} there is a bijection 
+为可数无限集。根据 \Cref{exProductOfSuccNSets} 存在双射
 \[ \prod_{i=1}^{n+1} X_i \to \left( \prod_{i=1}^n X_i \right) \times X_{n+1} \]
-and so by \Cref{exProductOfTwoCountableSetsIsCountable} we have that $\prod_{i=1}^{n+1} X_i$ is countably infinite, as required.
+所以根据 \Cref{exProductOfTwoCountableSetsIsCountable} 可得 $\prod_{i=1}^{n+1} X_i$ 为可数无限集。
 \end{itemize}
-By induction, we're done.
+利用归纳法，证明完成。
 \end{cproof}
 
-We often just want to know whether a set is \textit{countable}, rather than countably infinite. This might be because we only seek an upper bound on how large the set is; or it might because we already know that the set is infinite, so proving that it is countable suffices.
+我们往往只想知道一个集合是否\textit{可数}，而关心是否是可数无限。这可能是因为我们只需找到集合大小的上限；或者可能是因为我们已经知道集合是无限的，只需证明它是可数的。
 
-The following theorem allows us to prove that a set $X$ is countable---that is, finite or countably infinite---by either surjecting $\mathbb{N}$ onto $X$, or injecting $X$ into $\mathbb{N}$. Using the intuition of \Cref{secFiniteSets}, where we compared the sizes of finite sets using injections and surjections, this says that a set is countable if and only if $X$ is at most as large as $\mathbb{N}$.
+下面的定理允许我们通过将 $\mathbb{N}$ 满射到 $X$ 上，或者将 $X$ 单射到 $\mathbb{N}$ 来证明集合 $X$ 是可数的 --- 即有限集或可数无限集。根据 \Cref{secFiniteSets} 的直觉，我们使用单射和满射比较有限集的大小，这表明当且仅当 $X$ 最多与 $\mathbb{N}$ 一样大时，集合才是可数的。
 
 %% Note for future: injection case doesn't require X inhabited.
 \begin{theorem} \label{thmCountableFromInjSurj}
-Let $X$ be an inhabited set. The following are equivalent:
+设 $X$ 为非空集合。如下陈述是等价的：
 \begin{enumerate}[(i)]
-\item $X$ is countable;
-\item There exists a surjection $f : \mathbb{N} \to X$;
-\item There exists an injection $f : X \to \mathbb{N}$.
+\item $X$ 可数；
+\item 存在满射 $f : \mathbb{N} \to X$；
+\item 存在单射 $f : X \to \mathbb{N}$。
 \end{enumerate}
 \end{theorem}
 \begin{cproof}
-We'll prove (i)$\Leftrightarrow$(ii) and (i)$\Leftrightarrow$(iii).
+我们来证明 (i)$\Leftrightarrow$(ii) 和 (i)$\Leftrightarrow$(iii)。
 \begin{itemize}
-\item (i)$\Rightarrow$(ii). Suppose $X$ is countable. If $X$ is countably infinite, then there exists a bijection $f : \mathbb{N} \to X$, which is a surjection. If $X$ is finite then there exists a bijection $g : [m] \to X$, where $m = |X| \ge 1$. Define $f : \mathbb{N} \to X$ by
-\[ f(n) = \begin{cases} g(n) & \text{ if } 1 \le n \le m \\ g(1) & \text{ if } n=0 \text{ or } n > m \end{cases} \]
-Then $f$ is surjective: if $x \in X$ then there exists $n \in [m]$ such that $g(n)=x$, and then  $f(n)=g(n)=x$.
-\item (ii)$\Rightarrow$(i). Suppose there exists a surjection $f : \mathbb{N} \to X$. To prove that $X$ is countable, it suffices to prove that if $X$ is infinite then it is countably infinite. So suppose $X$ is infinite, and define a sequence recursively by
+\item (i)$\Rightarrow$(ii). 假设 $X$ 可数。如果 $X$ 为可数无限集，则存在双射 $f : \mathbb{N} \to X$，也是满射。如果 $X$ 为有限集，则存在双射 $g : [m] \to X$，其中 $m = |X| \ge 1$。定义函数 $f : \mathbb{N} \to X$ 为
+\[ f(n) = \begin{cases} g(n) & \text{ 如果 } 1 \le n \le m \\ g(1) & \text{ 如果 } n=0 \text{ 或 } n > m \end{cases} \]
+则 $f$ 为满射：如果 $x \in X$ 则存在 $n \in [m]$ 使得 $g(n)=x$，那么 $f(n)=g(n)=x$。
+\item (ii)$\Rightarrow$(i). 假设存在满射 $f : \mathbb{N} \to X$。要证明 $X$ 可数，只要证明如果 $X$ 是无限集则它是可数无限集即可。所以假设 $X$ 是无限集，并递归地定义序列
 \begin{itemize}
 \item $a_0=0$;
-\item Fix $n \in \mathbb{N}$ and suppose $a_0, \dots, a_n$ have been defined. Define $a_{n+1}$ to be the least natural number for which $f(a_{n+1}) \not \in \{ f(a_0), f(a_1), \dots, f(a_n) \}$.
+\item 给定 $n \in \mathbb{N}$ 并假设 $a_0, \dots, a_n$ 已经定义。定义 $a_{n+1}$ 为 $f(a_{n+1}) \not \in \{ f(a_0), f(a_1), \dots, f(a_n) \}$ 的最小自然数。
 \end{itemize}
-Define $g : \mathbb{N} \to X$ by $g(n)=f(a_n)$ for all $n \in \mathbb{N}$. Then
+对于所有 $n \in \mathbb{N}$ 定义 $g : \mathbb{N} \to X$ 为 $g(n)=f(a_n)$。则
 \begin{itemize}
-\item $g$ is injective, since if $m \le n$ then $f(a_m) \ne f(a_n)$ by construction of the sequence $(a_n)_{n \in \mathbb{N}}$.
-\item $g$ is surjective. Indeed, given $x \in X$, by surjectivity there exists $m \in \mathbb{N}$ which is least such that $f(m)=x$, and we must have $a_n=m$ for some $n \le m$ by construction of the sequence $(a_n)_{n \in \mathbb{N}}$. So $x = f(a_n) = g(n)$, and hence $g$ is surjective.
+\item $g$ 是单射的。因为如果 $m \le n$ 则 $f(a_m) \ne f(a_n)$ by construction of the sequence $(a_n)_{n \in \mathbb{N}}$.
+\item $g$ 是满射的。事实上，给定 $x \in X$，根据满射性，存在最小 $m \in \mathbb{N}$ 使得 $f(m)=x$，因此对于某个 $n \le m$ 通过序列 $(a_n)_{n \in \mathbb{N}}$ 必然可得 $a_n=m$。所以 $x = f(a_n) = g(n)$，因此 $g$ 是满射的。
 \end{itemize}
-So $g$ is a bijection, and $X$ is countable.
-\item (i)$\Rightarrow$(iii). Suppose $X$ is countable. If $X$ is countably infinite, then there exists a bijection $f : \mathbb{N} \to X$, so $f^{-1} : X \to \mathbb{N}$ is bijective and hence injective. If $X$ is finite then there exists a bijection $g : [m] \to X$, where $m=|X| \ge 1$. Then $g^{-1} : X \to [m]$ is injective. Let $i : [m] \to \mathbb{N}$ be defined by $i(k)=k$ for all $k \in [m]$. Then $i \circ g^{-1}$ is injective; indeed, for $x,x' \in X$ we have
+所以 $g$ 为双射，且 $X$ 是可数的。
+\item (i)$\Rightarrow$(iii). 假设 $X$ 是可数的。如果 $X$ 为可数无限集，则存在双射 $f : \mathbb{N} \to X$，所以 $f^{-1} : X \to \mathbb{N}$ 也是双射的，因此也是单射的。如果 $X$ 为有限集，则存在双射 $g : [m] \to X$，其中 $m=|X| \ge 1$。那么 $g^{-1} : X \to [m]$ 是单射的。设对于所有 $k \in [m]$, $i : [m] \to \mathbb{N}$ 定义为 $i(k)=k$。则 $i \circ g^{-1}$ 是单射的；事实上, 对于 $x,x' \in X$ 我们有
 \[ i(g^{-1}(x))=i(g^{-1}(x')) \Rightarrow g^{-1}(x)=g^{-1}(x') \Rightarrow x=x' \]
-The first implication is by definition of $i$, and the second is by injectivity of $g^{-1}$. So there exists an injection $X \to \mathbb{N}$.
-\item (iii)$\Rightarrow$(i). Suppose there exists an injection $f : X \to \mathbb{N}$. To prove that $X$ is countable, it suffices to prove that if $X$ is infinite then it is countably infinite. Define a sequence $(a_n)_{n \in \mathbb{N}}$ recursively as follows:
+第一点由 $i$ 的定义得到，第二点由 $g^{-1}$ 的单射性得到。所以存在单射 $X \to \mathbb{N}$。
+\item (iii)$\Rightarrow$(i). 假设存在单射 $f : X \to \mathbb{N}$。要证明 $X$ 为可数集，只需证明如果 $X$ 是无限集则它为可数无限集即可。递归地定义序列 $(a_n)_{n \in \mathbb{N}}$ 如下：
 \begin{itemize}
-\item Let $a_0$ be the least element of $f[X]$;
-\item Fix $n \in \mathbb{N}$ and suppose $a_0, \dots, a_n$ have been defined. Let $a_{n+1}$ be the least element of $f[X] \setminus \{ a_0, \dots, a_n \}$. This exists since $f$ is injective, so $f[X]$ is infinite. 
+\item 设 $a_0$ 为 $f[X]$ 的最小元素；
+\item 给定 $n \in \mathbb{N}$ 并假设 $a_0, \dots, a_n$ 已经定义。设 $a_{n+1}$ 为 $f[X] \setminus \{ a_0, \dots, a_n \}$ 的最小元素。因为 $f$ 为单射，所以 $f[X]$ 是无限的。 
 \end{itemize}
-Define $g : \mathbb{N} \to X$ by, for each $n \in \mathbb{N}$, letting $g(n)$ be the unique value of $x$ for which $f(x)=a_n$. Then
+定义 $g : \mathbb{N} \to X$ ，对于每个 $n \in \mathbb{N}$，设 $g(n)$ 是 $x$ 的唯一值，其中 $f(x)=a_n$。那么
 \begin{itemize}
-\item $g$ is injective. By construction $a_m \ne a_n$ whenever $m \ne n$. Let $x,y \in X$ be such that $f(x)=a_m$ and $f(y)=a_n$. Since $f$ is injective, we must have $x \ne y$, and so $g(m) = x \ne y = g(n)$.
-\item $g$ is surjective. Fix $x \in X$. Then $f(x) \in f[X]$, so there exists $m \in \mathbb{N}$ such that $f(x)=a_m$. Hence $g(m)=x$.
+\item $g$ 是单射的。每当 $m \ne n$，构造 $a_m \ne a_n$。设 $x,y \in X$ 使得 $f(x)=a_m$ 且 $f(y)=a_n$。因为 $f$ 是单射的，可得 $x \ne y$，所以 $g(m) = x \ne y = g(n)$。
+\item $g$ 是满射的。给定 $x \in X$。那么 $f(x) \in f[X]$，所以存在 $m \in \mathbb{N}$ 使得 $f(x)=a_m$。因此 $g(m)=x$。
 \end{itemize}
-So $g$ is a bijection, and $X$ is countably infinite.
+所以 $g$ 为双射，且 $X$ 为可数无限集。
 \end{itemize}
-Hence the equivalences have been proved.
+以上证明了上述等价性。
 \end{cproof}
 
-In fact, we needn't even use $\mathbb{N}$ as the domain of the surjection or the codomain of the injection; we can in fact use any countable set $C$.
+实际上，我们不需要用 $\mathbb{N}$ 作为满射的定义域或单射的值域；事实上我们可以使用任意可数集 $C$。
 
 \begin{exercise}
 \label{exCountabilityFromInjectionsAndSurjections}
-Let $X$ be an inhabited set. The following are equivalent:
+设 $X$ 为非空即可。如下陈述是等价的：
 \begin{enumerate}[(i)]
-\item \label{itmInjectionSurjectionCountableSets} $X$ is countable;
-\item \label{itmInjectionIntoCountableSet} There exists an injection $f : X \to C$ for some countable set $C$;
-\item \label{itmSurjectionFromCountableSet} There exists a surjection $f : C \to X$ for some countable set $C$.
+\item \label{itmInjectionSurjectionCountableSets} $X$ 是可数的；
+\item \label{itmInjectionIntoCountableSet} 对于可数集$C$，存在单射 $f : X \to C$；
+\item \label{itmSurjectionFromCountableSet} 对于可数集$C$，存在满射 $f : C \to X$。
 \end{enumerate}
 \hintlabel{exCountableFromInjSurjC}{%
-For \ref{itmInjectionIntoCountableSet}$\Rightarrow$\ref{itmInjectionSurjectionCountableSets}, use the fact that the composite of two injections is injective. Likewise for \ref{itmSurjectionFromCountableSet}$\Rightarrow$\ref{itmInjectionSurjectionCountableSets}.
+对于 \ref{itmInjectionIntoCountableSet}$\Rightarrow$\ref{itmInjectionSurjectionCountableSets}，利用两个单射的复合为单射这一性质。对于 \ref{itmSurjectionFromCountableSet}$\Rightarrow$\ref{itmInjectionSurjectionCountableSets} 也是如此。
 }
 \end{exercise}
 
-\Cref{exCountableFromInjSurjC} is useful for proving the countability of many other sets: as we build up our repertoire of countable sets, all we need to do in order to prove a set $X$ is countable is find a surjection from a set we already know is countable to $X$, or an injection from $X$ into a set we already know is countable.
+\Cref{exCountableFromInjSurjC} 对证明许多其他集合的可数性非常有用：当我们建立可数集的全部技能时，为了证明集合 $X$ 是可数的，我们需要做的是找到从已知可数集到 $X$ 的满射，或从 $X$ 到已知可数集的单射。
 
-This proof technique yields an incredibly short proof of the following counterintuitive result, which can be interpreted to mean that there are exactly as many rational numbers as there are natural numbers.
+这一证明技巧为下面反直觉的结论给出了令人难以置信的简短证明，这个反直觉的结论可以解释为有理数的数量与自然数的数量完全相等。
 
 \begin{theorem}
 \label{thmRationalsAreCountable}
-The set $\mathbb{Q}$ of rational numbers is countable.
+有理数集 $\mathbb{Q}$ 是可数的。
 \end{theorem}
 
 \begin{cproof}
-Define a function $q : \mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \}) \to \mathbb{Q}$ by letting $q(a,b) = \frac{a}{b}$ for all $a,b \in \mathbb{Z}$ with $b \ne 0$.
+定义函数 $q : \mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \}) \to \mathbb{Q}$，对于所有 $a,b \in \mathbb{Z}$ 且 $b \ne 0$，设 $q(a,b) = \frac{a}{b}$。
 
-By \Cref{exZIsCountable} and \Cref{exProductOfTwoCountableSetsIsCountable}, the set $\mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})$ is countable.
+根据 \Cref{exZIsCountable} 和 \Cref{exProductOfTwoCountableSetsIsCountable}，集合 $\mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})$ 是可数的。
 
-The function $q$ is surjective by definition of $\mathbb{Q}$---indeed, to say $x \in \mathbb{Q}$ is precisely to say that $x = \dfrac{a}{b} = q(a,b)$ for some $(a,b) \in \mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})$.
+根据 $\mathbb{Q}$ 的定义，函数 $q$ 是满射的 --- 事实上，$x \in \mathbb{Q}$ 的精确表达是 $x = \dfrac{a}{b} = q(a,b)$ 其中 $(a,b) \in \mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})$。
 
-By \Cref{exCountableFromInjSurjC}, it follows that $\mathbb{Q}$ is countable.
+根据 \Cref{exCountableFromInjSurjC}，可得 $\mathbb{Q}$ 是可数的。
 \end{cproof}
 
 \begin{exercise} \label{exFiniteSubsetsCountableFixedSize}
-Let $X$ be a countable set. Prove that $\binom{X}{k}$ is countable for each $k \in \mathbb{N}$.
+设 $X$ 为可数集。证明对于每个 $k \in \mathbb{N}$, $\binom{X}{k}$ 是可数的。
 \begin{backhint}
 \hintref{exFiniteSubsetsCountableFixedSize}
-Suppose $X=\mathbb{N}$. By \Cref{propFiniteProductOfCountableSetsIsCountable}, the set $\mathbb{N}^k$ is countable. By \Cref{thmCountableFromInjSurj}(c), it suffices to find an injection $\binom{\mathbb{N}}{k} \to \mathbb{N}^k$.
+假设 $X=\mathbb{N}$。根据 \Cref{propFiniteProductOfCountableSetsIsCountable}，集合 $\mathbb{N}^k$ 是可数的。根据 \Cref{thmCountableFromInjSurj}(c)，只需找到单射 $\binom{\mathbb{N}}{k} \to \mathbb{N}^k$ 即可。
 \end{backhint}
 \end{exercise}
 
-\begin{theorem}[The union of countably many countable sets is countable]
+\begin{theorem}[可数多个可数集得并集是可数的]
 \label{thmCountableUnionOfCountableSetIsCountable}
-Let $\{ X_n \mid n \in \mathbb{N} \}$ be a family of countable sets. Then the set $X$ defined by
+设 $\{ X_n \mid n \in \mathbb{N} \}$ 是一个可数集族。则集合 $X$ 
 \[ X = \bigcup_{n \in \mathbb{N}} X_n \]
-is countable.
+是可数的。
 \end{theorem}
 
 \begin{cproof}
-We may assume that the sets $X_n$ are all inhabited, since the empty set does not contribute to the union.
+我们假设集合 $X_n$ 都是非空的，因为空集对并运算没贡献。
 
-For each $n \in \mathbb{N}$ there is a surjection $f_n : \mathbb{N} \to X_n$. Define $f : \mathbb{N} \times \mathbb{N} \to X$ by $f(m,n)=f_m(n)$ for all $m,n \in \mathbb{N}$. Then $f$ is surjective: if $x \in X$ then $x \in X_m$ for some $m \in \mathbb{N}$. Since $f_m$ is surjective, it follows that $x=f_m(n)$ for some $n \in \mathbb{N}$. But then $x=f(m,n)$. Since $\mathbb{N} \times \mathbb{N}$ is countable, it follows from \Cref{exCountableFromInjSurjC} that $X$ is countable.
+对于每个 $n \in \mathbb{N}$ 存在满射 $f_n : \mathbb{N} \to X_n$。定义函数 $f : \mathbb{N} \times \mathbb{N} \to X$ 为 $f(m,n)=f_m(n)$ 其中 $m,n \in \mathbb{N}$。则 $f$ 是满射的：如果 $x \in X$ 则 $x \in X_m$ 其中 $m \in \mathbb{N}$。因为 $f_m$ 是单射的，可得 $x=f_m(n)$ 其中 $n \in \mathbb{N}$。那么 $x=f(m,n)$。因为 $\mathbb{N} \times \mathbb{N}$ 是可数的，根据 \Cref{exCountableFromInjSurjC} 可得 $X$ 是可数的。
 \end{cproof}
 
 \begin{example}
 \label{exCountableSubsetsOfCountableSetIsCountable}
-Let $X$ be a countable set. The set of all finite subsets of $X$ is countable. Indeed, the set of all finite subsets of $X$ is equal to $\displaystyle \bigcup_{k \in \mathbb{N}} \binom{X}{k}$, which is a union of countably many countable sets by \Cref{exFiniteSubsetsCountableFixedSize}, so is countable by \Cref{thmCountableUnionOfCountableSetIsCountable}.
+设 $X$ 为可数集。$X$ 的所有有限子集的集合是可数的。事实上，$X$ 的所有有限子集的集合等于 $\displaystyle \bigcup_{k \in \mathbb{N}} \binom{X}{k}$，根据 \Cref{exFiniteSubsetsCountableFixedSize}，它是可数多个可数集的并集，所以根据 \Cref{thmCountableUnionOfCountableSetIsCountable} 它是可数的。
 \end{example}
 
-\subsection*{Uncountable sets}
+\subsection*{不可数集}
 
-We have now seen plenty of examples of countable sets. It is not immediately obvious that not every set is countable. How do we \textit{know} that there are sets out there whose elements can't be listed?
+我们已经见过太多可数集的例子了。并非每个集合都是可数的，这一点并不是显而易见的。我们如何\textit{知道}存在某些集合，其元素无法列出呢？
 
-We prove in \Cref{thmCantorForN} that there exists an uncountable set, namely the power set of the natural numbers. The proof is deceptively simple, but the implications are important.
+在 \Cref{thmCantorForN} 中，我们证明了存在一个不可数集，即自然数的幂集。证明看似简单，但其意义非常重要。
 
 \begin{theorem}
 \label{thmCantorForN}
-$\mathcal{P}(\mathbb{N})$ is uncountable.
+$\mathcal{P}(\mathbb{N})$ 是不可数的。
 \end{theorem}
 
 \begin{cproof}
-We proved in \Cref{exRussellSubset} that no function $f : \mathbb{N} \to \mathcal{P}(\mathbb{N})$ is surjective. Specifically, given $f : \mathbb{N} \to \mathcal{P}(\mathbb{N})$, we can show that the element
+在 \Cref{exRussellSubset} 中，我们证明了没有函数 $f : \mathbb{N} \to \mathcal{P}(\mathbb{N})$ 是满射的。具体来说，给定 $f : \mathbb{N} \to \mathcal{P}(\mathbb{N})$，我们可以证明对于任意 $n \in \mathbb{N}$，元素
 \[ B = \{ k \in \mathbb{N} \mid k \not\in f(k) \} \in \mathcal{P}(\mathbb{N}) \]
-is not equal to $f(n)$ for any $n \in \mathbb{N}$. It follows from \Cref{exCountabilityFromInjectionsAndSurjections}\ref{itmSurjectionFromCountableSet} that $\mathcal{P}(\mathbb{N})$ is uncountable.
+不等于 $f(n)$。 根据 \Cref{exCountabilityFromInjectionsAndSurjections}\ref{itmSurjectionFromCountableSet} 可知 $\mathcal{P}(\mathbb{N})$ 是不可数的。
 \end{cproof}
 
-The argument used in \Cref{thmCantorForN} is an example of \textit{Cantor's diagonal argument}, and is typical .
+\Cref{thmCantorForN} 中使用的方法是\textit{康托尔对角线法}的一个典型示例。
 
 \begin{theorem}
 \label{thmCantorDiagonalGeneral}
-Let $X$ be a set, and assume that for every function $f : \mathbb{N} \to X$, there is:
+设 $X$ 为集合，并假设对于每个函数 $f : \mathbb{N} \to X$，都有:
 \begin{enumerate}[(i)]
-\item A family of logical formulae $p_n(x)$ with $x \in X$, one for each $n \in \mathbb{N}$; and
-\item An element $b \in X$;
+\item 逻辑公式族 $p_n(x)$ 其中 $x \in X$，每个 $n \in \mathbb{N}$ 一个；
+\item 元素 $b \in X$；
 \end{enumerate}
-such that $\forall n \in \mathbb{N},~ [p_n(b) \Leftrightarrow \neg p_n(f(n))]$. Then $X$ is uncountable.
+满足 $\forall n \in \mathbb{N},~ [p_n(b) \Leftrightarrow \neg p_n(f(n))]$。则 $X$ 是不可数的。
 \end{theorem}
 
 \begin{cproof}
-We prove that no function $f : \mathbb{N} \to X$ is surjective. So let $f : \mathbb{N} \to X$ be an arbitrary function and let $p_n(x)$ and $b \in X$ be as in the statement of the theorem.
+我们证明没有函数 $f : \mathbb{N} \to X$ 是满射的。所以设 $f : \mathbb{N} \to X$ 为任意函数，并设 $p_n(x)$ 和 $b \in X$ 与定理的陈述相同。
 
-To see that $f$ is not surjective, assume towards a contradiction that $b=f(k)$ for some $k \in \mathbb{N}$.
+要想证明 $f$ 不是满射的, 先假设 $b=f(k)$ 其中 $k \in \mathbb{N}$，然后引出矛盾。
 \begin{itemize}
-\item If $p_k(b)$ is true, then $p_k(f(k))$ is true since $b=f(k)$, and $\neg p_k(f(k))$ is true since $p_k(b) \Rightarrow \neg p_k(f(k))$. This is a contradiction.
-\item If $\neg p_k(b)$ is true, then $\neg p_k(f(k))$ is false since $b=f(k)$, and so $p_k(b)$ is true since $[\neg p_k(f(k))] \Rightarrow p_k(b)$. This is a contradiciton. 
+\item 如果 $p_k(b)$ 为真，则 $p_k(f(k))$ 为真，因为 $b=f(k)$，且 $\neg p_k(f(k))$ 为真，因为 $p_k(b) \Rightarrow \neg p_k(f(k))$。存在矛盾。
+\item 如果 $\neg p_k(b)$ 为真，则 $\neg p_k(f(k))$ 为假，因为 $b=f(k)$，所以 $p_k(b)$ 为真，因为 $[\neg p_k(f(k))] \Rightarrow p_k(b)$。存在矛盾。
 \end{itemize}
-In both cases we arrive at a contradiction. So $b \ne f(k)$ for any $k \in \mathbb{N}$, and so $f$ is not surjective.
+在这两种情况下，我们都得到矛盾。所以对于任意 $k \in \mathbb{N}$, $b \ne f(k)$，因此 $f$ 不是满射的。
 
-Hence $X$ is uncountable by \Cref{exCountabilityFromInjectionsAndSurjections}\ref{itmSurjectionFromCountableSet}.
+因此，根据 \Cref{exCountabilityFromInjectionsAndSurjections}\ref{itmSurjectionFromCountableSet}，$X$ 是不可数的。
 \end{cproof}
 
-\begin{strategy}[Cantor's diagonal argument]
+\begin{strategy}[康托尔对角线法]
 \label{strCantorDiagonal}
 \index{Cantor's diagonal argument}
-In order to prove that a set $X$ is uncountable, it suffices to prove that no function $f : \mathbb{N} \to X$ is surjective using the following argument: given a function $f : \mathbb{N} \to X$, find an element $b \in X$ that `disagrees' with each value $f(n)$ about some statement involving $n$.
+要证明集合 $X$ 是不可数的，只需用如下方法证明没有函数 $f : \mathbb{N} \to X$ 是满射的：给定函数 $f : \mathbb{N} \to X$，找到元素 $b \in X$ `不满足'涉及 $n$ 的某个陈述的每个值 $f(n)$。
 \end{strategy}
 
 \begin{example}
-In the proof of \Cref{thmCantorForN}, we proved that $\mathcal{P}(\mathbb{N})$ is uncountable as follows. Given $f : \mathbb{N} \to \mathcal{P}(\mathbb{N})$, we needed to find an element $B \in \mathcal{P}(\mathbb{N})$---that is, a subset $B \subseteq \mathbb{N}$---that `disagreed' with each value $f(n)$ about something involving $n$.
+在 \Cref{thmCantorForN} 的证明中，我们证明了 $\mathcal{P}(\mathbb{N})$ 是不可数的。方法如下，给定 $f : \mathbb{N} \to \mathcal{P}(\mathbb{N})$，我们需要找到元素 $B \in \mathcal{P}(\mathbb{N})$ --- 也就是说，子集 $B \subseteq \mathbb{N}$ --- `不满足'涉及 $n$ 的每个值 $f(n)$。
 
-Keep in mind that, for each $n \in \mathbb{N}$, the element $f(n) \in \mathcal{P}(\mathbb{N})$ is a subset of $\mathbb{N}$, so it makes sense to ask whether $n$ is an element of $f(n)$ or not.
+记住，对于每个 $n \in \mathbb{N}$，元素 $f(n) \in \mathcal{P}(\mathbb{N})$ 是 $\mathbb{N}$ 的子集，因此询问 $n$ 是否是 $f(n)$ 的元素是有意义的。
 
-With this in mind, for each $n \in \mathbb{N}$, we forced $B$ to disagree with $f(n)$ about whether $n$ is an element. That is
+考虑到这一点，对于每个 $n \in \mathbb{N}$，我们迫使 $B$ 在 $n$ 是否为元素的问题上与 $f(n)$ 不一致。也就是
 \[ n \in B \quad \Leftrightarrow \quad n \not\in f(n) \]
-In the language of \Cref{thmCantorDiagonalGeneral}, the statement $p_n(U)$ (for $n \in \mathbb{N}$ and $U \in \mathcal{P}(\mathbb{N})$ is the statement `$n \in U$'; for each $n \in \mathbb{N}$, this statement is true with $U=B$ if and only if it is false with $U=f(n)$.
+用 \Cref{thmCantorDiagonalGeneral} 的语言，陈述 $p_n(U)$ （对于 $n \in \mathbb{N}$ 和 $U \in \mathcal{P}(\mathbb{N})$）为陈述 `$n \in U$'；对于每个 $n \in \mathbb{N}$，这个陈述在 $U=B$ 时为当且仅当其在 $U=f(n)$ 时为假。
 
-The definition $B = \{ k \in \mathbb{N} \mid k \not\in f(k) \}$ forces $n \in B \Leftrightarrow n \not\in f(n)$ to be true for all $n \in \mathbb{N}$, and so Cantor's diagonal argument applies.
+$B = \{ k \in \mathbb{N} \mid k \not\in f(k) \}$ 的定义迫使对于所有 $n \in \mathbb{N}$, $n \in B \Leftrightarrow n \not\in f(n)$ 为真，因此康托尔对角线法适用。
 \end{example}
 
-Cantor's diagonal argument can also be used to prove that $\mathbb{R}$ is uncountable by considering the decimal expansions of real numbers (\Cref{defBaseBExpansionOfRealNumber}).
+康托尔对角线法还可以通过实数的十进制展开（\Cref{defBaseBExpansionOfRealNumber}）来证明 $\mathbb{R}$ 是不可数的。
 
 \begin{theorem}
 \label{thmRIsUncountable}
-$\mathbb{R}$ is uncountable.
+$\mathbb{R}$ 是不可数的。
 \end{theorem}
 
 \begin{cproof}
-Let $f : \mathbb{N} \to \mathbb{R}$ be an arbitrary function. We prove that $f$ is not surjective.
+设 $f : \mathbb{N} \to \mathbb{R}$ 为任意函数。我们证明 $f$ 不是满射。
 
-For each $n \in \mathbb{N}$, let the decimal expansion of $f(n) \in \mathbb{R}$ be $x_0^n \,.\, x_1^n x_2^n x_3^n \dots$---that is
+对于每个 $n \in \mathbb{N}$，设 $f(n) \in \mathbb{R}$ 的十进制展开为 $x_0^n \,.\, x_1^n x_2^n x_3^n \dots$ --- 也就是说
 \[ f(n) = \sum_{i \ge 0} x_i^n \cdot 10^{-i} \]
-[The superscript `$n$' here is a label, not an exponent.]
+[这里的上标 `$n$' 是一个标签，而不是指数。]
 
-We define $b \in \mathbb{R}$ by forcing the decimal expansions of $b$ and $f(n)$ to differ in the $n^{\text{th}}$ place for each $n \in \mathbb{N}$. Specifically, for each $n \in \mathbb{N}$ let
-\[ b_n = \begin{cases} 0 & \text{if } x_n^n \ne 0 \\ 1 & \text{if } x_n^n = 0 \end{cases} \]
-and let $b = b_0. b_1 b_2 b_3 \dots{} = \sum_{i \ge 0} b_i \cdot 10^{-i}$.
+我们通过强制 $b$ 和 $f(n)$ 的十进制展开在每个 $n \in \mathbb{N}$ 上的第 $n$ 位不同来定义 $b \in \mathbb{R}$。具体来说，对于每个 $n \in \mathbb{N}$ 设
+\[ b_n = \begin{cases} 0 & \text{如果 } x_n^n \ne 0 \\ 1 & \text{如果 } x_n^n = 0 \end{cases} \]
+并设 $b = b_0. b_1 b_2 b_3 \dots{} = \sum_{i \ge 0} b_i \cdot 10^{-i}$。
 
-Note that $b$ does not have recurring 9s, so it is a valid decimal expansion of a real number. Moreover $b \ne f(n)$ for any $n \in \mathbb{N}$ by uniqueness of decimal expansions of real numbers (\Cref{thmBaseBExpansionsOfReals}), since $b_n \ne x_n^n$.
+请注意，$b$ 没有重复出现的9，因此它是实数的有效十进制展开。并且对于任意 $n \in \mathbb{N}$ 根据实数十进制展开的唯一性（\Cref{thmBaseBExpansionsOfReals}），$b \ne f(n)$，因为 $b_n \ne x_n^n$。
 
-Hence $f$ is not surjective, so that $\mathbb{R}$ is uncountable.
+因此 $f$ 不是满射的，所以 $\mathbb{R}$ 是不可数的。
 \end{cproof}
 
 \begin{exercise}
-Use Cantor's diagonal argument to prove that the set $\mathbb{N}^{\mathbb{N}}$ of all functions $\mathbb{N} \to \mathbb{N}$ is uncountable.
+用康托尔对角线法证明所有函数集合 $\mathbb{N} \to \mathbb{N}$ 的集合 $\mathbb{N}^{\mathbb{N}}$ 是不可数的。
 \end{exercise}
 
-Using Cantor's diagonal argument every time we want to prove that a set is uncountable can be cumbersome. However, just like with, \Cref{thmCountableFromInjSurj}, we can prove that sets are uncountable by relating them to other sets that we already know are uncountable.
+每次我们想要证明一个集合不可数时，使用康托尔对角线法可能会很麻烦。然而，就像 \Cref{thmCountableFromInjSurj} 一样，我们可以通过将集合与我们已知的其他不可数集相关联来证明集合是不可数的。
 
 \begin{theorem}
 \label{thmUncountableFromInjSurj}
-Let $X$ be a set. The following are equivalent:
+设 $X$ 为集合。如下陈述是等价的：
 \begin{enumerate}[(i)]
-\item $X$ is uncountable;
-\item \label{testitem} There exists a surjection $f : X \to U$ for some uncountable set $U$;
-\item There exists an injection $f : U \to X$ for some uncountable set $U$.
+\item $X$ 不可数；
+\item \label{testitem} 对于不可数集 $U$，存在满射 $f : X \to U$；
+\item 对于不可数集 $U$，存在单射 $f : U \to X$。
 \end{enumerate}
 \end{theorem}
 
 \begin{cproof}
-For (i)$\Rightarrow$(ii) and (i)$\Rightarrow$(iii), take $U=X$ and $f=\mathrm{id}_X$.
+对于 (i)$\Rightarrow$(ii) 和 (i)$\Rightarrow$(iii)，令 $U=X$ 且 $f=\mathrm{id}_X$。
 
-For (ii)$\Rightarrow$(i), suppose that there is a surjection $f : X \to U$ for some uncountable set $U$. If $X$ were countable, then there would be a surjection $g : \mathbb{N} \to X$ by \Cref{thmCountableFromInjSurj}(ii); but then $f \circ g : \mathbb{N} \to U$ would be a surjection, contradicting the fact that $U$ is uncountable.
+对于 (ii)$\Rightarrow$(i)，对于不可数集 $U$，假设存在满射 $f : X \to U$。如果 $X$ 可数，则根据 \Cref{thmCountableFromInjSurj}(ii)，存在满射 $g : \mathbb{N} \to X$；那么 $f \circ g : \mathbb{N} \to U$ 为满射，这与 $U$ 不可数矛盾。
 
-For (iii)$\Rightarrow$(i), suppose there is an injection $f : U \to X$ for some uncountable set $U$. If $X$ were countable, then there would be an injection $g : X \to \mathbb{N}$ by \Cref{thmCountableFromInjSurj}(iii); but then $g \circ f : U \to \mathbb{N}$ would be an injection, contradicting the fact that $U$ is uncountable.
+对于 (iii)$\Rightarrow$(i)，对于不可数集 $U$，假设存在单射 $f : U \to X$。如果 $X$ 可数，则根据 \Cref{thmCountableFromInjSurj}(iii)，存在单射 $g : X \to \mathbb{N}$；那么 $g \circ f : U \to \mathbb{N}$ 为单射, 这与 $U$ 不可数矛盾。
 \end{cproof}
 
 \begin{proposition}
 \label{propBinarySequencesAreUncountable}
-The set $\{0,1\}^{\mathbb{N}}$ of all functions $\mathbb{N} \to \{0,1\}$ is uncountable.
+所有函数 $\mathbb{N} \to \{0,1\}$ 的集合 $\{0,1\}^{\mathbb{N}}$ 是不可数的。
 \end{proposition}
 
 \begin{cproof}
-Define $F : \mathcal{P}(\mathbb{N}) \to \{0,1\}^{\mathbb{N}}$ for $U \subseteq \mathbb{N}$ by letting $F(U) = \chi_U : \mathbb{N} \to \{0,1\}$ be the characteristic function of $U$ (\Cref{defCharacteristicFunction}).
+定义函数 $F : \mathcal{P}(\mathbb{N}) \to \{0,1\}^{\mathbb{N}}$，对于 $U \subseteq \mathbb{N}$ 令 $F(U) = \chi_U : \mathbb{N} \to \{0,1\}$ 为 $U$ 的特征函数（\Cref{defCharacteristicFunction}）。
 
-Given $U, V \subseteq \mathbb{N}$, we have
+给定 $U, V \subseteq \mathbb{N}$，根据 by \Cref{thmCharacteristicFunctionsCharacteriseSubsets}，我们有
 \[ F(U) = F(V) \quad \Rightarrow \quad \chi_U = \chi_V \quad \Rightarrow \quad U = V \]
-by \Cref{thmCharacteristicFunctionsCharacteriseSubsets}. But then $F$ is injective, and $\mathcal{P}(\mathbb{N})$ is uncountable by Cantor's theorem, so that $\{0,1\}^{\mathbb{N}}$ is uncountable by \Cref{thmUncountableFromInjSurj}.
+则 $F$ 是单射的，而根据康托尔定理 $\mathcal{P}(\mathbb{N})$ 是不可数的，所以根据 \Cref{thmUncountableFromInjSurj}，$\{0,1\}^{\mathbb{N}}$ 是不可数的。
 \end{cproof}
 
 \begin{exercise}
-Prove that if a set $X$ has an uncountable subset, then $X$ is uncountable.
+证明如果集合 $X$ 拥有不可数子集，则 $X$ 是不可数的。
 \end{exercise}
 
 \begin{exercise}
 \label{exPowerSetFiniteOrUncountable}
-Let $X$ be a set. Prove that $\mathcal{P}(X)$ is either finite or uncountable.
+设 $X$ 为集合。证明 $\mathcal{P}(X)$ 要么是有限的，要么是不可数的。
 \begin{backhint}
 \hintref{exPowerSetFiniteOrUncountable}
-We have already proved this when $X$ is finite. When $X$ is countably infinite, use \Cref{thmCantorForN}. When $X$ is uncountably infinite, find an injection $X \to \mathcal{P}(X)$ and find a way to apply \Cref{exCountableFromInjSurjC}.
+我们已经证明 $X$ 为有限集的情况。当 $X$ 为可数无限集时，用 \Cref{thmCantorForN}。当 $X$ 为不可数无限集时，找到单射 $X \to \mathcal{P}(X)$ 并想办法应用 \Cref{exCountableFromInjSurjC}。
 \end{backhint}
 \end{exercise}
 
-\subsection*{Detecting countability}
+\subsection*{检测可数性}
 
-We have now seen several examples of countable and uncountable sets. But being able to prove that a set is countable, or that a set is uncountable, only gets us so far---it will be beneficial to gain some intuition for how to detect whether a set is countable or uncountable.
+我们已经见到了若干可数集和不可数集的例子。但是，能够证明一个集合是可数的，或者一个集合是不可数的，技只此耳 --- 能够获得如何检测集合可数性的直觉大有益处。
 
-We now work towards proving the following heuristic:
+我们接下来致力于证明以下启发：
 
 \begin{center}
-\textit{A set is countable if each of its elements has a finite description.}
+\textit{如果集合的每个元素都有有限的描述，则该集合是可数的。}
 \end{center}
 
-Before we make this precise, let's see this heuristic in action. Consider some of the sets that we have already seen are countable:
+在我们进行精确阐述之前，让我们看一下这个启发式的实际应用。考虑如下我们已经见过的可数集合：
 \begin{itemize}
-\item The set $\mathbb{N}$ is countable; every natural number can be expressed as a finite string of digits, so has a finite description---for example, $7$ or $15213$.
-\item The set $\mathbb{Z}$ is countable; every integer has a finite description as a finite string of digits, possibly modified by a minus sign---for example, $7$ or $-15213$.
-\item The set $\mathbb{Q}$ is countable; every rational number has a finite description as a pair of integers (which themselves have finite descriptions), one atop the other, separated by a horizontal line---for example, $\frac{7}{1}$ or $\frac{-15213}{21128}$.
-\item The set of all \textit{finite} subsets of $\mathbb{N}$ is countable; every finite subset of $\mathbb{N}$ has a finite expression in list notation by writing an open curly bracket `$\{$', followed by a finite number of natural numbers (which themselves have finite expressions) separated by commas, and finally writing a closed curly bracket `$\}$'---for example $\{ 15, 0, 281 \}$ or $\{ \}$.
+\item 集合 $\mathbb{N}$ 是可数的；每个自然数都可以用一个有限的数字字符串表示，因此存在一个有限的描述 --- 例如，$7$ 或 $15213$。
+\item 集合 $\mathbb{Z}$ 是可数的；每个整数都可以用一个有限的数字字符串表示，可能会带上负号 --- 例如，$7$ 或 $-15213$。
+\item 集合 $\mathbb{Q}$ 是可数的；每个有理数都都可以用有限个整数（整数本身具有有限的描述）对来表示，一个在另一个之上，用横线分割 --- 例如，$\frac{7}{1}$ 或 $\frac{-15213}{21128}$。
+\item $\mathbb{N}$ 的所有\textit{有限}子集的集合是可数的；$\mathbb{N}$ 的每个有限子集在列表表示法中都有一个有限的表示，一个开大括号`$\{$'，后跟有限个自然数（自然数本身具有有限的表达式）以逗号分割，最后写一个闭大括号`$\}$' --- 例如 $\{ 15, 0, 281 \}$ 或 $\{ \}$。
 \end{itemize}
 
-Now consider some of the sets that we know (or have been told) are uncountable:
+接下来考虑我们已知（或被告知）的不可数集：
 \begin{itemize}
-\item The set $\mathcal{P}(\mathbb{N})$ is uncountable; intuitively, the infinite subsets of $\mathbb{N}$ cannot be expressed finitely in a uniform way.
-\item The set $\mathbb{R}$ is uncountable; intuitively, there is no uniform way of finitely describing real numbers---for example, decimal expansions are no good since they are infinite.
+\item 集合 $\mathcal{P}(\mathbb{N})$ 是不可数的；直观上，$\mathbb{N}$ 的无限子集不能以统一的方式有限地表示。 
+\item 集合 $\mathbb{R}$ 是不可数的；直观上，没有统一的方法来有限地描述实数 --- 例如，十进制展开式就不够好，因为它们是无限的。
 \end{itemize}
 
 \begin{definition}
@@ -384,124 +385,125 @@ Now consider some of the sets that we know (or have been told) are uncountable:
 \index{length!of a word}
 \index{alphabet}
 \nindex{Sigmastar}{$\Sigma^*$}{Kleene star}
-Let $\Sigma$ be a set. A \textbf{word} over $\Sigma$ is an expression of the form $a_1 a_2 \dots a_n$, where $n \in \mathbb{N}$ and $a_i \in \Sigma$ for all $i \in [n]$. The natural number $n$ is called the \textbf{length} of the word. The unique word of length $0$ is called the \textbf{empty word}, and is denoted by $\varepsilon$ \inlatex{varepsilon}.
+设 $\Sigma$ 为集合。$\Sigma$ 上的\textbf{单词}是 $a_1 a_2 \dots a_n$ 形式的表达式，其中 $n \in \mathbb{N}$ 且对于所有 $i \in [n]$, $a_i \in \Sigma$。自然数 $n$ 被称为单词的\textbf{长度}。长度为 $0$ 的唯一单词被称为\textbf{空词}，并用 $\varepsilon$ \inlatex{varepsilon} 表示。
 
-The set $\Sigma$ is called the \textbf{alphabet}. The set of all words over $\Sigma$ is denoted by $\Sigma^*$ \inlatex{Sigma\^{}*}; the operation $(-)^{\star}$ is called the \textbf{Kleene star}.
+集合 $\Sigma$ 被称为\textbf{字母表}。$\Sigma$ 上所有单词的集合用 $\Sigma^*$ \inlatex{Sigma\^{}*} 表示；运算 $(-)^{\star}$ 被称为 \textbf{克莱恩星}.
 \end{definition}
 
-Formally, $\Sigma^*$ is defined to be the union $\displaystyle\bigcup_{n \in \mathbb{N}} \Sigma^n$, where the sets $\Sigma^n$ are recursively defined by
-\[ \Sigma^0 = \{ \varepsilon \} \quad \text{and} \quad \Sigma^{n+1} = \{ wa \mid w \in \Sigma^n,~ a \in \Sigma \} \text{ for all } n \ge 0 \]
-That is, given $n \in \mathbb{N}$, the elements of $\Sigma^n$ are precisely the words over $\Sigma$ of length $n$.
+形式上，$\Sigma^*$ 被定义为并集 $\displaystyle\bigcup_{n \in \mathbb{N}} \Sigma^n$，其中集合 $\Sigma^n$ 递归地定义为
+\[ \Sigma^0 = \{ \varepsilon \} \quad \text{且} \quad \Sigma^{n+1} = \{ wa \mid w \in \Sigma^n,~ a \in \Sigma \} \text{ 对于所有 } n \ge 0 \]
+即，给定 $n \in \mathbb{N}$，$\Sigma^n$ 的元素正是 $\Sigma$ 上长度为 $n$ 的单词。
 
 \begin{example}
 \label{exSomeExamplesOfFiniteStrings}
-The elements of $\{ 0,1 \}^*$ are precisely the finite binary strings:
+$\{ 0,1 \}^*$ 的元素正是有限二进制串：
 \[ \{ 0,1 \}^* = \{ \varepsilon,~ 0,~ 1,~ 00,~ 01,~ 10,~ 11,~ 000,~ 001,~ 010,~ 011,~ \dots \} \]
-Likewise, the elements of $\{ 0,1,2,3,4,5,6,7,8,9 \}^*$ are the finite strings of the base-$10$ digits. Keep in mind, though, that formally the elements of this string are \textit{words} and not \textit{numbers}, and that two words may correspond with the same natural number---for example $123$ and $00123$ are distinct elements of $\{ 0,1,2,3,4,5,6,7,8,9 \}^*$, despite the fact that they both \textit{represent} the same natural number.
+同理，$\{ 0,1,2,3,4,5,6,7,8,9 \}^*$ 的元素是以 $10$ 为基数的有限数字串。但请牢记，正式地讲这些串的元素是\textit{单词}而非\textit{数字}，并且两个单词可能对应于相同的自然数 --- 例如 $123$ 和 $00123$ 是 $\{ 0,1,2,3,4,5,6,7,8,9 \}^*$ 的不同元素，尽管事实上它们\textit{代表}相同的自然数。
 \end{example}
 
 \begin{exercise}
-Let $\Sigma = \{ 0,1,2,3,4,5,6,7,8,9,{\div},{-} \}$. Describe which words over $\Sigma$ immediately represent rational numbers (in the sense of treating the digit symbols as numbers and the symbols $\div$ and $-$ as arithmetic operations). Find some examples of elements of $\Sigma^*$ that do not represent rational numbers.
+设 $\Sigma = \{ 0,1,2,3,4,5,6,7,8,9,{\div},{-} \}$。描述 $\Sigma$ 上的哪些单词代表有理数（将数字符号视为数字并将符号 $\div$ 和 $-$ 视为算术运算）。找出 $\Sigma^*$ 的元素无法代表有理数的例子。
 \hintlabel{exWordsRepresentingRationalNumbers}{%
-How many `$\div$' symbols can a string from $\Sigma^*$ have if the string is to represent a rational number? Where in a word over $\Sigma$ can a $\div$ symbol appear?
+如果 $\Sigma^*$ 中的字符串要表示有理数，那么该字符串可以有多少个`$\div$'符号？$\Sigma$ 上的单词中在什么位置可以出现 $\div$ 符号？
 }
 \end{exercise}
 
 \begin{exercise}
-Let $\Sigma$ be an alphabet. Prove that if $\Sigma$ is countable, then $\Sigma^*$ is countable.
+设 $\Sigma$ 为字母表。证明如果 $\Sigma$ 是可数的，则 $\Sigma^*$ 是可数的。
 \hintlabel{exIfAlphabetCountableThenSetOfWordsCountable}{%
-Prove by induction that $\Sigma^n$ is countable for all $n \in \mathbb{N}$, and then apply \Cref{thmCountableUnionOfCountableSetIsCountable}.
+用归纳法证明对于所有 $n \in \mathbb{N}$, $\Sigma^n$ 是可数的，然后应用 \Cref{thmCountableUnionOfCountableSetIsCountable}。
 }
 \end{exercise}
 
-As hinted by \Cref{exSomeExamplesOfFiniteStrings}, we can use words over sets to make precise what we mean by `finite description'.
+正如 \Cref{exSomeExamplesOfFiniteStrings} 暗示的那样，我们可以使用集合上的单词来精确表达`有限描述'的含义。
 
-The idea is that finitely describing the elements of a set $X$ amounts to defining a function $D : X \to \Sigma^*$ for some set $\Sigma$; given $x \in X$, the word $D(x) \in \Sigma^*$ can be thought of as a finite description of the element $x \in X$.
+其思想是，有限地描述集合 $X$ 的元素相当于对于某集合 $\Sigma$ 定义一个函数 $D : X \to \Sigma^*$；给定 $x \in X$，单词 $D(x) \in \Sigma^*$ 可以被认为是元素 $x \in X$ 的有限描述。 
 
-But $D$ cannot be any old function---if two elements of $X$ have the same description, then they should be equal. That is
+但 $D$ 不能是任何旧函数 --- 如果 $X$ 的两个元素具有相同的描述，则他们应该是相等的。即
 \[ \forall x,y \in X,~ D(x) = D(y) \Rightarrow x=y \]
-But this says exactly that $D$ must be injective!
+而这恰恰表明 $D$ 必须是单射的！
 
 \begin{definition}
 \label{defFiniteDescription}
 \index{finite description}
-Let $X$ be a set and let $\Sigma$ be an alphabet. A \textbf{finite description} of the elements of $X$ over $\Sigma$ is an injection $D : X \to \Sigma^*$.
+设 $X$ 为集合，并设 $\Sigma$ 为字母表。$X$ 中的元素在 $\Sigma$ 上的\textbf{有限描述}为单射 $D : X \to \Sigma^*$。
 \end{definition}
 
 \begin{example}
 \label{exFiniteDescriptionOfFiniteSubsetsOfN}
-Let $\mathcal{F}(\mathbb{N})$ be the set of all finite subsets of $\mathbb{N}$. We already know that this set is countable by \Cref{exCountableSubsetsOfCountableSetIsCountable}; now we exhibit a finite description of its elements.
+设 $\mathcal{F}(\mathbb{N})$ 为 $\mathbb{N}$ 的所有有限子集的集合。根据 \Cref{exCountableSubsetsOfCountableSetIsCountable}，我们已知此集合是可数的；现在我们演示其元素的有限描述。
 
-Let $\Sigma = \left\{ 0,1,2,3,4,5,6,7,8,9,\boxed{\{},\boxed{\}},\boxed{,} \right\}$---that is, the elements of the alphabet $\Sigma$ are the digits $0$ through $9$, an open curly bracket, a closed curly bracket and a comma. (The curly brackets and comma are boxed to distinguish them from the same symbols used in the list notation describing $\Sigma$.)
+设 $\Sigma = \left\{ 0,1,2,3,4,5,6,7,8,9,\boxed{\{},\boxed{\}},\boxed{,} \right\}$ --- 即，字母表 $\Sigma$ 的元素为数字 $0$ 到 $9$，左大括号，右大括号和逗号。 （大括号和逗号外面加了框，以区别列表表示法表示 $\Sigma$ 用到的相同符号。）
 
-Define $D : \mathcal{F}(\mathbb{N}) \to \Sigma^*$ by letting $D(U)$ be the expression of the finite set $U \subseteq \mathbb{N}$ in list notation, with its elements listed in increasing order. This ensures well-definedness of $D$---for example
-\[ \{1,2,3\} = \{2,3,1\} \quad \text{but} \quad D(\{1,2,3\}) = D(\{2,3,1\}) = \{1,2,3\} \] 
+定义 $D : \mathcal{F}(\mathbb{N}) \to \Sigma^*$，令 $D(U)$ 为有限集 $U \subseteq \mathbb{N}$ 的列表表示，其中其元素按升序列出。这确保了 $D$ 的准确定义--- 例如
+\[ \{1,2,3\} = \{2,3,1\} \quad \text{而} \quad D(\{1,2,3\}) = D(\{2,3,1\}) = \{1,2,3\} \] 
 
-But then $D$ is injective: given finite subsets $U, V \subseteq \mathbb{N}$, if $D(U) = D(V)$, then $U$ and $V$ have identical expressions in list notation---this means that they have the same elements, so they are equal!
+那么 $D$ 是单射的：给定有限集 $U, V \subseteq \mathbb{N}$，如果 $D(U) = D(V)$，则 $U$ 和 $V$ 在列表表示法中具有相同的表达式 --- 这意味着它们具有相同的元素，因此它们是相等的！
 \end{example}
 
 \begin{example}
 \label{exTrivialFiniteDescription}
-Every set has a trivial finite description, taking the set itself to be the alphabet. Indeed, the function $D : X \to X^*$ defined by $D(x) = x$ for all $x \in X$ is evidently an injection!
+每个集合都有一个简单的有限描述，即将集合本身视为字母表。事实上，对于所有 $x \in X$，由 $D(x) = x$ 定义的函数 $D : X \to X^*$ 显然是单射。
 \end{example}
 
-\Cref{exTrivialFiniteDescription} raises the point that if we want to prove that a set is countable by showing that its elements have finite descriptions, then we must place some restrictions on the alphabets that we may use. For example, the alphabet that we used in \Cref{exFiniteDescriptionOfFiniteSubsetsOfN} is finite---it has $13$ elements.
+\Cref{exTrivialFiniteDescription} 提出了这样一个观点：如果我们想通过证明集合元素具有有限描述来证明集合是可数的，那么我们必须对可能使用的字母表施加一些限制。例如，我们在 \Cref{exFiniteDescriptionOfFiniteSubsetsOfN} 中使用的字母表是有限的 --- 它有 $13$ 个元素。
 
 \begin{exercise}
 \label{exFiniteDescriptionOfQ}
-Give an explicit finite description of the rational numbers over a finite alphabet.
+在有限字母表上给出有理数的显式有限描述。
 \end{exercise}
 
 \begin{exercise}
 \label{exFiniteDescriptionOfCofiniteSubsetsOfN}
-Let $\mathcal{C}(\mathbb{N})$ be the set of all \textit{cofinite} subsets of $\mathbb{N}$; that is
-\[ \mathcal{C}(\mathbb{N}) = \{ U \subseteq \mathbb{N} \mid \mathbb{N} \setminus U \text{ is finite} \} \]
-Give an explicit finite description of the elements of $\mathcal{C}(\mathbb{N})$ over a finite alphabet.
+设 $\mathcal{C}(\mathbb{N})$ 为 $\mathbb{N}$ 的所有\textit{余有限}子集的集合；即
+\[ \mathcal{C}(\mathbb{N}) = \{ U \subseteq \mathbb{N} \mid \mathbb{N} \setminus U \text{ 为有限集} \} \]
+在有限字母表上给出 $\mathcal{C}(\mathbb{N})$ 元素的显式有限描述。
 \end{exercise}
 
 \begin{theorem}
 \label{thmCountableIffFiniteDescription}
-Let $X$ be a set. Then $X$ is countable if and only if there is a finite description of the elements of $X$ over a countable alphabet.
+设 $X$ 为集合。则 $X$ 是可数的，当且仅当 $X$ 的元素在可数字母表上存在有限描述。
 \end{theorem}
 
 \begin{cproof}
-If $X$ is countable, then we may take $X$ itself to be our alphabet! The function $D : X \to X^*$ defined by $D(x) = x$ for all $x \in X$ is evidently injective.
+如果 $X$ 是可数的，则我们可以取 $X$ 本身作为其字母表！对于所有 $x \in X$，由 $D(x) = x$ 定义的函数 $D : X \to X^*$ 显然是单射。
 
-Conversely, if there is an injection $D : X \to \Sigma^*$ for some countable alphabet $\Sigma$, then $\Sigma^*$ is countable by \Cref{exIfAlphabetCountableThenSetOfWordsCountable}, and so $X$ is countable by \Cref{exCountabilityFromInjectionsAndSurjections}\ref{itmInjectionIntoCountableSet}.
+反过来，对于某可数字母表 $\Sigma$，如果存在单射 $D : X \to \Sigma^*$，则根据 \Cref{exIfAlphabetCountableThenSetOfWordsCountable}，$\Sigma^*$ 是可数的，因此根据 \Cref{exCountabilityFromInjectionsAndSurjections}\ref{itmInjectionIntoCountableSet}，$X$ 是可数的。
 \end{cproof}
 
 \begin{example}
-In light of \Cref{thmCountableIffFiniteDescription}, we may deduce from \Cref{exFiniteDescriptionOfFiniteSubsetsOfN} and \Cref{exFiniteDescriptionOfQ,exFiniteDescriptionOfCofiniteSubsetsOfN} that $\mathcal{F}(\mathbb{N})$, $\mathbb{Q}$ and $\mathcal{C}(\mathbb{N})$ are all countable sets.
+根据 \Cref{thmCountableIffFiniteDescription}，我们可以从 \Cref{exFiniteDescriptionOfFiniteSubsetsOfN} 和 \Cref{exFiniteDescriptionOfQ,exFiniteDescriptionOfCofiniteSubsetsOfN} 推导出 $\mathcal{F}(\mathbb{N})$, $\mathbb{Q}$ and $\mathcal{C}(\mathbb{N})$ 都是可数集。
 \end{example}
 
 \begin{exercise}
-Prove that the set of all polynomials with rational coefficients is countable.
+证明所有具有有理系数的多项式的集合是可数的。
 \end{exercise}
 
 \begin{exercise}
-Consider the following argument that claims to be a proof that $\mathcal{P}(\mathbb{N})$ is uncountable. (It isn't.)
+考虑以下论证，该论证声称证明了 $\mathcal{P}(\mathbb{N})$ 是可数的。（事实并非如此。）
 \begin{quote}
-Let $\Sigma = \left\{ \mathbb{N},x,U,V,\boxed{\mid},\boxed{\in},\boxed{\{},\boxed{\}} \right\}$---again, we have boxed some symbols to emphasise that they are elements of $\Sigma$.
+设 $\Sigma = \left\{ \mathbb{N},x,U,V,\boxed{\mid},\boxed{\in},\boxed{\{},\boxed{\}} \right\}$ --- 这里我们再一次用框框起某些符号来强调它们是 $\Sigma$ 的元素。
 
-Define $D : \mathcal{P}(\mathbb{N}) \to \Sigma^*$ by
-\[ D(U) = \{ x \in \mathbb{N} \mid x \in U \} \quad \text{and} \quad D(V) = \{ x \in \mathbb{N} \mid x \in V \} \]
-for all $U, V \subseteq \mathbb{N}$. Then $\Sigma$ is finite, and $D$ is injective since for all $U,V \subseteq \mathbb{N}$ we have
+对于所有 $U, V \subseteq \mathbb{N}$，定义 $D : \mathcal{P}(\mathbb{N}) \to \Sigma^*$ 为
+\[ D(U) = \{ x \in \mathbb{N} \mid x \in U \} \quad \text{且} \quad D(V) = \{ x \in \mathbb{N} \mid x \in V \} \]
+则 $\Sigma$ 是有限的，且 $D$ 为单射，因为对于所有 $U,V \subseteq \mathbb{N}$ 我们有
 \[ D(U) = D(V) ~ \Rightarrow ~ \{ x \in \mathbb{N} \mid x \in U \} = \{ x \in \mathbb{N} \mid x \in V \} ~ \Rightarrow ~ U = V \]
-Since $D$ is a finite description of the subsets of $\mathbb{N}$ over a finite alphabet, it follows from \Cref{thmCountableIffFiniteDescription} that $\mathcal{P}(\mathbb{N})$ is countable. \hfill $\Box$
+因为 $D$ 为 $\mathbb{N}$ 的子集在有限字母表上的有限描述，根据 \Cref{thmCountableIffFiniteDescription} 可得 $\mathcal{P}(\mathbb{N})$ 是可数的。\hfill $\Box$
 \end{quote}
-This proof cannot be valid, since we know that $\mathcal{P}(\mathbb{N})$ is uncountable. Where in the proof did we go wrong?
+这个证明是不正确的，因为我们知道 $\mathcal{P}(\mathbb{N})$ 是不可数的。证明中哪里出错了？
 \hintlabel{exBadProofThatPowerSetOfNIsCountable}{%
-Is $\Sigma$ \textit{really} finite? Is $D$ \textit{really} well-defined?
+$\Sigma$ \textit{真的}是有限的吗？$D$ \textit{真的}是明确定义的吗？
 }
 \end{exercise}
 
 \begin{exercise}
-Suppose we were to attempt to prove that $\mathcal{P}(\mathbb{N})$ is countable using the same argument as \Cref{exFiniteDescriptionOfFiniteSubsetsOfN}. Where does the proof fail?
+假设我们用与 \Cref{exFiniteDescriptionOfFiniteSubsetsOfN} 相同的方法尝试证明 $\mathcal{P}(\mathbb{N})$ 是可数的。
+证明会在哪里失败？
 \end{exercise}
 
 \begin{exercise}
-Prove that, for every countable set $X$, there is a finite description of the elements of $X$ over a \textit{finite} alphabet.
+证明，对于每个可数集合 $X$, $X$ 的元素在\textit{有限}字母表上存在有限描述。
 \hintlabel{exCountableIffFiniteDescriptionFiniteAlphabet}{%
-Start by proving that there is a finite description of the elements of $\mathbb{N}^*$ over a finite alphabet $\Phi$. This defines an injection $\mathbb{N}^* \to \Phi^*$. Now given a countable alphabet $\Sigma$, use the injection $\Sigma \to \mathbb{N}$ given by \Cref{thmCountableFromInjSurj} to construct an injection $\Sigma^* \to \mathbb{N}^*$, and therefore an injection $\Sigma^* \to \Phi^*$. Finally, use this to turn finite descriptions over $\Sigma$ into finite descriptions over $\Phi$.
+首先证明在有限字母表 $\Phi$ 上 $\mathbb{N}^*$ 的元素存在有限描述。这定义了单射 $\mathbb{N}^* \to \Phi^*$。接着给定可数字母表 $\Sigma$，使用 \Cref{thmCountableFromInjSurj} 给出的单射 $\Sigma \to \mathbb{N}$ 构建单射 $\Sigma^* \to \mathbb{N}^*$，从而得到单射 $\Sigma^* \to \Phi^*$。最后，用它来将 $\Sigma$ 上的有限描述转换为 $\Phi$ 上的有限描述。
 }
 \end{exercise}
