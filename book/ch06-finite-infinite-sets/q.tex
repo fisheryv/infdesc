@@ -1,54 +1,54 @@
 % !TeX root = ../../book.tex
-\subsection*{Countability}
+\subsection*{可数性}
 
-In \Crefrange{cqProveCountableBegin}{cqProveCountableEnd}, prove that the set is countable.
+证明 \Crefrange{cqProveCountableBegin}{cqProveCountableEnd} 中给出的集合是可数的。
 
 \begin{chapex}
 \label{cqProveCountableBegin}
-The set $D = \left\{ \dfrac{a}{2^n} \mid a \in \mathbb{Z}, n \in \mathbb{N} \right\}$ of \textit{dyadic} rational numbers.
+\textit{二进}有理数集合 $D = \left\{ \dfrac{a}{2^n} \mid a \in \mathbb{Z}, n \in \mathbb{N} \right\}$
 \end{chapex}
 
 \begin{chapex}
-The set of all functions $[n] \to \mathbb{Z}$, where $n \in \mathbb{N}$.
+所有 $[n] \to \mathbb{Z}$ 函数的集合，其中 $n \in \mathbb{N}$。
 \end{chapex}
 
 \begin{chapex}
-The set of all real numbers whose square is rational.
+平方为有理数的所有实数的集合。
 \end{chapex}
 
 \begin{chapex}
 \label{cqProveCountableEnd}
-The following set:
+如下集合：
 \[
 [(\mathbb{Z} \times \mathbb{Q}) \setminus (\mathbb{N} \times \mathbb{Z})] \cup \{ n \in \mathbb{N} \mid \exists u,v \in \mathbb{N},\, n=5u+6v \} \cup \{ x \in \mathbb{R} \mid x-\sqrt{2} \in \mathbb{Q} \}
 \]
 \end{chapex}
 
-In \Crefrange{cqProveUncountableBegin}{cqProveUncountableEnd}, prove that the set is uncountable.
+证明 \Crefrange{cqProveUncountableBegin}{cqProveUncountableEnd} 中给出的集合是不可数的。
 
 \begin{chapex}
 \label{cqProveUncountableBegin}
-The set of all functions $\mathbb{Z} \to \{ 0,1 \}$.
+所有 $\mathbb{Z} \to \{ 0,1 \}$ 函数的集合。
 \end{chapex}
 
 \begin{chapex}
-The set of all subsets $U \subseteq \mathbb{N}$ such that neither $U$ nor $\mathbb{N} \setminus U$ is finite.
+所有子集 $U \subseteq \mathbb{N}$ 的集合，其中要么 $U$ 是有限的，要么 $\mathbb{N} \setminus U$ 是有限的。
 \end{chapex}
 
 \begin{chapex}
 \label{cqProveUncountableEnd}
-The set of all sequences of rational numbers that converge to $0$.
+收敛于 $0$ 的所有有理数序列的集合。
 \end{chapex}
 
-In \Crefrange{cqDetermineIfCountableBegin}{cqDetermineIfCountableEnd}, determine whether the set is countable or uncountable, and then prove it.
+判断 \Crefrange{cqDetermineIfCountableBegin}{cqDetermineIfCountableEnd} 中给出的集合是可数的还是不可数的，并给出证明。
 
 \begin{chapex}
 \label{cqDetermineIfCountableBegin}
-The set of all functions $f : \mathbb{N} \to \mathbb{N}$ that are weakly decreasing---that is, such that for all $m,n \in \mathbb{N}$, if $m \le n$, then $f(m) \ge f(n)$.
+所有弱递减函数 $f : \mathbb{N} \to \mathbb{N}$ 的集合 --- 即，对于所有 $m,n \in \mathbb{N}$，如果 $m \le n$，则 $f(m) \ge f(n)$。
 \end{chapex}
 
 \begin{chapex}
-The set of all functions $f : \mathbb{N} \to \mathbb{Z}$ that are weakly decreasing.
+所有弱递减函数 $f : \mathbb{N} \to \mathbb{Z}$ 的集合。
 \end{chapex}
 
 % \begin{definition}
@@ -59,231 +59,232 @@ The set of all functions $f : \mathbb{N} \to \mathbb{Z}$ that are weakly decreas
 % \end{definition}
 
 \begin{chapex}
-The set of all periodic functions $f : \mathbb{Z} \to \mathbb{Q}$---that is, such that there is some integer $p > 0$ such that $f(x+p) = f(x)$ for all $x \in \mathbb{Z}$.
+所有周期函数 $f : \mathbb{Z} \to \mathbb{Q}$ 的集合 --- 即，存在某个整数 $p > 0$，对于所有 $x \in \mathbb{Z}$, $f(x+p) = f(x)$。
 \end{chapex}
 
 \begin{chapex}
-The set of all periodic functions $f : \mathbb{Q} \to \mathbb{Z}$---that is, such that there is some rational number $p > 0$ such that $f(x+p) = f(x)$ for all $x \in \mathbb{Q}$.
+所有周期函数 $f : \mathbb{Q} \to \mathbb{Z}$ 的集合 --- 即，存在某个有理数 $p > 0$，对于所有 $x \in \mathbb{Q}$, $f(x+p) = f(x)$。
 \end{chapex}
 
 \begin{chapex}
 \label{cqDetermineIfCountableEnd}
-The set of all real numbers $x$ such that $a_0 + a_1x + \cdots + a_dx^d = 0$ for some rational numbers $a_0,a_1,\dots,a_d$ with $a_d \ne 0$.
+对于有理数 $a_0,a_1,\dots,a_d$，其中 $a_d \ne 0$，满足 $a_0 + a_1x + \cdots + a_dx^d = 0$ 的所有实数 $x$ 的集合。
 \end{chapex}
 
 \begin{chapex}
-A subset $D \subseteq \mathbb{R}$ is \textit{dense} if $(a-\varepsilon, a+\varepsilon) \cap U$ is inhabited for all $a \in \mathbb{R}$ and all $\varepsilon > 0$---intuitively, this means that there are elements of $U$ arbitrarily close to any real number. Must a dense subset of $\mathbb{R}$ be uncountable?
+对于所有 $a \in \mathbb{R}$ 且 $\varepsilon > 0$，如果 $(a-\varepsilon, a+\varepsilon) \cap U$ 非空，则说子集 $D \subseteq \mathbb{R}$ 是\textit{稠密的} --- 直观上，这意味着 $U$ 中存在与任何实数任意接近的元素。$\mathbb{R}$ 的稠密子集一定是不可数的吗？
 \end{chapex}
 
-\subsection*{Cardinality}
+\subsection*{基数}
 
-In \Crefrange{cqFindCardinalityBegin}{cqFindCardinalityEnd}, determine whether the cardinality of the set is equal to $\aleph_0$, equal to $\mathfrak{c}$, or greater than $\mathfrak{c}$.
+判断 \Crefrange{cqFindCardinalityBegin}{cqFindCardinalityEnd} 给出集合的基数等于 $\aleph_0$，还是等于 $\mathfrak{c}$，抑或是大于 $\mathfrak{c}$。
 
 \begin{chapex}
 \label{cqFindCardinalityBegin}
-$\mathcal{P}(\mathbb{R})$.
+$\mathcal{P}(\mathbb{R})$。
 \end{chapex}
 
 \begin{chapex}
-The set of all finite subsets of $\mathbb{R}$.
+所有 $\mathbb{R}$ 的有限子集的集合。
 \end{chapex}
 
 \begin{chapex}
-The set of all countably infinite subsets of $\mathbb{R}$.
+所有 $\mathbb{R}$ 的可数无限子集的集合。
 \end{chapex}
 
 \begin{chapex}
-$\mathbb{R} \times \mathbb{R}$.
+$\mathbb{R} \times \mathbb{R}$。
 \end{chapex}
 
 \begin{chapex}
+所有函数 $f : \mathbb{N} \to \mathbb{R}$ 
 The set of all functions $f : \mathbb{N} \to \mathbb{R}$ such that $f(n) = 0$ for all but finitely many $n \in \mathbb{N}$.
 \end{chapex}
 
 \begin{chapex}
-The set of all functions $\mathbb{Q} \to \mathbb{R}$.
+所有 $\mathbb{Q} \to \mathbb{R}$ 函数的集合。
 \end{chapex}
 
 \begin{chapex}
 \label{cqFindCardinalityEnd}
-The set of all functions $\mathbb{R} \to \mathbb{R}$.
+所有 $\mathbb{R} \to \mathbb{R}$ 函数的集合。
 \end{chapex}
 
 \begin{chapex}
-Prove that there is a set $\mathcal{C}$ of pairwise disjoint circles in $\mathbb{R}^2$ such that $|\mathcal{C}| = \mathfrak{c}$; formally, a circle is a subset $C \subseteq \mathbb{R}^2$ of the form
+证明 $\mathbb{R}^2$ 中存在一个两两不相交的圆的集合 $\mathcal{C}$，使得 $|\mathcal{C}| = \mathfrak{c}$；形式上，圆是以下形式的子集 $C \subseteq \mathbb{R}^2$
 \[ C = \{ (x,y) \mid (x-a)^2 + (y-b)^2 = r^2 \} \]
-for some $a,b \in \mathbb{R}$ and some $r > 0$.
+其中 $a,b \in \mathbb{R}$ 且 $r > 0$。
 \end{chapex}
 
 \begin{chapex}
-Prove that there does not exist a set $\mathcal{D}$ of pairwise disjoint discs in $\mathbb{R}^2$ such that $|\mathcal{D}| = \mathfrak{c}$; formally, a disc is a subset $D \subseteq \mathbb{R}^2$ of the form
+证明 $\mathbb{R}^2$ 中不存在一个两两不相交的圆盘的集合 $\mathcal{D}$，使得 $|\mathcal{D}| = \mathfrak{c}$；形式上，圆盘一下形式的子集 $D \subseteq \mathbb{R}^2$
 \[ D = \{ (x,y) \mid (x-a)^2 + (y-b)^2 \le r^2 \} \]
-for some $a,b \in \mathbb{R}$ and some $r>0$.
+其中 $a,b \in \mathbb{R}$ 且 $r > 0$。
 \hintlabel{cqDiscsInPlane}{%
-Start by proving that any disc $D \subseteq \mathbb{R}^2$ contains a point whose coordinates are both rational.
+首先证明任意圆盘 $D \subseteq \mathbb{R}^2$ 包含一个坐标都是有理数的点。
 }
 \end{chapex}
 
-\subsection*{Cardinal arithmetic}
+\subsection*{基数算术}
 
 \begin{chapex}
-Prove that $\kappa + 0 = \kappa \cdot 1 = \kappa^1 = \kappa$ for all cardinal numbers $\kappa$.
+证明对于所有基数 $\kappa$, $\kappa + 0 = \kappa \cdot 1 = \kappa^1 = \kappa$。
 \end{chapex}
 
 \begin{chapex}
-Prove that $\kappa^0 = 1^{\kappa} = 1$ for all cardinal numbers $\kappa$.
+证明对于所有基数 $\kappa$, $\kappa^0 = 1^{\kappa} = 1$。
 \end{chapex}
 
 \begin{chapex}
-Let $\kappa$ be an infinite cardinal number such that $\kappa \cdot \kappa = \kappa$. Prove that $\kappa^{\kappa} = 2^{\kappa}$.
+设 $\kappa$ 为无限基数，且满足 $\kappa \cdot \kappa = \kappa$。证明 $\kappa^{\kappa} = 2^{\kappa}$。
 \end{chapex}
 
 \begin{chapex}
-Prove that $\mathfrak{c}^{\mathfrak{c}} = 2^{2^{\aleph_0}}$.
+证明 $\mathfrak{c}^{\mathfrak{c}} = 2^{2^{\aleph_0}}$。
 \end{chapex}
 
 \begin{chapex}
-Let $\kappa$, $\lambda$ and $\mu$ be cardinal numbers.
+设 $\kappa$, $\lambda$ 和 $\mu$ 为基数。
 \begin{enumerate}[(a)]
-\item Prove that if $\kappa \le \lambda$, then $\kappa + \mu \le \lambda + \mu$.
-\item Suppose that $\kappa + \mu \le \lambda + \mu$. Must it be the case that $\kappa \le \lambda$?
+\item 证明如果 $\kappa \le \lambda$，则 $\kappa + \mu \le \lambda + \mu$。
+\item 假设 $\kappa + \mu \le \lambda + \mu$。一定有 $\kappa \le \lambda$ 吗？
 \end{enumerate}
 \end{chapex}
 
 \begin{chapex}
-Let $\kappa$, $\lambda$ and $\mu$ be cardinal numbers.
+设 $\kappa$, $\lambda$ 和 $\mu$ 为基数。
 \begin{enumerate}[(a)]
-\item Prove that if $\kappa \le \lambda$, then $\kappa \cdot \mu \le \lambda \cdot \mu$.
-\item Suppose that $\kappa \cdot \mu \le \lambda \cdot \mu$ and $\mu > 0$. Must it be the case that $\kappa \le \lambda$?
+\item 证明如果 $\kappa \le \lambda$，则 $\kappa \cdot \mu \le \lambda \cdot \mu$。
+\item 假设 $\kappa \cdot \mu \le \lambda \cdot \mu$ 且 $\mu > 0$。一定有 $\kappa \le \lambda$ 吗？
 \end{enumerate}
 \end{chapex}
 
 \begin{chapex}
-Let $\kappa$, $\lambda$ and $\mu$ be cardinal numbers.
+设 $\kappa$, $\lambda$ 和 $\mu$ 为基数。
 \begin{enumerate}[(a)]
-\item Prove that if $\kappa \le \lambda$, then $\kappa^{\mu} \le \lambda^{\mu}$.
-\item Suppose that $\kappa^{\mu} \le \lambda^{\mu}$ and $\mu > 0$. Must it be the case that $\kappa \le \lambda$?
+\item 证明如果 $\kappa \le \lambda$，则 $\kappa^{\mu} \le \lambda^{\mu}$。
+\item 假设 $\kappa^{\mu} \le \lambda^{\mu}$ 且 $\mu > 0$。一定有 $\kappa \le \lambda$ 吗？
 \end{enumerate}
 \end{chapex}
 
 \begin{chapex}
-Let $\kappa$, $\lambda$ and $\mu$ be cardinal numbers.
+设 $\kappa$, $\lambda$ 且 $\mu$ 为基数。
 \begin{enumerate}[(a)]
-\item Prove that if $\kappa \le \lambda$, then $\mu^{\kappa} \le \mu^{\lambda}$.
-\item Suppose that $\mu^{\kappa} \le \mu^{\lambda}$ and $\mu > 1$. Must it be the case that $\kappa \le \lambda$?
+\item 证明如果 $\kappa \le \lambda$，则 $\mu^{\kappa} \le \mu^{\lambda}$。
+\item 假设 $\mu^{\kappa} \le \mu^{\lambda}$ 且 $\mu > 1$。一定有 $\kappa \le \lambda$ 吗？
 \end{enumerate}
 \end{chapex}
 
 \begin{definition}
-Given cardinal numbers $\kappa$ and $\lambda$, define the \textbf{binomial coefficient} $\dbinom{\kappa}{\lambda}$ by
+给定基数 $\kappa$ 和 $\lambda$，定义\textbf{二项式系数} $\dbinom{\kappa}{\lambda}$ 如下
 \[ \dbinom{\kappa}{\lambda} = |\{ U \subseteq [\kappa] \mid |U| = \lambda \}| \]
 \end{definition}
 
 \begin{chapex}
-Let $\kappa$ be a cardinal number. Prove that
-\[ \dbinom{\aleph_0}{\kappa} = \begin{cases} 1 & \text{if } \kappa = 0 \\ \aleph_0 & \text{if } \kappa \in \mathbb{N} \text{ and } \kappa > 0 \\ 2^{\aleph_0} & \text{if } \kappa = \aleph_0 \\ 0 & \text{if } \kappa \not\in \mathbb{N} \cup \{ \aleph_0 \} \end{cases} \]
+设 $\kappa$ 为基数。证明
+\[ \dbinom{\aleph_0}{\kappa} = \begin{cases} 1 & \text{如果 } \kappa = 0 \\ \aleph_0 & \text{如果 } \kappa \in \mathbb{N} \text{ 且 } \kappa > 0 \\ 2^{\aleph_0} & \text{如果 } \kappa = \aleph_0 \\ 0 & \text{如果 } \kappa \not\in \mathbb{N} \cup \{ \aleph_0 \} \end{cases} \]
 \end{chapex}
 
 \begin{chapex}
-Find the values of $\dbinom{\mathfrak{c}}{\kappa}$ for $\kappa \in \mathbb{N} \cup \{ \aleph_0, \mathfrak{c} \}$.
+对于 $\kappa \in \mathbb{N} \cup \{ \aleph_0, \mathfrak{c} \}$，找到 $\dbinom{\mathfrak{c}}{\kappa}$ 的值。
 \end{chapex}
 
 \begin{chapex}
-Prove that $\displaystyle \sum_{\lambda \le \kappa} \dbinom{\kappa}{\lambda} = 2^{\kappa}$ for all cardinal numbers $\kappa$.
+对于所有基数 $\kappa$，证明 $\displaystyle \sum_{\lambda \le \kappa} \dbinom{\kappa}{\lambda} = 2^{\kappa}$。
 \end{chapex}
 
 \begin{chapex}
-Define the factorial $\kappa !$ of a cardinal number $\kappa$ in a way that generalises the notion of factorial $n!$ for a natural number $n$. Find expressions for $\aleph_0!$ and $\mathfrak{c}!$.
+通过推广自然数 $n$ 的阶乘 $n!$，定义基数 $\kappa$ 的阶乘 $\kappa!$。找到 $\aleph_0!$ 和 $\mathfrak{c}!$ 的表达式。
 \hintlabel{cqFactorialOfCardinalNumber}{%
-Think combinatorially. You should not try to generalise the recursive definition of factorials (\Cref{defFactorialRecursive}); and you \textit{very much should not} try to generalise the informal definition `$n! = 1 \times 2 \times \cdots \times n$'.
+组合地思考该问题。不应该尝试泛化阶乘的递归定义（\Cref{defFactorialRecursive}）；而且\textit{更不该}尝试泛化阶乘的非正式定义`$n! = 1 \times 2 \times \cdots \times n$'。
 }
 \end{chapex}
 
-\subsection*{True--False questions}
+\subsection*{判断题}
 
 \tfquestiontext{cqInfinityTFBegin}{cqInfinityTFEnd}
 
 \begin{chapex} % True
 \label{cqInfinityTFBegin}
-For any two countably infinite sets $X$ and $Y$, there exists a bijection $X \to Y$.
+对于任意两个可数无限集 $X$ 和 $Y$，存在双射 $X \to Y$。
 \end{chapex}
 
 \begin{chapex} % False
-For any two uncountable sets $X$ and $Y$, there exists a bijection $X \to Y$.
+对于任意两个不可数无限集 $X$ 和 $Y$，存在双射 $X \to Y$。
 \end{chapex}
 
 \begin{chapex} % False
-The product of countably many countable sets is countable.
+可数个可数集的积是可数的。
 \end{chapex}
 
 \begin{chapex} % True
-Every countably infinite set can be partitioned into infinitely many infinite subsets.
+每一个可数无限集可以分割成无限多个无限子集。
 \end{chapex}
 
 \begin{chapex} % False
-There are countably many infinite subsets of $\mathbb{N}$.
+$\mathbb{N}$ 有可数多个无限子集
 \end{chapex}
 
 \begin{chapex} % True
-The set $\mathbb{N} \times \mathbb{Z} \times \mathbb{Q}$ is countably infinite.
+集合 $\mathbb{N} \times \mathbb{Z} \times \mathbb{Q}$ 是可数无限集。
 \end{chapex}
 
 \begin{chapex} % False
-$\aleph_0$ is the smallest cardinal number.
+$\aleph_0$ 是最小的基数。
 \end{chapex}
 
 \begin{chapex} % False
-There exist sets $X$ and $Y$ of different cardinalities that have the same number of finite subsets.
+存在不同基数的集合 $X$ 和 $Y$，它们具有相同数量的有限子集。
 \end{chapex}
 
 \begin{chapex} % True
-There exist sets $X$ and $Y$ of different cardinalities that have the same number of countably infinite subsets.
+存在不同基数的集合 $X$ 和 $Y$，它们具有相同数量的可数无限子集。
 \end{chapex}
 
 \begin{chapex} % False
-For all sets $X$, if $U \subsetneqq X$, then $|U| < |X|$.
+对于所有集合 $X$，如果 $U \subsetneqq X$，则 $|U| < |X|$。
 \end{chapex}
 
 \begin{chapex} % False
 \label{cqInfinityTFEnd}
-$2^{\kappa} < 3^{\kappa}$ for all cardinal numbers $\kappa > 0$.
+对于所有基数 $\kappa > 0$, $2^{\kappa} < 3^{\kappa}$。
 \end{chapex}
 
-\subsection*{Always--Sometimes--Never questions}
+\subsection*{可能性问题}
 
 \asnquestiontext{cqInfinityASNBegin}{cqInfinityASNEnd}
 
 \begin{chapex} % Always
 \label{cqInfinityASNBegin}
-Let $X$ be a set and suppose that there exists an injection $\mathbb{N} \to X$. Then there exists an injection $\mathbb{Q} \to X$.
+设 $X$ 为集合，并假设存在单射 $\mathbb{N} \to X$。则存在单射 $\mathbb{Q} \to X$。
 \end{chapex}
 
 \begin{chapex} % Never
-Let $X$ be a set. Then $\mathcal{P}(X)$ is countably infinite.
+设 $X$ 为集合。则 $\mathcal{P}(X)$ 为可数无限集。
 \end{chapex}
 
 \begin{chapex} % Always
-Let $X$ be a set, let $\kappa$ and $\lambda$ be cardinal numbers, and suppose that $\lambda \le \kappa = |X|$. Then $X$ has a subset of size $\lambda$.
+设 $X$ 为集合，并设 $\kappa$ 和 $\lambda$ 为基数，假设 $\lambda \le \kappa = |X|$。则 $X$ 有大小为 $\lambda$ 的子集。
 \end{chapex}
 
 \begin{chapex} % Always
-Let $X$ and $Y$ be sets with $|X| \le |Y|$. Then $|\mathcal{P}(X)| \le |\mathcal{P}(Y)|$.
+设 $X$ 和 $Y$ 为集合，其中 $|X| \le |Y|$。则 $|\mathcal{P}(X)| \le |\mathcal{P}(Y)|$。
 \end{chapex}
 
 \begin{chapex} % Never
-Let $n \in \mathbb{N}$ with $n \ge 2$. Then $\aleph_0^n > \aleph_0$.
+设 $n \in \mathbb{N}$ 其中 $n \ge 2$。则 $\aleph_0^n > \aleph_0$。
 \end{chapex}
 
 \begin{chapex} % Always
 \label{cqInfinityASNEnd}
-Let $\kappa$ be a cardinal number with $\kappa \ge \aleph_0$. Then $\aleph_0^{\kappa} > \aleph_0$.
+设 $\kappa$ 为基数，$\kappa \ge \aleph_0$，则 $\aleph_0^{\kappa} > \aleph_0$。
 \end{chapex}
 
-\subsection*{Trick question}
+\subsection*{刁钻问题}
 
 \begin{chapex}
-Does there exist a cardinal number $\kappa$ such that $\aleph_0 < \kappa < 2^{\aleph_0}$?
+存在基数 $\kappa$ 使得 $\aleph_0 < \kappa < 2^{\aleph_0}$ 吗？
 \hintlabel{cqContinuumHypothesis}{%
-Don't waste too much time on this question---it has been proved to be independent of the usual axioms of mathematics (see \Cref{secZFC}), meaning that neither an answer of `true' nor an answer of `false' can be proved (so neither answer leads to a contradiction). An answer of `false' is known as the \textit{continuum hypothesis}.
+不要浪费太多时间在这个问题上 --- 它已被证明独立于通常的数学公理（参见 \Cref{secZFC}），这意味着答案为`真'和答案为`假'都无法被证明（因此这两个答案都不会导致矛盾）。答案为`假'称为\textit{连续统假设}。
 }
 \end{chapex}
