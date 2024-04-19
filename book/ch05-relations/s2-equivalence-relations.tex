@@ -1,5 +1,5 @@
 % !TeX root = ../../book.tex
-\section{Equivalence relations and partitions}
+\section{等价关系和划分}
 \secbegin{secEquivalenceRelationsPartitions}
 \index{equivalence relation|(}
 \index{relation!equivalence relation|(}
@@ -40,7 +40,7 @@ The equivalence relation in the next exercise comes back with a vengeance in \Cr
 Let $\mathcal{S}$ be some set whose elements are all sets. (For example, we could take $\mathcal{S} = \mathcal{P}(X)$ for some fixed set $X$.) Define a relation $\cong$ \inlatex{cong}\lindexmmc{cong}{$\cong$} on $\mathcal{S}$ by letting $U \cong V$ if and only if there exists a bijection $f : U \to V$, for all $U,V \in \mathcal{S}$. Prove that $\cong$ is an equivalence relation on $\mathcal{S}$.
 \end{exercise}
 
-\subsection*{A first look at modular arithmetic}
+\subsection*{模运算初探}
 
 A particularly useful family of equivalence relations is given by \textit{congruence} of integers, which allows us to do \textit{modular arithmetic}---this is the topic of \Cref{secModularArithmetic}. For a fixed integer $n$, this relation identifies two integers when they have the same remainder upon division by $n$ (as in \Cref{thmDivisionPreliminary}).
 
@@ -107,7 +107,7 @@ Hence $a-c = (a-b)+(b-c) = (k+\ell)n$, so that $n$ divides $a-c$. Hence $a \equi
 Since congruence modulo $n$ is reflexive, symmetric and transitive, it is an equivalence relation.
 \end{cproof}
 
-\subsection*{Equivalence classes}
+\subsection*{等价类}
 
 What makes equivalence relations so useful is they give us a way of ignoring information that is irrelevant to the task at hand.
 
@@ -215,7 +215,7 @@ Let $n \in \mathbb{Z}$ with $n \ne 0$. Prove that the function
 defined by $i(r) = [r]_n$ for all $0 \le r < |n|$ is a bijection.
 \end{exercise}
 
-\subsection*{Partitions}
+\subsection*{划分}
 
 A partition of a set $X$ is a way of breaking $X$ up into mutually disjoint subsets. They will be an immensely useful tool for counting how many elements a finite set has in \Cref{chCombinatorics}, and will reappear in \Cref{secCardinalArithmetic} for defining arithmetic operations with cardinal numbers.
 
@@ -358,7 +358,7 @@ So $k$ is an inverse for $h$, as required.
 Let $X$ and $Y$ be sets, let $\sim$ be an equivalence relation on $X$ and let $\approx$ be an equivalence relation on $Y$. Assume that there is a bijection $p : X/{\sim} \to Y/{\approx}$, and for each equivalence class $E \in X/{\sim}$ there is a bijection $h_E : E \to p(E)$. Use \Cref{lemBijectionBetweenPartitionAndComponentsInducesBijectionOfSets} to prove that there is a bijection $h : X \to Y$.
 \end{exercise}
 
-\subsection*{The quotient function}
+\subsection*{商函数}
 
 We will now show that equivalence relations on a set $X$ are essentially the same thing as \textit{surjections} from $X$ to another set.
 

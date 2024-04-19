@@ -1,63 +1,63 @@
 % !TeX root = ../../book.tex
-\section{Relations}
+\section{关系}
 \secbegin{secRelations}
 \index{relation|(}
 
-Many interesting results or concepts in mathematics arise from observing how the elements of one set interact with the elements of another set, or how elements of a single set interact with each other. We can make this idea of `interaction' precise using the notion of a \textit{relation}.
+数学中许多有趣的结论或概念都是通过观察集合间元素的交互，或单个集合中元素间的交互产生的。我们可以用\textit{关系}这一概念让`交互'的概念变得精确。
 
 \begin{definition}
 \index{relation}
 \index{homogeneous relation}
 \index{domain!of a relation}
 \index{codomain!of a relation}
-Let $X$ and $Y$ be sets. A (\textbf{binary}) \textbf{relation} from $X$ to $Y$ is a logical formula $R(x,y)$ with two free variables $x \in X$ and $y \in Y$. We call $X$ the \textbf{domain} of $R$ and $Y$ the \textbf{codomain} of $R$.
+设 $X$ 和 $Y$ 为集合。$X$ 到 $Y$ 的（\textbf{二元}）\textbf{关系}为逻辑表达式 $R(x,y)$，其中两个自由变量为 $x \in X$ 和 $y \in Y$。我们称 $X$ 为 $R$ 的\textbf{定义域}，$Y$ 为 $R$ 的\textbf{值域}。
 
-A relation $R$ is \textbf{homogeneous} if it has the same domain and codomain $X$, in which case we say that $R$ is a relation \textbf{on} $X$.
+如果关系 $R$ 具有相同的定义域和值域，则该关系是 \textbf{同构的}，在这种情况下，我们说 $R$ 是 $X$ \textbf{上}的关系。
 
-Given $x \in X$ and $y \in Y$, if $R(x,y)$ is true then we say `$x$ is \textbf{related} to $y$ by $R$', and write $x \mathrel{R} y$ \inlatexnb{x \textbackslash{}mathrel\{R\} y}\lindexmmc{mathrel}{$\mathrel{R}, \dots$}.
+给定 $x \in X$ 和 $y \in Y$，如果 $R(x,y)$ 为真，则我们说`$x$ 通过 $R$ 与 $y$ \textbf{关联}'，写做 $x \mathrel{R} y$ \inlatexnb{x \textbackslash{}mathrel\{R\} y}\lindexmmc{mathrel}{$\mathrel{R}, \dots$}。
 \end{definition}
 
 \begin{example}
 \label{exRelationExamples}
-We have already seen many examples of relations.
+我们已经见过很多关系的例子。
 \begin{itemize}
-\item Divisibility (`$x$ divides $y$') is a relation on $\mathbb{Z}$.
-\item The inequality relation $\le$ is a relation on $\mathbb{R}$.
-\item For any set $X$, equality $=$ is a relation on $X$.
-\item Logical equivalence $\equiv$ is a relation on the set of all logical formulae.
-\item For any set $X$, the subset relation $\subseteq$ is a relation on $\mathcal{P}(X)$.
+\item 整除性（`$x$ 除 $y$'） 是 $\mathbb{Z}$ 上的关系。
+\item 不等关系 $\le$ 是 $\mathbb{R}$ 上的关系。
+\item 对于任意集合 $X$，相等 $=$ 是 $X$ 上的关系。
+\item 逻辑等价 $\equiv$ 是所有逻辑公式集合上的关系。
+\item 对于任意集合 $X$，子集关系 $\subseteq$ 是 $\mathcal{P}(X)$ 上的关系。
 \end{itemize}
-These relations were all homogeneous, but not all relations are:
+这些关系都是同构的，但并非所有关系都如此：
 \begin{itemize}
-\item For any set $X$, the elementhood relation $\in$ is a relation from $X$ to $\mathcal{P}(X)$.
-\item Every function $f : X \to Y$ induces a relation $R_f$ from $X$ to $Y$, defined by taking $x \mathrel{R_f} y$ to mean $f(x) = y$.
+\item 对于任意集合 $X$, 元素关系 $\in$ 是从 $X$ 到 $\mathcal{P}(X)$ 的关系。
+\item 每个函数 $f : X \to Y$ 通过将 $x \mathrel{R_f} y$ 定义为 $f(x) = y$ 引入从 $X$ 到 $Y$ 的关系 $R_f$。
 \end{itemize}
 \end{example}
 
 \begin{exercise}
-Give three more examples of relations, not all of which are homogeneous.
+再举三个关系的例子，并且不要所都是同构的。
 \end{exercise}
 
-Like with sets and functions, we must determine when to declare that two relations are equal. For example, consider the relation $R$ on $\mathbb{R}$ defined for $a,b \in \mathbb{R}$ by letting $a \mathrel{R} b$ mean $\exists x \in \mathbb{R},~ a+x^2=b$. It so happens that $a \mathbin{R} b$ if and only if $a \le b$---we'll prove this in \Cref{exLeqOnRFromAddingSquare}. So should $R$ be equal to $\le$? On the one hand you might say `yes', since $\le$ and $R$ relate the same pairs of real numbers. On the other hand you might say `no', since the fact that $\le$ and $R$ relate the same pairs of real numbers was not immediate and required proof. In fact, if we were to replace $\mathbb{R}$ by $\mathbb{Q}$, it then $\le$ and $R$ would \textit{not} relate the same pairs of elements, since for instance $0 \le 2$ but there is no rational number $x$ such that $0+x^2=2$.
+与集合和函数一样，我们必须判定合适可以说两个关系是相等的。例如，考虑 $\mathbb{R}$ 上的关系 $R$，对于 $a,b \in \mathbb{R}$ 令 $a \mathrel{R} b$ 表示 $\exists x \in \mathbb{R},~ a+x^2=b$。刚好 $a \mathbin{R} b$ 当且仅当 $a \le b$ --- 我们将在 \Cref{exLeqOnRFromAddingSquare} 中证明这一点。那么 $R$ 与 $\le$ 相等吗？一方面，你可能会说`是'，因为 $\le$ 和 $R$ 关联相同的实数对。另一方面，你可能会说`不'，因为 $\le$ 和 $R$ 关联相同的实数对这一事实并不是显而易见的，需要证明。事实上，如果我们用 $\mathbb{Q}$ 替换 $\mathbb{R}$，那么 $\le$ 和 $R$ 将\textit{不}关联相同的元素对，因为例如 $0 \le 2$ 但不存在满足 $0+x^2=2$ 的有理数 $x$。
 
-But as with sets and functions, we settle for the \textit{extensional} notion of equality: just as two sets are equal when they have the same elements (\Cref{axSetEquality}), and two functions are equal when they have the same values (\Cref{axFunctionExtensionality}), we consider two relations to be equal when they relate the same pairs of elements (\Cref{axRelationEquality}).
+然而与集合和函数一样，关系满足相等的\textit{外延}概念：就像当两个集合具有相同的元素时相等（\Cref{axSetEquality}），当两个函数具有相同的值时相等（\Cref {axFunctionExtensionality}）一样，当两个关系涉及相同的元素对时，我们认为两个关系是相等的（\Cref{axRelationEquality}）。
 
-\begin{axiom}[Relation extensionality]
+\begin{axiom}[关系外延性]
 \label{axRelationEquality}
-Let $R$ and $S$ be relations. Then $R = S$ if and only if $R$ and $S$ have the same domain $X$ and codomain $Y$, and
+设 $R$ 和 $S$ 为关系。则 $R = S$ 当且仅当 $R$ 和 $S$ 具有相同的定义域 $X$ 和值域 $Y$，且
 \[ \forall x \in X,\, \forall y \in Y,\, (x \mathrel{R} y \Leftrightarrow x \mathrel{S} y) \]
-That is, two relations with the same domain and codomain are equal precisely when they relate the same pairs of elements.
+也就是说，具有相同定义域和值域的两个关系在关联相同元素对时严格相等。
 \end{axiom}
 
 \begin{example}
 \label{exLeqOnRFromAddingSquare}
-Recall the relation $R$ on $\mathbb{R}$ that we defined above for $a,b \in \mathbb{R}$ by letting $a \mathrel{R} b$ if and only if $a+x^2=b$ for some $x \in \mathbb{R}$. To see that $R = {\le}$, note that $a + (b-a) = b$, and that $b-a$ is the square of a real number if and only if $b-a \ge 0$, which occurs if and only if $a \le b$.
+回想一下我们上面定义的 $\mathbb{R}$ 上的关系 $R$，对于 $a,b \in \mathbb{R}$ 令 $a \mathrel{R} b$ 当且仅当 $a+x^2=b$，其中 $x \in \mathbb{R}$。要证明 $R = {\le}$，注意到 $a + (b-a) = b$，并且 $b-a$ 为实数的平方当且仅当 $b-a \ge 0$，即当且仅当 $a \le b$。
 \end{example}
 
 \begin{exercise}
-Let $R$ and $S$ be relations on $\mathbb{R}$ defined for $a,b \in \mathbb{R}$ by letting
-\[ a \mathrel{R} b ~ \Leftrightarrow ~ b-a \in \mathbb{Q} \quad \text{and} \quad a \mathrel{S} b ~ \Leftrightarrow ~ \exists n \in \mathbb{Z},~ (n \ne 0) \wedge n(b-a) \in \mathbb{Z} \]
-Prove that $R=S$.
+设 $R$ 和 $S$ 为 $\mathbb{R}$ 上的关系，对于 $a,b \in \mathbb{R}$ 令
+\[ a \mathrel{R} b ~ \Leftrightarrow ~ b-a \in \mathbb{Q} \quad \text{且} \quad a \mathrel{S} b ~ \Leftrightarrow ~ \exists n \in \mathbb{Z},~ (n \ne 0) \wedge n(b-a) \in \mathbb{Z} \]
+证明 $R=S$。
 \end{exercise}
 
 The true reason why \Cref{axRelationEquality} is powerful is that it allows us to reason about relations entirely set theoretically by working with their \textit{graphs}---the sets of pairs of elements that they relate---rather than with the particular formulae defining the relation.
@@ -164,7 +164,7 @@ To see why $\Delta_X$ is called the `diagonal' subset, try plotting $\Delta_{\ma
 Let $X$ be a set. Prove that $\Delta_X = \mathrm{Gr}(=)$.
 \end{exercise}
 
-\subsection*{Properties of homogeneous relations}
+\subsection*{齐次关系的性质}
 
 Most of the relations of interest to us in this book are homogeneous---that is, relations \textit{on} a set. In fact, they broadly fall into one of two categories: \textit{equivalence relations}, which are relations that `behave like $=$'; and \textit{order relations}, which are relations that `behave like $\le$'. We will study equivalence relations in \Cref{secEquivalenceRelationsPartitions} and order relations in \Cref{secOrderRelations}, but examples of such relations pop up throughout the book. (In fact, we have already seen several!)
 
