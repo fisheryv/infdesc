@@ -58,10 +58,10 @@
 在定义函数时，你应该验证每个部分都定义良好，除非它们非常明显。你可能会发现，在大多数情况下，唯一需要验证的部分是唯一性，但请牢记函数需要满足三个部分。
 
 \textbf{列表. } 如果 $X$ 是有限的，则我们可以通过简单列出对于所有可能元素 $x \in X$, $f$ 的值来定义函数 $f : X \to Y$。例如，我们可以通过声明
-\[ f(1) = \mathsf{red}, \quad f(2) = \mathsf{purple}, \quad f(3) = \mathsf{green} \]
+\[ f(1) = \mathsf{红色}, \quad f(2) = \mathsf{紫色}, \quad f(3) = \mathsf{绿色} \]
 来定义函数
-\[ f : \{ 1, 2, 3 \} \to \{ \mathsf{red}, \mathsf{yellow}, \mathsf{green}, \mathsf{blue}, \mathsf{purple} \} \]
-请注意，此时函数已完全定义：我们知道定义域 $\{ 1, 2, 3 \}$ 中所有元素的值。值域的某些元素（$\mathsf{yellow}$ 和 $\mathsf{blue}$）未使用并不重要 --- 重要的是定义域中的每个元素都与值域中的唯一一个元素确切关联。
+\[ f : \{ 1, 2, 3 \} \to \{ \mathsf{红色}, \mathsf{黄色}, \mathsf{绿色}, \mathsf{蓝色}, \mathsf{紫色} \} \]
+请注意，此时函数已完全定义：我们知道定义域 $\{ 1, 2, 3 \}$ 中所有元素的值。值域的某些元素（$\mathsf{黄色}$ 和 $\mathsf{蓝色}$）未使用并不重要 --- 重要的是定义域中的每个元素都与值域中的唯一一个元素确切关联。
 
 不幸的是，我们使用的大多数集合都是无限的，或者具有未指定的有限大小；这种情况下，仅仅列出值列表是不够的。好在还有其他定义函数的方法。
 
@@ -392,7 +392,7 @@ a \in U & \Leftrightarrow \chi_U(a) = 1 && \text{根据 $\chi_U$ 的定义} \\
 \end{enumerate}
 \end{theorem}
 
-\begin{cproof}[of {(a)}]
+\begin{cproof}[{(a)}]
 设 $a \in X$。因为 $\chi_U(a)$ 和 $\chi_V(a)$ 的取值只能是 $0$ 和 $1$，我们有
 \[ \chi_U(a) \chi_V(a) = \begin{cases} 1 & \text{如果 $\chi_U(a) = 1$ 且 $\chi_V(a) = 1$} \\ 0 & \text{否则} \end{cases} \]
 而 $\chi_U(a) = 1$ 当且仅当 $a \in U$ 且 $\chi_V(a) = 1$ 当且仅当 $a \in V$，所以
@@ -430,7 +430,7 @@ a \in U & \Leftrightarrow \chi_U(a) = 1 && \text{根据 $\chi_U$ 的定义} \\
 
 \begin{definition}
 \label{defImage}
-设 $f : X \to Y$ 为函数，并设 $U \subseteq X$。$U$ 在 $f$ \textbf{下}的\textbf{像}是子集 $f[U] \subseteq Y$\nindex{functionImage}{$f[U]$}{image} (also written $f_*(U)$ \inlatexnb{f\_*} 或 $f(U)$) 定义为
+设 $f : X \to Y$ 为函数，并设 $U \subseteq X$。$U$ 在 $f$ \textbf{下}的\textbf{像}是子集 $f[U] \subseteq Y$\nindex{functionImage}{$f[U]$}{image} (也写做 $f_*(U)$ \inlatexnb{f\_*} 或 $f(U)$) 定义为
 \[ f[U] = \{ f(x) \mid x \in U \} = \{ y \in Y \mid \exists x \in U,\, y = f(x) \} \]
 也就是说，$f[U]$ 是函数 $f$ 在给定来自 $U$ 的输入时给出值的集合。
 
