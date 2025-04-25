@@ -1,23 +1,25 @@
-An Infinite Descent into Pure Mathematics
+An Infinite Descent into Pure Mathematics 中文翻译
 =========================================
 
-This Git repository contains the TeX source for _An Infinite Descent into Pure Mathematics_ by Clive Newstead.
+本 Git 仓库包含 _An Infinite Descent into Pure Mathematics_ 简体中文译本的 TeX 源文件。本书原作者为 Clive Newstead。
 
-The main website for the book is [here](https://infinitedescent.xyz/).
+本书的官网在[这里](https://infinitedescent.xyz/)。
 
-## Navigating the source
+## 浏览源代码
 
-To compile the source, you will need a LaTeX implementation on your computer, or a browser-based LaTeX editor such as [Overleaf](https://www.overleaf.com/), using the compiler pdfLaTeX.
+要想编译源文件，你需要在你的电脑上安装 LaTeX ，或者使用基于浏览器的 LaTeX 编辑器，例如 [Overleaf](https://www.overleaf.com/)，使用 pdfLaTeX 编译器。
 
-The root document is `infdesc.tex`, which calls all the other files it needs to compile the document.
+根文档为 `book.tex`，它会调用所有其他所需的文件来编译文档。
 
-The `book` folder contains the bulk of the actual content of the book, and is fairly easy to navigate. For example, to find the source for Section 5.2 (_Equivalence relations_) in Chapter 5 (_Relations_), navigate to `book/relations/equivalence-relations.tex`.
+`book` 文件夹包含本书的大部分实际内容, 并且浏览相当容易。例如，想要找到第 5 章 (_Relations_) 第 5.2 节（_Equivalence relations_）的源文件，只需去到 `book/ch05-relations/s2-equivalence-relations.tex` 即可。
 
-The `book/includes` folder contains all the code used for calling packages, taking care of formatting, custom commands and environments, and so on.
+`book/includes` 文件夹包含与调用包、格式化、自定义命令和环境等相关的所有代码。
 
-## Modifications and adaptations
+## 修改与改编
 
-This TeX source is released under a [Creative Commons Attribution–ShareAlike 4.0 International licence](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA 4.0). Any derivatives must be released under the same licence, and must clearly attribute Clive Newstead as the creator of the original work on which the derivative is based.
+本 TeX 源代码在 [Creative Commons Attribution–ShareAlike 4.0 International licence](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA 4.0) 许可下发布。任何衍生作品都必须在相同的许可下发布，并且必须清楚注明 Clive Newstead 为衍生作品所基于的原始作品的创作者。
 
-To ensure compliance with the CC BY-SA 4.0 licence, if you want to modify or adapt the TeX source for your own use, please update the `\adaptername` and `\adapteremail` commands in the `infdesc.tex` file with your name and email address, respectively. This will automatically take care of all necessary attributions, and will cite you as the adapter on the title page and copyright page.
+为确保符合 CC BY-SA 4.0 许可，如果您想修改或改编 TeX 源文件供您自己使用，请将 `book.tex` 文件中的 `\adaptername` 和 `\adapteremail` 命令更改为您的姓名和电子邮件地址。这将自动处理所有必要的属性，并在标题页和版权页上引用您作为改编者。
+
+
 
