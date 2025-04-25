@@ -1,0 +1,41 @@
+% !TeX root = ../../infdesc.tex
+
+%
+% Arithmetic operations
+%
+
+% Floor and ceiling
+\newcommand{\floor}[1]{\lfloor {#1} \rfloor}
+\newcommand{\dfloor}[1]{{\displaystyle\left\lfloor {#1} \right\rfloor}}
+\newcommand{\ceil}[1]{\lceil {#1} \rceil}
+\newcommand{\dceil}[1]{{\displaystyle\left\lceil {#1} \right\rceil}}
+
+%
+% Sets and set operations
+%
+
+% Number sets
+
+% Font for number sets
+% - Note: the blackboard bold font is referred to explicitly in the
+%   textbook, so it is best not to change this.
+\newcommand{\numsetfont}{\mathbb}
+
+\newcommand{\Nat}{\numsetfont{N}} % Natural numbers
+\newcommand{\Int}{\numsetfont{Z}} % Integers
+\newcommand{\Rat}{\numsetfont{Q}} % Rational numbers
+\newcommand{\Real}{\numsetfont{R}} % Real numbers
+\newcommand{\Cplx}{\numsetfont{C}} % Complex numbers
+
+% Set-builder notation
+\newcommand{\setb}[2]{\{ #1 ~|~ #2 \}}
+\newcommand{\dsetb}[2]{\left\{ #1 ~\middle|~ #2 \right\}}
+\newcommand{\setbsizemod}[3]{#3\{ #1 ~#3|~ #2\}}
+\newcommand{\bigsetb}[2]{\setbsizemod{#1}{#2}{\big}}
+\newcommand{\Bigsetb}[2]{\setbsizemod{#1}{#2}{\Big}}
+\newcommand{\biggsetb}[2]{\setbsizemod{#1}{#2}{\bigg}}
+\newcommand{\Biggsetb}[2]{\setbsizemod{#1}{#2}{\Bigg}}
+
+% Set operations
+\newcommand{\power}{\mathcal{P}} % Power set
+\newcommand{\relcomp}{\setminus} % Relative complement

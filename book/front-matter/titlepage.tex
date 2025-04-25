@@ -1,0 +1,64 @@
+% !TeX root = ../../infdesc.tex
+\ifnumequal{\value{versionstable}}{0}{
+\thispagestyle{empty}
+$ $
+
+\vfill
+\begin{center}
+{\Large\color[HTML]{DD0000}\textbf{Caution!}}
+\end{center}
+
+This is the unstable version of \textit{An Infinite Descent into Pure Mathematics}. Several chapters of this version are under construction, meaning that:
+\begin{itemize}
+\item The content in the online PDF may change significantly from one day to the next;
+\item Some parts of the book contain gaps in content;
+\item The organisation of material in some chapters makes little sense;
+\item There are lots of notes to myself so that I remember to make changes in the future---these notes look like this:
+
+\todo{Finish editing this textbook!}
+\end{itemize}
+
+You can find the stable version of the book at:
+\vspace{-15pt}
+\begin{center}
+\url{https://infinitedescent.xyz/dl/infdesc.pdf}
+\end{center}
+
+\textbf{Note to instructors:} If you are using this textbook to teach a course, I highly recommend that you use the stable version, or at least download an offline copy of this PDF that you can share with your students.
+
+\vfill
+
+\newpage
+}{}%
+$ $
+
+\vfill
+
+\begin{center}
+\thispagestyle{empty}
+
+{\Huge \mdseries \fontfamily{bch}\selectfont
+An Infinite Descent into\\
+Pure Mathematics}
+
+\vfill
+\includegraphics{book/media/logo.pdf}
+
+\vfill
+
+
+\textsc{by Clive Newstead}\\
+\ifadapted{\textit{with adaptations by \adaptername}}
+
+\vfill
+
+\iforiginal{%
+\textit{Version \arabic{versionmajor}.\arabic{versionminor}%
+\ifnumgreater{\value{versionpatch}}{0}{, revision \arabic{versionpatch}}{}%
+\ifnumless{\value{versionpatch}}{0}{ preview}{}}%
+\ifnumequal{\value{versionstable}}{0}{ {\color{red}(unstable build)}}{}\\
+}
+\textit{Last updated on \customdate\today}%
+\iforiginal{\\
+\url{\bookurl}}
+\end{center}

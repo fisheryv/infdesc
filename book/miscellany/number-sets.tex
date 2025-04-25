@@ -1,0 +1,562 @@
+% !TeX root = ../../infdesc.tex
+\section{Constructions of the number sets}
+\secbegin{secConstructions}
+
+In the most commonly used foundation of mathematics, Zermelo--Fraenkel set theory with the axiom of choice (discussed at length in \Cref{secZFC}), every mathematical object is a set. This raises the question of: what about the other mathematical objects? For example, if numbers are sets, what sets are they? What about functions and relations?
+
+For functions and relations, there is an easy cop-out: we simply identify them with their graphs. For example, we can pretend that the function $f : \mathbb{R} \to \mathbb{R}$ given by $f(x) = x^2$ for all $x \in \mathbb{R}$ `is' the set $\{ (x,y) \in \mathbb{R} \times \mathbb{R} \mid y = x^2 \}$.
+
+For numbers, however, the answer is not quite so simple. For example, what set should the number number $3$ be? And does it matter if we consider $3$ to be a natural number or a real number?
+
+This section presents one of many possible ways of encoding numbers---that is, natural numbers, integers, rational numbers, real numbers and complex numbers---as sets.
+
+\subsection*{The natural numbers}
+
+We can use the framework provided by Zermelo--Fraenkel set theory (\Cref{secZFC}) to provide set theoretic constructions of the number sets $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$, $\mathbb{R}$ and $\mathbb{C}$. Indeed, if we want to reason about mathematics within the confines of ZF, we must encode everything (including numbers) as sets!
+
+We will begin with a set theoretic construction of the natural numbers---that is, we will construct a notion of natural numbers in the sense of \Cref{defNotionOfNaturalNumbers}. We will encode the natural numbers as sets, called \textit{von Neumann natural numbers}. We will identify the natural number $0$ with the empty set $\varnothing$, and we will identify the successor operation $\mathsf{s}$ with an operation involving sets.
+
+\begin{definition}
+\label{defVonNeumannNaturalNumbers}
+\index{number!natural}
+\index{natural number}
+\index{natural number!von Neumann}
+\index{von Neumann natural number}
+A \textbf{von Neumann natural number}\nindex{nvn}{$n_{\mathsf{vN}}$}{von Neumann natural number} is any set obtainable from $\varnothing$ by repeatedly taking successor sets (see \Cref{defSuccessorSet}). Write $0_{\mathsf{vN}} = \varnothing$ and $(n+1)_{\mathsf{vN}} = (n_{\mathsf{vN}})^+$; that is
+\[ 0_{\mathsf{vN}} = \varnothing, \quad 1_{\mathsf{vN}} = \varnothing^+, \quad 2_{\mathsf{vN}} = \varnothing^{++}, \quad 3_{\mathsf{vN}} = \varnothing^{+++}, \quad 4_{\mathsf{vN}} = \varnothing^{++++}, \quad \dots \]
+\end{definition}
+
+\begin{example}
+The first three von Neumann natural numbers are:
+\begin{itemize}
+\item $0_{\mathsf{vN}} = \varnothing$;
+\item $1_{\mathsf{vN}} = \varnothing^+ = \varnothing \cup \{ \varnothing \} = \{ \varnothing \}$;
+\item $2_{\mathsf{vN}} = \varnothing^{++} = \{ \varnothing \}^+ = \{ \varnothing \} \cup \{ \{ \varnothing \} \} = \{ \varnothing, \{ \varnothing \} \}$.
+\end{itemize}
+\end{example}
+
+\begin{exercise}
+Write out the elements of $3_{\mathsf{vN}}$ ($=\varnothing^{+++}$) and of $4_{\mathsf{vN}}$.
+\end{exercise}
+
+\begin{exercise}
+\label{exSizeOfVonNeumannOrdinals}
+Recall the definition of von Neumann natural numbers from \Cref{defVonNeumannNaturalNumbers}. Prove that $|n_{\mathsf{vN}}| = n$ for all $n \in \mathbb{N}$.
+\end{exercise}
+
+\begin{construction}
+\label{cnsNaturalNumbersVonNeumann}
+We construct the set $\mathbb{N}_{\mathsf{vN}}$ of all von Neumann natural numbers as follows. Let $X$ be an arbitrary set satisfying the axiom of infinity (\Cref{axZFCInfinity}), and then define $\mathbb{N}_{\mathsf{vN}}$ to be the intersection of all subsets of $X$ that also satisfy the axiom of infinity---that is:
+\[ \mathbb{N}_{\mathsf{vN}} = \{ x \in X \mid \forall U \in \mathcal{P}(X),\, [U \text{ satisfies the axiom of infinity } \Rightarrow x \in U ] \} \]
+\end{construction}
+
+The existence of $\mathbb{N}_{\mathsf{vN}}$ follows from the axioms of power set (\Cref{axZFCPowerSet}) and separation (\Cref{axZFCSeparation}).
+
+\begin{theorem}
+\label{thmVonNeumannNaturalNumbers}
+The set $\mathbb{N}_{\mathsf{vN}}$, zero element $0_{\mathsf{vN}}$ and successor function $s : \mathbb{N}_{\mathsf{vN}} \to \mathbb{N}_{\mathsf{vN}}$ defined by $\mathsf{s}(n_{\mathsf{vN}}) = n_{\mathsf{vN}}^+$ for all $n_{\mathsf{vN}} \in \mathbb{N}_{\mathsf{vN}}$, define a notion of natural numbers.
+\end{theorem}
+
+\begin{cproof}
+We must verify Peano's axioms, which are conditions (i)--(iii) of \Cref{defNotionOfNaturalNumbers}.
+
+To prove (i), observe that for all sets $X$ we have $X^+ = X \cup \{ X \}$, so that $X \in X^+$. In particular, we have $n_{\mathsf{vN}} \in n_{\mathsf{vN}}^+$ for all $n_{\mathsf{vN}} \in \mathbb{N}_{\mathsf{vN}}$, and hence $n_{\mathsf{vN}}^+ \ne \varnothing = 0_{\mathsf{vN}}$.
+
+For (ii), let $m_{\mathsf{vN}}, n_{\mathsf{vN}} \in \mathbb{N}_{\mathsf{vN}}$ and assume that $m_{\mathsf{vN}}^+ = n_{\mathsf{vN}}^+$. Then $m_{\mathsf{vN}} = n_{\mathsf{vN}}$ by \Cref{lemSuccessorSetIsInjective}.
+
+For (iii), let $X$ be a set and suppose that $0_{\mathsf{vN}} \in X$ and, for all $n_{\mathsf{vN}} \in \mathbb{N}_{\mathsf{vN}}$, if $n_{\mathsf{vN}} \in X$, then $n_{\mathsf{vN}}^+ \in X$. Then $X$ satisfies the axiom of infinity (\Cref{axZFCInfinity}), and so by \Cref{cnsNaturalNumbersVonNeumann} we have $\mathbb{N}_{\mathsf{vN}} \subseteq X$.
+\end{cproof}
+
+In light of \Cref{thmVonNeumannNaturalNumbers}, we may declare `the natural numbers' to be the von Neumann natural numbers, and have done with it. As such, you can---if you want---think of all natural numbers in these notes as \textit{being} their corresponding von Neumann natural number. With this in mind, we now omit the subscript `$\mathsf{vN}$', leaving implicit the fact that we are referring to von Neumann natural numbers.
+
+However, there are many other possible notions of natural numbers. In \Cref{thmNNNUnique}, we prove that any two notions of natural numbers are essentially the same, and so the specifics of how we actually define $\mathbb{N}$, the zero element and successor operation, are irrelevant for most purposes.
+
+First we will prove the following handy lemma, which provides a convenient means of proving when a function is the identity function (\Cref{defIdentityFunction}).
+
+\begin{lemma}
+\label{lemIdentityFromNNN}
+Let $(\mathbb{\mathbb{N}}, z, s)$ be a notion of natural numbers, and let $j : \mathbb{N} \to \mathbb{N}$ be a function such that $j(z) = 0$ and $j(s(n)) = s(j(n))$ for all $n \in \mathbb{N}$. Then $j = \mathrm{id}_{\mathbb{N}}$.
+\end{lemma}
+
+\begin{proof}
+By \Cref{thmRecursion}, there is a unique function $i : \mathbb{N} \to \mathbb{N}$ such that $i(z)=0$ and $i(s(n)) = s(i(n))$ for all $n \in \mathbb{N}$. But then:
+\begin{itemize}
+\item $j = i$ by uniqueness of $i$, since $j$ satisfies the same conditions as $i$; and
+\item $\mathrm{id}_\mathbb{N} = i$ by uniqueness of $i$, since $\mathrm{id}_\mathbb{N}(z) = z$ and $\mathrm{id}_\mathbb{N}(s(n)) = s(n) = s(\mathrm{id}_\mathbb{N}(n))$ for all $n \in \mathbb{N}$.
+\end{itemize}
+Hence $j = \mathrm{id}_\mathbb{N}$, as required.
+\end{proof}
+
+\begin{theorem}
+\label{thmNNNUnique}
+Any two notions of natural numbers are essentially the same, in a very strong sense. More precisely, if $(\mathbb{N}_1, z_1, s_1)$ and $(\mathbb{N}_2, z_2, s_2)$ are notions of natural numbers, then there is a unique bijection $f : \mathbb{N}_1 \to \mathbb{N}_2$ such that $f(z_1) = z_2$ and $f(s_1(n)) = s_2(f(n))$ for all $n \in \mathbb{N}_1$.
+\end{theorem}
+
+\begin{proof}
+By applying the recursion theorem (\Cref{thmRecursion}) for $(\mathbb{N}_1, z_1, s_1)$, with $X = \mathbb{N}_2$, $a = z_2$ and $h : \mathbb{N}_1 \times \mathbb{N}_2 \to \mathbb{N}_2$ defined by $h(m,n) = s_2(n)$ for all $m \in \mathbb{N}_1$ and $n \in \mathbb{N}_2$, we obtain a function $f : \mathbb{N}_1 \to \mathbb{N}_2$ such that $f(z_1) = z_2$ and $f(s_1(n)) = s_2(f(n))$ for all $n \in \mathbb{N}_1$. This also gives us uniqueness of $f$, so it remains only to prove that $f$ is a bijection.
+
+Likewise, by applying \Cref{thmRecursion} to $(\mathbb{N}_2, z_2, s_2)$, with $X = \mathbb{N}_1$, $a = z_1$ and $h : \mathbb{N}_2 \times \mathbb{N}_1 \to \mathbb{N}_1$ defined by $h(m,n) = s_1(n)$ for aall $m \in \mathbb{N}_2$ and $n \in \mathbb{N}_1$, we obtain a (unique!) function $g : \mathbb{N}_2 \to \mathbb{N}_1$ such that $g(z_2) = z_1$ and $g(s_2(n)) = s_1(g(n))$ for all $n \in \mathbb{N}_2$.
+
+But then $g(f(z_1)) = g(z_2) = z_1$ and, for all $n \in \mathbb{N}_1$, we have
+\[ g(f(s_1(n))) = g(s_2(f(n))) = s_2(g(f(n))) \]
+and so $g \circ f = \mathrm{id}_{\mathbb{N}_1}$ by \Cref{lemIdentityFromNNN}. Likewise $f \circ g = \mathrm{id}_{\mathbb{N}_2}$. Hence $g$ is an inverse for $f$, so that $f$ is a bijection, as required.
+\end{proof}
+
+With this settled, we will now simply work with a fixed notion of natural numbers $(\mathbb{N}, z, s)$, and not worry too much about how it is constructed---if you like, take $\mathbb{N} = \mathbb{N}_{\mathsf{vN}}$, $z = 0_{\mathsf{vN}} = \varnothing$ and $s(n) = n^+ = n \cup \{ n \}$ for all $n \in \mathbb{N}$.
+
+The arithmetic operations that we know and love---addition, multiplication and exponentiation---are defined using recursion in \Cref{secPeanosAxioms}; so are factorials and binomial coefficients.
+
+We can define more familiar notions involving natural numbers. For example, we can define the relation $\le$ on $\mathbb{N}$ by defining $m \le n$ to mean $\exists k \in \mathbb{N},\, m+k=n$. An alternative approach would be to define `$m \le n$' for $m,n \in \mathbb{N}$ by an iterated recursion on $m$ and $n$---specifically:
+\begin{itemize}
+\item $0 \le 0$ is true;
+\item For all $m \in \mathbb{N}$, $m+1 \le 0$ is false;
+\item For all $n \in \mathbb{N}$, $0 \le n+1$ is true; and
+\item For all $m,n \in \mathbb{N}$, $m+1 \le n+1$ is true if and only if $m \le n$ is true.
+\end{itemize}
+
+\begin{exercise}
+Prove that the recursive definition of $\le$ is equivalent to the definition of `$m \le n$' as `$\exists k \in \mathbb{N},\, m+k=n$'.
+\hintlabel{exTwoDefinitionsOfLeqOnN}{%
+Define two relations $\le$ and $\le'$ on $\mathbb{N}$, one using the recursive definition and the other using the definition as a logical formula; then use induction to prove that $m \le n \Leftrightarrow m \le' n$ for all $m,n \in \mathbb{N}$.
+}
+\end{exercise}
+
+\subsection*{Integers}
+
+Now that we have constructed the natural numbers, it is time to construct the integers. The intuition behind the definition we are about to give is that an integer tells us the difference between two natural numbers. Thus `$3$ as an integer' refers to increase of $3$ from one natural number to another (say $0$ to $3$, or $7$ to $10$); and `$-4$ as an integer' refers to a decrease of $4$ from one natural number to another (say $4$ to $0$, or $10$ to $6$).
+
+A first attempt might be to define $\mathbb{Z}$ to be $\mathbb{N} \times \mathbb{N}$, and interpret $(a,b) \in \mathbb{N} \times \mathbb{N}$ to represent the integer $b-a$. Unfortunately this doesn't quite work, since for instance the integer $3$ would be represented as $(0,3)$ and as $(7,10)$---and, more generally, as $(n,n+3)$ for all $n \in \mathbb{N}$.
+
+So instead, we will declare two pairs $(a,b)$, $(c,d) \in \mathbb{N} \times \mathbb{N}$ to represent the same integer whenever $b-a = d-c$. To make this formal, a couple of things need to happen:
+\begin{enumerate}[(1)]
+\item We need to make precise what we mean by `declare two pairs to represent the same integer'---this will be done by defining an equivalence relation on $\mathbb{N} \times \mathbb{N}$ and then passing to the quotient (see \Cref{secEquivalenceRelationsPartitions}).
+\item We cannot use subtraction in our definition of the equivalence relation, or in our proof that it \textit{is} an equivalence relation, since we have not yet defined a notion of subtraction for $\mathbb{N}$.
+\end{enumerate}
+
+Fortunately for us, (2) is easy to resolve: we can state the equation $b-a = d-c$ for $m,n \in \mathbb{N}$ equivalently as $a+d = b+c$; this is the equation that we will use to define the equivalence relation on $\mathbb{N} \times \mathbb{N}$ in (1).
+
+\begin{lemma}
+\label{lemEquivalenceRelationToConstructZFromN}
+The relation $\sim$ on $\mathbb{N} \times \mathbb{N}$, defined for $(a,b), (c,d) \in \mathbb{N} \times \mathbb{N}$ by $(a,b) \sim (c,d)$ if and only if $a+d=b+c$, is an equivalence relation.
+\end{lemma}
+
+\begin{cproof}
+\fixlistskip%
+\begin{itemize}
+\item (\textbf{Reflexivity}) Let $(a,b) \in \mathbb{N} \times \mathbb{N}$. Then $a+b = b+a$, so that $(a,b) \sim (a,b)$.
+\item (\textbf{Symmetry}) Let $(a,b), (c,d) \in \mathbb{N} \times \mathbb{N}$ and assume that $(a,b) \sim (c,d)$. Then $a+d=b+c$, so $c+b=d+a$, and so $(c,d) \sim (a,b)$.
+\item (\textbf{Transitivity}) Let $(a,b), (c,d), (e,f) \in \mathbb{N} \times \mathbb{N}$ and assume that $(a,b) \sim (c,d)$ and $(c,d) \sim (e,f)$. Then $a+d=b+c$ and $c+f=d+e$. But then
+\[ (a + f) + (c + d) = (a+d) + (c+f) = (b+c) + (d+e) = (b+e) + (c+d) \]
+so cancelling $c+d$ from both sides gives $a+f = b+e$, and so $(a,b) \sim (e,f)$, as required.
+
+We should be careful to note that we did not assume the existence of a subtraction operation when we cancelled $c+d$ from both sides of the equation: the fact that $u+w=v+w$ implies $u=v$ for all $u,v,w \in \mathbb{N}$ can be proved by induction on $w$ using only Peano's axioms.
+\fixlistskip%
+\end{itemize}
+\end{cproof}
+
+Now that we have an equivalence relation on $\mathbb{N} \times \mathbb{N}$, we can take $\mathbb{Z}$ to be the resulting set of equivalence classes (that is, the quotient).
+
+\begin{construction}
+\label{cnsIntegersFromNaturalNumbers}
+The \textbf{set of integers} is the set $\mathbb{Z}$ defined by
+\[ \mathbb{Z} = (\mathbb{N} \times \mathbb{N})/{\sim} \]
+where $\sim$ is the equivalence relation on $\mathbb{N} \times \mathbb{N}$ defined by
+\[ (a,b) \sim (c,d) \text{ if and only if } a+d=b+c \]
+for all $(a,b),(c,d) \in \mathbb{N} \times \mathbb{N}$.
+\end{construction}
+
+We interpret the element $[(a,b)]_{\sim} \in \mathbb{Z}$ to be the integer $b-a$. So for example we have
+\[ 3 = [(0,3)]_{\sim} = [(7,10)]_{\sim} \quad \text{and} \quad {-4} = [(4,0)]_{\sim} = [(10,6)]_{\sim} \]
+
+A couple of remarks are now in order.
+
+The first remark is that we can define addition and multiplication operations on $\mathbb{Z}$ using those on $\mathbb{N}$. Formally, we define:
+\begin{itemize}
+\item $[(a,b)]_{\sim} + [(c,d)]_{\sim} = [(a+c, b+d)]_{\sim}$---the intuition here is that for all $a,b,c,d \in \mathbb{N}$ we have $(b-a) + (d-c) = (b+d) - (a+c)$.
+\item $[(a,b)]_{\sim} \cdot [(c,d)]_{\sim} = [(ad+bc, ac+bd)]_{\sim}$---the intuition here is that for all $a,b,c,d \in \mathbb{N}$ we have $(b-a)(d-c) = (ac+bd) - (ad+bc)$.
+\end{itemize}
+Since the operations $+$ and $\cdot$ are defined in terms of representatives of equivalence classes, we should (but won't) check that these operations are well-defined---for example, we need to verify that if $[(a,b)]_{\sim} = [(a',b')]_{\sim}$ and $[(c,d)]_{\sim} = [(c',d')]_{\sim}$, then $[(a+c,b+d)]_{\sim} = [(a'+c',b'+d')]_{\sim}$.
+
+What makes the integers special is that we can also negate them, which in turn allows us to subtract them. With this in mind, we may define negation and subtraction operations on $\mathbb{Z}$ as follows:
+\begin{itemize}
+\item $-[(a,b)]_{\sim} = [(b,a)]_{\sim}$---the intuition here is that for all $a,b \in \mathbb{N}$ we have $-(b-a) = a-b$.
+\item $[(a,b)]_{\sim} - [(c,d)]_{\sim} = [(a+d,b+c)]_{\sim}$---the intuition here is that for all $a,b,c,d \in \mathbb{N}$ we have $(b-a) - (d-c) = (b+c) - (a+d)$.
+\end{itemize}
+The negation and subtraction operations may be defined in terms of one another: they are related by the identities
+\[ -[(a,b)]_{\sim} = [(0,0)]_{\sim} - [(a,b)]_{\sim} \quad \text{and} \quad [(a,b)]_{\sim} - [(c,d)]_{\sim} = [(a,b)]_{\sim} + (-[(c,d)]_{\sim}) \]
+Again, we should but will not prove that the negation and subtraction operations are well-defined.
+
+The second and perhaps most alarming remark is that this construction of $\mathbb{Z}$ means that we do not have $\mathbb{N} \subseteq \mathbb{Z}$: the elements of $\mathbb{Z}$ are equivalence classes of pairs of natural numbers, meaning that the natural number `$3$' is not equal to the integer `$3$' (which is really equal to $[(0,3)]_{\sim}$). However, we will regard $\mathbb{N}$ as being a subset of $\mathbb{Z}$ by identifying each natural number $n$ with the element $[(0,n)]_{\sim} \in \mathbb{Z}$. What justifies this identification is the following exercise.
+
+\begin{exercise}
+\label{exRepresentativesOfElementsOfZ}
+Prove that every element of $\mathbb{Z}$, as defined in \Cref{cnsIntegersFromNaturalNumbers}, is equal to exactly one of the following: $[(0,0)]_{\sim}$, or $[(0,n)]_{\sim}$ for some $n>0$, or $[(n,0)]_{\sim}$ for some $n>0$.
+\end{exercise}
+
+\Cref{exRepresentativesOfElementsOfZ} implies that the `inclusion' function $i : \mathbb{N} \to \mathbb{Z}$ defined by $i(n) = [(0,n)]_{\sim}$ for all $n \in \mathbb{N}$ is injective. When $n \in \mathbb{N}$, we will usually just write `$n$' to denote the integer $i(n) = [(0,n)]_{\sim}$.
+
+Note that $i(m+n) = i(m)+i(n)$ and $i(mn) = i(m)i(n)$, so when we write something like `$m+n$' for $m,n \in \mathbb{N}$, it doesn't matter whether we're first adding $m$ and $n$ as natural numbers and then interpreting the result as an integer, or first interpreting $m$ and $n$ as integers and then adding the result using the addition operation for integers.
+
+Note also that the identification of $n \in \mathbb{N}$ with $i(n) = [(0,n)]_{\sim} \in \mathbb{Z}$ gives $-n = [(n,0)]_{\sim}$ for all $n \in \mathbb{N}$, and so \Cref{exRepresentativesOfElementsOfZ} implies that every integer is equal to exactly one of $0$, $n$ or $-n$ for some positive natural number $n$.
+
+The next result proves that $\mathbb{Z}$ is a \textit{ring}---what this means in essence is that the operations of addition, multiplication and negation satisfy the basic properties that we take for granted when doing arithmetic with integers.
+
+\begin{theorem}[$\mathbb{Z}$ is a ring]
+\label{thmZIsARing}
+\fixlistskip%
+\begin{enumerate}[(a)]
+\item (\textbf{Associativity of addition}) $(a+b)+c = a+(b+c)$ for all $a,b,c \in \mathbb{Z}$.
+\item (\textbf{Commutativity of addition}) $a+b=b+a$ for all $a,b \in \mathbb{Z}$.
+\item (\textbf{Zero}) $a+0 = a$ for all $a \in \mathbb{Z}$.
+\item (\textbf{Negation}) $a + (-a) = 0$ for all $a \in \mathbb{Z}$.
+\item (\textbf{Associativity of multiplication}) $(a \cdot b) \cdot c = a \cdot (b \cdot c)$ for all $a,b,c \in \mathbb{Z}$.
+\item (\textbf{Commutativity of multiplication}) $a \cdot b = b \cdot a$ for all $a,b \in \mathbb{Z}$.
+\item (\textbf{One}) $a \cdot 1 = a$ for all $a \in \mathbb{Z}$.
+\item (\textbf{Distributivity}) $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$ for all $a,b,c \in \mathbb{Z}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{cproof}
+Many pages would be wasted by writing out the proof of this theorem in full detail. Instead we will just prove part (h); any particularly masochistic readers are invited to prove parts (a)--(g) on their own.
+
+To see that the distributivity law holds, let $a,b,c \in \mathbb{Z}$, and let $m,n,p,q,r,s \in \mathbb{N}$ be such that $a = [(m,n)]_{\sim}$, $b = [(p,q)]_{\sim}$ and $c = [(r,s)]_{\sim}$. (We will omit the subscript $\sim$ in what follows.)
+
+Then:
+\begin{align*}
+& a \cdot (b + c) \\
+&= [(m,n)] \cdot ([(p,q)] + [(r,s)]) \\
+&= [(m,n)] \cdot [(p+r,q+s)] \\
+&= [(m(q+s)+n(p+r), m(p+r) + n(q+s))] \\
+&= [(mq+ms+np+nr, mp+mr+nq+ns)] \\
+&= [(mq+np, mp+nq)] + [(ms+nr, mr+ns)] \\
+&= [(m,n)] \cdot [(p,q)] + [(m,n)] \cdot [(r,s)] \\
+&= (a \cdot b) + (a \cdot c)
+\end{align*}
+as required.
+\end{cproof}
+
+\subsection*{Rational numbers}
+
+Just as we constructed the integers from the natural numbers by formalising what we mean by the `difference' of two natural numbers, we will construct the rational numbers from the integers by formalising what we mean by the `ratio' of two integers.
+
+Since rational numbers should take the form $\dfrac{a}{b}$ with $a,b \in \mathbb{Z}$ and $b \ne 0$, a first attempt at constructing $\mathbb{Q}$ might be to take $\mathbb{Q} = \mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})$, and letting the pair $(a,b)$ represent the fraction $\dfrac{a}{b}$. But just as an integer cannot be expressed uniquely as the difference of two natural numbers, a rational number cannot be expressed uniquely as the ratio of two integers---for example, we have $\dfrac{1}{2} = \dfrac{2}{4}$.
+
+This means that we must identify $(a,b) \in \mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})$ with $(c,d) \in \mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})$ whenever $\dfrac{a}{b} = \dfrac{c}{d}$. But wait! We have not yet defined a division operation, so we cannot use it in our construction of $\mathbb{Q}$---so instead, we will identify $(a,b)$ with $(c,d)$ whenever $ad=bc$, noting that this will be equivalent to $\dfrac{a}{b} = \dfrac{c}{d}$ once we have defined a division operation.
+
+\begin{lemma}
+\label{lemEquivalenceRelationToConstructQFromZ}
+The relation $\sim$ on $\mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})$, defined for $(a,b), (c,d) \in \mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})$ by letting $(a,b) \sim (c,d)$ if and only if $ad=bc$, is an equivalence relation.
+\end{lemma}
+
+\begin{csketch}
+The proof is essentially the same as that of \Cref{lemEquivalenceRelationToConstructZFromN}, but with addition replaced by multiplication; the proof of transitivity uses fact that for $u,v,w \in \mathbb{Z}$ with $u \ne 0$, we have $uv=uw \Rightarrow v=w$, which can be proved by induction on $|u| \ge 1$ without using a division operation.
+\end{csketch}
+
+\begin{construction}
+\label{cnsRationalsFromIntegers}
+The \textbf{set of rational numbers} is the set $\mathbb{Q}$ defined by
+\[ \mathbb{Q} = (\mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})) / {\sim} \]
+where $\sim$ is the equivalence relation on $\mathbb{Z} \times (\mathbb{Z} \setminus \{0\})$ defined by
+\[ (a,b) \sim (c,d) \text{ if and only if } ad=bc \]
+for all $(a,b),(c,d) \in \mathbb{Z} \times (\mathbb{Z} \setminus \{ 0 \})$.
+\end{construction}
+
+We will write `$\dfrac{a}{b}$' to denote the element $[(a,b)]_{\sim} \in \mathbb{Q}$, noting that $\dfrac{a}{b} = \dfrac{c}{d}$ if and only if $ad=bc$. We can now define addition, multiplication, negation and subtraction operations on $\mathbb{Q}$ in terms of those on $\mathbb{Z}$---namely, given $a,b,c,d \in \mathbb{Z}$ with $b,d \ne 0$, we define
+\[ \dfrac{a}{b} + \dfrac{c}{d} = \dfrac{ad+bc}{bd}, \quad \dfrac{a}{b} \cdot \dfrac{c}{d} = \dfrac{ac}{bd}, \quad -\dfrac{a}{b} = \dfrac{-a}{b}, \quad \dfrac{a}{b} - \dfrac{c}{d} = \dfrac{ad-bc}{bd} \]
+
+As always, we should (but won't) verify that these operations are well-defined.
+
+Again, we do not have $\mathbb{Z} \subseteq \mathbb{Q}$, but we can embed $\mathbb{Z}$ into $\mathbb{Q}$ in a way that respects the arithmetic operations of addition, multiplication, negation and subtraction.
+
+\begin{exercise}
+Prove that the function $i : \mathbb{Z} \to \mathbb{Q}$ defined by $i(a) = \dfrac{a}{1}$ is an injection, and for all $a,b \in \mathbb{Z}$ we have $i(a+b) = i(a)+i(b)$, $i(ab) = i(a)i(b)$, $i(-a) = -i(a)$ and $i(a-b) = i(a)-i(b)$.
+\end{exercise}
+
+In light of this, given $a \in \mathbb{Z}$, we will typically just write `$a$' for the rational number $i(a) = \dfrac{a}{1} \in \mathbb{Q}$, so we may pretend that $\mathbb{Z} \subseteq \mathbb{Q}$ even though this is not strictly the case.
+
+The construction of $\mathbb{Q}$ also allows for reciprocal and division operations to be defined. Note that $\dfrac{c}{d} = 0$ if and only if $c = c \cdot 1 = 0 \cdot d = 0$; so if $a,b,c,d \in \mathbb{Q}$ with $b,c,d \ne 0$, then we define
+\[ \left(\dfrac{c}{d} \right)^{-1} = \dfrac{d}{c} \quad \textbf{and} \quad \frac{a}{b} \div \frac{c}{d} = \dfrac{ad}{bc} \]
+
+The usual comment about well-definedness applies. Note that for all $a,b \in \mathbb{Z}$ with $b \ne 0$ we have
+\[ a \div b = \dfrac{a}{1} \div \dfrac{b}{1} = \dfrac{a \cdot 1}{1 \cdot b} = \dfrac{a}{b} \]
+So we will dispense with the `$\div$' symbol and simply use the fraction notation.
+
+Note also that the reciprocal and division operations may be defined in terms of one another: they are related by the identities
+\[ y^{-1} = \dfrac{1}{y} \quad \textbf{and} \quad \dfrac{x}{y} = x \cdot y^{-1} \]
+for all $x,y \in \mathbb{Q}$ with $y \ne 0$.
+
+\todo{$\mathbb{Q}$ is a field}
+
+\subsection*{Real numbers}
+
+\todo{}
+
+\begin{definition}[Dedekind's construction of the real numbers]
+\label{defDedekindReals}
+The \textbf{set of} (\textbf{Dedekind}) \textbf{real numbers} is the set $\mathbb{R}$ defined by
+\[ \mathbb{R} = \{ D \subseteq \mathbb{Q} \mid D \text{ is bounded above and downwards-closed} \} \]
+\end{definition}
+
+\todo{Arithmetic operations, order}
+
+\todo{Motivate Cauchy reals}
+
+\begin{definition}[Cauchy's construction of the real numbers]
+The \textbf{set of} (\textbf{Cauchy}) \textbf{real numbers} is the set $\mathbb{R}$ defined by
+\[ \mathbb{R} = \{ (x_n) \in \mathbb{Q}^{\mathbb{N}} \mid (x_n) \text{ is Cauchy} \} / {\sim} \]
+where $\sim$ is the equivalence relation defined by
+\[ (x_n) \sim (y_n) \text{ if and only if } (x_n-y_n) \to 0 \]
+for all Cauchy sequences $(x_n),(y_n)$ of rational numbers.
+\end{definition}
+
+\todo{Arithmetic operations, order}
+
+\todo{Motivate definition of complex numbers}
+
+\begin{definition}
+\label{defComplexNumbersFromReals}
+The \textbf{set of complex numbers} is the set $\mathbb{C} = \mathbb{R} \times \mathbb{R}$.
+\end{definition}
+
+\todo{Arithmetic operations}
+
+
+\subsection*{Algebraic structures}
+
+\todo{Monoids, groups, rings}
+
+\subsection*{Axiomatising the real numbers}
+
+\todo{}
+
+\begin{axioms}[Field axioms]
+\label{axField}
+\index{field}
+Let $X$ be a set equipped with elements $0$ (`zero') and $1$ (`unit'), and binary operations $+$ (`addition') and $\cdot$ (`multiplication'). The structure $(X,0,1,+,{\cdot})$ is a \textbf{field} if it satisfies the following axioms:
+\begin{itemize}
+\item \textbf{Zero and unit}
+\begin{itemize}[leftmargin=30pt]
+\item[(F1)] $0 \ne 1$.
+\end{itemize}
+\item \textbf{Axioms for addition}
+\begin{itemize}
+\item[(F2)] (Associativity) $x+(y+z) = (x+y)+z$ for all $x,y,z \in X$.
+\item[(F3)] (Identity) $x+0=x$ for all $x \in X$.
+\item[(F4)] (Inverse) For all $x \in X$, there exists $y \in X$ such that $x+y=0$.
+\item[(F5)] (Commutativity) $x+y=y+x$ for all $x,y \in X$.
+\end{itemize}
+\item \textbf{Axioms for multiplication}
+\begin{itemize}[leftmargin=30pt]
+\item[(F6)] (Associativity) $x \cdot (y \cdot z) = (x \cdot y) \cdot z$ for all $x,y,z \in X$.
+\item[(F7)] (Identity) $x \cdot 1 = x$ for all $x \in X$.
+\item[(F8)] (Inverse) For all $x \in X$ with $x \ne 0$, there exists $y \in X$ such that $x \cdot y = 1$.
+\item[(F9)] (Commutativity) $x \cdot y = y \cdot x$ for all $x,y \in X$.
+\end{itemize}
+\item \textbf{Distributivity}
+\begin{itemize}[leftmargin=30pt]
+\item[(F10)] $x \cdot (y + z) = (x \cdot y) + (x \cdot z)$ for all $x,y,z \in X$.
+\end{itemize}
+\end{itemize}
+\end{axioms}
+
+\begin{example}
+The rationals $\mathbb{Q}$ and the reals $\mathbb{R}$ both form fields with their usual notions of zero, unit, addition and multiplication. However, the integers $\mathbb{Z}$ do not, since for example $2$ has no multiplicative inverse.
+\end{example}
+
+\begin{example}
+\label{exZpZIsField}
+Let $p>0$ be prime. The set $\mathbb{Z}/p\mathbb{Z}$ (see \Cref{defCongruenceClass}) is a field, with zero element $[0]_p$ and unit element $[1]_p$, and with addition and multiplication defined by
+\[ [a]_p+[b]_p=[a+b]_p \quad \text{and} \quad [a]_p \cdot [b]_p = [ab]_p \]
+for all $a,b \in \mathbb{Z}$. Well-definedness of these operations is immediate from \Cref{thmCongruenceIsEquivalenceRelation} and the modular arithmetic theorem (\Cref{thmModularArithmetic}).
+
+The only axiom which is not easy to verify is the multiplicative inverse axiom (F8). Indeed, if $[a]_p \in \mathbb{Z}/p\mathbb{Z}$ then $[a]_p \ne [0]_p$ if and only if $p \nmid a$. But if $p \nmid a$ then $a \perp p$, so $a$ has a multiplicative inverse $u$ modulo $p$. This implies that $[a]_p \cdot [u]_p = [au]_p = [1]_p$. So (F8) holds.
+\end{example}
+
+\begin{exercise}
+Let $n > 0$ be composite. Prove that $\mathbb{Z}/n\mathbb{Z}$ is not a field, where zero, unit, addition and multiplication are defined as in \Cref{exZpZIsField}.
+\end{exercise}
+
+\Cref{axField} tell us that every element of a field has an additive inverse, and every \textit{nonzero} element of a field has a multiplicative inverse. It would be convenient if inverses were \textit{unique} whenever they exist. \Cref{propInversesInFieldsAreUnique} proves that this is the case.
+
+\begin{proposition}[Uniqueness of inverses]
+\label{propInversesInFieldsAreUnique}
+Let $(X,0,1,+,{\cdot})$ be a field and let $x \in X$. Then
+\begin{enumerate}[(a)]
+\item Suppose $y,z \in X$ are such that $x+y=0$ and $x+z=0$. Then $y=z$.
+\item Suppose $x \ne 0$ and $y,z \in X$ are such that $x \cdot y = 1$ and $x \cdot z = 1$. Then $y=z$.
+\end{enumerate}
+\end{proposition}
+\begin{cproof}[of (a)]
+By calculation, we have
+\begin{align*}
+y &= y + 0 && \text{by (F3)} \\
+&= y + (x+z) && \text{by definition of $z$} \\
+&= (y+x)+z && \text{by associativity (F2)} \\
+&= (x+y)+z && \text{by commutativity (F5)} \\
+&= 0+z && \text{by definition of $y$} \\
+&= z+0 && \text{by commutativity (F5)} \\
+&= z && \text{by (F3)}
+\end{align*}
+so indeed $y=z$.
+
+The proof of (b) is essentially the same and is left as an exercise.
+\end{cproof}
+
+Since inverses are unique, it makes sense to have notation to refer to them.
+
+\begin{notation}
+Let $(X,0,1,+,{\cdot})$ be a field and let $x \in X$. Write $-x$ for the (unique) additive inverse of $x$ and, if $x \ne 0$ write $x^{-1}$ for the (unique) multiplicative inverse of $x$.
+\end{notation}
+
+\begin{example}
+\label{exQRAreFields}
+In the fields $\mathbb{Q}$ and $\mathbb{R}$, the additive inverse $-x$ of an element $x$ is simply its negative, and the multiplicative inverse $x^{-1}$ of some $x \ne 0$ is simply its reciprocal $\frac{1}{x}$.
+\end{example}
+
+\begin{example}
+Let $p>0$ be prime and let $[a]_p \in \mathbb{Z}/p\mathbb{Z}$. Then $-[a]_p=[-a]_p$ and, if $p \nmid a$, then $[a]_p^{-1} = [u]_p$, where $u$ is any integer satisfying $au \equiv 1 \bmod p$.
+\end{example}
+
+\begin{exercise}
+\label{exInverseIsInvolution}
+Let $(X, 0, 1, +, {\cdot})$ be a field. Prove that $-(-x)=x$ for all $x \in X$, and that $(x^{-1})^{-1} = x$ for all nonzero $x \in X$.
+\begin{backhint}
+\hintref{exInverseIsInvolution}
+Prove that $x$ is an additive inverse for $-x$ (in the sense of \Cref{axField}(F4)) and use uniqueness of additive inverses. Likewise for $x^{-1}$.
+\end{backhint}
+\end{exercise}
+
+\begin{example}
+Let $(X,0,1,+,{\cdot})$ be a field. We prove that if $x \in X$ then $x \cdot 0 = 0$. Well, $0=0+0$ by (F3). Hence $x \cdot 0 = x \cdot (0+0)$. By distributivity (F10), we have $x \cdot (0+0) = (x \cdot 0) + (x \cdot 0)$. Hence
+\[ x \cdot 0 = (x \cdot 0) + (x \cdot 0) \]
+Let $y=-(x \cdot 0)$. Then
+\begin{align*}
+0 &= x \cdot 0 + y && \text{by (F4)} \\
+&= ((x \cdot 0) + (x \cdot 0)) + y && \text{as above} \\
+&= (x \cdot 0) + ((x \cdot 0) + y) && \text{by associativity (F2)} \\
+&= (x \cdot 0) + 0 && \text{by (F4)} \\
+&= x \cdot 0 && \text{by (F3)}
+\end{align*}
+so indeed we have $x \cdot 0 = 0$.
+\end{example}
+
+\begin{exercise}
+\label{exMinusOneSquaredIsOne}
+Let $(X,0,1,+,{\cdot})$ be a field. Prove that $(-1) \cdot x = -x$ for all $x \in X$, and that $(-x)^{-1} = -(x^{-1})$ for all nonzero $x \in X$.
+\end{exercise}
+
+What makes the real numbers useful is not simply our ability to add, subtract, multiply and divide them; we can also compare their size---indeed, this is what gives rise to the informal notion of a \textit{number line}. \Cref{axOrderedField} make precise exactly what it means for the elements of a field to be assembled into a `number line'.
+
+\begin{axioms}[Ordered field axioms]
+\label{axOrderedField}
+Let $X$ be a set, $0,1 \in X$ be elements, $+,{\cdot}$ be binary operations, and $\le$ be a relation on $X$. The structure $(X,0,1,+,{\cdot},{\le})$ is an \textbf{ordered field} if it satisfies the field axioms (F1)--(F10) (see \Cref{axField}) and, additionally, it satisfies the following axioms:
+\begin{itemize}
+\item \textbf{Linear order axioms}
+\begin{itemize}[leftmargin=30pt]
+\item[(PO1)] (Reflexivity) $x \le x$ for all $x \in X$.
+\item[(PO2)] (Antisymmetry) For all $x,y \in X$, if $x \le y$ and $y \le x$, then $x=y$.
+\item[(PO3)] (Transitivity) For all $x,y,z \in X$, if $x \le y$ and $y \le z$, then $x \le z$.
+\item[(PO4)] (Linearity) For all $x,y \in X$, either $x \le y$ or $y \le x$.
+\end{itemize}
+\item \textbf{Interaction of order with arithmetic}
+\begin{itemize}[leftmargin=30pt]
+\item[(OF1)] For all $x,y,z \in X$, if $x \le y$, then $x+z \le y+z$.
+\item[(OF2)] For all $x,y \in X$, if $0 \le x$ and $0 \le y$, then $0 \le xy$. 
+\end{itemize}
+\end{itemize}
+\end{axioms}
+
+\begin{example}
+\label{exQRAreOrderedFields}
+The field $\mathbb{Q}$ of rational numbers and and the field $\mathbb{R}$ of real numbers, with their usual notions of ordering, can easily be seen to form ordered fields.
+\end{example}
+
+\begin{example}
+\label{exZeroIsLessThanOne}
+We prove that, in any ordered field, we have $0 \le 1$. Note first that either $0 \le 1$ or $1 \le 0$ by linearity (PO4). If $0 \le 1$ then we're done, so suppose $1 \le 0$. Then $0 \le -1$; indeed:
+\begin{align*}
+0 &= 1 + (-1) && \text{by (F4)} \\
+&\le 0+(-1) && \text{by (OF1), since $1 \le 0$} \\
+&= (-1)+0 && \text{by commutativity (F5)} \\
+&= -1 && \text{by (F3)}
+\end{align*}
+By (OF2), it follows that $0 \le (-1)(-1)$. But $(-1)(-1)=1$ by \Cref{exMinusOneSquaredIsOne}, and hence $0 \le 1$. Since $1 \le 0$ and $0 \le 1$, we have $0=1$ by antisymmetry (PO2). But this contradicts axiom (F1). Hence $0 \le 1$. In fact, $0<1$ since $0 \ne 1$.
+\end{example}
+
+We have seen that $\mathbb{Q}$ and $\mathbb{R}$ are ordered fields (\Cref{exQRAreFields,exQRAreOrderedFields}), and that $\mathbb{Z}/p\mathbb{Z}$ is a field for $p>0$ prime (\Cref{exZpZIsField}). The following proposition is an interesting result proving that there is no notion of `ordering' under which the field $\mathbb{Z}/p\mathbb{Z}$ can be made into an ordered field!
+
+\begin{proposition}
+Let $p>0$ be prime. There is no relation $\le$ on $\mathbb{Z}/p\mathbb{Z}$ which satisfies the ordered field axioms.
+\end{proposition}
+\begin{cproof}
+We just showed that $[0] \le [1]$. It follows that, for all $a \in \mathbb{Z}$, we have $[a] \le [a]+[1]$; indeed:
+\begin{align*}
+[a] &= [a]+[0] && \text{by (F3)} \\
+&\le [a]+[1] && \text{by (OF1), since $[0] \le [1]$} \\
+&= [a+1] && \text{by definition of $+$ on $\mathbb{Z}/p\mathbb{Z}$}
+\end{align*}
+It is a straightforward induction to prove that $[a] \le [a+n]$ for all $n \in \mathbb{N}$. But then we have
+\[ [1] \le [1+(p-1)] = [p] = [0] \]
+so $[0] \le [1]$ and $[1] \le [0]$. This implies $[0]=[1]$ by antisymmetry (PO2), contradicting axiom (F1).
+\end{cproof}
+
+\begin{exercise}
+Let $(X,0,1,+,{\cdot})$ be a field. Prove that if $X$ is finite, then there is no relation $\le$ on $X$ such that $(X,0,1,+,{\cdot},{\le})$ is an ordered field.
+\end{exercise}
+
+\Cref{thmPropertiesOfOrderedFields} below summarises some properties of ordered fields which are used in our proofs. Note, however, that this is certainly \textit{not} an exhaustive list of elementary properties of ordered fields that we use---to explicitly state and prove all of these would not make for a scintillating read.
+
+\begin{theorem}
+\label{thmPropertiesOfOrderedFields}
+Let $(X,0,1,+,{\cdot},{\le})$ be an ordered field. Then
+\begin{enumerate}[(a)]
+\item For all $x,y \in X$, $x \le y$ if and only if $0 \le y-x$;
+\item For all $x \in X$, $-x \le 0 \le x$ or $x \le 0 \le -x$;
+\item For all $x,x',y,y' \in X$, if $x \le x'$ and $y \le y'$, then $x + y \le x' + y'$;
+\item For all $x,y,z \in X$, if $0 \le x$ and $y \le z$, then $xy \le xz$;
+\item For all nonzero $x \in X$, if $0 \le x$, then $0 \le x^{-1}$.
+\item For all nonzero $x,y \in X$, if $x \le y$, then $y^{-1} \le x^{-1}$.
+\end{enumerate}
+\end{theorem}
+\begin{cproof}[of {(a)}, {(b)} and {(e)}]
+$ $
+\begin{enumerate}[(a)] 
+\item ($\Rightarrow$) Suppose $x \le y$. Then by additivity (OF1), $x+(-x) \le y+(-x)$, that is $0 \le y-x$. ($\Leftarrow$) Suppose $0 \le y-x$. By additivity (OF1), $0+x \le (y-x)+x$; that is, $x \le y$.
+\item We know by linearity (PO4) that either $0 \le x$ or $x \le 0$. If $0 \le x$, then by (OF1) we have $0+(-x) \le x+(-x)$, that is $-x \le 0$. Likewise, if $x \le 0$ then $0 \le -x$.
+\setcounter{enumi}{4}
+\item Suppose $0 \le x$. By linearity (PO4), either $0 \le x^{-1}$ or $x^{-1} \le 0$. If $x^{-1} \le 0$, then by (d) we have $x^{-1} \cdot x \le 0 \cdot x$, that is $1 \le 0$. This contradicts \Cref{exZeroIsLessThanOne}, so we must have $0 \le x^{-1}$.
+\end{enumerate}
+The proofs of the remaining properties are left as an exercise.
+\end{cproof}
+
+We wanted to characterise the reals completely, but so far we have failed to do so---indeed, \Cref{exQRAreOrderedFields} showed that both $\mathbb{Q}$ and $\mathbb{R}$ are ordered fields, so the ordered field axioms do not suffice to distinguish $\mathbb{Q}$ from $\mathbb{R}$. The final piece in the puzzle is \textit{completeness}. This single additional axiom distinguishes $\mathbb{Q}$ from $\mathbb{R}$, and in fact completely characterises $\mathbb{R}$ (see \Cref{thmRIsTheUniqueCompleteOrderedField}).
+
+\begin{axioms}[Complete ordered field axioms]
+\label{axCompleteOrderedField}
+\index{complete ordered field}
+\index{completeness axiom}
+Let $X$ be a set, $0,1 \in X$ be elements, $+,{\cdot}$ be binary operations, and $\le$ be a relation on $X$. The structure $(X,0,1,+,{\cdot},{\le})$ is a \textbf{complete ordered field} if it is an ordered field---that is, it satisfies axioms (F1)--(F10), (PO1)--(PO4) and (OF1)--(OF2) (see \Cref{axField,axOrderedField})---and, in addition, it satisfies the following \textbf{completeness axiom}:
+\begin{itemize}[leftmargin=30pt]
+\item[(C1)] Let $A \subseteq X$. If $A$ has an upper bound, then it has a least upper bound. Specifically, if there exists $u \in X$ such that $a \le u$ for all $a \in A$, then there exists $s \in X$ such that
+\begin{itemize}
+\item $a \le s$ for all $a \in A$; and
+\item If $s' \in X$ is such that $a \le s'$ for all $a \in A$, then $s \le s'$.
+\end{itemize}
+We call such a value $s \in X$ a \textbf{supremum} for $A$.
+\end{itemize}
+\end{axioms}
+
+\begin{theorem}
+\label{thmRIsTheUniqueCompleteOrderedField}
+The real numbers $(\mathbb{R},0,1,+,\cdot,\le)$ form a complete ordered field. Moreover, any two complete ordered fields are essentially the same. \qed
+\end{theorem}
+
+The notion of `sameness' alluded to in \Cref{thmRIsTheUniqueCompleteOrderedField} is more properly called \textit{isomorphism}. A proof of this theorem is intricate and far beyond the scope of this book, so is omitted. What it tells us is that it doesn't matter exactly how we define the reals, since any complete ordered field will do. We can therefore proceed with confidence that, no matter what notion of `real numbers' we settle on, everything we prove will be true of that notion. This is for the best, since we haven't actually defined the set $\mathbb{R}$ of real numbers at all!
+
+The two most common approaches to constructing a set of real numbers are:
+\begin{itemize}
+\item \textbf{Dedekind reals.} In this approach, real numbers are identified with particular subsets of $\mathbb{Q}$---informally speaking, $r \in \mathbb{R}$ is identified with the set of rational numbers less than $r$.
+\item \textbf{Cauchy reals.} In this approach, real numbers are identified with equivalence classes of sequences of rational numbers---informally speaking, $r \in \mathbb{R}$ is identified with the set of sequences of rational numbers which converge to $r$ (in the sense of \Cref{defConvergenceOfSequence}).
+\end{itemize}
+
+\todo{}

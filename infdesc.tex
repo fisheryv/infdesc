@@ -1,0 +1,135 @@
+% If you intend to adapt the material in this textbook
+% in any way, then you must set the \adaptername and
+% \adapteremail commands on lines 13 and 14 of this file
+% to your full name and email address, respectively.
+%
+% Example usage:
+% \newcommand{\adaptername}{Exampleface McLastname}
+% \newcommand{\adapteremail}{exampleface-mclastname@example.web}
+%
+% Any duplications, derivations or adaptations of this work
+% must be released under the Creative Commons BY-SA 4.0 licence.
+
+\newcommand{\adaptername}{} % Your full name
+\newcommand{\adapteremail}{} % Your email address
+
+% Page layout
+% 0:6"x9", 1:a4, 2:usletter, 3:tablet, 4:phone
+\newcounter{bookformat}\setcounter{bookformat}{0}
+
+% Book version - if you are adapting the book, please leave
+% these unchanged so that the original version can be traced.
+\newcounter{versionmajor}\setcounter{versionmajor}{1}
+\newcounter{versionminor}\setcounter{versionminor}{0}
+\newcounter{versionpatch}\setcounter{versionpatch}{-1}
+\newcounter{versionstable}\setcounter{versionstable}{0}
+
+\documentclass[10pt]{book}
+
+% Includes
+\input{book/includes/_includes.tex}
+
+% Uncomment to remove hyperlinks (useful for print versions)
+% \hypersetup{draft}
+
+\begin{document}
+
+% Uncomment to display cover spread
+% \includepdf[pages=-,fitpaper=true,noautoscale=false]{book/media/spread.pdf}
+
+\frontmatter
+
+% Title page
+\newgeometry{centering,bindingoffset={0in}}
+\input{book/front-matter/titlepage.tex}
+\restoregeometry
+
+\clearpage
+
+\input{book/front-matter/copyright.tex}
+
+\bookmark[page=3,level=0]{Dedication}
+\input{book/front-matter/dedication.tex}
+
+% Table of contents
+\bookmark[page=5,level=0]{Contents}
+\tableofcontents
+
+\input{book/front-matter/preface.tex}
+\input{book/front-matter/acknowledgements.tex}
+
+\mainmatter
+
+\setcounter{chapter}{-1}
+
+\input{book/getting-started/_getting-started.tex}
+
+\part{Core concepts}
+\label{ptCoreConcepts}
+
+\input{book/logical-structure/_logical-structure.tex}
+\input{book/sets/_sets.tex}
+\input{book/functions/_functions.tex}
+\input{book/mathematical-induction/_mathematical-induction.tex}
+\input{book/relations/_relations.tex}
+\input{book/finite-infinite-sets/_finite-infinite-sets.tex}
+
+\part{Topics in pure mathematics}
+\label{ptTopics}
+
+\input{book/number-theory/_number-theory.tex}
+\input{book/enumerative-combinatorics/_enumerative-combinatorics.tex}
+\input{book/real-numbers/_real-numbers.tex}
+\input{book/infinity/_infinity.tex}
+\input{book/probability-theory/_probability-theory.tex}
+\input{book/additional-topics/_additional-topics.tex}
+
+% Source: LaTeX Stack Exchange
+% https://tex.stackexchange.com/q/6489 (Malabarba)
+% https://tex.stackexchange.com/a/6494 (Stefan Kottwitz)
+% https://tex.stackexchange.com/a/6494#comment971771_6494 (egreg)
+\addtocontents{toc}{\protect\pagebreak}
+
+\appendix
+
+\begin{appendices}
+
+\renewcommand{\sectionmark}[1]{\markboth{\leftmark}{Section \thesection.\ #1}}
+\renewcommand{\chaptermark}[1]{\markboth{Appendix \thechapter.\ #1}{\rightmark}}
+
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}
+
+\input{book/proof-writing/_proof-writing.tex}
+\input{book/miscellany/_miscellany.tex}
+\input{book/hints-solutions/_hints-solutions.tex}
+\input{book/latex/_latex.tex}
+
+\end{appendices}
+
+\backmatter
+
+{%
+\part*{Indices}
+\addcontentsline{toc}{part}{Indices}
+
+\renewcommand{\chaptername}{Indices}
+
+\addcontentsline{toc}{chapter}{Index of topics}
+\printindex
+
+\addcontentsline{toc}{chapter}{Index of vocabulary}
+\printindex[vocabulary]
+
+\addcontentsline{toc}{chapter}{Index of notation}
+\printindex[notation]
+
+\addcontentsline{toc}{chapter}{Index of \LaTeX{} commands}
+\printindex[latex]%
+}
+
+\input{book/licence/_licence.tex}
+
+\cleardoublepage
+
+\end{document}

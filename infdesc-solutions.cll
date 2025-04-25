@@ -1,0 +1,86 @@
+\subsection *{\Cref *{chGettingStarted}}
+
+\solutionref {exExamplesOfPropositions:solution}\fixlistskip \begin {enumerate}[(a)] \item $2$ is an even number. \item $2$ is an odd number. \item Every even integer greater than two can be expressed as the sum of two positive prime numbers. [This is \textit {Goldbach's conjecture}, proposed in 1742 by Christian Goldbach. It a famous example of an extant \textit {open problem} in mathematics. Will you be the one to solve it?] \end {enumerate}
+
+\solutionref {exFloorCeilingOfNonInteger:solution}Set $n = \floor {x}$. Then $n \le x < n+1$ by definition of floor. Since $x$ is not an integer and $n$ is, we have $n \ne x$; but then $n<x<n+1$, and so $(n+1)-1 < x \le n+1$. This inequality demonstrates that $n+1$ is the ceiling of $x$, and so $\ceil {x} = n+1 = \floor {x} + 1$, as required.
+
+\solutionref {:solution}Set $n = \floor {-x}$. By definition of floor we have $n \le -x < n+1$. Multiplying through by $-1$ gives $-n \ge x > -(n+1)$, or equivalently $-n-1 < x \le -n$. Thus $-n$ satisfies the definition of being the ceiling of $x$, so that $\ceil {x} = -n = -\floor {-x}$. Hence $\floor {-x} = -\ceil {x}$, as required. \par Now set $m = \ceil {-x}$. By definition of ceiling we have $m-1 < -x \le m$. Multiplying through by $-1$ and rearranging gives $-m \le x < -m+1$. Thus $\floor {x} = -m = -\ceil {-x}$, and so $\ceil {-x} = -\floor {x}$, as required.
+
+\solutionref {exElementsOfNumberSets:solution}\begin {enumerate}[(a)] \item $2 \in \Nat $ is true, since it is a nonnegative whole number and can be used for counting (for example, I have $2$ eyes). \item $-2 \in \Nat $ is false, since $-2 < 0$ but all natural numbers are nonnegative. \item $-2 \in \Rat $ is true, since $-2 = \dfrac {-2}{1}$, which is an integer divided by a nonzero integer. \item $\dfrac {2}{5} \in \Int $ is false, since $0<\dfrac {2}{5}<1$, meaning that $\dfrac {2}{5}$ is strictly between two consecutive integers. \item $\dfrac {\sqrt {8}+\sqrt {2}}{\sqrt {8}-\sqrt {2}} \in \Rat $ is true: note that $\sqrt {8} = 2\sqrt {2}$, so cancelling the common factor of $\sqrt {2}$ from the numerator and denominator reveals that this number is equal to $\dfrac {2+1}{2-1} = \dfrac {3}{1}$, which is an integer divided by a nonzero integer. \item $\pi ^{\pi } \in \Rat $\dots {} OK, sorry, this is (kind of) a trick question. Whether or not $\pi ^{\pi }$ is rational is an open problem. \item $\sqrt {-7} \in \Real $ is false: the square of every real number is nonnegative, but whatever $\sqrt {-7}$ actually \textit {is},\footnote {$\sqrt {-7}$ is an example of a \textit {complex number}, which is a topic for another time.} it presumably satisfies $\sqrt {-7}^2=-7$, which is negative. \item $\Nat \in \Int $ might appear true at first sight, since every natural number is indeed an integer. However, $\Nat $ is \textit {the set of all natural numbers}, which is a set, not an integer, and so the proposition $\Nat \in \Int $ is false. \end {enumerate}
+
+\subsection *{\Cref *{secPropositionalLogic}}
+
+\subsection *{\Cref *{secVariablesQuantifiers}}
+
+\subsection *{\Cref *{secLogicalEquivalence}}
+
+\subsection *{\Cref *{secSets}}
+
+\solutionref {exRussellsParadox:solution}By \Cref {defProposition}, the proposition $R \in R$ must be either true or false. \par By the set-builder notation defining $R$, given a set $X$, we have $X \in R$ if and only if $X \not \in X$, and therefore we also have $X \not \in R$ if and only if $X \in X$. \par Setting $X=R$, it follows that: \begin {itemize} \item If $R \in R$ is true, then $R \not \in R$; and \item If $R \in R$ is false, then $R \in R$. \end {itemize} \par Therefore the only way $R \in R$ can be true or false is if it is \textit {both} true \textit {and} false. But that can't happen\dots {} right?
+
+\solutionref {exUnboundedQuantifiers:solution}When proving a proposition of the form $\forall x \in X,\, p(x)$, we let $x \in X$ and then prove $p(x)$---thus, we introduce a variable $x$, we assume $x \in X$, and we prove $p(x)$. This is equivalent to introducing an element $x \in \mathcal {U}$ and proving $x \in X \Rightarrow p(x)$, which explains the implication operator in $\forall x,\, x \in X \Rightarrow p(x)$. \par When proving a proposition of the form $\exists x \in X,\, p(x)$, we define a specific object $a$, we prove $a \in X$, and we prove $p(a)$. This is equivalent to defining $a \in \mathcal {U}$ and then proving $a \in X \wedge p(a)$, which explains the conjunction operator in $\exists x,\, x \in X \wedge p(x)$. \par We can use maximal negation (as in \Cref {secLogicalEquivalence}) to verify de Morgan's laws: \begin {align*} \neg \forall x \in X,\, p(x) &\equiv \neg \forall x,\, (x \in X \Rightarrow p(x)) && \\ &\equiv \exists x,\, \neg (x \in X \Rightarrow p(x)) && \text {by \Cref {thmDeMorganQuantifiers}} \\ &\equiv \exists x,\, (x \in X \wedge (\neg p(x))) && \text {by \Cref {exNegationOfImplication}} \\ &\equiv \exists x \in X,\, \neg p(x) \end {align*} and \par \begin {align*} \neg \exists x \in X,\, p(x) &\equiv \neg \exists x,\, (x \in X \wedge p(x)) && \\ &\equiv \forall x,\, \neg (x \in X \wedge p(x)) && \text {by \Cref {thmDeMorganQuantifiers}} \\ &\equiv \forall x,\, (x \in X \Rightarrow (\neg p(x))) && \text {by \Cref {exNegationOfConjunctionAlternative}} \\ &\equiv \forall x \in X,\, \neg p(x) \end {align*}
+
+\solutionref {exRussellsParadoxResolved:solution}Note that by the new characterisation of set-builder notation, we have $R \in R$ if and only if $R \in \mathcal {U} \wedge R \not \in R$. \par If $R \in \mathcal {U}$, this means that $R \in R$ if and only if $R \not \in R$, which is a contradiction for the same reason as in \Cref {exRussellsParadox}. \par It follows that $R \not \in \mathcal {U}$; but then all this means is that $R \in R$ is false.
+
+\solutionref {exIntervalContainment:solution}$(\Rightarrow )$ Assume $[a,b) \subseteq (c,d]$. \begin {itemize} \item Since $a \in [a,b)$, we have $a \in (c,d]$ and so $a > c$ as required. \item Towards a contradiction, assume $b > d$. Then $\frac {b+d}{2} < \frac {b+b}{2} = b$, so $\frac {b+d}{2} \in [a,b)$, and so $\frac {b+d}{2} \in (c,d]$. This implies that $\frac {b+d}{2} \le d$; however since $b>d$ we have $\frac {b+d}{2} > \frac {d+d}{2} = d$, contradicting $\frac {b+d}{2} \le d$. So indeed $b \le d$, as required. \end {itemize} $(\Leftarrow )$ Assume $a>c$ and $b \le d$, and let $x \in [a,b)$, so that $x \in \mathbb {R}$ and $a \le x < b$. We need to prove that $x \in (c,d]$. Well, combining these inequalities, we have \[ c < a \le x < b \le d \] and so $c < x \le d$, so that $x \in (c,d]$, as required. \qed 
+
+\solutionref {exXSquaredLessThanXAsInterval:solution}Write $A = \{ x \in \mathbb {R} \mid x^2 < x \}$; we prove that $A = (0,1)$ by double containment. \begin {itemize} \item $(\subseteq )$ Let $x \in A$. Then $x \in \mathbb {R}$ and $x^2 < x$, so that $0 < x-x^2 = x(1-x)$. Now, if $x \le 0$ then $1-x > 0$, and so $x(1-x) \le 0$; and if $x \ge 1$ then $x > 0$ and $1-x \le 0$, and so $x(1-x) \le 0$. Thus we must have $0<x<1$, and so $x \in (0,1)$, as required. \item $(\supseteq )$ Let $x \in (0,1)$. Then $x \in \mathbb {R}$ and $0<x<1$. Since $x>0$, the inequality $x<1$ is preserved when we multiply through by $x$, and so $x^2 \le x$. Hence $x \in A$, as required. \end {itemize} By double containment, we have $A = (0,1)$. \qed 
+
+\solutionref {exDoubleContainmentListNotation:solution}Proving $\{ 0, 1 \} = \{ 1, 0 \}$: \begin {itemize} \item $(\subseteq )$ Let $x \in \{ 0, 1 \}$. Then either $x = 0 \in \{ 1, 0 \}$ or $x = 1 \in \{ 1, 0 \}$; in both cases we see that $x \in \{ 1, 0 \}$. \item $(\supseteq )$ Identical to $(\subseteq )$, but swap the roles of $0$ and $1$. \end {itemize} Hence $\{ 0, 1 \} = \{ 1, 0 \}$ by double containment. \qed \par Proving $\{ 0, 0 \} = \{ 0 \}$: \begin {itemize} \item $(\subseteq )$ Let $x \in \{ 0, 0 \}$. Then $x = 0$ or $x = 0$\dots {} so $x = 0 \in \{ 0 \}$. \item $(\supseteq )$ Let $x \in \{ 0 \}$. Then $x = 0 \in \{ 0, 0 \}$. \end {itemize} Hence $\{ 0, 0 \} = \{ 0 \}$ by double containment. \qed \par These proofs are a little bit silly, but they demonstrate that in list notation for sets, we can change the order that the elements are listed and we can repeat elements in the list without changing the set.
+
+\subsection *{\Cref *{secSetOperations}}
+
+\subsection *{\Cref *{secFunctions}}
+
+\subsection *{\Cref *{secInjectionsSurjections}}
+
+\solutionref {exIdentityBijection:solution}\fixlistskip \begin {itemize} \item (\textbf {Injectivity}) Let $a,b \in X$ and assume that $\mathrm {id}_X(a) = \mathrm {id}_X(b)$. Then $a=b$ by definition of $\mathrm {id}_X$, as required. \item (\textbf {Surjectivity}) Let $x \in X$. Then $x=\mathrm {id}_X(x)$ by definition of $\mathrm {id}_X$, as required. \end {itemize} Since $\mathrm {id}_X$ is both injective and surjective, it is bijective. \qed 
+
+\subsection *{\Cref *{secPeanosAxioms}}
+
+\subsection *{\Cref *{secWeakInduction}}
+
+\subsection *{\Cref *{secStrongInduction}}
+
+\subsection *{\Cref *{secRelations}}
+
+\subsection *{\Cref *{secEquivalenceRelationsPartitions}}
+
+\subsection *{\Cref *{secFiniteSets}}
+
+\solutionref {exBracketNIsFinite:solution}Let $n \in \mathbb {N}$. The identity function $\mathrm {id}_{[n]} : [n] \to [n]$ is a bijection by \Cref {exIdentityBijection}, so is an enumeration of $[n]$.
+
+\solutionref {exSubsetOfFiniteSetIsFinite:solution}Let $i : A \to X$ be the \textit {inclusion function}, defined by $i(x)=x$ for all $x \in A$. For all $a,b \in A$, if $i(a)=i(b)$, then $a=b$ by definition of $i$, so that $i$ is injective. Since $X$ is finite and $i : A \to X$ is an injection, it follows from \Cref {thmFiniteSetsAndJections}\ref {itmFiniteSetFromInjection}.
+
+\subsection *{\Cref *{secCountableUncountableSets}}
+
+\subsection *{\Cref *{secDivision}}
+
+\subsection *{\Cref *{secPrimes}}
+
+\subsection *{\Cref *{secModularArithmetic}}
+
+\subsection *{\Cref *{secCountingPrinciples}}
+
+\subsection *{\Cref *{secAlternatingSums}}
+
+\subsection *{\Cref *{secInequalitiesMeans}}
+
+\subsection *{\Cref *{secCompletenessConvergence}}
+
+\subsection *{\Cref *{secSeriesSums}}
+
+\subsection *{\Cref *{secCardinality}}
+
+\subsection *{\Cref *{secCardinalArithmetic}}
+
+\subsection *{\Cref *{secDiscreteProbabilitySpaces}}
+
+\subsection *{\Cref *{secDiscreteRandomVariables}}
+
+\subsection *{\Cref *{secZFC}}
+
+\subsection *{\Cref *{secConstructions}}
+
+\subsection *{\Cref *{secLimitsOfFunctions}}
+

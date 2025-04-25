@@ -1,0 +1,340 @@
+\subsection *{\Cref *{chGettingStarted}}
+
+\hintref {exFloorCeilingOfNonInteger}Set $n = \floor {x}$ and verify that $n+1$ satisfies the definition of `ceiling'.
+
+\hintref {exFloorCeilingOfNegative}Set $n = \floor {-x}$ and show that $-n$ satisfies the definition of being the ceiling of $x$; use a similar argument for the other part of the exercise.
+
+\subsection *{\Cref *{chGettingStarted} exercises}
+
+\subsection *{\Cref *{secPropositionalLogic}}
+
+\hintref {exSquareRemainderModuloFive} Mimic the proof of \Cref {propRemainderOfSquaresModulo3}.
+
+\hintref {exSumOfDigitsDivisibleByThree}Suppose $n = d_r \cdot 10^r + \cdots + d_1 \cdot 10 + d_0$ and let $s = d_r + \cdots + d_1 + d_0$. Start by proving that $3 \mid n-s$.
+
+\hintref {exIrrationalExpIrrationalCanBeRational}Use the law of excluded middle according to whether the proposition `$\sqrt {2}^{\sqrt {2}}$ is rational' is true or false.
+
+\subsection *{\Cref *{secVariablesQuantifiers}}
+
+\hintref {exIrrationalPlusMinusRealNotBothRational}Consider the sum of $x+y$ and $x-y$.
+
+\hintref {exZeroDividesSomeInteger}Look carefully at the definition of divisibility (\Cref {defDivisionPreliminary}).
+
+\subsection *{\Cref *{secLogicalEquivalence}}
+
+\hintref {exJustifyBasicTruthTables}Note that you may need to use the law of excluded middle (\Cref {axLEM}) and the principle of explosion (\Cref {axPrincipleOfExplosion}).
+
+\hintref {exIntegerEvenIffSquareEven}Express this statement as $\forall n \in \mathbb {Z},\, (n \text { is even}) \Leftrightarrow (n^2 \text { is even})$, and note that the negation of `$x$ is even' is `$x$ is odd'.
+
+\hintref {exNotEveryRationalIsEvenDividedByOdd}Find a rational number all of whose representations as a ratio of two integers have an even denominator.
+
+\hintref {exMaximallyNegateBiconditional}Start by expressing $\Leftrightarrow $ in terms of $\Rightarrow $ and $\wedge $, as in \Cref {defBiconditional}.
+
+\subsection *{\Cref *{chLogicalStructure} exercises}
+
+\subsection *{\Cref *{secSets}}
+
+\hintref {exRussellsParadox}Use the set-builder notation defining $R$ to determine whether $X \in R$ is true or false when $X=R$.
+
+\hintref {exUnboundedQuantifiers}Compare the strategies for proving universally quantified statements and proving implications, and for proving existentially quantified statements and proving conjunctions.
+
+\hintref {exRussellsParadoxResolved}It may be true or false that $R \in \mathcal {U}$.
+
+\hintref {exXSquaredLessThanXAsInterval}Resist the temptation to draw a graph and claim that you're done: use a proof by double containment, unpacking what it means to be an element of each set using its definition.
+
+\hintref {exDoubleContainmentListNotation}If you feel like you're not proving anything, you're probably doing it correctly.
+
+\hintref {exEverythingIsTrueOfElementsOfEmptySet}Recall from the beginning of \Cref {secSets} that $\forall x \in X,\, p(x)$ is equivalent to $\forall x,\, (x \in X \Rightarrow p(x))$ and $\exists x \in X,\, p(x)$ is equivalent to $\exists x,\, (x \in X \wedge p(x))$. What can be said about the truth value of $x \in E$ when $E$ is empty?
+
+\subsection *{\Cref *{secSetOperations}}
+
+\hintref {exSubsetsFiniteIntersectionInhabitedInfiniteIntersectionEmpty} You need to find a family of subsets of $\mathbb {N}$ such that (i) any two of the subsets have infinitely many elements in common, but (ii) given any natural number, you can find one of the subsets that it is \textit {not} an element of.
+
+\subsection *{\Cref *{chSets} exercises}
+
+\hintref {cqSymmetricDifferenceAssociative}The temptation is to write a long string of equations, but it is far less painful to prove this by double containment, splitting into cases where needed. An even less painful approach is to make a cunning use of truth tables.
+
+\hintref {cqIntersectionDistributesOverSymmetricDifference}The hint for \Cref {cqSymmetricDifferenceAssociative} applies here too.
+
+\subsection *{\Cref *{secFunctions}}
+
+\hintref {exWellDefinednessOfFunctionOnUnion} What is the value of $i(z)$ if $z \in X \cap Y$?
+
+\hintref {exCompositionWithoutMatchingCodomains} Look closely at \Cref {defComposition}.
+
+\subsection *{\Cref *{secInjectionsSurjections}}
+
+\hintref {exSurjectiveCorestriction}Recall \Cref {defImage}.
+
+\hintref {exEpiMonoFactorisation} If $Z$ were a subset of $Y$, then we could easily define an injection $i : Z \to Y$ by $i(z)=z$ for all $z \in Z$. Are there any subsets of $Y$ that are associated with a function whose codomain is $Y$?
+
+\hintref {exRussellSubset}Note that $B \in \mathcal {P}(X)$. Prove that there does not exist $a \in X$ such that $B = f(a)$.
+
+\hintref {exIdentityBijection}Verify directly that $\mathrm {id}_X$ is injective and surjective.
+
+\hintref {exLeftInversesAreSurjective}This can be proved in a single sentence; if you find yourself writing a long proof, then there is an easier way.
+
+\hintref {exIfHasRightInverseThenSurjective}The proof is almost identical to \Cref {exLeftInversesAreSurjective}.
+
+\hintref {exFindTwoSidedInverses} For part (c), don't try to write a formula for the inverse of $h$; instead, use the fundamental theorem of arithmetic.
+
+\hintref {exInverseBijection} Use \Cref {exBijectiveIffHasInverse}.
+
+\hintref {exCartesianProductOfBijections}Define $h : X \times Y \to A \times B$ by $h(x,y) = (f(x), g(y))$ for all $x \in X$ and all $y \in Y$; find an inverse for $h$ in terms of the inverses of $f$ and $g$.
+
+\subsection *{\Cref *{chFunctions} exercises}
+
+\hintref {cqSingletonSubsetFunction}The function $X \to \mathcal {P}(X)$ must send each $a \in X$ to the (unique) $U \in \mathcal {P}(X)$ satisfying $a \in U \wedge \exists ! x \in X,\, x \in U$. Think about what the latter logical formula tells you about what elements $U$ has, and doesn't have. This will help with the proof of existence and uniqueness.
+
+\hintref {cqFunctionEmptyCodomain}Given a function $f : X \to \varnothing $, we must have $f(a) \in \varnothing $ for each $a \in X$.
+
+\hintref {cqEveryFunctionIsUniquelySumOfEvenAndOdd}Consider $f(x)+f(-x)$ and $f(x)-f(-x)$ for $x \in \mathbb {R}$.
+
+\hintref {cqNaturalTransformationFromIdToId}Fix $n \in \mathbb {N}$ and consider how $\theta _n$ interacts with functions $f : [1] \to [n]$.
+
+\hintref {cqComputeImageEnd}Begin by observing that each $h \in f[\mathbb {R}^{\mathbb {R}}]$ is an even function, in the sense of \Cref {defEvenOddFunction}.
+
+\hintref {cqUniversalPropertyOfImage}This problem is very fiddly. First prove that conditions (i)--(iii) are satisfied when $A = f[X]$ and $p$ and $i$ are chosen appropriately. Then condition (iii) in each case (for $A$ and for $f[X]$) defines functions $v : A \to f[X]$ and $w : f[X] \to A$, and gives uniqueness of $v$. You can prove that these functions are mutually inverse using the `uniqueness' part of condition (iii).
+
+\hintref {cqGraphOfComposite}Prove it by double containment, and carefully unpack the definitions of what it means to be an element of $p[S]$ and what it means to be an element of $\mathrm {Gr}(g \circ f)$.
+
+\hintref {cqCompositeOfFunctionsIsBijection}Avoid the temptation to prove either part of this question by contradiction. For (a), a short proof is available directly from the definitions of `injection' and `surjection'. For (b), find as simple a counterexample as you can.
+
+\hintref {cqElementaryBijectionNTimesNToN}Start by proving that $\dbinom {m}{2} < \dbinom {m+1}{2}$ for all $m \ge 1$. Deduce that, for all $n \in \mathbb {N}$, there is a unique natural number $k$ such that $\dbinom {k+1}{2} \le n < \dbinom {k+2}{2}$. Can you see what this has to do with the function $f$?
+
+\hintref {exSplitIdempotents}Consider the set of fixed points of $e$---that is, elements $x \in X$ such that $e(x)=x$.
+
+\hintref {cqLinearMapInjectiveIffSurjective}First prove that $f$ is bijective if and only if $ad \ne bc$.
+
+\subsection *{\Cref *{secPeanosAxioms}}
+
+\subsection *{\Cref *{secWeakInduction}}
+
+\hintref {exProductOfSuccNSets}To define the bijection, think about what the elements of the two sets look like: The elements of $\prod _{k \in [n+1]} X_k$ look like $(a_0, a_1, \dots , a_{n-1}, a_n)$, where $a_k \in X_k$ for each $k \in [n+1]$. On the other hand, the elements of $\left ( \prod _{k \in [n]} X_k \right ) \times X_n$ look like $((a_0, a_1, \dots , a_{n-1}), a_n)$.
+
+\hintref {exAlternatingSumOfBinomialCoefficientsIsZero}Note that $(-1)^i \dbinom {n}{i} = \dbinom {n}{i} \cdot (-1)^i \cdot 1^{n-i}$.
+
+\subsection *{\Cref *{secStrongInduction}}
+
+\hintref {exFrobeniusCoinProblem}Observe that if $n$ dubloons can be obtained using only $3$ and $5$ dubloon coins, then so can $n+3$. See how you might use this fact to exploit strong induction with multiple base cases.
+
+\hintref {exSquareRootThreeIsIrrational} Prove first that if $a \in \mathbb {Z}$ and $a^2$ is divisible by $3$, then $a$ is divisible by $3$.
+
+\hintref {exSqrtOfNonSquareIsIrrational}Start by proving that if $\sqrt {n} = \dfrac {a}{b}$ for some $a,b \in \mathbb {Z}$ with $b \ne 0$, then $a(\sqrt {n} - \lfloor \sqrt {n} \rfloor ) \in \mathbb {Z}$ and $b(\sqrt {n} - \lfloor \sqrt {n} \rfloor ) \in \mathbb {Z}$. Then think about what this has to do with infinite descent.
+
+\subsection *{\Cref *{chMathematicalInduction} exercises}
+
+\hintref {cqRecursiveDefinitionOfExistsExactlyNQuantifier}For example, if there are exactly $3$ elements of $X$ making $p(x)$ true, then that means that there is some $a \in X$ such that $p(a)$ is true, and there are exactly two elements $x \in X$ \textit {other than} $a$ making $p(x)$ true.
+
+\hintref {cqTrailingZerosInFactorial}The number of trailing zeros in the base-$b$ expansion of a natural number $n$ is the greatest natural number $r$ such that $b^r$ divides $n$. How many times does $10$ go into $41!$? How many times does $2$ go into $41!$?
+
+\hintref {cqBernoullisInequality}Proving this by induction on $x$ only demonstrates that it is true for \textit {integers} $x \ge -1$, not \textit {real numbers} $x \ge -1$. Try proving a more general fact by induction on a different variable, and deducing this as a special case. (Do you \textit {really} think there is anything special about the natural number $123\;456\;789$?)
+
+\hintref {cqHomomorphismFromRPlusToRPlus}To find the value of $a$ in part (a), try substituting some small values of $x$ and $y$ into the equation $f(x+y)=f(x)+f(y)$. For part (b), use the fact that $n + (-n) = 0$ for all $n \in \mathbb {N}$. For part (c), consider the number $b f(\frac {a}{b})$ when $a,b \in \mathbb {Z}$ and $b \ne 0$.
+
+\hintref {cqHomomorphismFromRPlusToRTimes}Like in \Cref {cqHomomorphismFromRPlusToRPlus}, prove this first for $x \in \mathbb {N}$ (by induction), then for $x \in \mathbb {Z}$, and finally for $x \in \mathbb {Q}$.
+
+\hintref {cqInductionEmbeddedInIductionStep}Observe that $7^{n+1} - 2 \cdot 4^{n+1} + 1 = 4(7^n - 2 \cdot 4^n + 1) + 3(7^n - 1)$ for all $n \in \mathbb {N}$. You may need to do a separate proof by induction in your induction step.
+
+\hintref {cqDeMoivre}You will need to use the angle addition formulae \[ \sin (\alpha \pm \beta ) = \sin \alpha \cos \beta \pm \cos \alpha \sin \beta ~~\text {and}~~ \cos (\alpha \pm \beta ) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta \]
+
+\hintref {cqIntegralOfSinToTheN}For (a) use integration by parts; you do not need induction. For parts (b) and (c), use part (a).
+
+\subsection *{\Cref *{secRelations}}
+
+\subsection *{\Cref *{secEquivalenceRelationsPartitions}}
+
+\hintref {exPartitionsSurjections}Given a partition $\mathcal {U}$ of a set $X$, find a surjection $q : X \to \mathcal {U}$. Then prove that, for every surjection $p : X \to A$, there is a unique partition $\mathcal {U}_p$ of $X$ and a unique bijection $f : \mathcal {U}_p \to A$ such that, for all $U \in \mathcal {U}_p$, we have $p(x) = f(U)$ for all $x \in U$. The structure of the proof will be similar to that of \Cref {thmEquivalenceRelationsSurjections}.
+
+\subsection *{\Cref *{chRelations} exercises}
+
+\subsection *{\Cref *{secFiniteSets}}
+
+\hintref {exFinishProofOfJectionsAndSizeOfNaturalNumbers}Part (b) has a proof by induction that looks much like the one in part (a). In the induction step, given a surjection $g : [m+1] \to [n]$, observe that we must have $n \ge 1$, and construct a surjection $g^- : [m+1] \setminus \{ a \} \to [n-1]$ for some suitable $a \in [m+1]$. Then invoke \Cref {lemRemoveElementFromSet}, now using the fact that $[m] = [m+1] \setminus \{m+1\}$.
+
+\hintref {exSubsetOfFiniteSetIsFinite}Given $A \subseteq X$, find an injection $A \to X$ and apply \Cref {thmFiniteSetsAndJections}\ref {itmFiniteSetFromInjection}.
+
+\hintref {exIntersectionOfFiniteSetsIsFinite}Recall that $X \cap Y \subseteq X$ for all sets $X$ and $Y$.
+
+\hintref {exSizeOfRelativeComplement}Apply \Cref {propUnionOfFiniteSetsIsFinite} with $Y=U$.
+
+\hintref {exBijectionBetweenProductOfBracketSets}Prove by induction on $n \in \mathbb {N}$ that, for all $m,n \in \mathbb {N}$, there is a bijection $[mn] \to [m] \times [n]$.
+
+\subsection *{\Cref *{secCountableUncountableSets}}
+
+\hintref {exNCrossNIsCountable}The fundamental theorem of arithmetic (\Cref {thmFTA}) implies that, for all $n \in \mathbb {N}$, we can express $n+1$ uniquely as a power of $2$ multiplied by an odd number.
+
+\hintref {exProductOfTwoCountableSetsIsCountable}Use \Cref {exCartesianProductOfBijections}, together with the definition of countably infinite sets, to construct a bijection $\mathbb {N} \times \mathbb {N} \to X \times Y$. Then apply \Cref {exNCrossNIsCountable} and \Cref {propCountablyInfiniteFromBijection}.
+
+\hintref {exConstructBijectionFromInjection}Intuitively, we should be able to define $f$ by listing the values of $g$ in increasing order and, for all $n \in \mathbb {N}$, defining $f(n)$ to be the element $x \in X$ for which $g(x)$ is the $n^{\text {th}}$ (counting from $0$) value in the list. Your task is to make this precise. Be sure to note where in your proof you use injectivity of $g$.
+
+\hintref {exCountableFromInjSurjC}For \ref {itmInjectionIntoCountableSet}$\Rightarrow $\ref {itmInjectionSurjectionCountableSets}, use the fact that the composite of two injections is injective. Likewise for \ref {itmSurjectionFromCountableSet}$\Rightarrow $\ref {itmInjectionSurjectionCountableSets}.
+
+\hintref {exFiniteSubsetsCountableFixedSize} Suppose $X=\mathbb {N}$. By \Cref {propFiniteProductOfCountableSetsIsCountable}, the set $\mathbb {N}^k$ is countable. By \Cref {thmCountableFromInjSurj}(c), it suffices to find an injection $\binom {\mathbb {N}}{k} \to \mathbb {N}^k$.
+
+\hintref {exPowerSetFiniteOrUncountable} We have already proved this when $X$ is finite. When $X$ is countably infinite, use \Cref {thmCantorForN}. When $X$ is uncountably infinite, find an injection $X \to \mathcal {P}(X)$ and find a way to apply \Cref {exCountableFromInjSurjC}.
+
+\hintref {exWordsRepresentingRationalNumbers}How many `$\div $' symbols can a string from $\Sigma ^*$ have if the string is to represent a rational number? Where in a word over $\Sigma $ can a $\div $ symbol appear?
+
+\hintref {exIfAlphabetCountableThenSetOfWordsCountable}Prove by induction that $\Sigma ^n$ is countable for all $n \in \mathbb {N}$, and then apply \Cref {thmCountableUnionOfCountableSetIsCountable}.
+
+\hintref {exBadProofThatPowerSetOfNIsCountable}Is $\Sigma $ \textit {really} finite? Is $D$ \textit {really} well-defined?
+
+\hintref {exCountableIffFiniteDescriptionFiniteAlphabet}Start by proving that there is a finite description of the elements of $\mathbb {N}^*$ over a finite alphabet $\Phi $. This defines an injection $\mathbb {N}^* \to \Phi ^*$. Now given a countable alphabet $\Sigma $, use the injection $\Sigma \to \mathbb {N}$ given by \Cref {thmCountableFromInjSurj} to construct an injection $\Sigma ^* \to \mathbb {N}^*$, and therefore an injection $\Sigma ^* \to \Phi ^*$. Finally, use this to turn finite descriptions over $\Sigma $ into finite descriptions over $\Phi $.
+
+\subsection *{\Cref *{chCombinatorics} exercises}
+
+\subsection *{\Cref *{secDivision}}
+
+\hintref {exGCDofSixAndFifteen} Remember that negative integers can be greatest common divisors too.
+
+\hintref {exGCDUnique} Start by proving that $d_1$ and $d_2$ must divide each other.
+
+\hintref {exSolutionsToLDEs} \Cref {exGCDsofPairs} would be a good starting point.
+
+\hintref {exLCMExistsUnique} This is essentially the same as \Cref {exGCDUnique}.
+
+\hintref {exProductOfIntegersIsProductOfGCDAndLCM} Define $m = \dfrac {ab}{\mathrm {gcd}(a,b)}$ and prove that $m$ satisfies the definition of being a least common multiple of $a$ and $b$ (\Cref {defLCM}). Then apply \Cref {exLCMExistsUnique}.
+
+\subsection *{\Cref *{secPrimes}}
+
+\hintref {exPrimeDivBinomCoeff}Use the factorial formula for binomial coefficients (\Cref {thmBinomAsFactorialByInduction}).
+
+\hintref {exPrimeImpliesIrred}Assume $p=mn$ for some $m,n \in \mathbb {Z}$. Prove that $m$ or $n$ is a unit.
+
+\hintref {exPrimesUsingFactorials} What are the prime factors of $n!-1$?
+
+\subsection *{\Cref *{secModularArithmetic}}
+
+\hintref {exPowerModN} Consider the list $a^0, a^1, a^2, \dots $. Since there are only finitely many remainders modulo $n$, we must have $a^i \equiv a^j \cmod {n}$ for some $0 \le i < j$.
+
+\hintref {RemainderOfThreeExpBigRemThirteen} First find the remainder of $244886$ when divided by $12$.
+
+\hintref {exTotientMultiplyByPrime} Find a bijection $[p] \times C_n \to C_{pn}$, where $C_n = \{ k \in [|n|] \mid k \perp n \}$. You will need to use the techniques of \Cref {secFiniteSets} in your proof.
+
+\hintref {exTotientMultiplyByPrimeTwo}Start by proving that $k \in [pn]$ is \textit {not} coprime to $pn$ if and only if either $p \mid k$ or $k$ is not coprime to $n$. You will need to use the techniques of \Cref {secFiniteSets} in your proof.
+
+\hintref {exLastTwoDigitsOfPower}Recall that $\varphi (100) = 40$---this was \Cref {exTotientOfOneHundred}.
+
+\hintref {exSquareCongruentToOneModPrimeUnit} You need to use the fact that $p$ is prime at some point in your proof.
+
+\hintref {exPrimeFactorialCongruentToMinusOne} Pair as many elements of $[p-1]$ as you can into multiplicative inverse pairs modulo $p$.
+
+\hintref {exGeneralisedCRT} This generalisation will be tricky! You may need to generalise the definitions and results about greatest common divisors and least common multiples that we have seen so far, including B\'{e}zout's lemma. You might want to try proving this first in the case that $n_i \perp n_j$ for all $i \ne j$.
+
+\hintref {exGapsBetweenPrimesLarge} Observe that if $a,k \in \mathbb {Z}$ and $k \mid a$, then $k \mid a+k$.
+
+\subsection *{\Cref *{chNumberTheory} exercises}
+
+\hintref {cqSumsOfIntegersAreCoprime}Consider the linear Diophantine equation $(a+b)x+(c+d)y=1$.
+
+\hintref {cqInjectionNToTheKToNViaFTA}Use the `uniqueness' part of the fundamental theorem of arithmetic.
+
+\hintref {cqBijectionSeqNToNViaFTA}Use appropriate restrictions of the functions from \Cref {cqInjectionNToTheKToNViaFTA}. Apply the `existence' and `uniqueness' parts of the fundamental theorem of arithmetic to prove surjectivity and injectivity, respectively.
+
+\hintref {cqInjectionZToTheKToNViaFTA}A sequence of $k$ integers $(n_1,n_2,\dots ,n_k) \in \mathbb {Z}^k$ can be encoded as a sequence of $2k$ natural numbers $(i_1,|n_1|,i_2,|n_2|,\dots ,i_k,|n_k|) \in \mathbb {N}^{2k}$, where for each $j \in [k]$, either $i_j = 0$ or $i_j = 1$ according to the sign of $n_j$. For example we can encode $(10,-32,81) \in \mathbb {Z}^3$ as $(0,10,1,32,0,81) \in \mathbb {N}^6$.
+
+\hintref {cqTrailingZerosOfFactorialByInduction}Start by proving that, for all $n \in \mathbb {N}$ and all $k \in \mathbb {N}$, there are exactly $\left \lfloor n/5^k \right \rfloor $ natural numbers $\le n$ that are divisible by $5^k$. Then consider how many zeros are contributed by each factor of $n!$ to the decimal expansion of $n!$.
+
+\hintref {cqTrailingZerosOfFactorialByInductionBaseB}This will be similar to \Cref {cqTrailingZerosOfFactorialByInduction} in the end; to get started, consider the greatest prime factor of $b$.
+
+\subsection *{\Cref *{secCountingPrinciples}}
+
+\hintref {exSizeOfFunctionSet}Any function $f : X \to Y$ with finite domain can be specified by listing its values. For each $x \in X$, how many choices do you have for the value $f(x)$?
+
+\hintref {exNumberOfInjectionsThreeToFour}The image (\Cref {defImage}) of an injection $[3] \to [4]$ must be a subset of $[4]$ of size three.
+
+\hintref {exPascalIdentity} How many ways can you select $k+1$ animals from a set containing $n$ cats and one dog?
+
+\hintref {exCountingKTimesNChooseK} Find two procedures for counting the number of pairs $(U, u)$, such that $U \subseteq [n]$ is a $k$-element subset and $u \in U$. Equivalently, count the number of ways of forming a committee of size $k$ from a population of size $n$, and then appointing one member of the committee to be the chair.
+
+\hintref {exTrinomialCoefficients} Find an expression for $(a+b+c)!$ in terms of $a!$, $b!$, $c!$ and $\binom {a+b+c}{a,b,c}$, following the pattern of \Cref {thmBinomAsFactorial}.
+
+\subsection *{\Cref *{secAlternatingSums}}
+
+\hintref {exAlternatingSumOfBinomialCoefficientsByInduction}You will need to use the recursive definition of binomial coefficients
+
+\hintref {exAlternatingSumOfProductOfBinomialsByInvolution}Consider selecting a committee from a population of size $n$, with a subcommittee of size exactly $\ell $; toggle whether the oldest member of the population that is not on the subcommittee is or is not on the committee. If you prefer mathematical objects, consider the set of pairs $(A, B)$, where $A \subseteq B \subseteq [n]$ and $|A| = \ell $; toggle the least element of $[n] \setminus A$ in the set $B$.
+
+\subsection *{\Cref *{chCombinatorics} exercises}
+
+\hintref {cqSizeOfQuotient}Prove that $|X/{\sim }| \cdot k = n$ using the multiplication principle: find a two-step procedure for specifying an element of $X$ by first considering its $\sim $-equivalence class.
+
+\hintref {exNoParitySwappingInvolutionFromOddSizedSetToItself}Find a way to apply \Cref {lemParitySwappingInvolutionInducesBijectionFromEvenToOdd}.
+
+\subsection *{\Cref *{secInequalitiesMeans}}
+
+\subsection *{\Cref *{secCompletenessConvergence}}
+
+\hintref {exEventuallyZeroNonzero}If $(x_n) \to a \ne 0$, show that $|x_n-a|$ is eventually small enough that no $x_n$ can be equal to zero after a certain point in the sequence. On the other hand, there are plenty of sequences, \textit {all} of whose terms are nonzero, which converge to zero---find one!
+
+\hintref {exLimitOfQuotientOfPolynomials}Divide the numerator and denominator by $n^r$ and apply \Cref {thmLimitsPreserveArithmeticOperations} and \Cref {exOneOverNPowerK}.
+
+\hintref {ex5PowerNMinusNPowerFiveIncreasing}You might want to begin by solving \Cref {cqNPowerFiveLessThanFivePowerN}.
+
+\hintref {exConvergentImpliesCauchy}In the definition of a Cauchy sequence, observe that $x_m-x_n = (x_m-a) - (x_n-a)$, and apply the triangle inequality (\Cref {thmTriangleInequality1D}).
+
+\subsection *{\Cref *{secSeriesSums}}
+
+\hintref {exSumOfReciprocalsOfNChoose3}Begin by observing that $\displaystyle \dbinom {n}{3}^{-1} = \dfrac {3}{n-2} - \dfrac {6}{n-1} + \dfrac {3}{n}$.
+
+\hintref {exUniquenessOfBaseBExpansion}Proceed by contraposition: suppose $j \in \mathbb {N}$ is least such that $u_j \ne v_j$---without loss of generality $u_j < v_j$---then \[ 0 ~=~ \sum _{i \ge 0} \dfrac {v_i}{b^i} - \sum _{i \ge 0} \dfrac {u_i}{b^i} ~=~ \dfrac {v_j-u_j}{b^j} + \sum _{i > j} \dfrac {v_i-u_i}{b^i} \] Prove that this is nonsense. You will use condition (iii) in \Cref {thmBaseBExpansionsOfReals} somewhere in your proof.
+
+\hintref {exAlmostContradictionToAlternatingSeriesTest}Read the hypotheses of \Cref {thmAlternatingSeriesTest} very carefully.
+
+\hintref {exConvergentNotAbsolutelyConvergentSeries}We've already proved that such a series exists---go find it!
+
+\hintref {exIndexedSumIndependentOfEnumeration}This exercise looks harder than it is. Write out the definitions of $\sum _{i \in I} a_{f(i)}$ and $\sum _{j \in J} a_j$ and apply \Cref {thmIndependenceOfOrdering}.
+
+\hintref {exDerivativeOfGeometricSeries}We know that $\dfrac {1}{(1-x)^2} = \left ( \dfrac {1}{1-x} \right )^2 = \left ( \displaystyle \sum _{n \ge 0} x^n \right )^2$ by \Cref {thmGeometricSeries}. Multiply out this sum and see what happens.
+
+\subsection *{\Cref *{chRealNumbers} exercises}
+
+\hintref {cqCauchySchwarzGivenMagnitudeAndDotProduct}Consider what the Cauchy--Schwarz inequality has to say about the vectors $(a,b)$ and $(c,d)$. Note also that $a+2b = (a,b) \dot (1,2)$ and $c+2d = (c,d) \cdot (1,2)$.
+
+\hintref {cqHarmonicAndArithmeticMeans}Begin by comparing the harmonic and arithmetic means of the numbers $a$, $b$ and $c$.
+
+\hintref {cqQMAMWithCauchySchwarz}Begin by seeing what the QM--AM inequality says about the numbers $a^2$, $b^2$ and $c^2$. Then apply the Cauchy--Schwarz inequality, noting that $ab+bc+ca$ is the scalar product of two vectors.
+
+\subsection *{\Cref *{secCardinality}}
+
+\hintref {exAllOpenInvervalsHaveCardinalityOfContinuum}Start by finding a bijection $(-1,1) \to (a,b)$ and apply \Cref {exIntervalFromMinusOneToOneHasCardinalityOfContinuum}.
+
+\subsection *{\Cref *{secCardinalArithmetic}}
+
+\hintref {exCTimesCEqualsC}A nice trick is to construct an injection $[0,1) \times [0,1) \to [0,1)$ using decimal expansions, and then invoke the Cantor--Schr\"{o}der--Bernstein theorem.
+
+\subsection *{\Cref *{chInfinity} exercises}
+
+\hintref {cqDiscsInPlane}Start by proving that any disc $D \subseteq \mathbb {R}^2$ contains a point whose coordinates are both rational.
+
+\hintref {cqFactorialOfCardinalNumber}Think combinatorially. You should not try to generalise the recursive definition of factorials (\Cref {defFactorialRecursive}); and you \textit {very much should not} try to generalise the informal definition `$n! = 1 \times 2 \times \cdots \times n$'.
+
+\hintref {cqContinuumHypothesis}Don't waste too much time on this question---it has been proved to be independent of the usual axioms of mathematics (see \Cref {secZFC}), meaning that neither an answer of `true' nor an answer of `false' can be proved (so neither answer leads to a contradiction). An answer of `false' is known as the \textit {continuum hypothesis}.
+
+\subsection *{\Cref *{secDiscreteProbabilitySpaces}}
+
+\subsection *{\Cref *{secDiscreteRandomVariables}}
+
+\subsection *{\Cref *{chProbabilityTheory} exercises}
+
+\hintref {exNIsDistributiveLatticeUnderDivisibility} Use the characterisation of gcd and lcm in terms of prime factorisation.
+
+\hintref {exComplementIsUnique}Use distributivity, together with the fact that $y = y \vee \bot $ and $y = y \wedge \top $.
+
+\hintref {exSecondPartOfDeMorgan}This can be proved by swapping $\wedge $ with $\vee $ and $\top $ with $\bot $ in the proof of (a). But there is a shorter proof which uses the result of part (a) together with \Cref {propDoubleNegation}.
+
+\subsection *{\Cref *{chAdditionalTopics} exercises}
+
+\subsection *{\Cref *{secZFC}}
+
+\hintref {exEmptySetFromInfinityAndSeparation} Let $X$ be the set whose existence is asserted by the axiom of infinity, and take $p(x)$ to be the formula $x \ne x$ in the axiom of separation.
+
+\subsection *{\Cref *{secConstructions}}
+
+\hintref {exTwoDefinitionsOfLeqOnN}Define two relations $\le $ and $\le '$ on $\mathbb {N}$, one using the recursive definition and the other using the definition as a logical formula; then use induction to prove that $m \le n \Leftrightarrow m \le ' n$ for all $m,n \in \mathbb {N}$.
+
+\hintref {exInverseIsInvolution} Prove that $x$ is an additive inverse for $-x$ (in the sense of \Cref {axField}(F4)) and use uniqueness of additive inverses. Likewise for $x^{-1}$.
+
+\subsection *{\Cref *{secLimitsOfFunctions}}
+

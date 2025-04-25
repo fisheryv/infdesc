@@ -1,0 +1,407 @@
+% !TeX root = ../../infdesc.tex
+\section{Strong induction}
+\secbegin{secStrongInduction}
+\index{induction!strong|(}
+
+Consider the following example, which we will attempt to prove by induction.
+
+\begin{example}
+\label{exProofByWeakInductionFail}
+Define a sequence recursively by
+\[ b_0 = 1 \quad \text{and} \quad b_{n+1} = 1 + \sum_{k=0}^n b_k \text{ for all } n \in \mathbb{N} \]
+We will attempt to prove by induction that $b_n = 2^n$ for all $n \in \mathbb{N}$.
+
+\begin{itemize}
+\item (\textbf{Base case}) By definition of the sequence we have $b_0=1=2^0$. So far so good.
+
+\item (\textbf{Induction step}) Fix $n \in \mathbb{N}$, and suppose that $b_n = 2^n$. We need to show that $b_{n+1}=2^{n+1}$.
+
+Well, $b_{n+1} = 1 + \sum_{k=0}^n b_k = {\dots}$ uh oh.
+\end{itemize}
+
+Here's what went wrong. If we could replace each $b_k$ by $2^k$ in the sum, then we'd be able to complete the proof. However we cannot justify this substitution: our induction hypothesis only gives us information about $b_n$, not about a general term $b_k$ for $k < n$.
+\end{example}
+
+The \textit{strong} induction principle looks much like the weak induction principle, except that its induction hypothesis is more powerful. Despite its name, strong induction is no stronger than weak induction; the two principles are equivalent. In fact, we'll prove the strong induction principle \textit{by weak induction}!
+
+\begin{theorem}[Strong induction principle]
+\label{thmStrongInduction}
+\index{induction!on $\mathbb{N}$ (strong)}
+\index{strong induction principle}
+Let $p(n)$ be a logical formula with free variable $n \in \mathbb{N}$ and let $n_0 \in \mathbb{N}$. If
+\begin{enumerate}[(i)]
+\item $p(n_0)$ is true; and
+\item For all $n \ge n_0$, if $p(k)$ is true for all $n_0 \le k \le n$, then $p(n+1)$ is true;
+\end{enumerate}
+then $p(n)$ is true for all $n \ge n_0$.
+\end{theorem}
+
+\begin{cproof}
+For each $n \ge n_0$, let $q(n)$ be the assertion that $p(k)$ is true for all $n_0 \le k \le n$.
+
+%% BEGIN EXTRACT (xtrAssumingImplicationsExample) %%
+Notice that $q(n)$ implies $p(n)$ for all $n \ge n_0$, since given $n \ge n_0$, if $p(k)$ is true for all $n_0 \le k \le n$, then in particular $p(k)$ is true when $k=n$.
+
+So it suffices to prove $q(n)$ is true for all $n \ge n_0$.
+%% END EXTRACT %%
+We do so by weak induction.
+
+\begin{itemize}
+\item (\textbf{Base case}) $q(n_0)$ is equivalent to $p(n_0)$, since the only natural number $k$ with $n_0 \le k \le n_0$ is $n_0$ itself; hence $q(n_0)$ is true by condition (i).
+
+\item (\textbf{Induction step}) Let $n \ge n_0$ and suppose $q(n)$ is true. Then $p(k)$ is true for all $n_0 \le k \le n$.
+
+We need to prove that $q(n+1)$ is true---that is, that $p(k)$ is true for all $n_0 \le k \le n+1$. But we know $p(k)$ is true for all $n_0 \le k \le n$---this is the induction hypothesis---and then $p(n+1)$ is true by condition (ii). So we have that $p(k)$ is true for all $n_0 \le k \le n+1$ after all.
+\end{itemize}
+By induction, $q(n)$ is true for all $n \ge n_0$. Hence $p(n)$ is true for all $n \ge n_0$.
+\end{cproof}
+
+\begin{strategy}[Proof by strong induction]
+\label{strStrongInduction}
+\index{proof!by strong induction}
+In order to prove a proposition of the form $\forall n \ge n_0,\, p(n)$, it suffices to prove that:
+\begin{itemize}
+\item (\textbf{Base case}) $p(n_0)$ is true; and
+\item (\textbf{Induction step}) For all $n \ge n_0$, if $p(k)$ is true for all $n_0 \le k \le n$, then $p(n+1)$ is true.
+\end{itemize}
+\end{strategy}
+
+Like with weak induction, we can illustrate how strong induction works diagrammatically. The induction hypothesis, represented by the large square, now encompasses $p(k)$ for all $n_0 \le k \le n$, where $p(n_0)$ is the base case.
+
+\begin{center}
+\begin{tikzpicture}
+\draw[fill=indstepcol] (-1,-1) rectangle (8,1);
+\draw (0,0) node[diamond, draw, text width=27, text centered, fill=indbasecol] {$n_0$};
+\draw (2,0) node[circle, draw, text width=27, text centered, fill=white] {$n_0+1$};
+\draw (3.5,0) node {$\cdots$};
+\draw (5,0) node[circle, draw, text width=27, text centered, fill=white] {$n-1$};
+\draw (7,0) node[circle, draw, text width=27, text centered, fill=white] {$n$};
+\draw (9.5,0) node[circle, draw, dashed, text width=27, text centered, fill=white](nplusone) {$n+1$};
+\draw[->] (8,0) -- (nplusone);
+\end{tikzpicture}
+\end{center}
+
+Observe that the only difference from weak induction is the induction hypothesis.
+\begin{itemize}
+\item \textbf{Weak induction step:} Fix $n \ge n_0$, \fbox{assume $p(n)$ is true}~, derive $p(n+1)$;
+\item \textbf{Strong induction step:} Fix $n \ge n_0$, \fbox{assume $p(k)$ is true for all $n_0 \le k \le n$}~, derive $p(n+1)$.
+\end{itemize}
+
+We now use strong induction to complete the proof of \Cref{exProofByWeakInductionFail}.
+
+\begin{example}[\Cref{exProofByWeakInductionFail} revisited]
+Define a sequence recursively by
+\[ b_0 = 1 \quad \text{and} \quad b_{n+1} = 1 + \sum_{k=0}^n b_k \text{ for all } n \in \mathbb{N} \]
+We will prove by strong induction that $b_n = 2^n$ for all $n \in \mathbb{N}$.
+
+\begin{itemize}
+\item (\textbf{Base case}) By definition of the sequence we have $b_0=1=2^0$.
+\item (\textbf{Induction step}) Fix $n \in \mathbb{N}$, and suppose that $b_k=2^k$ for all $k \le n$. We need to show that $b_{n+1}=2^{n+1}$. This is true, since
+\begin{align*}
+b_{n+1} &= 1 + \sum_{k=0}^n b_k && \text{by the recursive formula for $b_{n+1}$} \\
+&= 1 + \sum_{k=0}^n 2^k && \text{by the induction hypothesis} \\
+&= 1 + (2^{n+1}-1) && \text{by \Cref{exSumOfPowersOf2}} \\
+&= 2^{n+1}
+\end{align*}
+\end{itemize}
+By induction, it follows that $b_n=2^n$ for all $n \in \mathbb{N}$.
+\end{example}
+
+The following theorem adapts the strong induction principle to proofs where we need to refer to a \textit{fixed} number of previous steps in our induction step.
+
+\begin{theorem}[Strong induction principle {(multiple base cases)}]
+\label{thmSIPMultipleBaseCases}
+Let $p(n)$ be a logical formula with free variable $n \in \mathbb{N}$ and let $n_0 < n_1 \in \mathbb{N}$. If
+\begin{enumerate}[(i)] \vspace{5pt} 
+\item $p(n_0), p(n_0+1), \dots, p(n_1)$ are all true; and
+\item For all $n \ge n_1$, if $p(k)$ is true for all $n_0 \le k \le n$, then $p(n+1)$ is true;
+\end{enumerate}
+\vspace{5pt}
+then $p(n)$ is true for all $n \ge n_0$.
+\end{theorem}
+
+\begin{cproof}
+The fact that $p(n)$ is true for all $n \ge n_0$ follows from strong induction. Indeed:
+\begin{itemize}
+\item (\textbf{Base case}) $p(n_0)$ is true by (i);
+\item (\textbf{Induction step}) Fix $n \ge n_0$ and assume $p(k)$ is true for all $n_0 \le k \le n$. Then:
+\begin{itemize}
+\item If $n < n_1$, then $n+1 \le n_1$, so that $p(n)$ is true by (i);
+\item If $n \ge n_1$, then $p(n+1)$ is true by (ii).
+\end{itemize}
+In both cases we see that $p(n+1)$ is true, as required.
+\end{itemize}
+Thus by strong induction, we have that $p(n)$ is true for all $n \ge n_0$.
+\end{cproof}
+
+\begin{strategy}[Proof by strong induction with multiple base cases]
+\index{proof!by strong induction with multiple base cases}
+In order to prove a statement of the form $\forall n \ge n_0,\, p(n)$, it suffices to prove that:
+\begin{itemize}
+\item (\textbf{Base cases}) $p(k)$ for all $k \in \{ n_0, n_0+1, \dots, n_1 \}$, where $n_1 > n_0$; and
+\item (\textbf{Induction step}) For all $n \ge n_1$, if $p(k)$ is true for all $n_0 \le k \le n$, then $p(n+1)$ is true.
+\end{itemize}
+\end{strategy}
+
+This kind of strong induction differs from the usual kind in two main ways:
+\begin{itemize}
+\item There are multiple base cases $p(n_0), p(n_0+1), \dots, p(n_1)$, not just one.
+\item The induction step refers to both the least base case $n_0$ and the greatest base case $n_1$: the variable $n$ in the induction step is taken to be greater than or equal to $n_1$, while the induction hypothesis assumes $p(k)$ for all $n_0 \le k \le n$.
+\end{itemize}
+
+The following diagram illustrates how strong induction with multiple base cases works.
+
+\begin{center}
+\begin{tikzpicture}
+\draw[fill=indstepcol] (-1,-1) rectangle (9,1);
+\draw (0,0) node[diamond, draw, text width=27, text centered, fill=indbasecol] {$n_0$};
+\draw (1.5,0) node {$\cdots$};
+\draw (3,0) node[diamond, draw, text width=27, text centered, fill=indbasecol] {$n_1$};
+\draw (5,0) node[circle, draw, text width=27, text centered, fill=white] {$n_1+1$};
+\draw (6.5,0) node {$\cdots$};
+\draw (8,0) node[circle, draw, text width=27, text centered, fill=white] {$n$};
+\draw (10.5,0) node[circle, draw, dashed, text width=27, text centered, fill=white](nplusone) {$n+1$};
+\draw[->] (9,0) -- (nplusone);
+\end{tikzpicture}
+\end{center}
+
+Note the difference in quantification of variables in the induction step between regular strong induction and strong induction with multiple base cases:
+\begin{itemize}
+\item \textbf{One base case.} Fix $n \ge \boxed{n_0}$ and assume $p(k)$ is true for all $\boxed{n_0} \le k \le n$.
+\item \textbf{Multiple base cases.} Fix $n \ge \boxed{n_1}$ and assume $p(k)$ is true for all $\boxed{n_0} \le k \le n$.
+\end{itemize}
+
+Getting the quantification of the variables $n$ and $k$ in the strong induction step is crucial, since the quantification affects what may be assumed about $n$ and $k$.
+
+The need for multiple base cases often arises when proving results about recursively defined sequences, where the definition of a general term depends on the values of a fixed number of previous terms.
+
+\begin{example}
+Define the sequence
+\[ a_0 = 0, \quad a_1 = 1, \quad a_n = 3a_{n-1} - 2a_{n-2} \text{ for all } n \ge 2 \]
+We find and prove a general formula for $a_n$ in terms of $n$. Writing out the first few terms in the sequence establishes a pattern that we might attempt to prove:
+\begin{center}
+\begin{tabular}{c|ccccccccc}
+$n$   & $0$ & $1$ & $2$ & $3$ & $4$  & $5$  & $6$  & $7$   & $8$ \\ \hline
+$a_n$ & $0$ & $1$ & $3$ & $7$ & $15$ & $31$ & $63$ & $127$ & $255$
+\end{tabular}
+\end{center}
+
+It appears that $a_n = 2^n - 1$ for all $n \ge 0$. We prove this by strong induction, taking the cases $n=0$ and $n=1$ as our base cases.
+
+\begin{itemize}
+\item (\textbf{Base cases}) By definition of the sequence, we have:
+\begin{itemize}
+\item $a_0 = 0 = 2^0 - 1$; and
+\item $a_1 = 1 = 2^1 - 1$;
+\end{itemize}
+so the claim is true when $n=0$ and $n=1$.
+
+\item (\textbf{Induction step}) Fix $n \ge 1$ and assume that $a_k = 2^k - 1$ for all $0 \le k \le n$. We need to prove that $a_{n+1} = 2^{n+1} - 1$.
+
+Well since $n \ge 1$, we have $n+1 \ge 2$, so we can apply the recursive formula to $a_{n+1}$. Thus
+\begin{align*}
+a_{n+1} &= 3a_n - 2a_{n-1} && \text{by definition of $a_{n+1}$} \\
+&= 3(2^n-1) - 2(2^{n-1}-1) && \text{by induction hypothesis} \\
+&= 3 \cdot 2^n - 3 - 2 \cdot 2^{n-1} + 2 && \text{expanding} \\
+&= 3 \cdot 2^n - 3 - 2^n + 2 && \text{using laws of indices} \\
+&= 2 \cdot 2^n - 1 && \text{simplifying} \\
+&= 2^{n+1} - 1 && \text{using laws of indices}
+\end{align*}
+\end{itemize}
+So the result follows by induction.
+\end{example}
+
+The following exercises have proofs by strong induction with multiple base cases.
+
+\begin{exercise}
+Define a sequence recursively by $a_0 = 4$, $a_1 = 9$ and $a_n = 5a_{n-1} - 6a_{n-2}$ for all $n \ge 2$. Prove that $a_n = 3 \cdot 2^n + 3^n$ for all $n \in \mathbb{N}$.
+\end{exercise}
+
+\begin{exercise}
+The \textit{Tribonacci sequence} is the sequence $t_0, t_1, t_2, \dots$ defined by
+\[ t_0 = 0, \quad t_1 = 0, \quad t_2 = 1, \quad t_n = t_{n-1} + t_{n-2} + t_{n-3} \text{ for all } n \ge 3 \]
+Prove that $t_n \le 2^{n-3}$ for all $n \ge 3$.
+\end{exercise}
+
+\begin{exercise}
+The \textit{Frobenius coin problem} asks when a given amount of money can be obtained from coins of given denominations. For example, a value of $7$ dubloons cannot be obtained using only $3$ dubloon and $5$ dubloon coins, but for all $n \ge 8$, a value of $n$ dubloons \textit{can} be obtained using only $3$ dubloon and $5$ dubloon coins. Prove this.
+\hintlabel{exFrobeniusCoinProblem}{%
+Observe that if $n$ dubloons can be obtained using only $3$ and $5$ dubloon coins, then so can $n+3$. See how you might use this fact to exploit strong induction with multiple base cases.
+}
+\end{exercise}
+
+\subsection*{Well-ordering principle}
+
+The underlying reason why we can perform induction and recursion on the natural numbers is because of the way they are ordered. Specifically, the natural numbers satisfy the \textit{well-ordering principle}: if a set of natural numbers has at least one element, then it has a least element. This sets the natural numbers apart from the other number sets; for example, $\mathbb{Z}$ has no least element, since if $a \in \mathbb{Z}$ then $a-1 \in \mathbb{Z}$ and $a-1 < a$.
+
+\begin{theorem}[Well-ordering principle]
+\label{thmWellOrderingPrinciple}
+\index{well-ordering principle}
+Every inhabited set of natural numbers has a least element.
+\end{theorem}
+
+\begin{cproof}
+We will prove by strong induction that, for all $n \in \mathbb{N}$, every subset $X \subseteq \mathbb{N}$ with $n \in X$ has a least element.
+
+\begin{itemize}
+\item (\textbf{Base case}) Let $X \subseteq \mathbb{N}$ and suppose that $0 \in X$. For all $n \in X$ we have $n \in \mathbb{N}$, since $X \subseteq \mathbb{N}$, and therefore $n \ge 0$. But then $0$ is the least element of $X$.
+\item (\textbf{Induction step}) Let $n \in \mathbb{N}$ and suppose that, for all $k \in \mathbb{N}$, every subset $X \subseteq \mathbb{N}$ with $k \in X$ has a least element.
+
+Let $X \subseteq \mathbb{N}$ and suppose that $n+1 \in X$. One of two cases must occur:
+\begin{itemize}
+\item Suppose that for all $k \le n$ we have $k \not\in X$. Then $n+1$ is the least element of $X$, since any smaller element of $X$ would need to be less than or equal to $n$.
+\item Suppose that there exists $k \le n$ such that $k \in X$. Then by the induction hypothesis, $X$ has a least element.
+\end{itemize}
+In both cases we see that $X$ has a least element, as required.
+\end{itemize}
+
+Finally, note that the fact that we proved by induction implies the statement in the theorem, since an inhabited set of natural numbers is precisely a subset $X \subseteq \mathbb{N}$ such that $n \in X$ for some $n \in \mathbb{N}$.
+\end{cproof}
+
+The following proof that $\sqrt{2}$ is irrational is a classic application of the well-ordering principle.
+
+\begin{proposition}
+\label{propSqrt2Irrational}
+The number $\sqrt{2}$ is irrational.
+\end{proposition}
+
+To prove \Cref{propSqrt2Irrational} we will use the following lemma, which uses the well-ordering principle to prove that fractions can be `cancelled to lowest terms'.
+
+\begin{lemma}
+\label{lemFractionInLowestTerms}
+Let $q$ be a positive rational number. There is a pair of nonzero natural numbers $a,b$ such that $q=\frac{a}{b}$ and such that the only natural number which divides both $a$ and $b$ is $1$.
+\end{lemma}
+
+\begin{cproof}
+First note that we can express $q$ as the ratio of two nonzero natural numbers, since $q$ is a positive rational number. By the well-ordering principle, there is a \textit{least} natural number $a$ such that $q=\frac{a}{b}$ for some positive $b \in \mathbb{N}$.
+
+Suppose that some natural number $d$ other than $1$ divides both $a$ and $b$. Note that $d \ne 0$, since if $d=0$ then that would imply $a=0$. Since $d \ne 1$, it follows that $d \ge 2$.
+
+Since $d$ divides $a$ and $b$, there exist natural numbers $a',b'$ such that $a=a'd$ and $b=b'd$. Moreover, $a',b'>0$ since $a,b,d > 0$. It follows that
+\[ q = \frac{a}{b} = \frac{a'd}{b'd} = \frac{a'}{b'} \]
+But $d \ge 2$, and hence
+\[ a' = \frac{a}{d} \le \frac{a}{2} < a \]
+contradicting minimality of $a$. Hence our assumption that some natural number $d$ other than $1$ divides both $a$ and $b$ was false---it follows that the only natural number dividing both $a$ and $b$ is $1$.
+\end{cproof}
+
+We are now ready to prove that $\sqrt{2}$ is irrational.
+
+\begin{cproof}[of \Cref{propSqrt2Irrational}]
+Suppose $\sqrt{2}$ is rational. Since $\sqrt{2}>0$, this means that we can write
+\[ \sqrt{2} = \frac{a}{b} \]
+where $a$ and $b$ are both positive natural numbers. By \Cref{lemFractionInLowestTerms}, we may assume that the only natural number dividing $a$ and $b$ is $1$.
+
+Multiplying the equation $\sqrt{2} = \frac{a}{b}$ and squaring yields
+\[ a^2=2b^2 \]
+Hence $a^2$ is even. By \Cref{propIfProductEvenThenSomeFactorEven}, $a$ is even, so we can write $a=2c$ for some $c > 0$. Then $a^2=(2c)^2=4c^2$, and hence
+\[ 4c^2=2b^2 \]
+Dividing by $2$ yields
+\[ 2c^2 = b^2 \]
+and hence $b^2$ is even. By \Cref{propIfProductEvenThenSomeFactorEven} again, $b$ is even.
+
+But if $a$ and $b$ are both even, the natural number $2$ divides both $a$ and $b$. This contradicts the fact that the only natural number dividing both $a$ and $b$ is $1$. Hence our assumption that $\sqrt{2}$ is rational is incorrect, and $\sqrt{2}$ is irrational.
+\end{cproof}
+
+\begin{writingtip}
+In the proof of \Cref{propSqrt2Irrational} we could have separately proved that $a^2$ being even implies $a$ is even, and that $b^2$ being even implies $b$ is even. This would have required us to repeat the same proof twice, which is somewhat tedious! Proving auxiliary results separately (as in \Cref{lemFractionInLowestTerms}) and then quoting them in later theorems can improve the readability of the main proof, particularly when the auxiliary results are particularly technical. Doing so also helps emphasise the important steps.
+\end{writingtip}
+
+\begin{exercise}
+What goes wrong in the proof of \Cref{propSqrt2Irrational} if we try instead to prove that $\sqrt{4}$ is irrational?
+\end{exercise}
+
+\begin{exercise}
+\label{exSquareRootThreeIsIrrational}
+Prove that $\sqrt{3}$ is irrational.
+\begin{backhint}
+\hintref{exSquareRootThreeIsIrrational}
+Prove first that if $a \in \mathbb{Z}$ and $a^2$ is divisible by $3$, then $a$ is divisible by $3$.
+\end{backhint}
+\end{exercise}
+
+The well-ordering principle gives rise to a useful strategy for deriving contradictions, by using the contradictory assumption to build a set of natural numbers with no least element.
+
+\begin{definition}
+\label{defInfiniteDescent}
+\index{infinite descent}
+A set $X \subseteq \mathbb{R}$ has \textbf{infinite descent} if, for all $x \in X$, there exists $y \in X$ with $y < x$.
+\end{definition}
+
+The reason for the term `infinite descent' is that, if an inhabited set $X \subseteq \mathbb{R}$ has infinite descent, then we can construct an \textit{infinite}, \textit{descending} sequence of elements of $X$. To see this, note that since $X$ is inhabited, there is an element $x_0 \in X$; therefore there exists $x_1 \in X$ with $x_1 < x_0$; and so there exists an element $x_2 \in X$ with $x_2 < x_1$; and so on. In this way, we obtain a sequence $x_0,x_1,x_2,\dots{} \in X$ with
+\[ x_0 > x_1 > x_2 > \cdots \]
+
+\begin{example}
+There are many examples of subsets $X \subseteq \mathbb{R}$ with infinite descent. For example, $\mathbb{Z}$ has infinite descent, since for all $n \in \mathbb{Z}$ we have $n-1 \in \mathbb{Z}$ and $n-1 < n$. Starting with $0$, we obtain an infinite descending sequence of integers $0 > -1 > -2 > -3 > \cdots$.
+\end{example}
+
+\begin{exercise}
+Prove that the interval $(0,1)$ has infinite descent.
+\end{exercise}
+
+The well-ordering principle is equivalent to the assertion that no inhabited subset of $\mathbb{N}$ has infinite descent---so if we construct an inhabited subset of $\mathbb{N}$ with infinite descent, then we have a contradiction. This gives rise to the following proof strategy.
+
+\begin{strategy}[Proof by infinite descent]
+\label{strInfiniteDescent}
+\index{infinite descent!proof by}
+\index{proof!by infinite descent}
+In order to derive a contradiction from an assumption $p$, it suffices use $p$ to prove that there is an inhabited subset $X \subseteq \mathbb{N}$ with infinite descent.
+\end{strategy}
+
+Our first example of proof by infinite descent will be used in the proof of the existence of \textit{quotients} and \textit{remainders}, which forms part of the division theorem---we stated the theorem without proof in \Cref{thmDivisionPreliminary} and will prove it fully in \Cref{thmDivisionTheorem}.
+
+\begin{example}[Existence of quotients and remainders]
+\label{exQuotientRemainderExistence}
+\index{quotient}
+\index{remainder}
+Let $a,b \in \mathbb{Z}$ with $b \ne 0$. We will prove that there exist $q,r \in \mathbb{Z}$ such that $a=qb+r$ and $0 \le r < |b|$.
+
+First, note that since $qb = (-q)(-b)$, we may assume that $b>0$ --- otherwise, replace $b$ by $-b$ and $q$ by $-q$ in what follows.
+
+Define
+\[ X = \{ n \in \mathbb{N} \mid a = mb + n \text{ for some } m \in \mathbb{Z} \} \subseteq \mathbb{N} \]
+Note that $X$ is inhabited. Indeed:
+\begin{itemize}
+\item Suppose $a \ge 0$. Then $a \in \mathbb{N}$ and $a = 0 \cdot b + a$, so that $a \in X$.
+\item Suppose $a < 0$. Since $b>0$ we have $b \ge 1$, so that $1-b \le 0$ and hence $a(1-b) \ge 0$. So $a(1-b) \in \mathbb{N}$, and moreover $a = ba + a(1-b)$, so setting $m=b$ and $n=a(1-b)$ in the definition of $X$, we see that $a(1-b) \in X$.
+\end{itemize}
+By the well-ordering principle, $X$ has a minimal element $r \in X$, and by definition of $X$ there exists $q \in \mathbb{Z}$ such that $a=qb+r$. Since $r \in X$, we have $r \in \mathbb{N}$, so that $r \ge 0$. It remains to prove that $r<b$.
+
+Towards a contradiction, assume that $r \ge b$. We will prove that $X$, which we already know is an inhabited subset of $\mathbb{N}$, has infinite descent.
+
+So let $n \in X$, and let $m \in \mathbb{Z}$ be such that $a=mn+b$. Since $r \in X$ is minimal, we have $n \ge r \ge b$, and so $n-b \ge 0$. Therefore $n-b \in \mathbb{N}$, and furthermore
+\[ a = mb + n = (m+1)b + (n-b) \]
+so that $n-b \in X$. Since $b>0$, we also have $n-b < n$.
+
+Thus we have proved that, for all $n \in X$, we have $n-b \in X$ and $n-b < n$, and therefore $X$ has infinite descent. This is a contradiction, so our assumption that $r \ge b$ is false, and so it must in fact be the case that $r<b$, as required.
+\end{example}
+
+A common application of proof by infinite descent is when proving a statement of the form $\forall n \ge n_0,\, p(n)$ (for some $n_0 \in \mathbb{N}$) by contradiction: if it is false, then there is a counterexample to $p(n)$, and so the set of all counterexamples is inhabited---we prove that the set of all counterexamples has infinite descent, leading to the desired contradiction. This is the strategy we use in the next example.
+
+\begin{example}[Existence of prime factorisation]
+\label{exExistenceOfPrimeFactorisationbyInfiniteDescent}
+We will prove that every integer $n \ge 2$ can be expressed as a product of positive prime numbers.
+
+Towards a contradiction, assume that not every integer $\ge 2$ can be expressed as a product of positive prime numbers, and define
+\[ X = \{ n \ge 2 \mid n \text{ cannot be expressed as a product of positive prime numbers} \} \]
+Note that $X$ is inhabited by assumption.
+
+Let $n \in X$. Then $n$ is not prime, since if it were prime then `$n$' would be an expression of $n$ as a product of positive prime numbers (namely, of just one positive prime number).
+
+Since $n$ is not prime, we have $n=ab$ for some $a,b \in \mathbb{Z}$ with $1<a<n$ and $1<b<n$. But then $a$ and $b$ cannot both be expressible as products of positive prime numbers, since if $a = p_1 \times \cdots \times p_r$ and $b = q_1 \times \cdots \times q_s$ are two such expressions, then
+\[ n = ab = p_1 \times \cdots \times p_r \times q_1 \times \cdots \times q_s \]
+contradicting the assumption that $n \in X$.
+
+So at least one of $a$ or $b$ cannot be expressed as a product of positive prime numbers. Since $a > 1$ and $b > 1$ we have $a \ge 2$ and $b \ge 2$, and therefore $a \in X$ or $b \in X$. In either case, we have found an element of $X$ that is less than $n$. So $X$ has infinite descent, which is a contradiction.
+
+So it must indeed be the case that every integer $\ge 2$ can be expressed as a product of primes, as required.
+\end{example}
+
+The result of \Cref{exExistenceOfPrimeFactorisationbyInfiniteDescent} will form part of the \textit{fundamental theorem of arithmetic} (\Cref{thmFTA}), but we will give a different proof when we get there. The reason for this is that \Cref{exExistenceOfPrimeFactorisationbyInfiniteDescent} is non-constructive because it uses the indirect form of proof by contradiction (\Cref{strProofByContradictionIndirect}), whereas we can give a constructive proof using strong induction instead.
+
+\begin{exercise}
+Let $n \in \mathbb{N}$. By considering the expression $\sqrt{n} \times \dfrac{\sqrt{n} - \lfloor \sqrt{n} \rfloor}{\sqrt{n} - \lfloor \sqrt{n} \rfloor}$, prove by infinite descent that if $\sqrt{n}$ is not an integer, then $\sqrt{n}$ is irrational.
+\hintlabel{exSqrtOfNonSquareIsIrrational}{%
+Start by proving that if $\sqrt{n} = \dfrac{a}{b}$ for some $a,b \in \mathbb{Z}$ with $b \ne 0$, then $a(\sqrt{n} - \lfloor \sqrt{n} \rfloor) \in \mathbb{Z}$ and $b(\sqrt{n} - \lfloor \sqrt{n} \rfloor) \in \mathbb{Z}$. Then think about what this has to do with infinite descent.}
+\end{exercise}
+
+\index{induction!strong|)}

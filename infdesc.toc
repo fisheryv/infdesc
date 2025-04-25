@@ -1,0 +1,78 @@
+\babel@toc {british}{}\relax 
+\contentsline {chapter}{Preface}{xiii}{chapter*.2}%
+\contentsline {chapter}{Acknowledgements}{xix}{chapter*.3}%
+\contentsline {chapter}{\numberline {0}Getting started}{1}{chapter.0}%
+\contentsline {section}{\numberline {0.E}Chapter 0{} exercises}{23}{section.0.5}%
+\contentsline {part}{I\hspace {1em}Core concepts}{27}{part.1}%
+\contentsline {chapter}{\numberline {1}Logical structure}{29}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Propositional logic}{30}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Variables and quantifiers}{52}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Logical equivalence}{65}{section.1.3}%
+\contentsline {section}{\numberline {1.E}Chapter 1{} exercises}{82}{section.1.5}%
+\contentsline {chapter}{\numberline {2}Sets}{87}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Sets}{88}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Set operations}{96}{section.2.2}%
+\contentsline {section}{\numberline {2.E}Chapter 2{} exercises}{108}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Functions}{113}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Functions}{114}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Injections and surjections}{129}{section.3.2}%
+\contentsline {section}{\numberline {3.E}Chapter 3{} exercises}{143}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Mathematical induction}{149}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Peano's axioms}{150}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Weak induction}{157}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Strong induction}{172}{section.4.3}%
+\contentsline {section}{\numberline {4.E}Chapter 4{} exercises}{182}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Relations}{185}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Relations}{186}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Equivalence relations and partitions}{196}{section.5.2}%
+\contentsline {section}{\numberline {5.E}Chapter 5{} exercises}{209}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Finite and infinite sets}{213}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Finite sets}{214}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Countable and uncountable sets}{224}{section.6.2}%
+\contentsline {section}{\numberline {6.E}Chapter 6{} exercises}{238}{section.6.5}%
+\contentsline {part}{II\hspace {1em}Topics in pure mathematics}{239}{part.2}%
+\contentsline {chapter}{\numberline {7}Number theory}{241}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Division}{242}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Prime numbers}{258}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Modular arithmetic}{267}{section.7.3}%
+\contentsline {section}{\numberline {7.E}Chapter 7{} exercises}{293}{section.7.5}%
+\contentsline {chapter}{\numberline {8}Enumerative combinatorics}{297}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Counting principles}{298}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Alternating sums}{319}{section.8.2}%
+\contentsline {section}{\numberline {8.E}Chapter 8{} exercises}{335}{section.8.5}%
+\contentsline {chapter}{\numberline {9}Real numbers}{339}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Inequalities and means}{340}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Completeness and convergence}{359}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Series and sums}{384}{section.9.3}%
+\contentsline {section}{\numberline {9.E}Chapter 9{} exercises}{407}{section.9.5}%
+\contentsline {chapter}{\numberline {10}Infinity}{411}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Cardinality}{412}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Cardinal arithmetic}{421}{section.10.2}%
+\contentsline {section}{\numberline {10.E}Chapter 10{} exercises}{433}{section.10.5}%
+\contentsline {chapter}{\numberline {11}Discrete probability theory}{437}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Discrete probability spaces}{438}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Discrete random variables}{457}{section.11.2}%
+\contentsline {section}{\numberline {11.E}Chapter 11{} exercises}{474}{section.11.5}%
+\contentsline {chapter}{\numberline {12}Additional topics}{475}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Orders and lattices}{476}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Inductively defined sets}{488}{section.12.2}%
+\contentsline {section}{\numberline {12.E}Chapter 12{} exercises}{511}{section.12.5}%
+\pagebreak 
+\contentsline {part}{Appendices}{515}{part*.14}%
+\contentsline {chapter}{\numberline {A}Proof-writing}{515}{appendix.a.A}%
+\contentsline {section}{\numberline {A.1}Elements of proof-writing}{516}{section.a.A.1}%
+\contentsline {section}{\numberline {A.2}Vocabulary for proofs}{525}{section.a.A.2}%
+\contentsline {chapter}{\numberline {B}Mathematical miscellany}{539}{appendix.a.B}%
+\contentsline {section}{\numberline {B.1}Set theoretic foundations}{540}{section.a.B.1}%
+\contentsline {section}{\numberline {B.2}Constructions of the number sets}{545}{section.a.B.2}%
+\contentsline {section}{\numberline {B.3}Limits of functions}{562}{section.a.B.3}%
+\contentsline {chapter}{\numberline {C}Hints and solutions}{567}{appendix.a.C}%
+\contentsline {section}{\numberline {C.1}Hints for selected exercises}{568}{section.a.C.1}%
+\contentsline {section}{\numberline {C.2}Solutions to in-chapter exercises}{583}{section.a.C.2}%
+\contentsline {chapter}{\numberline {D}Typesetting mathematics with \LaTeX {}}{589}{appendix.a.D}%
+\contentsline {part}{Indices}{605}{part*.15}%
+\contentsline {chapter}{Index of topics}{605}{part*.15}%
+\contentsline {chapter}{Index of vocabulary}{611}{appendix*.16}%
+\contentsline {chapter}{Index of notation}{611}{appendix*.17}%
+\contentsline {chapter}{Index of \LaTeX {} commands}{614}{appendix*.18}%
+\contentsline {part}{Licence}{619}{appendix*.20}%

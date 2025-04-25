@@ -1,0 +1,319 @@
+% !TeX root = ../../infdesc.tex
+\begin{chapex}
+For each of the following equations, determine whether there exists a function $f : \mathbb{R} \to \mathbb{R}$ such that, for all $x,y \in \mathbb{R}$, the equation holds if and only if $y=f(x)$.
+\begin{multicols}{3}
+\begin{enumerate}[(a)]
+\item $x+y=1$
+\item $x^2+y^2=1$
+\item $x=0$
+\item $y=0$
+\item $(1+x^2)y=1$
+\item $(1-x^2)y=0$
+\end{enumerate}
+\end{multicols}
+\end{chapex}
+
+\begin{chapex}
+Let $X$ be a set. Prove that
+\[ \forall a \in X,\, \exists ! U \in \mathcal{P}(X), (a \in U \wedge \exists ! x \in X,\, x \in U) \]
+Give an explicit description of the function $X \to \mathcal{P}(X)$ that is suggested by this logical formula.
+\hintlabel{cqSingletonSubsetFunction}{%
+The function $X \to \mathcal{P}(X)$ must send each $a \in X$ to the (unique) $U \in \mathcal{P}(X)$ satisfying $a \in U \wedge \exists ! x \in X,\, x \in U$. Think about what the latter logical formula tells you about what elements $U$ has, and doesn't have. This will help with the proof of existence and uniqueness.
+}
+\end{chapex}
+
+\begin{chapex}
+Show that there is only one function whose codomain is empty. What is its domain?
+\hintlabel{cqFunctionEmptyCodomain}{%
+Given a function $f : X \to \varnothing$, we must have $f(a) \in \varnothing$ for each $a \in X$.
+}
+\end{chapex}
+
+\begin{definition}
+\label{defEvenOddFunction}
+\index{even!function}
+\index{odd!function}
+A function $f : \mathbb{R} \to \mathbb{R}$ is \textbf{even} if $f(-x)=f(x)$ for all $x \in \mathbb{R}$, and it is \textbf{odd} if $f(-x)=-f(x)$ for all $x \in \mathbb{R}$.
+\end{definition}
+
+\begin{chapex}
+Let $n \in \mathbb{N}$. Prove that the function $f : \mathbb{R} \to \mathbb{R}$ defined by $f(x)=x^n$ for all $x \in \mathbb{R}$ is even if and only if $n$ is even, and odd if and only if $n$ is odd.
+\end{chapex}
+
+\begin{chapex}
+Prove that there is a unique function $f : \mathbb{R} \to \mathbb{R}$ that is both even and odd.
+\end{chapex}
+
+\begin{chapex}
+Let $U \subseteq \mathbb{R}$, and let $\chi_U : \mathbb{R} \to [2]$ be the indicator function of $U$.
+\begin{enumerate}[(a)]
+\item Prove that $\chi_U$ is an even function if and only if $U = \{ -u \mid u \in U \}$;
+\item Prove that $\chi_U$ is an odd function if and only if $\mathbb{R} \setminus U = \{ -u \mid u \in U \}$.
+\end{enumerate}
+\end{chapex}
+
+\begin{chapex}
+Prove that for every function $f : \mathbb{R} \to \mathbb{R}$, there is a unique even function $g : \mathbb{R} \to \mathbb{R}$ and a unique odd function $h : \mathbb{R} \to \mathbb{R}$ such that $f(x)=g(x)+h(x)$ for all $x \in \mathbb{R}$.
+\hintlabel{cqEveryFunctionIsUniquelySumOfEvenAndOdd}{%
+Consider $f(x)+f(-x)$ and $f(x)-f(-x)$ for $x \in \mathbb{R}$.
+}
+\end{chapex}
+
+\begin{chapex}
+Let $\{ \theta_n : [n] \to [n] \mid n \in \mathbb{N} \}$ be a family of functions such that $f \circ \theta_m = \theta_n \circ f$ for all $f : [m] \to [n]$. Prove that $\theta_n = \mathrm{id}_{[n]}$ for all $n \in \mathbb{N}$.
+\hintlabel{cqNaturalTransformationFromIdToId}{%
+Fix $n \in \mathbb{N}$ and consider how $\theta_n$ interacts with functions $f : [1] \to [n]$.
+}
+\end{chapex}
+
+\begin{chapex}
+Let $X$ be a set and let $U, V \subseteq X$. Describe the indicator function $\chi_{U \symmdiff V}$ of the symmetric difference of $U$ and $V$ (see \Cref{defSymmetricDifference}) in terms of $\chi_U$ and $\chi_V$.
+\end{chapex}
+
+\begin{chapex}
+\label{cqAntiderivativeOfLogarithm}
+[This question assumes some familiarity with 
+integral calculus.] A lie that is commonly told to calculus students is that
+\[ \int \dfrac{1}{x} \, dx = \log(|x|) + c \]
+where $\log$ denotes the natural logarithm function and $c$ is an arbitrary real constant. Prove that it is actually the case that
+\[ \int \dfrac{1}{x} \, dx = \log(|x|) + a \chi_U(x) + b \chi_V(x) \]
+where $a$ and $b$ are arbitrary real constants, and $U$ and $V$ are particular (inhabited) subsets of $\mathbb{R} \setminus \{ 0 \}$ that you should determine.
+\end{chapex}
+
+\subsection*{Images and preimages}
+
+In \Crefrange{cqComputeImageBegin}{cqComputeImageEnd}, find the image $f[U]$ of the subset $U$ of the domain of the function $f$ described in the question.
+
+\begin{chapex}
+\label{cqComputeImageBegin}
+$f : \mathbb{R} \to \mathbb{R}$; $f(x) = \sqrt{1+x^2}$ for all $x \in \mathbb{R}$; $U = \mathbb{R}$.
+\end{chapex}
+
+\begin{chapex}
+$f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$; $f(a,b) = a+2b$ for all $(a,b) \in \mathbb{Z} \times \mathbb{Z}$; $U = \{ 1 \} \times \mathbb{Z}$.
+\end{chapex}
+
+\begin{chapex}
+$f : \mathbb{N} \to \mathcal{P}(\mathbb{N})$; $f(0) = \varnothing$ and $f(n+1) = f(n) \cup \{ n \}$ for all $n \in \mathbb{N}$; $U = \mathbb{N}$.
+\end{chapex}
+
+\begin{chapex}
+$f : \mathbb{R}^{\mathbb{R}} \to \mathbb{R}^{\mathbb{R}}$ (where $\mathbb{R}^{\mathbb{R}}$ is the set of all functions $\mathbb{R} \to \mathbb{R}$); $f(h)(x) = h(|x|)$ for all $h \in \mathbb{R}^{\mathbb{R}}$ and all $x \in \mathbb{R}$; $U = \mathbb{R}^{\mathbb{R}}$.
+\hintlabel{cqComputeImageEnd}{%
+Begin by observing that each $h \in f[\mathbb{R}^{\mathbb{R}}]$ is an even function, in the sense of \Cref{defEvenOddFunction}.
+}
+\end{chapex}
+
+In \Crefrange{cqComputePreimageBegin}{cqComputePreimageEnd}, find the preimage $f^{-1}[V]$ of the subset $V$ of the codomain of the function $f$ described in the question.
+
+\begin{chapex}
+\label{cqComputePreimageBegin}
+$f : \mathbb{R} \to \mathbb{R}$; $f(x) = \sqrt{1+x^2}$ for all $x \in \mathbb{R}$; $V = (-5,5]$.
+\end{chapex}
+
+\begin{chapex}
+$f : \mathbb{Z} \times \mathbb{Z} \to \mathbb{Z}$; $f(a,b) = a+2b$ for all $(a,b) \in \mathbb{Z} \times \mathbb{Z}$; $V = \{ n \in \mathbb{Z} \mid n \text{ is odd} \}$.
+\end{chapex}
+
+\begin{chapex}
+\label{cqComputePreimageEnd}
+$f : \mathcal{P}(\mathbb{N}) \times \mathcal{P}(\mathbb{N}) \to \mathcal{P}(\mathbb{N})$; $f(A,B) = A \cap B$ for all $(A,B) \in \mathcal{P}(\mathbb{N}) \times \mathcal{P}(\mathbb{N})$; $V = \{ \varnothing \}$.
+\end{chapex}
+
+\begin{chapex}
+Let $f : X \to Y$ be a function. For each of the following statements, either prove it is true or find a counterexample.
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $U \subseteq f^{-1}[f[U]]$ for all $U \subseteq X$;
+\item $f^{-1}[f[U]] \subseteq U$ for all $U \subseteq X$;
+\item $V \subseteq f[f^{-1}[V]]$ for all $V \subseteq Y$;
+\item $f[f^{-1}[V]] \subseteq V$ for all $V \subseteq Y$.
+\end{enumerate}
+\end{multicols}
+\end{chapex}
+
+\begin{chapex}
+Let $f : X \to Y$ be a function, let $A$ be a set, and let $p : X \to A$ and $i : A \to Y$ be functions such that the following conditions hold:
+\begin{enumerate}[(i)]
+\item $i$ is injective;
+\item $i \circ p = f$; and
+\item If $q : X \to B$ and $j : B \to Y$ are functions such that $j$ is injective and $j \circ q = f$, then there is a unique function $u : A \to B$ such that $j \circ u = i$.
+\end{enumerate}
+Prove that there is a unique bijection $v : A \to f[X]$ such that $i(a)=v(a)$ for all $a \in f[X]$.
+\hintlabel{cqUniversalPropertyOfImage}{%
+This problem is very fiddly. First prove that conditions (i)--(iii) are satisfied when $A = f[X]$ and $p$ and $i$ are chosen appropriately. Then condition (iii) in each case (for $A$ and for $f[X]$) defines functions $v : A \to f[X]$ and $w : f[X] \to A$, and gives uniqueness of $v$. You can prove that these functions are mutually inverse using the `uniqueness' part of condition (iii).
+}
+\end{chapex}
+
+\begin{chapex}
+Let $f : X \to Y$ be a function and let $U, V \subseteq Y$. Prove that:
+\begin{enumerate}[(a)]
+\item $f^{-1}[U \cap V] = f^{-1}[U] \cap f^{-1}[V]$;
+\item $f^{-1}[U \cup V] = f^{-1}[U] \cup f^{-1}[V]$; and
+\item $f^{-1}[Y \setminus U] = X \setminus f^{-1}[U]$.
+\end{enumerate}
+Thus preimages preserve the basic set operations.
+\end{chapex}
+
+\begin{chapex}
+Let $f : X \to Y$ and $g : Y \to Z$ be functions.
+\begin{enumerate}[(a)]
+\item Prove that $(g \circ f)[U] = g[f[U]]$ for all $U \subseteq X$;
+\item Prove that $(g \circ f)^{-1}[W] = f^{-1}[g^{-1}[W]]$ for all $W \subseteq Z$.
+\end{enumerate}
+\end{chapex}
+
+\begin{chapex}
+Let $f : X \to Y$ and $g : Y \to Z$ be functions. Define
+\[ S = \{ (x,y,z) \in X \times Y \times Z \mid y=f(x) \text{ and } z=g(y) \} \]
+and let $p : S \to X \times Z$ be the function defined by $p(x,y,z) = (x,z)$ for all $(x,y,z) \in S$. Prove that $p[S]=\mathrm{Gr}(g \circ f)$.
+\hintlabel{cqGraphOfComposite}{%
+Prove it by double containment, and carefully unpack the definitions of what it means to be an element of $p[S]$ and what it means to be an element of $\mathrm{Gr}(g \circ f)$.
+}
+\end{chapex}
+
+\subsection*{Injections, surjections and bijections}
+
+\begin{chapex}
+\begin{enumerate}[(a)]
+\item Prove that, for all functions $f : X \to Y$ and $g : Y \to Z$, if $g \circ f$ is bijective, then $f$ is injective and $g$ is surjective.
+\item Find an example of a function $f : X \to Y$ and a function $g : Y \to Z$ such that $g \circ f$ is bijective, $f$ is not surjective and $g$ is not injective.
+\end{enumerate}
+\hintlabel{cqCompositeOfFunctionsIsBijection}{%
+Avoid the temptation to prove either part of this question by contradiction. For (a), a short proof is available directly from the definitions of `injection' and `surjection'. For (b), find as simple a counterexample as you can.
+}
+\end{chapex}
+
+\begin{chapex}
+\label{cqInjectionSurjectionBijection}
+For each of the following pairs $(U,V)$ of subsets of $\mathbb{R}$, determine whether the specification `$f(x) = x^2-4x+7$ for all $x \in U$' defines a function $f : U \to V$ and, if it does, determine whether $f$ is injective and whether $f$ is surjective.
+\begin{multicols}{2}
+\begin{enumerate}[(a)]
+\item $U = \mathbb{R}$ and $V = \mathbb{R}$;
+\item $U = (1, 4)$ and $V = [3, 7)$;
+\item $U = [3, 4)$ and $V = [4, 7)$;
+\item $U = (3, 4]$ and $V = [4, 7)$;
+\item $U = [2, \infty)$ and $V = [3, \infty)$;
+\item $U = [2,\infty)$ and $V = \mathbb{R}$.
+\end{enumerate}
+\end{multicols}
+\end{chapex}
+
+\begin{chapex}
+For each of the following pairs of sets $X$ and $Y$, find (with proof) a bijection $f : X \to Y$.
+\begin{enumerate}[(a)]
+\item $X = \mathbb{Z}$ and $Y = \mathbb{N}$;
+\item $X = \mathbb{R}$ and $Y = (-1,1)$;
+\item $X = [0,1]$ and $Y = (0,1)$;
+\item $X = [a,b]$ and $Y = (c,d)$, where $a,b,c,d \in \mathbb{R}$ with $a<b$ and $c<d$.
+\end{enumerate}
+\end{chapex}
+
+\begin{chapex}
+Prove that the function $f : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ defined by $f(a,b) = \dbinom{a+b+1}{2} + b$ for all $(a,b) \in \mathbb{N} \times \mathbb{N}$ is a bijection.
+\hintlabel{cqElementaryBijectionNTimesNToN}{%
+Start by proving that $\dbinom{m}{2} < \dbinom{m+1}{2}$ for all $m \ge 1$. Deduce that, for all $n \in \mathbb{N}$, there is a unique natural number $k$ such that $\dbinom{k+1}{2} \le n < \dbinom{k+2}{2}$. Can you see what this has to do with the function $f$?
+}
+\end{chapex}
+
+\begin{chapex}
+Let $e : X \to X$ be a function such that $e \circ e = e$. Prove that there exist a set $Y$ and functions $f : X \to Y$ and $g : Y \to X$ such that $g \circ f = e$ and $f \circ g = \mathrm{id}_Y$.
+\hintlabel{exSplitIdempotents}{%
+Consider the set of fixed points of $e$---that is, elements $x \in X$ such that $e(x)=x$.
+}
+\end{chapex}
+
+\subsection*{True--False questions}
+
+\tfquestiontext{cqFunctionsTFBegin}{cqFunctionsTFEnd}
+
+\begin{chapex} % False
+\label{cqFunctionsTFBegin}
+The set $G = \{ (x,y) \in \mathbb{R} \times \mathbb{R} \mid x^2=y^2 \}$ is the graph of a function.
+\end{chapex}
+
+\begin{chapex} % True
+The set $G = \{ (x,y) \in \mathbb{Z}\times \mathbb{N} \mid x^2=y^2 \}$ is the graph of a function.
+\end{chapex}
+
+\begin{chapex} % False
+Every function with empty domain has an empty codomain.
+\end{chapex}
+
+\begin{chapex} % True
+Every function with empty codomain has an empty domain.
+\end{chapex}
+
+\begin{chapex} % False (in general)
+The image of a function is a subset of its domain.
+\end{chapex}
+
+\begin{chapex} % True
+Given a function $f : X \to Y$, the assignment $V \mapsto f^{-1}[V]$ defines a function $\mathcal{P}(Y) \to \mathcal{P}(X)$.
+\end{chapex}
+
+\begin{chapex} % True
+Let $f$, $g$ and $h$ be composable functions. If $h \circ g \circ f$ is injective, then $g$ is injective.
+\end{chapex}
+
+\begin{chapex} % True
+\label{cqFunctionsTFEnd}
+Every left inverse is surjective and every right inverse is injective.
+\end{chapex}
+
+\subsection*{Always--Sometimes--Never questions}
+
+\asnquestiontext{cqFunctionsASNBegin}{cqFunctionsASNEnd}
+
+\begin{chapex} % Always
+\label{cqFunctionsASNBegin}
+Let $f : X \to Y$ be a function and let $U \subseteq X$. Then there is a function $g : U \to Y$ defined by $g(x) = f(x)$ for all $x \in U$.
+\end{chapex}
+
+\begin{chapex} % Sometimes
+Let $f : X \to Y$ be a function and let $V \subseteq Y$. Then there is a function $g : X \to V$ defined by $g(x) = f(x)$ for all $x \in X$.
+\end{chapex}
+
+\begin{chapex} % Always
+Let $X$ be a set. Then there is a unique function $X \to \{ 0 \}$.
+\end{chapex}
+
+\begin{chapex} % Sometimes
+Let $X$ be a set. Then there is a unique function $X \to \varnothing$.
+\end{chapex}
+
+\begin{chapex} % Sometimes
+Let $X$ and $Y$ be sets and let $G \subseteq X \times Y$. Then $G$ is the graph of a function $f : X \to Y$.
+\end{chapex}
+
+\begin{chapex} % Never
+Let $f : \{ 1, 2, 3 \} \to \{ 1, 2 \}$, let $G = \mathrm{Gr}(f)$ and let $G' = \{ (y,x) \mid (x,y) \in G \}$. Then $G'$ is the graph of a function $\{ 1, 2 \} \to \{ 1, 2, 3 \}$.
+\end{chapex}
+
+\begin{chapex} % Always
+Let $f : X \to Y$ be a function and let $U \subseteq X$ be inhabited. Then $f[U]$ is inhabited.
+\end{chapex}
+
+\begin{chapex} % Sometimes
+Let $f : X \to Y$ be a function and let $V \subseteq Y$ be inhabited. Then $f^{-1}[V]$ is inhabited.
+\end{chapex}
+
+\begin{chapex} % Sometimes
+Let $f : \{ 1, 2 \} \to \{ 1, 2, 3 \}$ be a function. Then $f$ is injective.
+\end{chapex}
+
+\begin{chapex} % Never
+Let $f : \{ 1, 2 \} \to \{ 1, 2, 3 \}$ be a function. Then $f$ is surjective.
+\end{chapex}
+
+\begin{chapex} % Always
+Let $a,b,c,d \in \mathbb{R}$ and define $f : \mathbb{R}^2 \to \mathbb{R}^2$ by $f(x,y) = (ax+by,cx+dy)$ for all $(x,y) \in \mathbb{R}^2$. Then $f$ is injective if and only if $f$ is surjective.
+\hintlabel{cqLinearMapInjectiveIffSurjective}{%
+First prove that $f$ is bijective if and only if $ad \ne bc$.
+}
+\end{chapex}
+
+\begin{chapex} % Sometimes
+\label{cqFunctionsASNEnd}
+Let $U, V \subseteq \mathbb{R}$ and suppose that $x^2 \in V$ for all $x \in U$. The function $f : U \to V$ defined by $f(x) = x^2$ is injective.
+\end{chapex}

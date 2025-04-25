@@ -1,0 +1,393 @@
+% !TeX root = ../../infdesc.tex
+\section{Sets}
+\secbegin{secSets}
+
+We will begin this section on a note that is somewhat harrowing, but which hopefully clarifies why there is a need to make our foundational assumptions more precise than we did in \Cref{chGettingStarted}.
+
+\begin{exercise}[Russell's paradox]
+Let $S = \{ X \mid X \text{ is a set} \}$ and let $R = \{ X \in S \mid X \not\in X \}$; thus, $S$ is the set of all sets, and $R$ is the set of all sets that are not elements of themselves.
+
+Determine the truth value of the proposition $R \in R$.
+\hintlabel{exRussellsParadox}{%
+Use the set-builder notation defining $R$ to determine whether $X \in R$ is true or false when $X=R$.
+}%
+\solution{exRussellsParadox}{%
+By \Cref{defProposition}, the proposition $R \in R$ must be either true or false.
+
+By the set-builder notation defining $R$, given a set $X$, we have $X \in R$ if and only if $X \not\in X$, and therefore we also have $X \not\in R$ if and only if $X \in X$.
+
+Setting $X=R$, it follows that:
+\begin{itemize}
+\item If $R \in R$ is true, then $R \not\in R$; and
+\item If $R \in R$ is false, then $R \in R$.
+\end{itemize}
+
+Therefore the only way $R \in R$ can be true or false is if it is \textit{both} true \textit{and} false. But that can't happen\dots{} right?
+}
+\end{exercise}
+
+If you completed \Cref{exRussellsParadox} as intended, then you will have noticed that something is wrong: there is a proposition whose truth implies its own falsity, and vice versa.
+
+It goes without saying that this kind of thing should not be allowed to happen. But where did we go wrong? The problem, it turns out, is that we need to be a little pickier about what a `set' is: we can't just write down an expression in set-builder notation and expect it to be a set, like when we defined $S = \{ X \mid X \text{ is a set} \}$.
+
+This problem can be overcome by revising our definition of a set.
+
+\begin{definition}[updated from \Cref{defSetsPreliminary}]
+\label{defSet}
+\index{set}
+\index{element}
+\index{universal set}
+\index{universe!of discourse}
+A \textbf{set}\index{set} is a collection of \textbf{elements} from a specified \textbf{universe of discourse}\index{universe of discourse}. The collection of everything in the universe of discourse is called the \textbf{universal set}\index{set!universal}, denoted by $\mathcal{U}$\nindex{U}{$\mathcal{U}$}{universal set} \inlatex{mathcal\{U\}}\lindexmmc{mathcal}{$\mathcal{A}, \mathcal{B}, \dots$}.
+\end{definition}
+
+The universal set $\mathcal{U}$ is understood to contain as elements all mathematical objects we are interested in: all the different types of numbers are elements of $\mathcal{U}$, as are the number sets themselves, and everything else we will go on to define in this textbook (power sets, functions, relations, etc.). However, importantly, $\mathcal{U}$ itself is \textit{not} an element of $\mathcal{U}$.
+
+We will avoid referring explicitly to the universal set $\mathcal{U}$ whenever possible, but it will always be there in the background: whenever we refer to an arbitrary mathematical object $x$ without specifying what set it comes from (e.g.\ `$x=x$ is true for all $x$'), it will be understood that $x \in \mathcal{U}$. Thus, for example:
+
+\begin{itemize}
+\item $\forall x,\, p(x)$ really means $\forall x \in \mathcal{U},\, p(x)$ --- note that $\forall x \in X,\, p(x) \equiv \forall x,\, (x \in X \Rightarrow p(x))$;
+\item $\exists x,\, p(x)$ really means $\exists x \in \mathcal{U},\, p(x)$ --- note that $\exists x \in X,\, p(x) \equiv \forall x,\, (x \in X \wedge p(x))$.
+\end{itemize}
+
+\begin{exercise}
+Think about why the characterisations of `$\forall x \in X$' in terms of `$\forall x$' and of `$\exists x \in X$' in terms of `$\exists x$' involve different logical operators ($\Rightarrow$ for $\forall$, and $\wedge$ for $\exists$), and verify de Morgan's laws for quantifiers (\Cref{thmDeMorganQuantifiers}) for the expanded forms.
+\hintlabel{exUnboundedQuantifiers}{%
+Compare the strategies for proving universally quantified statements and proving implications, and for proving existentially quantified statements and proving conjunctions.
+}%
+\solution{exUnboundedQuantifiers}{%
+When proving a proposition of the form $\forall x \in X,\, p(x)$, we let $x \in X$ and then prove $p(x)$---thus, we introduce a variable $x$, we assume $x \in X$, and we prove $p(x)$. This is equivalent to introducing an element $x \in \mathcal{U}$ and proving $x \in X \Rightarrow p(x)$, which explains the implication operator in $\forall x,\, x \in X \Rightarrow p(x)$.
+
+When proving a proposition of the form $\exists x \in X,\, p(x)$, we define a specific object $a$, we prove $a \in X$, and we prove $p(a)$. This is equivalent to defining $a \in \mathcal{U}$ and then proving $a \in X \wedge p(a)$, which explains the conjunction operator in $\exists x,\, x \in X \wedge p(x)$.
+
+We can use maximal negation (as in \Cref{secLogicalEquivalence}) to verify de Morgan's laws:
+\begin{align*}
+\neg \forall x \in X,\, p(x) &\equiv \neg \forall x,\, (x \in X \Rightarrow p(x)) && \\
+&\equiv \exists x,\, \neg (x \in X \Rightarrow p(x)) && \text{by \Cref{thmDeMorganQuantifiers}} \\
+&\equiv \exists x,\, (x \in X \wedge (\neg p(x))) && \text{by \Cref{exNegationOfImplication}} \\
+&\equiv \exists x \in X,\, \neg p(x)
+\end{align*}
+and
+
+\begin{align*}
+\neg \exists x \in X,\, p(x) &\equiv \neg \exists x,\, (x \in X \wedge p(x)) && \\
+&\equiv \forall x,\, \neg (x \in X \wedge p(x)) && \text{by \Cref{thmDeMorganQuantifiers}} \\
+&\equiv \forall x,\, (x \in X \Rightarrow (\neg p(x))) && \text{by \Cref{exNegationOfConjunctionAlternative}} \\
+&\equiv \forall x \in X,\, \neg p(x)
+\end{align*}
+}
+\end{exercise}
+
+The new definition of a set allows us to be slightly more precise about what we mean when we use set-builder notation to specify a set.
+
+\begin{definition}[Set-builder notation]
+\label{defSetBuilderNotation}
+\index{set-builder notation}
+Let $p(x)$ be a statement involving a variable $x$. The \textbf{set-builder notation} $\{ x \mid p(x) \}$ denotes the set of all mathematical objects $x$ making the statement $p(x)$ true; thus, for all $a$, we have
+\[ a \in \{ x \mid p(x) \} \quad \Leftrightarrow \quad a \in \mathcal{U} \wedge p(a) \]
+More generally, for all sets $X$ and all expressions $\mathrm{expr}(x)$ involving $x$ as a variable, we define:
+\begin{itemize}
+\item $\{ x \in X \mid p(x) \} = \{ x \mid x \in X \wedge p(x) \}$; and
+\item $\{ \mathrm{expr}(x) \mid p(x) \} = \{ y \mid \exists x,\, y=\mathrm{expr}(x) \wedge p(x) \}$.
+\end{itemize}
+\end{definition}
+
+In general, we cannot expect an arbitrary set defined in set-builder notation to be an element of $\mathcal{U}$---for example, $\{ x \mid x=x \} = \mathcal{U} \not\in \mathcal{U}$. This observation is important for the following exercise.
+
+\begin{exercise}[Russell's paradox has been resolved!]
+Repeat \Cref{exRussellsParadox} with the updated definitions of sets and set-builder notation.
+\hintlabel{exRussellsParadoxResolved}{%
+It may be true or false that $R \in \mathcal{U}$.
+}%
+\solution{exRussellsParadoxResolved}{%
+Note that by the new characterisation of set-builder notation, we have $R \in R$ if and only if $R \in \mathcal{U} \wedge R \not\in R$.
+
+If $R \in \mathcal{U}$, this means that $R \in R$ if and only if $R \not\in R$, which is a contradiction for the same reason as in \Cref{exRussellsParadox}.
+
+It follows that $R \not\in \mathcal{U}$; but then all this means is that $R \in R$ is false.
+}
+\end{exercise}
+
+With our foundational crisis resolved, we will almost completely cease to refer to $\mathcal{U}$ from this point onwards. Readers who want to delve deeper should read \Cref{secZFC}. Readers who want to remain blissfully ignorant can take for granted that all of the mathematical objects we will discuss from this point forward are elements of $\mathcal{U}$, and need not think of $\mathcal{U}$ again for the foreseeable future.
+
+\subsection*{Subsets}
+
+We saw in \Cref{exElementsOfNumberSets}\ref{itmNElementOfZ} that the proposition $\mathbb{N} \in \mathbb{Z}$ is false: the elements of $\mathbb{Z}$ are integers, which are numbers, whereas $\mathbb{N}$ is a set, so $\mathbb{N}$ cannot be an element of $\mathbb{Z}$.
+
+This isn't very satisfying, though: while $\mathbb{Z}$ doesn't contain $\mathbb{N}$ as an \textit{element}, there has to be some sense in which $\mathbb{Z}$ contains $\mathbb{N}$, since every natural number is an integer.
+
+This is what is captured by the notion of a \textit{subset}.
+
+\begin{definition}
+\label{defSubset}
+\index{subset}
+Let $X$ be a set. A \textbf{subset} of $X$ is a set $U$ such that
+\[ \forall a \in U,\, a \in X \quad \text{or equivalently:} \quad \forall a,\, (a \in U \Rightarrow a \in X) \]
+We write $U \subseteq X$\nindex{subset}{$\subseteq$}{subset} \inlatex{subseteq}\lindexmmc{subseteq}{$\subseteq$} for the assertion that $U$ is a subset of $X$.
+
+Additionally, the notation $U \nsubseteq X$ \inlatex{nsubseteq}\lindexmmc{nsubseteq}{$\nsubseteq$} means that $U$ is not a subset of $X$, and the notation $U \subsetneq X$ \inlatex{subsetneq}\lindexmmc{subsetneq}{$\subsetneq$} means that $U$ is a \textbf{proper subset} of $X$, that is a subset of $X$ that is not equal to $X$.
+\end{definition}
+
+\begin{strategy}[Proving a subset containment]
+In order to prove that a set $U$ is a subset of a set $X$, it suffices to take an arbitrary element $a \in U$ and prove that $a \in X$.
+\end{strategy}
+
+\begin{aside}
+The subset symbol `$\subseteq$' is suggestively similar to the inequality symbol `$\le$', so you may be wondering why we don't write `$\subset$'\inlatex{subset}\lindexmmc{subset}{$\subset$} (mirroring `$<$') to denote proper subsets. The reason is that the symbol $\subset$ is ambiguous without specifying what it means: some authors use $\subset$ to simply mean \textit{subset} (so that $A \subset B$ means $A \subseteq B$), and others use it to mean \textit{proper subset} (so that $A \subset B$ means $A \subsetneq B$). The symbols $\subseteq$ and $\subsetneq$ are always unambiguous, so they are what we will use in this textbook.
+\end{aside}
+
+\begin{example}
+Every set is a subset of itself---that is, $X \subseteq X$ for all sets $X$. The proof of this is extremely simple: we must prove $\forall x \in X,\, x \in X$. But then this is trivial: let $x \in X$, then $x \in X$ by assumption. Done!
+\end{example}
+
+\begin{example}
+Let $a,b,c,d \in \mathbb{R}$ with $a<c<d<b$. Then $[c,d] \subseteq (a,b)$. Indeed, let $x \in [c,d]$. Then $c \le x \le d$. But then
+\[ a < c \le x \le d < b \quad \Rightarrow \quad a < x < b \]
+so that $[c,d] \subseteq (a,b)$, as required.
+\end{example}
+
+\begin{exercise}
+Let $a,b,c,d \in \mathbb{R}$ with $a<b$ and $c<d$. Prove that $[a,b) \subseteq (c,d]$ if and only if $a > c$ and $b \le d$.
+\solution{exIntervalContainment}{%
+$(\Rightarrow)$ Assume $[a,b) \subseteq (c,d]$.
+\begin{itemize}
+\item Since $a \in [a,b)$, we have $a \in (c,d]$ and so $a > c$ as required.
+\item Towards a contradiction, assume $b > d$. Then $\frac{b+d}{2} < \frac{b+b}{2} = b$, so $\frac{b+d}{2} \in [a,b)$, and so $\frac{b+d}{2} \in (c,d]$. This implies that $\frac{b+d}{2} \le d$; however since $b>d$ we have $\frac{b+d}{2} > \frac{d+d}{2} = d$, contradicting $\frac{b+d}{2} \le d$. So indeed $b \le d$, as required.
+\end{itemize}
+$(\Leftarrow)$ Assume $a>c$ and $b \le d$, and let $x \in [a,b)$, so that $x \in \mathbb{R}$ and $a \le x < b$. We need to prove that $x \in (c,d]$. Well, combining these inequalities, we have
+\[ c < a \le x < b \le d \]
+and so $c < x \le d$, so that $x \in (c,d]$, as required. \qed
+}
+\end{exercise}
+
+\begin{example}
+The number sets from \Cref{chGettingStarted} are related by the following chain of subset inclusions.
+\[ \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R} \subseteq \mathbb{C} \]
+\end{example}
+
+The following proposition proves a property of subsethood known as \textit{transitivity}---we'll revisit this property in \Cref{secRelations}.
+
+\begin{proposition}
+\label{propSubsetTransitive}
+Let $X,Y,Z$ be sets. If $X \subseteq Y$ and $Y \subseteq Z$, then $X \subseteq Z$.
+\end{proposition}
+
+\begin{cproof}
+Suppose that $X \subseteq Y$ and $Y \subseteq Z$. We need to prove $X \subseteq Z$.
+
+So let $a \in X$. Since $X \subseteq Y$, it follows from \Cref{defSubset} that $a \in Y$; and since $Y \subseteq Z$, it follows again from \Cref{defSubset} that $a \in Z$.
+
+Hence $X \subseteq Z$, as required.
+\end{cproof}
+
+\subsection*{Set equality}
+
+This section is all about defining sets, comparing sets, and building new sets from old, and so to make much more progress, we first need to establish what we mean when we say that two sets are \textit{equal}.
+
+\begin{discussion}
+\label{dscSetEquality}
+Let $X$ and $Y$ be sets. What should it mean to say that $X$ and $Y$ are equal? Try to provide a precise definition of equality of sets before reading on.
+\end{discussion}
+
+There are different possible notions of `sameness' for sets: we might want to say that two sets $X$ and $Y$ are equal when they have quite literally the same definition; or we might want to say that $X$ and $Y$ are equal when they contain the same objects as elements. For instance, suppose $X$ is `the set of all odd natural numbers' and $Y$ is `the set of all integers that are differences of consecutive perfect squares'---in this case, the first of these characterisations of equality might lead us to say $X \ne Y$, whereas the second would lead us to say $X = Y$.
+
+Clearly, we have to state our terms at some point. And that point is now.
+
+\begin{axiom}[Set extensionality]
+\label{axSetEquality}
+\index{set equality}
+\index{extensionality}
+Let $X$ and $Y$ be sets. Then $X=Y$ if and only if $\forall a,\, (a \in X \Leftrightarrow a \in Y)$, or equivalently, if $X \subseteq Y$ and $Y \subseteq X$.
+\end{axiom}
+
+This characterisation of set equality suggests the following strategy for proving that two sets are equal.
+
+\begin{strategy}[Proof by double containment]
+In order to prove that a set $X$ is equal to a set $Y$, it suffices to:
+\begin{itemize}
+\item Prove $X \subseteq Y$, i.e.\ let $a \in X$ be an arbitrary element, and derive $a \in Y$; and then
+\item Prove $X \supseteq Y$, i.e.\ let $a \in Y$ be an arbitrary element, and derive $a \in X$.
+\end{itemize}
+We often write `($\subseteq$)' and `($\supseteq$)' to indicate the direction of the containment being proved.
+\end{strategy}
+
+\begin{example}
+\label{exPositiveNegativeSetBuilderNotation}
+We prove that $\{ x \in \mathbb{R} \mid x^2 \le 1 \} = [-1,1]$ by double containment.
+\begin{itemize}
+\item ($\subseteq$) Let $a \in \{ x \in \mathbb{R} \mid x^2 \le 1 \}$. Then $a \in \mathbb{R}$ and $a^2 \le 1$, so that $(1-a)(1+a) = 1-a^2 \ge 0$. It follows that either:
+\begin{itemize}
+\item $1-a \ge 0$ and $1+a \ge 0$, in which case $a \le 1$ and $a \ge -1$, so that $a \in [-1,1]$.
+\item $1-a \le 0$ and $1+a \le 0$, in which case $a \ge 1$ and $a \le -1$, which is a contradiction since $-1 < 1$.
+\end{itemize}
+So we must have $a \in [-1,1]$, as required.
+
+\item ($\supseteq$) Let $a \in [-1,1]$. Then $-1 \le a \le 1$, so $|a| \le 1$, and hence $a^2 = |a|^2 \le 1$, so that $a \in \{ x \in \mathbb{R} \mid x^2 \le 1 \}$, as required.
+\end{itemize}
+\end{example}
+
+\begin{exercise}
+Prove that $\{ x \in \mathbb{R} \mid x^2 < x \} = (0,1)$.
+\hintlabel{exXSquaredLessThanXAsInterval}{%
+Resist the temptation to draw a graph and claim that you're done: use a proof by double containment, unpacking what it means to be an element of each set using its definition.
+}
+\solution{exXSquaredLessThanXAsInterval}{%
+Write $A = \{ x \in \mathbb{R} \mid x^2 < x \}$; we prove that $A = (0,1)$ by double containment.
+\begin{itemize}
+\item $(\subseteq)$ Let $x \in A$. Then $x \in \mathbb{R}$ and $x^2 < x$, so that $0 < x-x^2 = x(1-x)$. Now, if $x \le 0$ then $1-x > 0$, and so $x(1-x) \le 0$; and if $x \ge 1$ then $x > 0$ and $1-x \le 0$, and so $x(1-x) \le 0$. Thus we must have $0<x<1$, and so $x \in (0,1)$, as required.
+\item $(\supseteq)$ Let $x \in (0,1)$. Then $x \in \mathbb{R}$ and $0<x<1$. Since $x>0$, the inequality $x<1$ is preserved when we multiply through by $x$, and so $x^2 \le x$. Hence $x \in A$, as required.
+\end{itemize}
+By double containment, we have $A = (0,1)$. \qed
+}
+\end{exercise}
+
+The set extensionality axiom has the consequence that sets are independent of the order in which their elements appear in list notation, and they are independent of how many times a single element is written---that is, an element of a set is only `counted' once, even if it appears multiple times in list notation. This is illustrated in the following exercise.
+
+\begin{exercise}
+Prove by double containment that $\{ 0, 1 \} = \{ 1, 0 \}$ and $\{ 0, 0 \} = \{ 0 \}$.
+\hintlabel{exDoubleContainmentListNotation}{%
+If you feel like you're not proving anything, you're probably doing it correctly.
+}
+\solution{exDoubleContainmentListNotation}{%
+Proving $\{ 0, 1 \} = \{ 1, 0 \}$:
+\begin{itemize}
+\item $(\subseteq)$ Let $x \in \{ 0, 1 \}$. Then either $x = 0 \in \{ 1, 0 \}$ or $x = 1 \in \{ 1, 0 \}$; in both cases we see that $x \in \{ 1, 0 \}$.
+\item $(\supseteq)$ Identical to $(\subseteq)$, but swap the roles of $0$ and $1$.
+\end{itemize}
+Hence $\{ 0, 1 \} = \{ 1, 0 \}$ by double containment. \qed
+
+Proving $\{ 0, 0 \} = \{ 0 \}$:
+\begin{itemize}
+\item $(\subseteq)$ Let $x \in \{ 0, 0 \}$. Then $x = 0$ or $x = 0$\dots{} so $x = 0 \in \{ 0 \}$.
+\item $(\supseteq)$ Let $x \in \{ 0 \}$. Then $x = 0 \in \{ 0, 0 \}$.
+\end{itemize}
+Hence $\{ 0, 0 \} = \{ 0 \}$ by double containment. \qed
+
+These proofs are a little bit silly, but they demonstrate that in list notation for sets, we can change the order that the elements are listed and we can repeat elements in the list without changing the set.
+}
+\end{exercise}
+
+\subsection*{Inhabitation and emptiness}
+
+Another fundamental example of a set is the \textit{empty set}, which is the set with no elements. But we have to be slightly careful about how we use the word `the', since it implies \textit{uniqueness}, and we don't know (yet) that two sets with no elements are necessarily equal. So first we will define what it means for a set to be empty, and then we'll show that there is exactly one empty set.
+
+\begin{definition}
+\label{defInhabited}
+\label{defEmptyProperty}
+\index{empty set}
+\index{set!empty}
+\index{inhabited set}
+\index{set!inhabited}
+A set $X$ is \textbf{inhabited} (or \textbf{nonempty}) if it has at least one element; otherwise, it is \textbf{empty}.
+\end{definition}
+
+The assertion that $X$ is inhabited is equivalent to the logical formula $\exists a,\, a \in X$, and the assertion that $X$ is empty is equivalent to the logical formula $\neg \exists a,\, a \in X$. This suggests the following strategy for proving that a set is inhabited, or that it is empty.
+
+\begin{strategy}[Proving that a set is inhabited or empty]
+In order to prove a set $X$ is inhabited, it suffices to exhibit an element. In order to prove a set $X$ is empty, assume that $X$ is inhabited---that is, that there is some element $a \in X$---and derive a contradiction.
+\end{strategy}
+
+In other texts, the term \textit{nonempty} is more common than \textit{inhabited}, but there are reasons to prefer latter. Indeed, the statement `$X$ is non-empty' translates more directly to $\neg(\neg \exists a,\, a \in X)$, which has an unnecessary double-negative and suggests a proof of inhabitation by contradiction. For this reason, we use the term \textit{inhabited} in this book.
+
+Emptiness may seem like a trivial condition---and it is---but owing to its canonicity, it arises all over the place.
+
+\begin{example}
+The set $\{ x \in \mathbb{R} \mid x^2 = 2 \}$ is inhabited since, for example $\sqrt{2} \in \mathbb{R}$ and $\sqrt{2}^2 = 2$. However, the set $\{ x \in \mathbb{Q} \mid x^2 = 2 \}$ is empty since, if it were inhabited, then there would be a rational number $x$ such that $x^2 = 2$, contrary to \Cref{propSqrt2IrrationalPreliminary}.
+\end{example}
+
+\begin{example}
+We observed in \Cref{exBracketN} that the set $[0]$ is empty; here's a more formal proof. Towards a contradiction, suppose $[0]$ is inhabited. Then there is some $k \in \mathbb{N}$ such that $k < 0$. It follows that $0 < 0$, since $0 \in \mathbb{N}$, which is a contradiction. Hence $[0]$ is empty, after all.
+\end{example}
+
+\begin{exercise}
+Let $a,b \in \mathbb{R}$. Prove that $[a,b]$ is empty if and only if $a > b$, and that $(a,b)$ is empty if and only if $a \ge b$.
+\end{exercise}
+
+The next exercise is a logical technicality, which is counterintuitive for the same reason that makes the principle of explosion (\Cref{axPrincipleOfExplosion}) difficult to grasp. However, it is extremely useful for proving facts about the empty set, as we will see soon in \Cref{thmEmptySetIsUnique}.
+
+\begin{exercise}
+Let $E$ be an empty set and let $p(x)$ be a predicate with one free variable $x$ with domain of discourse $E$. Show that the proposition $\forall x \in E,\, p(x)$ is true, and that the proposition $\exists x \in E,\, p(x)$ is false. What does the proposition $\forall x \in E,\, x \ne x$ mean in English? Is it true?
+\hintlabel{exEverythingIsTrueOfElementsOfEmptySet}{%
+Recall from the beginning of \Cref{secSets} that $\forall x \in X,\, p(x)$ is equivalent to $\forall x,\, (x \in X \Rightarrow p(x))$ and $\exists x \in X,\, p(x)$ is equivalent to $\exists x,\, (x \in X \wedge p(x))$. What can be said about the truth value of $x \in E$ when $E$ is empty?
+}
+\end{exercise}
+
+Thanks to the axiom of extensionality (\Cref{axSetEquality}), any two empty sets must be equal since they both contain the same elements---namely, no elements at all! This is made formal in the following theorem.
+
+\begin{theorem}
+\label{thmEmptySetIsUnique}
+Let $E$ and $E'$ be sets. If $E$ and $E'$ are empty, then $E=E'$.
+\end{theorem}
+\begin{proof}
+Suppose that $E$ and $E'$ are empty. The assertion that $E=E'$ is equivalent to
+\[ (\forall a \in E,\, a \in E') \wedge (\forall a \in E',\, a \in E) \]
+But $\forall a \in E,\, a \in E'$ and $\forall a \in E',\, a \in E$ are both true by \Cref{exEverythingIsTrueOfElementsOfEmptySet} since $E$ and $E'$ are empty. So $E=E'$, as claimed.
+\end{proof}
+
+Knowing that there is one and only one empty set means that we may now make the following definition, without worrying about whether the word `the' is problematic.
+
+\begin{definition}
+\label{defEmptySet}
+\nindex{O}{$\varnothing$}{empty set}
+\index{empty set}
+\index{set!empty}
+The \textbf{empty set} (also known as the \textbf{null set}) is the set with no elements, and is denoted by $\varnothing$ \inlatex{varnothing}\lindexmmc{varnothing}{$\varnothing$}.
+\end{definition}
+
+Some authors write $\{ \}$ instead of $\varnothing$, since $\{ \}$ is simply the empty set expressed in list notation.
+
+\begin{exercise}
+\label{exEmptySetSubsetOfEverySet}
+Let $X$ be a set. Prove that $\varnothing \subseteq X$.
+\end{exercise}
+
+\subsection*{Power sets}
+
+\begin{definition}
+\label{defPowerSet}
+\index{power set}
+Let $X$ be a set. The \textbf{power set} of $X$, written $\mathcal{P}(X)$\nindex{PX}{$\mathcal{P}(X)$}{power set} \inlatex{mathcal\{P\}}\lindexmmc{mathcal}{$\mathcal{A}, \mathcal{B}, \dots$}, is the set of all subsets of $X$.
+\end{definition}
+
+\begin{example}
+There are four subsets of $\{ 1, 2 \}$, namely
+\[ \varnothing, \quad \{ 1 \}, \quad \{ 2 \}, \quad \{ 1, 2 \} \]
+so $\mathcal{P}(X) = \{\varnothing, \{ 1 \}, \{ 2 \}, \{ 1, 2 \}\}$.
+\end{example}
+
+\begin{exercise}
+Write out the elements of $\mathcal{P}(\{1, 2, 3\})$.
+\end{exercise}
+
+\begin{exercise}
+Let $X$ be a set. Show that $\varnothing \in \mathcal{P}(X)$ and $X \in \mathcal{P}(X)$.
+\end{exercise}
+
+\begin{exercise}
+Write out the elements of $\mathcal{P}(\varnothing)$, $\mathcal{P}(\mathcal{P}(\varnothing))$ and $\mathcal{P}(\mathcal{P}(\mathcal{P}(\varnothing)))$.
+\end{exercise}
+
+Power sets are often a point of confusion because they bring the property of being a \textit{subset} of one set to that of being an \textit{element} of another, in the sense that for all sets $U$ and $X$ we have
+\[ U \subseteq X \quad \Leftrightarrow \quad U \in \mathcal{P}(X) \]
+This distinction looks easy to grasp, but when the sets $U$ and $X$ look alike, it's easy to fall into various traps. Here's a simple example.
+
+\begin{example}
+It is true that $\varnothing \subseteq \varnothing$, but false that $\varnothing \in \varnothing$. Indeed,
+\begin{itemize}
+\item $\varnothing \subseteq \varnothing$ means $\forall x \in \varnothing,\, x \in \varnothing$; but propositions of the form $\forall x \in \varnothing,\, p(x)$ are always true, as discussed in \Cref{exEverythingIsTrueOfElementsOfEmptySet}.
+\item The empty set has no elements; if $\varnothing \in \varnothing$ were true, it would mean that $\varnothing$ had an element (that element being $\varnothing$). So it must be the case that $\varnothing \not \in \varnothing$.
+\end{itemize}
+\end{example}
+
+The following exercise is intended to help you overcome similar potential kinds of confusion by means of practice. Try to think precisely about what the definitions involved are.
+
+\begin{exercise}
+Determine, with proof, whether or not each of the following statements is true.
+\begin{enumerate}[(a)]
+\item $\mathcal{P}(\varnothing) \in \mathcal{P}(\mathcal{P}(\varnothing))$;
+\item $\varnothing \in \{ \{ \varnothing \} \}$;
+\item $\{ \varnothing \} \in \{ \{ \varnothing \} \}$;
+\item $\mathcal{P}(\mathcal{P}(\varnothing)) \in \{ \varnothing, \{ \varnothing, \{ \varnothing \} \} \}$.
+\end{enumerate}
+Repeat the exercise with all instances of `$\in$' replaced by `$\subseteq$'.
+\end{exercise}
